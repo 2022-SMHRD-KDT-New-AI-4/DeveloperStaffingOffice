@@ -129,6 +129,7 @@
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Deep Learning</b></td>
+    <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/saintlucias" target='_blank'>github</a></td>
