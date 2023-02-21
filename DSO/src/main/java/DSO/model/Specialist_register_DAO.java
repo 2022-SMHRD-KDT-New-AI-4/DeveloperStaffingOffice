@@ -7,18 +7,16 @@ import DSO.db.SqlSessionManager;
 
 public class Specialist_register_DAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	
-	public int join(Client_register_VO vo) {
-		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("join",vo);
-		session.close(); 
-		return cnt;
-  }
 
-	public int join(Specialist_register_VO vo) {
+	public int specialistjoin(Specialist_register_VO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("join",vo);
-		session.close(); 
-		return 0;
+		int cnt = session.insert("specialistjoin",vo);
+		session.close();
+		return cnt;
 	}
+
+	
+
+
+
 }
