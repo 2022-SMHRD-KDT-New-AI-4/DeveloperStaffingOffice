@@ -33,7 +33,7 @@ public class Client_register_service extends HttpServlet {
 		int cnt = dao.clientjoin(vo);
 		
 		if(cnt > 0) {
-			System.out.println("회원가입 성공");
+			System.out.println("회원가입 성공!");
 		}else {
 			System.out.println("회원가입 실패...");
 		}
