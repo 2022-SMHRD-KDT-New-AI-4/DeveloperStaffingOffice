@@ -3,7 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DSO.db.mapper">
-
-
-
+<!-- 의뢰인 회원가입 -->
+  <insert id="join" parameterType="Client_register_VO">
+  	insert into client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},#{c_joinday})
+  </insert>
+<!-- 전문가 등록 -->
+  <insert id="join" parameterType="Specialist_register_VO">
+  	insert into client values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},#{s_joinday})
+  </insert>
 </mapper>
