@@ -5,32 +5,43 @@
 <head>
 <meta charset="UTF-8">
 <title>포트폴리오 페이지</title>
-</head>
-<body style="background-color:skybule;">
-	<h1 style="background-color:skyblue;">포트폴리오 페이지</h1>
-	
-	<form action="Portfolio_Upload_Service" method="post">
-		
-					<input type="file" name="portfolio">
-			
-					<input type="submit" value="포트폴리오 등록하기">
+<style>
+	body{
+		background-color:skyblue;
+	}
 
+</style>
+</head>
+<body>
+	<!-- <h1 style="font-family:serif;">포트폴리오 페이지</h1> -->
+	
+	<form action="Portfolio_Upload_Service" method="post">						
+		
+		<div class="form-group">
+			<input class="form-control form-control-user" type="file" multiple="multiple"
+			name="product_detail_image" id="product_detail_image" onchange="setDetailImage(event);">
+			<input type="submit" value="portfolio">
+		</div>
+		<div id="images_container"></div>
 	</form>
-	<script>
-		function RegisterPortfoilo() {
-			let imgData = document.getElementById("portfolio").src;
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "Portfolio.jsp", true);
-			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					alert(xhr.responseText);
-				}
-			};
-			xhr.send("imgData=" + imgData);
+		<script>
+		function setDetailImage(event){
+			for(let image of event.target.files){
+				let reader = new FileReader();
+				
+				reader.onload = function(event){
+					let img = document.createElement("img");
+					img.setAttribute("src", event.target.result);
+					img.setAttribute("class", "col-lg-6");
+					document.querySelector("div#images_container").appendChild(img);
+				};
+				
+				console.log(image);
+				reader.readAsDataURL(image);
+			}
 		}
 	</script>
-		
+	
 	
 	
 </body>
