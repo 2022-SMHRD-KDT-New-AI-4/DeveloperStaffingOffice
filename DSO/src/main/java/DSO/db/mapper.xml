@@ -3,12 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DSO.db.mapper">
+
 <!-- 의뢰인 회원가입 -->
   <insert id="clientjoin" parameterType="DSO.model.Client_register_VO">
   	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},sysdate)
   </insert>
   
-<!-- 전문가 등록 -->
+<!-- 전문가 회원가입 -->
   <insert id="specialistjoin" parameterType="DSO.model.Specialist_register_VO">
   	insert into tbl_specialist values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},sysdate)
   </insert>
@@ -17,5 +18,19 @@
   <insert id="serviceregister" parameterType="DSO.model.Service_register_VO">
   	insert into tbl_service values(service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
   </insert>  
+
+<!-- 의뢰인 주문 접수등록 -->
+	<insert id="register_client" parameterType="DSO.model.Register_client_VO">
+		insert into tbl_register_client values(register_seq.nextval,service_eq.nextval,#{c_id},#{register_cnt},sysdate)
+	</insert>
   
+<!-- 전문가 주문 접수등록 -->
+  <insert id="register_specialist" parameterType="DSO.model.Register_specialist_VO">
+  	insert into tbl_register_specialist values(register_seq.nextval,service_eq.nextval,#{s_id},#{register_cnt},sysdate)
+  </insert>
+  
+<!-- 포트폴리오 등록 -->
+  <insert id="register_portfolio" parameterType="DSO.model.Portfolio_VO">
+  	insert into tbl_portfolio values(pf_seq.nextval,#{s_id},#{pf_url},#{pf_img1},#{pf_img2},#{pf_img3},sysdate)
+  </insert>  
 </mapper>
