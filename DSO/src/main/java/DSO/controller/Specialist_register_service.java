@@ -25,17 +25,17 @@ public class Specialist_register_service extends HttpServlet {
 		String s_job = request.getParameter("s_job");
 		String s_business = request.getParameter("s_business");
 		String s_interest = request.getParameter("s_interest");
-		String s_joinday = request.getParameter("s_joinday");
+//		String s_joindate = request.getParameter("s_joindate");
 		
-		Specialist_register_VO vo = new Specialist_register_VO(s_id,s_pw,s_name,s_job,s_business,s_interest,s_joinday);
+		Specialist_register_VO vo = new Specialist_register_VO(s_id,s_pw,s_name,s_job,s_business,s_interest);
 	
 		Specialist_register_DAO dao = new Specialist_register_DAO();
 		int cnt = dao.specialistjoin(vo);
 		
 		if(cnt > 0) {
-			System.out.println("회원가입 성공");
+			System.out.println("전문가 등록 성공!");
 		}else {
-			System.out.println("회원가입 실패...");
+			System.out.println("전문가 등록 실패...");
 		}
 	}
 

@@ -30,7 +30,7 @@
     		이메일 
     	</td>
     	<td>
-    		<input type="email" name="email">
+    		<input type="text" name="c_id">
    	 	</td>
     </tr>
   <!-- <label for="password">비밀번호:</label> -->
@@ -39,7 +39,16 @@
   			비밀번호 
   		</td>
   		<td>
-    		<input type="password" name="password"> 
+    		<input type="password" name="c_pw"> 
+  		</td>
+    </tr>
+      <!-- <label for="name">이름:</label> -->
+  	<tr>
+  		<td id="td">
+  			이름 
+  		</td>
+  		<td>
+    		<input type="text" name="c_name"> 
   		</td>
     </tr>
     <!-- <label for="text">직업:</label> -->
@@ -49,7 +58,7 @@
     		 직업 
   		</td>
   		<td>
-  			<input type="text" name="job">
+  			<input type="text" name="c_job">
   		</td>
     </tr>
     <tr>
@@ -57,7 +66,7 @@
     		 비즈니스 분야  
   		</td>
   		<td>
-  			<input type="text" name="business_field">
+  			<input type="text" name="c_business">
   		</td>
     </tr>
         <tr>
@@ -65,7 +74,7 @@
     		 관심사 
   		</td>
   		<td>
-  			<input type="text" name="interest">
+  			<input type="text" name="c_interest">
   		</td>
     </tr>
     <tr>

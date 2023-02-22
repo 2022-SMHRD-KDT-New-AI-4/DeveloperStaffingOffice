@@ -7,27 +7,27 @@ public class Client_register_VO {
 	private String c_job;
 	private String c_business;
 	private String c_interest;
-	private String c_joinday;
+//	private String c_joindate;
 	
 	public Client_register_VO() {
 		
 	}
 
 	public Client_register_VO(String c_id, String c_pw, String c_name, String c_job, String c_business,
-			String c_interest, String c_joinday) {
+			String c_interest) {
 		this.c_id = c_id;
 		this.c_pw = c_pw;
 		this.c_name = c_name;
 		this.c_job = c_job;
 		this.c_business = c_business;
 		this.c_interest = c_interest;
-		this.c_joinday = c_joinday;
+//		this.c_joindate = c_joindate;
 	}
 
 	@Override
 	public String toString() {
 		return "Client_register_VO [c_id=" + c_id + ", c_pw=" + c_pw + ", c_name=" + c_name + ", c_job=" + c_job
-				+ ", c_business=" + c_business + ", c_interest=" + c_interest + ", c_joinday=" + c_joinday + "]";
+				+ ", c_business=" + c_business + ", c_interest=" + c_interest +  "]";
 	}
 
 	public String getC_id() {
@@ -78,12 +78,15 @@ public class Client_register_VO {
 		this.c_interest = c_interest;
 	}
 
-	public String getC_day() {
-		return c_joinday;
-	}
-
-	public void setC_day(String c_joinday) {
-		this.c_joinday = c_joinday;
-	}
+//	public String getC_joindate() {
+//		return c_joindate;
+//	}
+//
+//	public void setC_joindate(String c_joindate) {
+//		this.c_joindate = c_joindate;
+//	}
 	
 }
+
+
+
