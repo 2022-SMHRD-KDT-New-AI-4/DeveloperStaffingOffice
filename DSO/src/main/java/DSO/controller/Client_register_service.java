@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import DSO.model.Client_register_DAO;
 import DSO.model.Client_register_VO;
 
-
-@WebServlet(name = "test2", urlPatterns = { "/test2" })
+/**
+ * Servlet implementation class Client_register_service
+ */
+@WebServlet("/Client_register_service")
 public class Client_register_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,9 +27,12 @@ public class Client_register_service extends HttpServlet {
 		String c_job = request.getParameter("c_job");
 		String c_business = request.getParameter("c_business");
 		String c_interest = request.getParameter("c_interest");
-		String c_joindate = request.getParameter("c_joindate");
+//		String c_joindate = request.getParameter("c_joindate");
 		
-		Client_register_VO vo = new Client_register_VO(c_id,c_pw,c_name,c_job,c_business,c_interest,c_joindate);
+		Client_register_VO vo = new Client_register_VO(c_id,c_pw,c_name,c_job,c_business,c_interest);
+		
+		System.out.println(vo.toString());
+		
 	
 		Client_register_DAO dao = new Client_register_DAO();
 		int cnt = dao.clientjoin(vo);
