@@ -7,7 +7,7 @@ public class Specialist_register_VO {
 	private String s_job;
 	private String s_business;
 	private String s_interest;
-	private String s_joinday;
+	private String s_joindate;
 	
 	public Specialist_register_VO() {
 		
@@ -16,14 +16,14 @@ public class Specialist_register_VO {
 	
 
 	public Specialist_register_VO(String s_id, String s_pw, String s_name, String s_job, String s_business,
-			String s_interest, String s_joinday) {
+			String s_interest, String s_joindate) {
 		this.s_id = s_id;
 		this.s_pw = s_pw;
 		this.s_name = s_name;
 		this.s_job = s_job;
 		this.s_business = s_business;
 		this.s_interest = s_interest;
-		this.s_joinday = s_joinday;
+		this.s_joindate = s_joindate;
 	}
 
 
@@ -31,7 +31,7 @@ public class Specialist_register_VO {
 	@Override
 	public String toString() {
 		return "specialist_register_VO [s_id=" + s_id + ", s_pw=" + s_pw + ", s_name=" + s_name + ", s_job=" + s_job
-				+ ", s_business=" + s_business + ", s_interest=" + s_interest + ", s_joinday=" + s_joinday + "]";
+				+ ", s_business=" + s_business + ", s_interest=" + s_interest + ", s_joindate=" + s_joindate + "]";
 	}
 
 
@@ -84,12 +84,12 @@ public class Specialist_register_VO {
 		this.s_interest = s_interest;
 	}
 
-	public String getS_joinday() {
-		return s_joinday;
+	public String getS_joindate() {
+		return s_joindate;
 	}
 
-	public void setS_joinday(String s_joinday) {
-		this.s_joinday = s_joinday;
+	public void setS_joindate(String s_joindate) {
+		this.s_joindate = s_joindate;
 	}
 	
 	

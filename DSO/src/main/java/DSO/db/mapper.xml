@@ -5,10 +5,10 @@
 <mapper namespace="DSO.db.mapper">
 <!-- 의뢰인 회원가입 -->
   <insert id="clientjoin" parameterType="Client_register_VO">
-  	insert into client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},#{c_joinday})
+  	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},#{c_joindate})
   </insert>
 <!-- 전문가 등록 -->
   <insert id="specialistjoin" parameterType="Specialist_register_VO">
-  	insert into client values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},#{s_joinday})
+  	insert into tbl_specialist values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},#{s_joindate})
   </insert>
 </mapper>

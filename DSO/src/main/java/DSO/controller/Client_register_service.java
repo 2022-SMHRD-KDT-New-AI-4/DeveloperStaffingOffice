@@ -25,9 +25,9 @@ public class Client_register_service extends HttpServlet {
 		String c_job = request.getParameter("c_job");
 		String c_business = request.getParameter("c_business");
 		String c_interest = request.getParameter("c_interest");
-		String c_joinday = request.getParameter("c_joinday");
+		String c_joindate = request.getParameter("c_joindate");
 		
-		Client_register_VO vo = new Client_register_VO(c_id,c_pw,c_name,c_job,c_business,c_interest,c_joinday);
+		Client_register_VO vo = new Client_register_VO(c_id,c_pw,c_name,c_job,c_business,c_interest,c_joindate);
 	
 		Client_register_DAO dao = new Client_register_DAO();
 		int cnt = dao.clientjoin(vo);
