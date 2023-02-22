@@ -8,6 +8,11 @@
   <insert id="clientjoin" parameterType="DSO.model.Client_register_VO">
   	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},sysdate)
   </insert>
+
+<!-- 의뢰인 로그인 -->
+  <select id="clientlogin" resultType="DSO.model.Client_register_VO" parameterType="DSO.model.Client_register_VO">
+  	select * from tbl_client where c_id=#{c_id} and c_pw=#{c_pw}
+  </select>
   
 <!-- 전문가 회원가입 -->
   <insert id="specialistjoin" parameterType="DSO.model.Specialist_register_VO">

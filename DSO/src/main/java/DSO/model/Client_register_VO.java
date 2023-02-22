@@ -24,6 +24,14 @@ public class Client_register_VO {
 //		this.c_joindate = c_joindate;
 	}
 
+	
+	
+	public Client_register_VO(String c_id, String c_pw) {
+		super();
+		this.c_id = c_id;
+		this.c_pw = c_pw;
+	}
+
 	@Override
 	public String toString() {
 		return "Client_register_VO [c_id=" + c_id + ", c_pw=" + c_pw + ", c_name=" + c_name + ", c_job=" + c_job
