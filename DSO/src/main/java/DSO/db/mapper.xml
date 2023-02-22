@@ -7,8 +7,15 @@
   <insert id="clientjoin" parameterType="DSO.model.Client_register_VO">
   	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},sysdate)
   </insert>
+  
 <!-- 전문가 등록 -->
   <insert id="specialistjoin" parameterType="DSO.model.Specialist_register_VO">
   	insert into tbl_specialist values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},sysdate)
   </insert>
+  
+<!-- 서비스 등록 -->
+  <insert id="serviceregister" parameterType="DSO.model.Service_register_VO">
+  	insert into tbl_service values(service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
+  </insert>  
+  
 </mapper>
