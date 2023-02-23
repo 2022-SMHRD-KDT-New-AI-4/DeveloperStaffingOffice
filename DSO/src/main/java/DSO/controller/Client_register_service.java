@@ -30,7 +30,8 @@ public class Client_register_service extends HttpServlet {
 //		String c_joindate = request.getParameter("c_joindate");
 		
 		Client_register_VO vo = new Client_register_VO(c_id,c_pw,c_name,c_job,c_business,c_interest);
-	
+		
+		
 		Client_register_DAO dao = new Client_register_DAO();
 		int cnt = dao.clientjoin(vo);
 		
