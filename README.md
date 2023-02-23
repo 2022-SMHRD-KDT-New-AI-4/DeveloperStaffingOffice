@@ -1,5 +1,5 @@
 # 📎 꽃 보러 갈래?(팀명: 아름답조)
-![image](https://ibb.co/ctkHkdB)
+![image](https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice/issues/1#issue-1596244546)
 
 
 ## 👀 서비스 소개
