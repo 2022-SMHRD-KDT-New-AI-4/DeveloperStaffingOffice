@@ -7,15 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DSO.model.Client_register_DAO;
-import DSO.model.Client_register_VO;
 import DSO.model.Specialist_register_DAO;
 import DSO.model.Specialist_register_VO;
 
+/**
+ * Servlet implementation class Specialist_register_service
+ */
 @WebServlet("/Specialist_register_service")
 public class Specialist_register_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -28,15 +32,17 @@ public class Specialist_register_service extends HttpServlet {
 //		String s_joindate = request.getParameter("s_joindate");
 		
 		Specialist_register_VO vo = new Specialist_register_VO(s_id,s_pw,s_name,s_job,s_business,s_interest);
-	
+		
 		Specialist_register_DAO dao = new Specialist_register_DAO();
 		int cnt = dao.specialistjoin(vo);
 		
 		if(cnt > 0) {
-			System.out.println("전문가 등록 성공!");
+			System.out.println("전문가 회원가입 성공!");
 		}else {
-			System.out.println("전문가 등록 실패...");
+			System.out.println("전문가 회원가입 실패...");
 		}
 	}
 
 }
+
+
