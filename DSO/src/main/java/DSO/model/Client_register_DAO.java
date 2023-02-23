@@ -3,12 +3,10 @@ package DSO.model;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-
-
 import DSO.db.SqlSessionManager;
 
 public class Client_register_DAO {
-	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
 	public int clientjoin(Client_register_VO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
@@ -30,9 +28,4 @@ public class Client_register_DAO {
 		session.close();
 		return cnt;
 	}
-
-
 }
-
-
-
