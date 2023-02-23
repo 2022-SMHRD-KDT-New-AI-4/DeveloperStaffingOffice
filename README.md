@@ -116,8 +116,8 @@
     <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>김민우</strong></td>
     <td align="center"><strong>권선택</strong></td>
+    <td align="center"><strong>김민우</strong></td>
     <td align="center"><strong>김대윤</strong></td>
     <td align="center"><strong>정현호</strong></td>
     <td align="center"><strong>류슬기</strong></td>
