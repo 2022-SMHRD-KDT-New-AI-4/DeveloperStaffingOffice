@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import DSO.db.SqlSessionManager;
 import DSO.model.Portfolio_VO;
 
-public class fileDAO {
+public class Portfolio_DAO {
     
 	private SqlSessionFactory sqlSessionFactory = DSO.db.SqlSessionManager.getSqlSession();
 	

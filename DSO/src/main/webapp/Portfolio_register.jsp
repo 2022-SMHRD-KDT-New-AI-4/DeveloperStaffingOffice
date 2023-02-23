@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="DSO.model.Portfolio_VO" %>
-<%@ page import="DSO.model.fileDAO" %>
+<%@ page import="DSO.model.Portfolio_DAO" %>
 
 <html>
 <head>
