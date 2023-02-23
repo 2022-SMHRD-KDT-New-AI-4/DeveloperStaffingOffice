@@ -8,14 +8,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import DSO.db.SqlSessionManager;
 import DSO.model.Portfolio_VO;
 
-public class Portfolio_DAO {
+public class fileDAO {
     
 	private SqlSessionFactory sqlSessionFactory = DSO.db.SqlSessionManager.getSqlSession();
 	
-    public ArrayList<Portfolio_VO> selectAllPortfolios(String s_id) {
+    public ArrayList<Portfolio_VO> selectAllPortfolios() {
     	
     	SqlSession session = sqlSessionFactory.openSession(true);
-    	List<Portfolio_VO> list = session.selectList("selectAllportfolios", s_id);
+    	List<Portfolio_VO> list = session.selectList("selectAllportfolios");
     	session.close();
     	return (ArrayList<Portfolio_VO>)list;
     	
