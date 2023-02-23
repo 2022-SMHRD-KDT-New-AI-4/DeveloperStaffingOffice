@@ -1,5 +1,5 @@
 # 📎 꽃 보러 갈래?(팀명: 아름답조)
-![image](https://user-images.githubusercontent.com/25995055/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
+<img width="{80%}" src="{https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice/issues/1#issue-1596244546}"/>
 
 
 ## 👀 서비스 소개
@@ -116,20 +116,20 @@
     <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>김민우</strong></td>
     <td align="center"><strong>권선택</strong></td>
+    <td align="center"><strong>김민우</strong></td>
     <td align="center"><strong>김대윤</strong></td>
     <td align="center"><strong>정현호</strong></td>
     <td align="center"><strong>류슬기</strong></td>
     <td align="center"><strong>서언종</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Backend</b></td>
     <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
+    <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Deep Learning</b></td>
-    <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/saintlucias" target='_blank'>github</a></td>
