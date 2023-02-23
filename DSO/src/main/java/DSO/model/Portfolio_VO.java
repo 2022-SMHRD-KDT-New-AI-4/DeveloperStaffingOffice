@@ -3,7 +3,7 @@ package DSO.model;
 import java.util.ArrayList;
 
 public class Portfolio_VO {
-	
+
 	private String s_Id;
 	private String pf_Url;
 	private String pf_Img1;
@@ -14,11 +14,17 @@ public class Portfolio_VO {
 		this.pf_Url = pf_Url;
 		this.pf_Img1 = pf_Img1;
 	}
+
+
 	
 	public Portfolio_VO() {
 		
 	}
 	
+
+
+
+
 	@Override
 	public String toString() {
 		return "Portfolio_VO [s_Id=" + s_Id + ", pf_Url=" + pf_Url + ", pf_Img1=" + pf_Img1 + "]";
