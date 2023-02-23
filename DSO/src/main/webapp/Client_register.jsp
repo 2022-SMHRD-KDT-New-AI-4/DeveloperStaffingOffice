@@ -1,3 +1,4 @@
+<%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 	
 </style>
 <body>
-  
+
   <form method="post" action="Client_register_service">
   	<table border="1px">
   	<tr>

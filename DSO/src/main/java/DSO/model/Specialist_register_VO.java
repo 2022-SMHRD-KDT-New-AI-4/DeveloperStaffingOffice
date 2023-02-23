@@ -26,6 +26,15 @@ public class Specialist_register_VO {
 //		this.s_joindate = s_joindate;
 	}
 
+	
+
+	
+	public Specialist_register_VO(String s_id, String s_pw) {
+		super();
+		this.s_id = s_id;
+		this.s_pw = s_pw;
+	}
+
 
 
 	@Override

@@ -4,66 +4,42 @@ import java.util.ArrayList;
 
 public class Portfolio_VO {
 	
-	private String sId;
-	private String pfUrl;
-	private String pfImg1;
-	private String pfImg2;
-	private String pfImg3;
-
-
-	public Portfolio_VO(String sId, String pfUrl, String pfImg1, String pfImg2, String pfImg3) {
-
-		this.sId = sId;
-		this.pfUrl = pfUrl;
-		this.pfImg1 = pfImg1;
-		this.pfImg2 = pfImg2;
-		this.pfImg3 = pfImg3;
-
+	private String s_Id;
+	private String pf_Url;
+	private String pf_Img1;
+	
+	public Portfolio_VO(String s_Id, String pf_Url, String pf_Img1) {
+	
+		this.s_Id = s_Id;
+		this.pf_Url = pf_Url;
+		this.pf_Img1 = pf_Img1;
 	}
 	
 	public Portfolio_VO() {
 		
 	}
 	
-
-	public String getSId() {
-		return sId;
+	@Override
+	public String toString() {
+		return "Portfolio_VO [s_Id=" + s_Id + ", pf_Url=" + pf_Url + ", pf_Img1=" + pf_Img1 + "]";
 	}
 
-	public void setSId(String sId) {
-		this.sId = sId;
+	public String getS_Id() {
+		return s_Id;
 	}
-
-	public String getPfUrl() {
-		return pfUrl;
+	public void setS_Id(String s_Id) {
+		this.s_Id = s_Id;
 	}
-
-	public void setPfUrl(String pfUrl) {
-		this.pfUrl = pfUrl;
+	public String getPf_Url() {
+		return pf_Url;
 	}
-
-	public String getPfImg1() {
-		return pfImg1;
+	public void setPf_Url(String pf_Url) {
+		this.pf_Url = pf_Url;
 	}
-
-	public void setPfImg1(String pfImg1) {
-		this.pfImg1 = pfImg1;
+	public String getPf_Img1() {
+		return pf_Img1;
 	}
-
-	public String getPfImg2() {
-		return pfImg2;
+	public void setPf_Img1(String pf_Img1) {
+		this.pf_Img1 = pf_Img1;
 	}
-
-	public void setPfImg2(String pfImg2) {
-		this.pfImg2 = pfImg2;
-	}
-
-	public String getPfImg3() {
-		return pfImg3;
-	}
-
-	public void setPfImg3(String pfImg3) {
-		this.pfImg3 = pfImg3;
-	}
-
 }
