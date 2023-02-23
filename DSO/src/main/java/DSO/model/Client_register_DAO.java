@@ -23,7 +23,13 @@ public class Client_register_DAO {
 		session.close(); 					
 		return lvo;
 	}
-
+	
+	public int clientdelete(String c_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("clientdelete",c_id);
+		session.close();
+		return cnt;
+	}
 
 
 }
