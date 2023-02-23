@@ -40,8 +40,7 @@
     </select>
 
     <insert id="PortfolioInsert" parameterType="Portfolio_VO">
-        INSERT INTO tbl_portfolio (s_id, pf_img1)
-        VALUES (pf_seq.nexval,#{s_Id}, #{pf_Img1},sysdate)
+        INSERT INTO tbl_portfolio VALUES (pf_seq.nexval,#{s_Id}, #{pf_Img1},sysdate)
     </insert>
 
  <!--    <delete id="PortfolioDelete" parameterType="int">
