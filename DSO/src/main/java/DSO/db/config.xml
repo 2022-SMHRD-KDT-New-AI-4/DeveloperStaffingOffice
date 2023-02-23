@@ -6,9 +6,9 @@
 <properties resource="DSO/db/db.properties" />
 
 <typeAliases>
-		<typeAlias alias="VO" type="DSO.model.Client_register_VO"/>
-		<typeAlias alias="MessageVO" type="DSO.model.Specialist_register_VO"/>
-		<typeAlias alias="ChatVO" type="DSO.model.Portfolio_VO"/>
+		<typeAlias alias="Client_register_VO" type="DSO.model.Client_register_VO"/>
+		<typeAlias alias="Specialist_register_VO" type="DSO.model.Specialist_register_VO"/>
+		<typeAlias alias="Portfolio_VO" type="DSO.model.Portfolio_VO"/>
 	</typeAliases>
 
 
