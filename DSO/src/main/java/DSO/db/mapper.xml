@@ -3,16 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DSO.db.mapper">
+
 <!-- 의뢰인 회원가입 -->
   <insert id="clientjoin" parameterType="Client_register_VO">
   	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},sysdate)
   </insert>
 
+<!-- 의뢰인 회원탈퇴 -->
+  <delete id="clientdelete" parameterType="String">
+  	delete from tbl_client where c_id=#{c_id}
+  </delete>
+
 <!-- 전문가 회원가입 -->
   <insert id="specialistjoin" parameterType="DSO.model.Specialist_register_VO">
   	insert into tbl_specialist values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},sysdate)
   </insert>
-
 
 <!-- 의뢰인 로그인 -->
   <select id="clientlogin" resultType="Client_register_VO" parameterType="Client_register_VO">
@@ -24,18 +29,12 @@
   	select * from tbl_specialist where s_id=#{s_id} and s_pw=#{s_pw}
   </select>
   
-<!-- 전문가 회원가입 -->
-
-  <insert id="specialistjoin" parameterType="Specialist_register_VO">
-  	insert into tbl_specialist values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},sysdate)
-  </insert>
 <!-- 서비스 등록 -->
   <insert id="serviceregister" parameterType="Service_register_VO">
   	insert into tbl_service values(service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
   </insert>   
   
 <!-- 포트폴리오 등록 -->
-  
    <select id="selectAllportfolios" resultType="Portfolio_VO">
         SELECT * FROM tbl_portfolio
     </select>
