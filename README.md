@@ -1,5 +1,5 @@
 # 📎 꽃 보러 갈래?(팀명: 아름답조)
-![image](https://user-images.githubusercontent.com/25995055/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
+![image](https://ibb.co/ctkHkdB)
 
 
 ## 👀 서비스 소개
@@ -124,12 +124,12 @@
     <td align="center"><strong>서언종</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Backend</b></td>
     <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
+    <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Deep Learning</b></td>
-    <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/saintlucias" target='_blank'>github</a></td>
