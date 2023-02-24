@@ -41,7 +41,6 @@
 
 			</div>
 		</div>
-		</div>
 		<div class="container">
 			<div class="inner-header">
 				<div class="row">
@@ -202,7 +201,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/uximg.jpg" alt="">
 						<div class="inner-text">
 							<h4>UX 기획</h4>
@@ -210,7 +209,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/webimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>웹</h4>
@@ -218,7 +217,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/commimg.png" alt="">
 						<div class="inner-text">
 							<h4>커머스</h4>
@@ -228,7 +227,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/mobimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>모바일</h4>
@@ -236,7 +235,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/progimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>프로그램</h4>
@@ -244,7 +243,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/trendimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>트랜드</h4>
@@ -254,7 +253,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/dataimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>데이터</h4>
@@ -262,7 +261,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/unrimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>언리얼</h4>
@@ -270,7 +269,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner" OnClick="location.href ='http://www.naver.com'" style="cursor:pointer;">
 						<img src="img/etcimg.png" alt="">
 						<div class="inner-text">
 							<h4>기타</h4>
