@@ -16,7 +16,7 @@ public class SqlSessionManager {
       String resource = "DSO/db/config.xml";
       InputStream inputStream = Resources.getResourceAsStream(resource);
       sqlSessionFactory =
-        new SqlSessionFactoryBuilder().build(inputStream);
+      new SqlSessionFactoryBuilder().build(inputStream);
       }catch (IOException e) {
          e.printStackTrace();
       }

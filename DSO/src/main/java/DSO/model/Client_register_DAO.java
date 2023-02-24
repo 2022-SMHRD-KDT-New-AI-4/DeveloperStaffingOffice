@@ -3,8 +3,6 @@ package DSO.model;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-
-
 import DSO.db.SqlSessionManager;
 
 public class Client_register_DAO {
@@ -37,9 +35,4 @@ public class Client_register_DAO {
 		session.close();
 		return cnt;
 	}
-
-
 }
-
-
-

@@ -95,6 +95,3 @@ public class Client_register_VO {
 //	}
 	
 }
-
-
-
