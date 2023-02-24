@@ -22,7 +22,12 @@ public class Specialist_register_DAO {
 		return lvo;
 	}
 
-	
+	public int specialistupdate(Specialist_register_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("specialistupdate",vo);
+		session.close(); 	
+		return cnt;
+	}
 
 
 

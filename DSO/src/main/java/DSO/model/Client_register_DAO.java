@@ -24,6 +24,13 @@ public class Client_register_DAO {
 		return lvo;
 	}
 	
+	public int clientupdate(Client_register_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("clientupdate", vo);
+		session.close(); 					
+		return cnt;
+	}
+	
 	public int clientdelete(String c_id) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.delete("clientdelete",c_id);
