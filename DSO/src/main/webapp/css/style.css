@@ -93,7 +93,6 @@ p {
 
 img {
 	max-width: 100%;
-	width: 350px;
 }
 
 input:focus,
@@ -390,16 +389,16 @@ ol {
 }
 
 .header-top .ht-right {
-	float: right;
+	position:absolute;
+	top: 58px;
+	right: 385px;
 }
 
 .header-top .ht-right .login-panel {
-	float: right;
-	font-size: 14px;
+	font-size: 24px;
 	color: #252525;
 	display: inline-block;
 	padding-left: 20px;
-	border-left: 1px solid #e5e5e5;
 	padding-top: 18px;
 	padding-bottom: 15px;
 }
@@ -434,6 +433,10 @@ ol {
 	padding: 39px 0;
 }
 
+body > header > div.container > div > div > div.col-lg-7.col-md-7 {
+	margin: auto;
+}
+
 .inner-header .logo {
 	padding: 5px 0;
 	width: 300px;
@@ -446,7 +449,7 @@ ol {
 .inner-header .advanced-search {
 	height: 50px;
 	border: 1px solid #ebebeb;
-	margin-left: 130px;
+	margin-left: 20px;
 }
 
 .inner-header .advanced-search .category-btn {
@@ -493,8 +496,11 @@ ol {
 	height: 100%;
 	border: none;
 	font-size: 16px;
-	color: #d1d1d1;
+	color: #212529;
 	padding-left: 20px;
+}
+input::placeholder {
+	color: #d1d1d1;
 }
 
 .inner-header .advanced-search .input-group button {
@@ -999,13 +1005,25 @@ ol {
 }
 
 .col-lg-4 {
-	width: 250px;
+	width: 350px;
+}
+
+.container-fluid .row {
+	width: 1100px;
+	margin: auto;
 }
 
 .single-banner {
 	position: relative;
 	z-index: 1;
-	width: 250px;
+	width: 350px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 11px;
+	padding-bottom: 11px;
+}
+.single-banner img{
+	width: 550px;
 }
 
 .single-banner:hover::before {
@@ -1536,11 +1554,16 @@ ol {
 
 .footer-section {
 	background: #191919;
-	padding-top: 75px;
+	padding-top: 11px;
 }
 
 .footer-left {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
+}
+
+
+.container .col-lg-3 {
+	margin-left: 280px;
 }
 
 .footer-left .footer-logo {
@@ -1553,7 +1576,7 @@ ol {
 
 .footer-left ul li {
 	list-style: none;
-	color: #b2b2b2;
+ 	color: #b2b2b2; 
 	font-size: 16px;
 	line-height: 30px;
 }
@@ -1680,7 +1703,7 @@ ol {
 .copyright-reserved {
 	border-top: 1px solid #303030;
 	padding: 15px 0;
-	margin-top: 45px;
+	margin-top: 15px;
 }
 
 .copyright-reserved .copyright-text {

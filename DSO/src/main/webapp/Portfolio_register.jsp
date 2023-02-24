@@ -9,24 +9,25 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <style type="text/css">
-        #Portfoilo_List{
-            text-align: center;
-        }
+  
     </style>
 </head>
 <body>
-<h1>포트폴리오 등록하기</h1>
-<a href="#">이전 페이지</a>
+<h1>𝑃𝑂𝑅𝑇𝐹𝑂𝐿𝐼𝑂 𝑅𝐸𝐺𝐼𝑆𝑇𝐸𝑅</h1>
 
 <form id="portfolio-form" enctype="multipart/form-data">
+    <div>
     <input type="file" name="pf_img1" id="pf_img1">    <!-- 업로드 이미지 타입이 파일이면 배열로 취급, name = 받아올 파일 , id = 제이쿼리내에서 접근 -->
-    <div id="Pf_input">
      <!--    <input type="text" name="s_id" placeholder="아이디를 입력하세요."> -->
-        <button type="submit">포트폴리오 등록</button>
+        <button type="submit" style="margin-left:25px;">포트폴리오 등록</button>
+	<a href="#"><img style="width:100px; height:100px; margin-left:100px;" src='./DSO Image/뒤로가기.png'></a>
     </div>
 </form>
-
-<div id="Portfolio_List">
+<br>
+<form action="#" method="post">
+	<button type="submit">업로드</button>
+</form>
+<div id="Portfolio_List" style="width: 1000px; height: 1000px;">
 
 </div>
 
@@ -43,18 +44,14 @@
         });
     });
     
+    var cnt = 0;
     function photoList(data){
     	//alert(data);
-    	let tmp="<table>";
-    	tmp+="<tr>";
-    	tmp+="<td>포토폴리오 리스트</td>";
-    	tmp+="</tr>";
+    	let tmp="";
+    	tmp+="<br><h2>𝐷𝑒𝑣𝑒𝑙𝑜𝑝𝑒𝑟 𝑆𝑡𝑎𝑓𝑓𝑖𝑛𝑔 𝑂𝑓𝑓𝑖𝑐𝑒</h2><br>";
     	$.each(data, function(index, obj){
-    		tmp+="<tr>";
-        	tmp+="<td><img width='150px' height='150px' src='upload/"+obj.pf_Img1+"'/></td>";
-        	tmp+="</tr>";
+        		tmp+="<img width='200px' height='200px' src='upload/"+obj.pf_Img1+"'/>";
     	});
-    	tmp+="</table>";
     	$("#Portfolio_List").html(tmp);
     }
     

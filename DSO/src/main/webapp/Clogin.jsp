@@ -22,11 +22,11 @@
 	Client_register_VO loginM = (Client_register_VO)session.getAttribute("loginM");
 %>
   
-    <form method="post" action="Client_Login_service">
+    <form method="post" action="Client_Login_Service">
   	<table border="1px">
   	<tr>
   	<td colspan="2" style = "text-align : center;">
-  	<h1>로그인</h1>
+  	<h1>의뢰인 로그인</h1>
   	</td>
   	</tr>
   <!-- 	<label for="email">이메일:</label> -->
@@ -47,24 +47,11 @@
     		<input type="password" name="c_pw"> 
   		</td>
     </tr>
-    </table>
-    <table>
-	    <tr>
-	    	<td>
-	   			<a href="">회원가입</a>
-	    	</td>
-	    	<td>
-	    		<a href="">ID/PW 찾기</a>
-	    	</td>
-	    </tr>
-    	<tr>
-    		<td>
-    			<button type="button" onclick="location.href='Clogin.jsp'">의뢰인 로그인</button>
-    		</td>
-    		<td>
-   				<button type="button" onclick="location.href='SLogin.jsp'">전문가 로그인</button>
-    		</td>
-    	</tr>
+    <tr>
+    	<td colspan="2" id="td">
+   			<input type="submit" value="Register">
+    	</td>
+    </tr>
     </table>
   </form>
 

@@ -37,10 +37,9 @@
 	<header class="header-section">
 		<div class="header-top">
 			<div class="ht-right">
-				<a href="./login.html" class="login-panel"><i class="fa fa-user"></i>Login</a>
+				<a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 
 			</div>
-		</div>
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -54,7 +53,7 @@
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">
-								<input type="text" placeholder="What do you need?">
+								<input type="text" placeholder="검색어를 입력해주세요">
 								<button type="button">
 									<i class="ti-search"></i>
 								</button>
@@ -62,52 +61,7 @@
 						</div>
 					</div>
 					<div class="col-lg-3 text-right col-md-3">
-						<ul class="nav-right">
-							<li class="heart-icon"><a href="#"> <i
-									class="icon_heart_alt"></i> <span>1</span>
-							</a></li>
-							<li class="cart-icon"><a href="#"> <i
-									class="icon_bag_alt"></i> <span>3</span>
-							</a>
-								<div class="cart-hover">
-									<div class="select-items">
-										<table>
-											<tbody>
-												<tr>
-													<td class="si-pic"><img src="img/select-product-1.jpg"
-														alt=""></td>
-													<td class="si-text">
-														<div class="product-selected">
-															<p>$60.00 x 1</p>
-															<h6>Kabino Bedside Table</h6>
-														</div>
-													</td>
-													<td class="si-close"><i class="ti-close"></i></td>
-												</tr>
-												<tr>
-													<td class="si-pic"><img src="img/select-product-2.jpg"
-														alt=""></td>
-													<td class="si-text">
-														<div class="product-selected">
-															<p>$60.00 x 1</p>
-															<h6>Kabino Bedside Table</h6>
-														</div>
-													</td>
-													<td class="si-close"><i class="ti-close"></i></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div class="select-total">
-										<span>total:</span>
-										<h5>$120.00</h5>
-									</div>
-									<div class="select-button">
-										<a href="#" class="primary-btn view-card">VIEW CARD</a> <a
-											href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-									</div>
-								</div></li>
-						</ul>
+						
 					</div>
 				</div>
 			</div>
@@ -202,7 +156,9 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/uximg.jpg" alt="">
 						<div class="inner-text">
 							<h4>UX 기획</h4>
@@ -210,7 +166,9 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/webimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>웹</h4>
@@ -218,7 +176,9 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/commimg.png" alt="">
 						<div class="inner-text">
 							<h4>커머스</h4>
@@ -228,7 +188,9 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/mobimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>모바일</h4>
@@ -236,7 +198,9 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/progimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>프로그램</h4>
@@ -244,7 +208,9 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/trendimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>트랜드</h4>
@@ -254,7 +220,9 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/dataimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>데이터</h4>
@@ -262,7 +230,9 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/unrimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>언리얼</h4>
@@ -270,7 +240,9 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="single-banner">
+					<div class="single-banner"
+						OnClick="location.href ='http://www.naver.com'"
+						style="cursor: pointer;">
 						<img src="img/etcimg.png" alt="">
 						<div class="inner-text">
 							<h4>기타</h4>
@@ -290,52 +262,17 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="#"><img src="img/footer-logo.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/dsologoblack.png" alt=""></a>
 						</div>
+					</div>
+				</div>
+				<div class="col-lg-3-1">
+					<div class="footer-left">
 						<ul>
 							<li>Address: 60-49 Road 11378 New York</li>
 							<li>Phone: +65 11.188.888</li>
 							<li>Email: hello.colorlib@gmail.com</li>
 						</ul>
-						<div class="footer-social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-instagram"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 offset-lg-1">
-					<div class="footer-widget">
-						<h5>Information</h5>
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Checkout</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Serivius</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="footer-widget">
-						<h5>My Account</h5>
-						<ul>
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Shopping Cart</a></li>
-							<li><a href="#">Shop</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="newslatter-item">
-						<h5>Join Our Newsletter Now</h5>
-						<p>Get E-mail updates about our latest shop and special
-							offers.</p>
-						<form action="#" class="subscribe-form">
-							<input type="text" placeholder="Enter Your Mail">
-							<button type="button">Subscribe</button>
-						</form>
 					</div>
 				</div>
 			</div>
