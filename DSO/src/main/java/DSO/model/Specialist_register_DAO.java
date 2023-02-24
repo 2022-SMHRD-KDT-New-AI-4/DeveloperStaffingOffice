@@ -29,6 +29,12 @@ public class Specialist_register_DAO {
 		return cnt;
 	}
 
+	public int specialistdelete(String c_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("specialistdelete",c_id);
+		session.close();
+		return cnt;
+	}
 
 
 }
