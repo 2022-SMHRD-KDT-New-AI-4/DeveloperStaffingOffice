@@ -30,12 +30,12 @@
   </select>
   
   <!-- 의뢰인 수정 -->
-  <update id="update" parameterType="Client_register_VO">
+  <update id="clientupdate" parameterType="Client_register_VO">
   	update member set c_id=#{c_id},c_pw=#{c_pw},c_name=#{c_name},c_business=#{c_business} c_interest=#{c_interest}
   </update>
   
 <!-- 전문가 수정 -->
-	  <update id="update" parameterType="Specialist_register_VO">
+	  <update id="specialistupdate" parameterType="Specialist_register_VO">
   	update member set s_id=#{s_id},s_pw=#{s_pw},s_name=#{s_name},s_business=#{s_business} s_interest=#{s_interest}
   </update>
   
