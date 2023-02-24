@@ -27,7 +27,7 @@ import DSO.model.Portfolio_VO;
 @WebServlet("/Portfolio_register_service")
 public class Portfolio_register_service extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("실행~~");
+		System.out.println("실행확인");
 		//RequestModel model = new RequestModel();
 		
 		try {
@@ -70,8 +70,8 @@ public class Portfolio_register_service extends HttpServlet {
         item.delete(); //파일과 관련된 자원을 제거한다.
         
         HttpSession session=request.getSession();
-        //String s_Id=(String) session.getAttribute("s_Id");
-        String s_Id="test";
+        //String s_Id=(String) session.getAttribute("s_Id");// 세션에 등록된 아이디 받아오기.
+        String s_Id="test"; // 테스트용 임시 아이디임.
         Portfolio_VO vo=new Portfolio_VO();
         vo.setS_Id(s_Id);
         vo.setPf_Img1(uploadedFileName);        

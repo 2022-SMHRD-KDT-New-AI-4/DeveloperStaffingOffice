@@ -47,7 +47,7 @@
     	//alert(data);
     	let tmp="<table>";
     	tmp+="<tr>";
-    	tmp+="<td>포토폴리오이미지</td>";
+    	tmp+="<td>포토폴리오 리스트</td>";
     	tmp+="</tr>";
     	$.each(data, function(index, obj){
     		tmp+="<tr>";
