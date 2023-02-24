@@ -41,12 +41,12 @@ public class Specialist_Login_Service extends HttpServlet {
 		
 		// 로그인 성공 / 실패 판단
 		if (lvo != null) { // 로그인 성공
-			System.out.println("로그인 성공");
+			System.out.println("전문가 로그인 성공");
 			// 세션에 사용자의 정보 저장
 			HttpSession session = request.getSession();
 			session.setAttribute("loginM", lvo);
 		} else { // 로그인 실패
-			System.out.println("로그인 실패");
+			System.out.println("전문가 로그인 실패");
 		}
 
 //		response.sendRedirect("#");
