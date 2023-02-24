@@ -18,6 +18,11 @@
   <insert id="specialistjoin" parameterType="Specialist_register_VO">
   	insert into tbl_specialist values(#{s_id},#{s_pw},#{s_job},#{s_name},#{s_business},#{s_interest},sysdate)
   </insert>
+  
+  <!-- 전문가 회원탈퇴 -->
+  <delete id="specialdelete" parameterType="String">
+  	delete from tbl_client where c_id=#{s_id}
+  </delete>
 
 <!-- 의뢰인 로그인 -->
   <select id="clientlogin" resultType="Client_register_VO" parameterType="Client_register_VO">
