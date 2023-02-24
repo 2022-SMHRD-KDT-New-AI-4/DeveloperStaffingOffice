@@ -1,5 +1,7 @@
 package DSO.model;
 
+// 의뢰인 회원가입 및 로그인 VO
+
 public class Client_register_VO {
 	private String c_id;
 	private String c_pw;

@@ -1,11 +1,13 @@
 package DSO.model;
 
+//전문가 주문 VO
 public class Register_specialist_VO {
 //	private int register_seq;
 //	private int service_eq;
 	private String s_id;
 	private int register_cnt;
 //	private String register_dt;
+	
 	
 	public Register_specialist_VO() {
 		

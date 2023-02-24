@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DSO.model.Client_register_DAO;
 
-/**
- * Servlet implementation class Client_delete_service
- */
+ // 의뢰인 회원탈퇴
 @WebServlet("/Client_delete_service")
 public class Client_delete_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
