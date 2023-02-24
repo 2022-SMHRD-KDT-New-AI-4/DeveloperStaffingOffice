@@ -36,22 +36,22 @@
             url : "Portfolio_list_service",
             method : "get",
             dataType : "JSON",
-            success : potoList,
+            success : photoList,
             error : function(err){
                 console.log(err);
             }
         });
     });
     
-    function potoList(data){
+    function photoList(data){
     	//alert(data);
-    	var tmp="<table border='1'>";
+    	let tmp="<table>";
     	tmp+="<tr>";
     	tmp+="<td>포토폴리오이미지</td>";
     	tmp+="</tr>";
     	$.each(data, function(index, obj){
     		tmp+="<tr>";
-        	tmp+="<td><img width='60px' height='60px' src='upload/"+obj.pf_Img1+"'/></td>";
+        	tmp+="<td><img width='150px' height='150px' src='upload/"+obj.pf_Img1+"'/></td>";
         	tmp+="</tr>";
     	});
     	tmp+="</table>";
