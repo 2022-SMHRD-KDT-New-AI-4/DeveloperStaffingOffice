@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import DSO.model.Client_register_DAO;
 import DSO.model.Client_register_VO;
 
-/**
- * Servlet implementation class Client_register_service
- */
+ // 의뢰인 회원가입
 @WebServlet("/Client_register_service")
 public class Client_register_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;

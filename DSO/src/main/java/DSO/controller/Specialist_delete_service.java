@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import DSO.model.Specialist_register_DAO;
 
-/**
- * Servlet implementation class Specialist_delete_service
- */
+// 전문가 회원 탈퇴 서비스
+
 @WebServlet("/Specialist_delete_service")
 public class Specialist_delete_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;

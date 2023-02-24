@@ -1,5 +1,6 @@
 package DSO.model;
 
+// 전문가 등록 VO
 public class Specialist_register_VO {
 	private String s_id;
 	private String s_pw;

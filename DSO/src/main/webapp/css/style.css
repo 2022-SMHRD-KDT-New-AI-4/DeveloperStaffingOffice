@@ -1771,8 +1771,12 @@ input::placeholder {
 -----------------------*/
 
 .product-shop {
-	padding-top: 80px;
+	padding-top: 20px;
 	padding-bottom: 80px;
+	padding-left: 60px;
+}
+body > section > div > div > div.col-lg-9.order-1.order-lg-2 {
+	margin-left: 50px;
 }
 
 .filter-widget {
@@ -1793,7 +1797,7 @@ input::placeholder {
 .filter-widget .filter-catagories li a {
 	display: inline-block;
 	color: #636363;
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 39px;
 }
 
