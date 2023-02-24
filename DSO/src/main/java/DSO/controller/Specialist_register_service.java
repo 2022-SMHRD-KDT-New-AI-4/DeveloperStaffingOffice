@@ -41,6 +41,7 @@ public class Specialist_register_service extends HttpServlet {
 		}else {
 			System.out.println("전문가 회원가입 실패...");
 		}
+		response.sendRedirect("Login.jsp");
 	}
 
 }

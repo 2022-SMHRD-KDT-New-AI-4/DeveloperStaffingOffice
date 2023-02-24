@@ -47,11 +47,24 @@
     		<input type="password" name="c_pw"> 
   		</td>
     </tr>
-    <tr>
-    	<td colspan="2" id="td">
-   			<input type="submit" value="Register">
-    	</td>
-    </tr>
+    </table>
+    <table>
+	    <tr>
+	    	<td>
+	   			<a href="">회원가입</a>
+	    	</td>
+	    	<td>
+	    		<a href="">ID/PW 찾기</a>
+	    	</td>
+	    </tr>
+    	<tr>
+    		<td>
+    			<input type="submit" value="의뢰인 로그인">
+    		</td>
+    		<td>
+   			<input type="submit" value="전문가 로그인">
+    		</td>
+    	</tr>
     </table>
   </form>
 
