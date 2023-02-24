@@ -12,9 +12,7 @@ import javax.servlet.http.HttpSession;
 import DSO.model.Specialist_register_DAO;
 import DSO.model.Specialist_register_VO;
 
-/**
- * Servlet implementation class Specialist_Update_Serviece
- */
+// 전문가 회원정보 수정 서비스
 @WebServlet("/Specialist_Update_Serviece")
 public class Specialist_Update_Service extends HttpServlet {
 	private static final long serialVersionUID = 1L;

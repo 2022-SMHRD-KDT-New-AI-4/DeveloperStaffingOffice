@@ -1,11 +1,13 @@
 package DSO.model;
 
+//의뢰인 주문 VO
 public class Register_client_VO {
 //	private int register_seq;
 //	private int service_eq;
 	private String c_id;
 	private int register_cnt;
 //	private String register_dt;
+	
 	
 	public Register_client_VO() {
 		

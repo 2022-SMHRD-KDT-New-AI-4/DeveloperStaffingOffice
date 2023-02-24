@@ -12,9 +12,8 @@ import javax.servlet.http.HttpSession;
 import DSO.model.Specialist_register_DAO;
 import DSO.model.Specialist_register_VO;
 
-/**
- * Servlet implementation class Specialist_Login_Service
- */
+// 전문가 로그인 서비스
+
 @WebServlet("/Specialist_Login_Service")
 public class Specialist_Login_Service extends HttpServlet {
 	private static final long serialVersionUID = 1L;

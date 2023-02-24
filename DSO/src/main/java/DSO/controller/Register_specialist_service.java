@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import DSO.model.Register_specialist_DAO;
 import DSO.model.Register_specialist_VO;
 
-/**
- * Servlet implementation class Register_specialist_service
- */
+ // 전문가 주문 접수
+
 @WebServlet("/Register_specialist_service")
 public class Register_specialist_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;

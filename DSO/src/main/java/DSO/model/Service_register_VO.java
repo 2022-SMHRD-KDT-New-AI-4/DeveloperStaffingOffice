@@ -1,5 +1,6 @@
 package DSO.model;
 
+// 상품 게시물 등록 VO
 public class Service_register_VO {
 //	private int service_seq;
 	private String service_title;
@@ -10,6 +11,7 @@ public class Service_register_VO {
 	private String service_img;
 	private String s_id;
 //	private String service_dt;
+	
 	
 	public Service_register_VO() {
 		

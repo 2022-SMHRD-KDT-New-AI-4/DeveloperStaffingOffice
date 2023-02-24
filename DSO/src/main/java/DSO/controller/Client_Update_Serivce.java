@@ -12,9 +12,7 @@ import javax.servlet.http.HttpSession;
 import DSO.model.Client_register_DAO;
 import DSO.model.Client_register_VO;
 
-/**
- * Servlet implementation class Client_Update_Serivce
- */
+ // 의뢰인 정보 수정
 @WebServlet("/Client_Update_Serivce")
 public class Client_Update_Serivce extends HttpServlet {
 	private static final long serialVersionUID = 1L;

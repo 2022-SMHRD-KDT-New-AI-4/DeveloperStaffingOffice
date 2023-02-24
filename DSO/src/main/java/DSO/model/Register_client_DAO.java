@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import DSO.db.SqlSessionManager;
-
+	// 의뢰인 주문 DAO
 public class Register_client_DAO {
 private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
