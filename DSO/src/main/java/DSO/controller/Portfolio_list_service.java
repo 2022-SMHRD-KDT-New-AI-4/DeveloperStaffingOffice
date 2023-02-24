@@ -28,6 +28,6 @@ public class Portfolio_list_service extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		Gson g=new Gson();
 		String json=g.toJson(list);
-		out.println(json);
+		out.println(json); 
 	}
 }
