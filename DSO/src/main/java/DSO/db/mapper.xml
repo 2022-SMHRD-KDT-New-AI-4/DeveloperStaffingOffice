@@ -31,16 +31,16 @@
   
 <!-- 서비스 등록 -->
   <insert id="serviceregister" parameterType="Service_register_VO">
-  	insert into tbl_service values(service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
+  	insert into tbl_service values(tbl_service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
   </insert>   
   
 <!-- 포트폴리오 등록 -->
    <select id="selectAllportfolios" resultType="Portfolio_VO">
-        SELECT * FROM tbl_portfolio
+        SELECT * FROM tbl_portfolio1
     </select>
 
     <insert id="PortfolioInsert" parameterType="Portfolio_VO">
-        INSERT INTO tbl_portfolio VALUES (pf_seq.nexval,#{s_Id}, #{pf_Img1},sysdate)
+        INSERT INTO tbl_portfolio1 VALUES (tbl_portfolio1_SEQ.nextval,#{s_Id}, #{pf_Img1},sysdate)
     </insert>
 
  <!--    <delete id="PortfolioDelete" parameterType="int">
