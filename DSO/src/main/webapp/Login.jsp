@@ -59,10 +59,10 @@
 	    </tr>
     	<tr>
     		<td>
-    			<input type="submit" value="의뢰인 로그인">
+    			<button type="button" onclick="location.href='Clogin.jsp'">의뢰인 로그인</button>
     		</td>
     		<td>
-   			<input type="submit" value="전문가 로그인">
+   				<button type="button" onclick="location.href='SLogin.jsp'">전문가 로그인</button>
     		</td>
     	</tr>
     </table>
