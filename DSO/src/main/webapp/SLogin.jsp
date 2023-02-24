@@ -26,7 +26,7 @@
   	<table border="1px">
   	<tr>
   	<td colspan="2" style = "text-align : center;">
-  	<h1>로그인</h1>
+  	<h1>전문가 로그인</h1>
   	</td>
   	</tr>
   <!-- 	<label for="email">이메일:</label> -->
