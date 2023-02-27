@@ -67,7 +67,7 @@
 						<i class="ti-menu"></i> <span>전체 카테고리</span>
 						<ul class="depart-hover">
 							<li>
-								<h3>UX기획</h3>
+								<h3>UX 기획</h3>
 								<ul>
 									<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 									<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
@@ -152,8 +152,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> 전체</a> <span><a
-							href="c1_UX.jsp"><i class="fa"> </i>UX기획</a> <span>웹 · 모바일
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span><a
+							href="c1_UX.jsp"><i class="fa"> </i>UX 기획</a> <span>웹 · 모바일
 								기획</span>
 					</div>
 				</div>
@@ -169,7 +169,7 @@
 			<div class="row">
 
 				<div class="filter-widget" style="padding-top: 0px">
-					<h4>UX기획</h4>
+					<h4>UX 기획</h4>
 					<ul class="filter-catagories">
 						<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 						<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>

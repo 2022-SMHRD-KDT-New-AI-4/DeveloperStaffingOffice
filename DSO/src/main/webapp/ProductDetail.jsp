@@ -72,7 +72,7 @@
 						<i class="ti-menu"></i> <span>전체 카테고리</span>
 						<ul class="depart-hover">
 							<li>
-								<h3>UX기획</h3>
+								<h3>UX 기획</h3>
 								<ul>
 									<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 									<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
@@ -157,7 +157,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="filter-widget" style="padding-top: 0px">
-					<h4>UX기획</h4>
+					<h4>UX 기획</h4>
 					<ul class="filter-catagories">
 						<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 						<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
@@ -248,7 +248,7 @@
 							<div class="product-details">
 								<div class="pd-title">
 									<span>김닝우</span>
-									<h3>UX기획</h3>
+									<h3>UX 기획</h3>
 									<a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
 								</div>
 								<div class="pd-rating">
