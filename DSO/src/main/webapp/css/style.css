@@ -1776,11 +1776,11 @@ input::placeholder {
 	padding-left: 60px;
 }
 body > section > div > div > div.col-lg-9.order-1.order-lg-2 {
-	margin-left: 50px;
+	margin-left: 100px;
 }
 
 body > section > div > div > div.col-lg-9 {
-	margin-left: 80px;
+	margin-left: 100px;
 }
 
 .filter-widget {
@@ -2220,7 +2220,7 @@ body > section > div > div > div.col-lg-9 {
 	color: #252525;
 	font-size: 18px;
 	position: absolute;
-	right: 130px;
+	right: 0;
 	top: 0;
 }
 

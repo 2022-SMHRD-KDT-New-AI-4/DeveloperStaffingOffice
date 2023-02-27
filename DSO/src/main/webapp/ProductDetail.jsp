@@ -247,8 +247,8 @@
 						<div class="col-lg-6">
 							<div class="product-details">
 								<div class="pd-title">
-									<span>김닝우</span>
-									<h3>UX 기획</h3>
+									<span>김닝우(전문가 이름)</span>
+									<h3>UX 기획(상품 제목)</h3>
 									<a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
 								</div>
 								<div class="pd-rating">
@@ -257,7 +257,7 @@
 										class="fa fa-star-o"></i> <span>(4)</span>
 								</div>
 								<div class="pd-desc">
-									<p>UX 기획</p>
+									<p>가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파<br>(상품 간단 설명)</p>
 									<h4>
 										1,000 원 <span></span>
 									</h4>

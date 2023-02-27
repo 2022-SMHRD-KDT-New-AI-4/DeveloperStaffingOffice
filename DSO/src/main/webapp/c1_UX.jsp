@@ -255,9 +255,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -277,9 +277,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -299,9 +299,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -321,9 +321,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -343,9 +343,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -365,9 +365,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
