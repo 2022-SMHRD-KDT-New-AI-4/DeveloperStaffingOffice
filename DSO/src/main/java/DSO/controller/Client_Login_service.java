@@ -36,7 +36,7 @@ public class Client_Login_service extends HttpServlet {
 		}else {
 			System.out.println("로그인 실패");
 		}
-		//response.sendRedirect("###");
+		response.sendRedirect("Main.jsp");
 	}
 }
 

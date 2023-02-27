@@ -25,7 +25,7 @@
 </style>
 <body>
 
-  <form method="post" action="Client_register_service">
+  <form method="post" action="Client_regi	ster_service">
   	<table border="1px">
   	<tr>
   	<td colspan="2" style = "text-align : center;">
