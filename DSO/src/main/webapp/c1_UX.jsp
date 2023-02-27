@@ -153,7 +153,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i> 전체</a>
+                        <a href="Main.jsp"><i class="fa fa-home"></i> 전체</a>
                         <span>UX기획</span>                            
                     </div>
                 </div>
