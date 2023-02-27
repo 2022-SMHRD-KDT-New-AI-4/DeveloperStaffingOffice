@@ -14,11 +14,11 @@
 	table {
 		margin:auto;
 	}
-	#joblist{
+	#c_businesslist{
 		width:177px;
 		height:27px;
 	}
-	#interestlist{
+	#c_interestlist{
 		width:177px;
 		height:27px;
 	}
@@ -74,17 +74,17 @@
     		 비즈니스 분야  
   		</td>
   		<td> 
-  			<select id="joblist">
-  				<option>선택해주세요</option>
-  				<option>UX기획</option>
-  				<option>웹</option>
-  				<option>커머스</option>
-  				<option>모바일</option>
-  				<option>프로그램</option>
-  				<option>트랜드</option>
-  				<option>데이터</option>
-  				<option>언리얼</option>
-  				<option>기타</option>
+  			<select id="c_businesslist" name="c_business">
+  				<option >선택해주세요</option>
+  				<option >UX기획</option>
+  				<option >웹</option>
+  				<option >커머스</option>
+  				<option >모바일</option>
+  				<option >프로그램</option>
+  				<option >트랜드</option>
+  				<option >데이터</option>
+  				<option >언리얼</option>
+  				<option >기타</option>
   			</select>
   		</td>
     </tr>
@@ -93,7 +93,7 @@
     		 관심사 
   		</td>
   		<td>
-  			<select id="interestlist">
+  			<select id="c_interestlist" name="c_interest">
   			
   			</select>
   		</td>
@@ -109,7 +109,7 @@
   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
   	
-  $('#joblist').change(function(){
+  $('#c_businesslist').change(function(){
 	  var data = $(this).val();
 	  console.log(data);
 	  var list;
@@ -140,7 +140,7 @@
 		  html += "</option>";
 	  }
 	  
-	  $('#interestlist').html(html);
+	  $('#c_interestlist').html(html);
 	  
   });
   
