@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>UX_1</title>
+<title>모바일</title>
 
 <!-- Google Font -->
 <link
@@ -140,9 +140,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span><a
-							href="c1_UX.jsp"><i class="fa"> </i>UX 기획</a> <span>웹 ·
-								모바일 기획</span>
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span>모바일</span>
 					</div>
 				</div>
 			</div>
@@ -251,9 +249,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">모바일(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4>모바일(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -273,9 +271,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">모바일(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4>모바일(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -295,9 +293,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">모바일(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4>모바일(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -317,9 +315,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">모바일(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4>모바일(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -339,9 +337,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">모바일(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4>모바일(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -361,9 +359,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">모바일(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4>모바일(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -379,6 +377,8 @@
 		</div>
 	</section>
 	<!-- Product Shop Section End -->
+
+
 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
