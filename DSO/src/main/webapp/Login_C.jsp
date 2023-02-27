@@ -10,9 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <style type="text/css">
-.loginbtnCR{
-	padding-left: 22%
-}
+
 </style>
 <title>개발자 인력 사무소</title>
 
@@ -186,10 +184,22 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
                     <div class="login-form">
                         <h2>Login</h2>
                         <form action="Client_Login_service" method="post">
-
+                            <div class="group-input">
+                                <label for="username"> Email 입력해주세요 *</label>
+                                <input type="text" id="c_id">
+                            </div>
+                            <div class="group-input">
+                                <label for="pass">비밀번호 입력해주세요 *</label>
+                                <input type="password" id="c_pw">
+                            </div>
+                            <div class="group-input gi-check">
+                                <div class="gi-more">                             
+                                    <a href="#" class="forget-pass">Forget your Password</a>
+                                </div>
+                            </div>
                             <div class=loginbtnCR>
-							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
-                            <button type="button"onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
+                            <button type="submit" class="site-btn login-btn">의뢰인로그인</button>
+                           
                             </div>
                         </form>
                         <div class="switch-login">
