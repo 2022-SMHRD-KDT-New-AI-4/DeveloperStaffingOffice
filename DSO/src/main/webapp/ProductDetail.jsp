@@ -9,7 +9,6 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Fashi | Template</title>
 
 <!-- Google Font -->
 <link
@@ -258,7 +257,7 @@
 										class="fa fa-star-o"></i> <span>(4)</span>
 								</div>
 								<div class="pd-desc">
-									<p>UX기획</p>
+									<p>UX 기획</p>
 									<h4>
 										1,000 원 <span></span>
 									</h4>
@@ -289,14 +288,14 @@
 									<div class="product-content">
 										<div class="row">
 											<div class="col-lg-5">
-												<a href="http://www.naver.com"><img src="img/pt/pt1.jpg"
+												<a href="https://ovenapp.io/view/STZmH63UtKq1j4KX0aqzJO3czG6I69Ba/"><img src="img/pt/pt1.jpg"
 													alt=""></a>
 												<h5 style='text-align: center'>
 													<br>포트폴리오 1
 												</h5>
 											</div>
 											<div class="col-lg-5">
-												<a href="http://www.naver.com"><img src="img/pt/pt2.jpg"
+												<a href="https://ovenapp.io/view/STZmH63UtKq1j4KX0aqzJO3czG6I69Ba/"><img src="img/pt/pt2.jpg"
 													alt=""></a>
 												<h5 style='text-align: center'>
 													<br>포트폴리오 2
@@ -422,9 +421,9 @@
 				<div class="col-lg-3-1">
 					<div class="footer-left">
 						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello.colorlib@gmail.com</li>
+							<li>Address: 광주광역시 동구 대의동 10-1</li>
+							<li>Phone: 010 - 9806 - 8112</li>
+							<li>Email: meenwookim@gmail.com</li>
 						</ul>
 					</div>
 				</div>
@@ -436,13 +435,7 @@
 					<div class="col-lg-12">
 						<div class="copyright-text">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>
-								document.write(new Date().getFullYear());
-							</script>
-							All rights reserved | This template is made with <i
-								class="fa fa-heart-o" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
+							팀장 : 권선택 | 팀원 : 김민우 류슬기 김대윤 서언종 정현호
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</div>
 						<div class="payment-pic">

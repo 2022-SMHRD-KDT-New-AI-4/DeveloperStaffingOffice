@@ -1268,7 +1268,7 @@ input::placeholder {
 .product-item .pi-pic ul li {
 	list-style: none;
 	display: inline-block;
-	background: #ffffff;
+	background: #EAB543;
 }
 
 .product-item .pi-pic ul li.w-icon.active a {
@@ -1279,7 +1279,7 @@ input::placeholder {
 .product-item .pi-pic ul li a {
 	font-size: 16px;
 	font-weight: 700;
-	color: #252525;
+	color: #ffffff;
 	display: block;
 	padding: 16px 18px 12px 19px;
 }
