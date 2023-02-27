@@ -9,14 +9,14 @@ import DSO.db.SqlSessionManager;
 public class Client_register_DAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-	public int clientjoin(Client_register_VO vo) { // 의뢰인 회원가입 기능
+	public int clientjoin(Client_register_VO vo) { // 의뢰인 회원가입 
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.insert("clientjoin",vo);
 		session.close(); 
 		return cnt;
 	}
 	
-	public Client_register_VO clientlogin(Client_register_VO vo) { // 의뢰인 로그인기능
+	public Client_register_VO clientlogin(Client_register_VO vo) { // 의뢰인 로그인
 		SqlSession session = sqlSessionFactory.openSession(true);
 		Client_register_VO lvo = session.selectOne("clientlogin", vo);
 		session.close(); 					

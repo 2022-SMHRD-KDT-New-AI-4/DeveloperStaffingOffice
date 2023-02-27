@@ -30,9 +30,9 @@ public class Specialist_register_DAO {
 		return cnt;
 	}
 
-	public int specialistdelete(String c_id) { // 전문가 회원탈퇴
+	public int specialistdelete(String s_id) { // 전문가 회원탈퇴
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.delete("specialistdelete",c_id);
+		int cnt = session.delete("specialistdelete",s_id);
 		session.close();
 		return cnt;
 	}

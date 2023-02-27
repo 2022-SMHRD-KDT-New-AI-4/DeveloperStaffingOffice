@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import DSO.model.Register_client_DAO;
 import DSO.model.Register_client_VO;
 
-// 의뢰인 주문 접수 서비스
-
+// 의뢰인 주문 서비스
 @WebServlet("/Register_client_service")
 public class Register_client_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;

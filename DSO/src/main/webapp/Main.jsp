@@ -37,8 +37,8 @@
 	<header class="header-section">
 		<div class="header-top">
 			<div class="ht-right">
-				<a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-
+				<a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그아웃</a>
+				<a href="./Login.jsp" class="login-panel">마이페이지</a>
 			</div>
 		</div>
 		<div class="container">
@@ -46,7 +46,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./index.jsp"> <img src="img/dsologoc.png" alt="">
+							<a href="./Main.jsp"> <img src="img/dsologoc.png" alt="">
 							</a>
 						</div>
 					</div>
