@@ -76,72 +76,72 @@
 							<li>
 								<h3>UX기획</h3>
 								<ul>
-									<li><a href="#">웹 · 모바일 기획</a></li>
-									<li><a href="#">프로그램 · 기타 기획</a></li>
+									<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
+									<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
 								</ul>
 								<h3>웹</h3>
 								<ul>
-									<li><a href="blog.html">홈페이지 </a></li>
-									<li><a href="single-right.html">랜딩페이지</a></li>
-									<li><a href="single-left.html">프론트엔드 · 퍼블리싱</a></li>
-									<li><a href="contact.html">검색 최적화 · SEO</a></li>
-									<li><a href="contact-3.html">애널리틱스</a></li>
-									<li><a href="contact_3.html">홈페이지 수정 · 유지보수</a></li>
+									<li><a href="#">홈페이지 </a></li>
+									<li><a href="#">랜딩페이지</a></li>
+									<li><a href="#">프론트엔드 · 퍼블리싱</a></li>
+									<li><a href="#">검색 최적화 · SEO</a></li>
+									<li><a href="#">애널리틱스</a></li>
+									<li><a href="#">홈페이지 수정 · 유지보수</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>커머스</h3>
 								<ul>
-									<li><a href="property-1.html">쇼핑몰</a></li>
-									<li><a href="property-2.html">쇼핑몰 수정 · 유지보수</a></li>
+									<li><a href="#">쇼핑몰</a></li>
+									<li><a href="#">쇼핑몰 수정 · 유지보수</a></li>
 								</ul>
 								<h3>모바일</h3>
 								<ul>
-									<li><a href="properties.html">앱</a></li>
-									<li><a href="properties-2.html">앱 수정 · 유지보수</a></li>
+									<li><a href="#">앱</a></li>
+									<li><a href="#">앱 수정 · 유지보수</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>프로그램</h3>
 								<ul>
-									<li><a href="submit-property.html">비지니스 애플리케이션</a></li>
-									<li><a href="submit-property.html">PC · 웹 프로그램</a></li>
-									<li><a href="submit-property.html">백엔드 · 서버</a></li>
-									<li><a href="submit-property.html">봇 · 챗봇</a></li>
+									<li><a href="#">비지니스 애플리케이션</a></li>
+									<li><a href="#">PC · 웹 프로그램</a></li>
+									<li><a href="#">백엔드 · 서버</a></li>
+									<li><a href="#">봇 · 챗봇</a></li>
 								</ul>
 								<h3>트랜드</h3>
 								<ul>
-									<li><a href="submit-property.html">노코드 · 로우코드</a></li>
-									<li><a href="submit-property.html">메타버스</a></li>
-									<li><a href="submit-property.html">블록체인 · NFT</a></li>
+									<li><a href="#">노코드 · 로우코드</a></li>
+									<li><a href="#">메타버스</a></li>
+									<li><a href="#">블록체인 · NFT</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>데이터</h3>
 								<ul>
-									<li><a href="submit-property.html">데이터 구매 · 구축</a></li>
-									<li><a href="submit-property.html">데이터 마이닝 · 크롤링</a></li>
-									<li><a href="submit-property.html">데이터 전처리</a></li>
-									<li><a href="submit-property.html">데이터 라벨링</a></li>
-									<li><a href="submit-property.html">데이터 분석 · 시각화</a></li>
-									<li><a href="submit-property.html">인공지능 · 머신러닝</a></li>
-									<li><a href="submit-property.html">데이터베이스</a></li>
+									<li><a href="#">데이터 구매 · 구축</a></li>
+									<li><a href="#">데이터 마이닝 · 크롤링</a></li>
+									<li><a href="#">데이터 전처리</a></li>
+									<li><a href="#">데이터 라벨링</a></li>
+									<li><a href="#">데이터 분석 · 시각화</a></li>
+									<li><a href="#">인공지능 · 머신러닝</a></li>
+									<li><a href="#">데이터베이스</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>언리얼</h3>
 								<ul>
-									<li><a href="submit-property.html">2D · 3D 게임</a></li>
-									<li><a href="submit-property.html">AR · VR</a></li>
+									<li><a href="#">2D · 3D 게임</a></li>
+									<li><a href="#">AR · VR</a></li>
 								</ul>
 								<h3>기타</h3>
 								<ul>
-									<li><a href="submit-property.html">하드웨어 · 임베디드</a></li>
-									<li><a href="submit-property.html">보안</a></li>
-									<li><a href="submit-property.html">QA · 테스트</a></li>
-									<li><a href="submit-property.html">컴퓨터 기술지원</a></li>
-									<li><a href="submit-property.html">파일변환</a></li>
-									<li><a href="submit-property.html">기타</a></li>
+									<li><a href="#">하드웨어 · 임베디드</a></li>
+									<li><a href="#">보안</a></li>
+									<li><a href="#">QA · 테스트</a></li>
+									<li><a href="#">컴퓨터 기술지원</a></li>
+									<li><a href="#">파일변환</a></li>
+									<li><a href="#">기타</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -158,7 +158,7 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="single-banner"
-						OnClick="location.href ='http://www.naver.com'"
+						OnClick="location.href ='c1_UX.jsp'"
 						style="cursor: pointer;">
 						<img src="img/uximg.jpg" alt="">
 						<div class="inner-text">
