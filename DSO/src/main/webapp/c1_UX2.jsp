@@ -70,8 +70,8 @@
 							<li>
 								<h3>UX기획</h3>
 								<ul>
-									<li><a href="UX1.jsp">웹 · 모바일 기획</a></li>
-									<li><a href="UX2.jsp">프로그램 · 기타 기획</a></li>
+									<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
+									<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
 								</ul>
 								<h3>웹</h3>
 								<ul>
@@ -153,8 +153,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="UXpage.jsp"><i class="fa fa-home"></i> 전체</a>
-                        <span><a href="UXpage.jsp"><i class="fa"> </i>UX기획</a></span>                   
+                        <a href="c1_UX.jsp"><i class="fa fa-home"></i> 전체</a>
+                        <span><a href="c1_UX.jsp"><i class="fa"> </i>UX기획</a></span>                   
                         <span>프로그램 · 기타 기획</span>                        
                     </div>
                 </div>
@@ -172,8 +172,8 @@
         <div class="filter-widget" style="padding-top: 0px">
          <h4>UX기획</h4>
             <ul class="filter-catagories">
-				<li><a href="UX1.jsp">웹 · 모바일 기획</a></li>
-				<li><a href="UX2.jsp">프로그램 · 기타 기획</a></li>
+				<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
+				<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
            </ul>
         <BR>
         <h4>웹</h4>

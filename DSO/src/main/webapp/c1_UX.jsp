@@ -171,8 +171,8 @@
         <div class="filter-widget" style="padding-top: 0px">
          <h4>UX기획</h4>
             <ul class="filter-catagories">
-				<li><a href="UX1.jsp">웹 · 모바일 기획</a></li>
-				<li><a href="UX2.jsp">프로그램 · 기타 기획</a></li>
+				<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
+				<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
            </ul>
         <BR>
         <h4>웹</h4>
