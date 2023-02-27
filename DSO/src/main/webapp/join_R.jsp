@@ -9,12 +9,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-.loginbtnCR{
-	padding-left: 22%
-}
-</style>
-<title>개발자 인력 사무소</title>
+<title>전문가회원가입</title>
 
 <!-- Google Font -->
 <link
@@ -157,15 +152,14 @@
 		</div>
 	</header>
 	<!-- Header End -->
-
-	   <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Register</span>
                     </div>
                 </div>
             </div>
@@ -173,35 +167,81 @@
     </div>
     <!-- Breadcrumb Form Section Begin -->
 
-<%
-////loginM 키값이 지정되어있는 세션 값
-Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM"); 
-%>
-
-  <!-- Register Section Begin -->
+    <!-- Register Section Begin -->
     <div class="register-login-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="Client_Login_service" method="post">
-
-                            <div class=loginbtnCR>
-							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
-                            <button type="button"onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
+                    <div class="register-form">
+                        <h2>회원가입</h2>
+                        <form action="#">
+                            <div class="group-input">
+                                <label for="username">E-mail ID *</label>
+                                <input type="text" id="username">
                             </div>
+                            <div class="group-input">
+                                <label for="pass">비밀번호 *</label>
+                                <input type="text" id="pass">
+                            </div>
+                            <div class="group-input">
+                                <label for="con-pass">비밀번호 확인*</label>
+                                <input type="text" id="con-pass">
+                            </div>
+               				<div class="group-input">
+                                <label for="username">이름 *</label>
+                                <input type="text" id="username">
+                            </div>
+               				<div class="group-input">
+                                <label for="job">직업 &nbsp;&nbsp;
+	                                <select style="width:235px;" name="직업" id="job">
+					                    <option value="">직업선택</option>
+					                    <option value="j1"> 선택안함 </option>
+					                    <option value="j1"> 백수 </option>
+					                    <option value="j2"> 직장인 </option>
+					                    <option value="j3">학생 </option>	
+									</select>
+								</label>
+							</div>
+							<div class="group-input">
+                                <label for="business">비지니스분야&nbsp;&nbsp; 
+								<select style="width:185px;" name="business field" id="business">
+				                    <option value="">비지니스 분야</option>
+				                    <option value="j1"> 선택안함 </option>
+				                    <option value="b1"> 웹사이트개선 버그수정 </option>
+				                    <option value="b2"> 모바일앱 신규제작 </option>
+				                    <option value="b3">모바일앱 개선 버그수정 </option>	
+				                    <option value="b4">프로그램개발 </option>	
+				                    <option value="b5">임베디드 시스템 </option>	
+				                    <option value="b6">데이터 사이언스 </option>	
+				                    <option value="b7">게임 언리얼 </option>	
+				                    <option value="b8">UX기획 </option>
+				                    <option value="b9">보안 </option>
+				                    <option value="b10">QA 테스트 </option>									
+				                    </select>
+				                </label>
+                            </div>
+ 							<div class="group-input">
+                                <label for="job">관심분야 &nbsp;&nbsp;
+								<select style="width:205px;" name="관심분야" id="business">
+				                    <option value="">관심분야</option>
+				                    <option value="j1"> 선택안함 </option>
+				                    <option value="f1"> 관심분야1 </option>
+				                    <option value="f2"> 관심분야2 </option>
+				                    <option value="f3"> 관심분야3</option>	
+				                    <option value="f4"> 관심분야4</option>	
+								
+				                    </select>
+				                </label>
+                            </div>                           
+                            
+                            <button type="submit" class="site-btn login-btn" style="background-color: #1B9CFC">회원가입</button>
                         </form>
-                        <div class="switch-login">
-                            <a href="Join_1.jsp" class="or-login">회원가입</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Register Form Section End -->
-
 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">

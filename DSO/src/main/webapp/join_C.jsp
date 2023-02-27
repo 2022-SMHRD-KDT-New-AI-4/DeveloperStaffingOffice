@@ -9,7 +9,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>개발자 인력 사무소</title>
+<title>의뢰인회원가입</title>
 
 <!-- Google Font -->
 <link
@@ -183,10 +183,10 @@
                                 <label for="pass">비밀번호 *</label>
                                 <input type="text" id="pass">
                             </div>
-                            <div class="group-input">
+  <!--                           <div class="group-input">
                                 <label for="con-pass">비밀번호 확인*</label>
                                 <input type="text" id="con-pass">
-                            </div>
+                            </div> -->
                				<div class="group-input">
                                 <label for="username">이름 *</label>
                                 <input type="text" id="username">
@@ -234,7 +234,7 @@
 				                </label>
                             </div>                           
                             
-                            <button type="submit" class="site-btn login-btn">회원가입</button>
+                           <button class="site-btn login-btn" type="submit" >회원가입</button>
                         </form>
                     </div>
                 </div>
