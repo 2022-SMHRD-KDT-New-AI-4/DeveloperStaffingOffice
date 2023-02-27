@@ -185,13 +185,12 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
                 <div class="col-lg-6 offset-lg-3">
                     <div class="login-form">
                         <h2>Login</h2>
-                        <form action="Client_Login_service" method="post">
-
+                      
                             <div class=loginbtnCR>
 							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
                             <button type="button"onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
                             </div>
-                        </form>
+
                         <div class="switch-login">
                             <a href="Join_1.jsp" class="or-login">회원가입</a>
                         </div>

@@ -219,16 +219,16 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3-1">
 					<div class="footer-left">
 						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello.colorlib@gmail.com</li>
+							<li>Address: 광주광역시 동구 대의동 10-1</li>
+							<li>Phone: 010 - 9806 - 8112</li>
+							<li>Email: meenwookim@gmail.com</li>
 						</ul>
 					</div>
 				</div>
@@ -240,13 +240,7 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
 					<div class="col-lg-12">
 						<div class="copyright-text">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>
-								document.write(new Date().getFullYear());
-							</script>
-							All rights reserved | This template is made with <i
-								class="fa fa-heart-o" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
+							팀장 : 권선택 | 팀원 : 김민우 류슬기 김대윤 서언종 정현호
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</div>
 						<div class="payment-pic">

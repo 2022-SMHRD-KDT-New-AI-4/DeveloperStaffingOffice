@@ -1,3 +1,4 @@
+<%@page import="javax.security.auth.spi.LoginModule"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -9,10 +10,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-
-</style>
-<title>개발자 인력 사무소</title>
+<title>의뢰인정보수정</title>
 
 <!-- Google Font -->
 <link
@@ -155,15 +153,14 @@
 		</div>
 	</header>
 	<!-- Header End -->
-
-	   <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Register</span>
                     </div>
                 </div>
             </div>
@@ -171,48 +168,113 @@
     </div>
     <!-- Breadcrumb Form Section Begin -->
 
-	<%
-	////loginM 키값이 지정되어있는 세션 값
-	Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM"); 
-	%>
-
-  <!-- Register Section Begin -->
-   
+    <!-- Register Section Begin -->
     <div class="register-login-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="Client_Login_service" method="post">
+                    <div class="register-form">
+                        <h2>의뢰인 정보수정</h2>
+                        <form method="post" action="Client_regi	ster_service">
                             <div class="group-input">
-                                <label for="username"> Email 입력해주세요 *</label>
-                                <input type="text" id="c_id" name="c_id">
+                                <label for="username">E-mail ID  </label>  
+                                                                                
                             </div>
                             <div class="group-input">
-                                <label for="pass">비밀번호 입력해주세요 *</label>
-                                <input type="password" id="c_pw" name="c_pw">
+                                <label for="pass">비밀번호 *</label>
+                                <input type="password" id="pass" name="c_pw">
                             </div>
-                            <div class="group-input gi-check">
-                                <div class="gi-more">                             
-                                    <a href="#" class="forget-pass">Forget your Password</a>
-                                </div>
+                 			<!-- <div class="group-input">
+                                <label for="con-pass">비밀번호 확인*</label>
+                                <input type="text" id="con-pass">
+                            </div> -->
+               				<div class="group-input">
+                                <label for="username">이름 *</label>
+                                <input type="text" id="username" name="c_name">
                             </div>
-                            <div class=loginbtnCR>
-                            <button type="submit" class="site-btn login-btn">의뢰인로그인</button>
-                           
+               				<div class="group-input">
+                                <label for="job">직업 &nbsp;&nbsp;
+	                                <select style="width:235px;"  id="job" name="c_job">
+					                    
+					                    <option value="j1"> 선택안함 </option>
+					                    <option value="j1"> 백수 </option>
+					                    <option value="j2"> 직장인 </option>
+					                    <option value="j3">학생 </option>	
+									</select>
+								</label>
+							</div>
+							<div class="group-input">
+                                <label for="business">비지니스분야&nbsp;&nbsp; 
+									<select style="width:185px;" id="c_businesslist" name="c_business"">						                    
+						  				<option >선택해주세요</option>
+						  				<option >UX기획</option>
+						  				<option >웹</option>
+						  				<option >커머스</option>
+						  				<option >모바일</option>
+						  				<option >프로그램</option>
+						  				<option >트랜드</option>
+						  				<option >데이터</option>
+						  				<option >언리얼</option>
+						  				<option >기타</option>
+						  			</select>
+				                </label>
                             </div>
+ 							<div class="group-input">
+                                <label for="job">관심분야 &nbsp;&nbsp;
+									<select style="width:205px;" id="c_interestlist" name="c_interest">
+				                    </select>
+				                </label>
+                            </div>                           
+                            
+                           <button class="site-btn login-btn" type="submit" >수정하기</button>
                         </form>
-                        <div class="switch-login">
-                            <a href="Join_1.jsp" class="or-login">회원가입</a>
-                        </div>
+                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+  	
+  $('#c_businesslist').change(function(){
+	  var data = $(this).val();
+	  console.log(data);
+	  var list;
+	  if(data=='UX기획'){
+		  list = ['선택해주세요','웹 · 모바일 기획', '프로그램 · 기타 기획'];
+	  }else if(data=='웹'){
+		  list = ['선택해주세요','홈페이지','랜딩페이지','프론트엔드 · 퍼블리싱','검색 최적화 · SEO','애널리틱스','홈페이지 수정 · 유지보수'];
+	  }else if(data=='커머스'){
+		  list = ['선택해주세요','쇼핑몰', '쇼핑몰 수정 · 유지보수'];
+	  }else if(data=='모바일'){
+		  list = ['선택해주세요','앱','앱 수정 · 유지보수'];
+	  }else if(data=='프로그램'){
+		  list = ['선택해주세요','비지니스 애플리케이션','PC · 웹 프로그램','백엔드 · 서버','봇 · 챗봇'];
+	  }else if(data=='트랜드'){
+		  list = ['선택해주세요','노코드 · 로우코드','메타버스','블록체인 · NFT'];
+	  }else if(data=='데이터'){
+		  list = ['선택해주세요','데이터 구매 · 구축','데이터 마이닝 · 크롤링','데이터 전처리','데이터 라벨링','데이터 분석 · 시각화','인공지능 · 머신러닝','데이터베이스'];
+	  }else if(data=='언리얼'){
+		  list = ['선택해주세요','2D · 3D게임','AR · VR'];
+	  }else if(data=='기타'){
+		  list = ['선택해주세요','하드웨어 · 임베디드','보안','QA · 테스트','컴퓨터 기술지원','파일변환','기타'];
+	  }
+	  
+	  var html = "";
+	  for(var i = 0; i < list.length; i++){
+		  html += "<option>";
+		  html += list[i];
+		  html += "</option>";
+	  }
+	  
+	  $('#c_interestlist').html(html);
+	  
+  });
+  
+  </script>
+  
+  
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Register Form Section End -->
-
 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
@@ -254,6 +316,20 @@
 		</div>
 	</footer>
 	<!-- Footer Section End -->
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
 
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>

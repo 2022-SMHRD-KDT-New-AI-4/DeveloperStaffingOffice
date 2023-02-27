@@ -177,24 +177,24 @@
                         <form action="#">
                             <div class="group-input">
                                 <label for="username">E-mail ID *</label>
-                                <input type="text" id="username">
+                                <input type="text" id="username" name="s_id">
                             </div>
                             <div class="group-input">
                                 <label for="pass">비밀번호 *</label>
-                                <input type="text" id="pass">
+                                <input type="text" id="pass" name="s_pw">
                             </div>
-                            <div class="group-input">
+           <!--                  <div class="group-input">
                                 <label for="con-pass">비밀번호 확인*</label>
                                 <input type="text" id="con-pass">
-                            </div>
+                            </div> -->
                				<div class="group-input">
                                 <label for="username">이름 *</label>
-                                <input type="text" id="username">
+                                <input type="text" id="username" name="s_name">
                             </div>
                				<div class="group-input">
                                 <label for="job">직업 &nbsp;&nbsp;
-	                                <select style="width:235px;" name="직업" id="job">
-					                    <option value="">직업선택</option>
+	                                <select style="width:235px;" name="s_job"  id="job">
+					                   
 					                    <option value="j1"> 선택안함 </option>
 					                    <option value="j1"> 백수 </option>
 					                    <option value="j2"> 직장인 </option>
@@ -204,38 +204,69 @@
 							</div>
 							<div class="group-input">
                                 <label for="business">비지니스분야&nbsp;&nbsp; 
-								<select style="width:185px;" name="business field" id="business">
-				                    <option value="">비지니스 분야</option>
-				                    <option value="j1"> 선택안함 </option>
-				                    <option value="b1"> 웹사이트개선 버그수정 </option>
-				                    <option value="b2"> 모바일앱 신규제작 </option>
-				                    <option value="b3">모바일앱 개선 버그수정 </option>	
-				                    <option value="b4">프로그램개발 </option>	
-				                    <option value="b5">임베디드 시스템 </option>	
-				                    <option value="b6">데이터 사이언스 </option>	
-				                    <option value="b7">게임 언리얼 </option>	
-				                    <option value="b8">UX기획 </option>
-				                    <option value="b9">보안 </option>
-				                    <option value="b10">QA 테스트 </option>									
+								<select style="width:185px;" id="s_businesslist" name="s_business">
+				                    	<option >선택해주세요</option>
+						  				<option >UX기획</option>
+						  				<option >웹</option>
+						  				<option >커머스</option>
+						  				<option >모바일</option>
+						  				<option >프로그램</option>
+						  				<option >트랜드</option>
+						  				<option >데이터</option>
+						  				<option >언리얼</option>
+						  				<option >기타</option>							
 				                    </select>
 				                </label>
                             </div>
  							<div class="group-input">
                                 <label for="job">관심분야 &nbsp;&nbsp;
-								<select style="width:205px;" name="관심분야" id="business">
-				                    <option value="">관심분야</option>
-				                    <option value="j1"> 선택안함 </option>
-				                    <option value="f1"> 관심분야1 </option>
-				                    <option value="f2"> 관심분야2 </option>
-				                    <option value="f3"> 관심분야3</option>	
-				                    <option value="f4"> 관심분야4</option>	
-								
-				                    </select>
+								<select style="width:205px;" id="s_interestlist" name="s_interest">
+							
+				                </select>
 				                </label>
                             </div>                           
                             
                             <button type="submit" class="site-btn login-btn" style="background-color: #1B9CFC">회원가입</button>
                         </form>
+                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+  	
+  $('#s_businesslist').change(function(){
+	  var data = $(this).val();
+	  console.log(data);
+	  var list;
+	  if(data=='UX기획'){
+		  list = ['선택해주세요','웹 · 모바일 기획', '프로그램 · 기타 기획'];
+	  }else if(data=='웹'){
+		  list = ['선택해주세요','홈페이지','랜딩페이지','프론트엔드 · 퍼블리싱','검색 최적화 · SEO','애널리틱스','홈페이지 수정 · 유지보수'];
+	  }else if(data=='커머스'){
+		  list = ['선택해주세요','쇼핑몰', '쇼핑몰 수정 · 유지보수'];
+	  }else if(data=='모바일'){
+		  list = ['선택해주세요','앱','앱 수정 · 유지보수'];
+	  }else if(data=='프로그램'){
+		  list = ['선택해주세요','비지니스 애플리케이션','PC · 웹 프로그램','백엔드 · 서버','봇 · 챗봇'];
+	  }else if(data=='트랜드'){
+		  list = ['선택해주세요','노코드 · 로우코드','메타버스','블록체인 · NFT'];
+	  }else if(data=='데이터'){
+		  list = ['선택해주세요','데이터 구매 · 구축','데이터 마이닝 · 크롤링','데이터 전처리','데이터 라벨링','데이터 분석 · 시각화','인공지능 · 머신러닝','데이터베이스'];
+	  }else if(data=='언리얼'){
+		  list = ['선택해주세요','2D · 3D게임','AR · VR'];
+	  }else if(data=='기타'){
+		  list = ['선택해주세요','하드웨어 · 임베디드','보안','QA · 테스트','컴퓨터 기술지원','파일변환','기타'];
+	  }
+	  
+	  var html = "";
+	  for(var i = 0; i < list.length; i++){
+		  html += "<option>";
+		  html += list[i];
+		  html += "</option>";
+	  }
+	  
+	  $('#s_interestlist').html(html);
+	  
+  });
+  
+  </script>
                     </div>
                 </div>
             </div>
@@ -250,16 +281,16 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3-1">
 					<div class="footer-left">
 						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello.colorlib@gmail.com</li>
+							<li>Address: 광주광역시 동구 대의동 10-1</li>
+							<li>Phone: 010 - 9806 - 8112</li>
+							<li>Email: meenwookim@gmail.com</li>
 						</ul>
 					</div>
 				</div>
@@ -271,13 +302,7 @@
 					<div class="col-lg-12">
 						<div class="copyright-text">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>
-								document.write(new Date().getFullYear());
-							</script>
-							All rights reserved | This template is made with <i
-								class="fa fa-heart-o" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
+							팀장 : 권선택 | 팀원 : 김민우 류슬기 김대윤 서언종 정현호
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</div>
 						<div class="payment-pic">
