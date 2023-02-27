@@ -50,7 +50,7 @@
 						<div class="advanced-search">
 							<div class="input-group">
 								<input type="text" placeholder="검색어를 입력해주세요">
-								<button type="button">
+								<button type="button" OnClick="location.href ='search_result.jsp'">
 									<i class="ti-search"></i>
 								</button>
 							</div>

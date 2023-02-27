@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>UX_1</title>
+<title>UX 기획</title>
 
 <!-- Google Font -->
 <link
@@ -140,9 +140,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span><a
-							href="c1_UX.jsp"><i class="fa"> </i>UX 기획</a> <span>웹 ·
-								모바일 기획</span>
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span>검색결과 : 검색내용</span>
 					</div>
 				</div>
 			</div>
@@ -379,6 +377,8 @@
 		</div>
 	</section>
 	<!-- Product Shop Section End -->
+
+
 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
