@@ -234,7 +234,7 @@
 				                </label>
                             </div>                           
                             
-                            <button type="submit" class="site-btn login-btn">로그인</button>
+                            <button type="submit" class="site-btn login-btn">회원가입</button>
                         </form>
                     </div>
                 </div>

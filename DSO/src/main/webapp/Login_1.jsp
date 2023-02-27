@@ -9,6 +9,11 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style type="text/css">
+.loginbtnCR{
+	padding-left: 20%
+}
+</style>
 <title>개발자 인력 사무소</title>
 
 <!-- Google Font -->
@@ -194,10 +199,13 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
                                     <a href="#" class="forget-pass">Forget your Password</a>
                                 </div>
                             </div>
-                            <button type="submit" class="site-btn login-btn">로그인</button>
+                            <div class=loginbtnCR>
+                            <button type="submit" class="site-btn ">의뢰인로그인</button>
+                            <button type="submit" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>
+                            </div>
                         </form>
                         <div class="switch-login">
-                            <a href="./register.html" class="or-login">회원가입</a>
+                            <a href="join_1.jsp" class="or-login">회원가입</a>
                         </div>
                     </div>
                 </div>

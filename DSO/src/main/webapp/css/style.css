@@ -199,7 +199,7 @@ ol {
 .site-btn {
 	color: #ffffff;
 	background: #EAB543;
-	border: 1px solid #EAB543;
+	border: 1px solid;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
