@@ -42,7 +42,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./index.jsp"> <img src="img/dsologoc.png" alt="">
+							<a href="./Main.jsp"> <img src="img/dsologoc.png" alt="">
 							</a>
 						</div>
 					</div>

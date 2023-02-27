@@ -1,6 +1,11 @@
 <%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+    <!-- 예시 / 수정 필요 -->
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
