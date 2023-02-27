@@ -391,7 +391,7 @@ ol {
 .header-top .ht-right {
 	position:absolute;
 	top: 59px;
-	right: 385px;
+	right: 185px;
 }
 
 .header-top .ht-right .login-panel {
@@ -429,8 +429,17 @@ ol {
 	margin-left: 15px;
 }
 
+body > header > div.container {
+	width: 1770px;
+}
+
 .inner-header {
 	padding: 39px 0;
+	width: 1770px;
+}
+
+body > header > div.container > div > div.row {
+	width: 1770px;
 }
 
 body > header > div.container > div > div > div.col-lg-7.col-md-7 {
@@ -3966,7 +3975,7 @@ body > section > div > div > div.col-lg-9.order-1.order-lg-2 {
 
 @media only screen and (min-width: 1200px) {
 	.container {
-		max-width: 1170px;
+		max-width: 1470px;
 	}
 }
 
