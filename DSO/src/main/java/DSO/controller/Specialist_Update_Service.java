@@ -32,7 +32,7 @@ public class Specialist_Update_Service extends HttpServlet {
 		String s_interest = request.getParameter("s_interest");
 		
 		Specialist_register_VO vo = new Specialist_register_VO(s_id, s_pw, s_name, s_job, s_business, s_interest);
-		// System.out.println(vo.toString());
+		
 		Specialist_register_DAO dao = new Specialist_register_DAO();
 		
 		int cnt = dao.specialistupdate(vo);
@@ -40,8 +40,6 @@ public class Specialist_Update_Service extends HttpServlet {
 		if(cnt > 0 ) {
 			System.out.println("회원정보 수정 성공!");
 			HttpSession session = request.getSession();
-			//session 값의 수정하는 메서드 자체 존재X
-			//새로 세션을 생성
 			session.setAttribute("loginM", vo);
 			//main 이동
 			response.sendRedirect("#");

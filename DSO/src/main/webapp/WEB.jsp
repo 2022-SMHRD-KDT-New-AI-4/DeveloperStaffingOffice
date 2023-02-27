@@ -165,7 +165,9 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="#"><i class="fa fa-home"></i> 전체</a>
-                        <span>웹</span>
+                        <span><a href="#"><i class="fa"> </i>웹 · 모바일 기획</a></span>
+                        
+                        <span>프로그램 · 기타 기획</span>
                     </div>
                 </div>
             </div>
