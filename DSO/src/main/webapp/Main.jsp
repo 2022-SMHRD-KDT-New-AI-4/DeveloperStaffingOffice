@@ -71,6 +71,7 @@
 			<div class="container">
 				<div class="nav-depart">
 					<div class="depart-btn">
+					<!-- 카테고리 바 -->
 						<i class="ti-menu"></i> <span>전체 카테고리</span>
 						<ul class="depart-hover">
 							<li>

@@ -48,7 +48,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./Main.jsp"> <img src="img/dsologoc.png" alt="">
+							<a href="./Main.jsp"> <img src="img/logo/dsologoc.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -226,26 +226,21 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div>
-								<img class="product-big-img"
-									src="img/pl1.png" alt="">
+								<img class="product-big-img" src="img/pl/pl1.png" alt="">
 							</div>
 							<div class="product-thumbs">
 								<div class="product-thumbs-track ps-slider owl-carousel">
-									<div class="pt active"
-										data-imgbigurl="img/pl1.png">
-										<img src="img/pl1.png" alt="">
+									<div class="pt active" data-imgbigurl="img/pl/pl1.png">
+										<img src="img/pl/pl1.png" alt="">
 									</div>
-									<div class="pt"
-										data-imgbigurl="img/pl2.png">
-										<img src="img/pl2.png" alt="">
+									<div class="pt" data-imgbigurl="img/pl/pl2.png">
+										<img src="img/pl/pl2.png" alt="">
 									</div>
-									<div class="pt"
-										data-imgbigurl="img/pl3.png">
-										<img src="img/pl3.png" alt="">
+									<div class="pt" data-imgbigurl="img/pl/pl3.png">
+										<img src="img/pl/pl3.png" alt="">
 									</div>
-									<div class="pt"
-										data-imgbigurl="img/pl4.png">
-										<img src="img/pl4.png" alt="">
+									<div class="pt" data-imgbigurl="img/pl/pl4.png">
+										<img src="img/pl/pl4.png" alt="">
 									</div>
 								</div>
 							</div>
@@ -269,20 +264,11 @@
 									</h4>
 								</div>
 								<div class="quantity">
-									<a href="#" class="primary-btn pd-cart">전문가와 대화</a>
+									<a href= "http://www.naver.com" class="primary-btn pd-cart">전문가와 대화</a>
 								</div>
 								<ul class="pd-tags">
-									<li><span>CATEGORIES</span>: More Accessories, Wallets &
-										Cases</li>
-									<li><span>TAGS</span>: Clothing, T-shirt, Woman</li>
+									<li><span>카테고리</span>: UX 기획</li>
 								</ul>
-								<div class="pd-share">
-									<div class="pd-social">
-										<a href="#"><i class="ti-facebook"></i></a> <a href="#"><i
-											class="ti-twitter-alt"></i></a> <a href="#"><i
-											class="ti-linkedin"></i></a>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -290,95 +276,91 @@
 						<div class="tab-item">
 							<ul class="nav" role="tablist">
 								<li><a class="active" data-toggle="tab" href="#tab-1"
-									role="tab">DESCRIPTION</a></li>
-								<li><a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
-								</li>
-								<li><a data-toggle="tab" href="#tab-3" role="tab">Customer
-										Reviews (02)</a></li>
+									role="tab">포트폴리오</a></li>
+								<li><a data-toggle="tab" href="#tab-2" role="tab">서비스
+										설명 및 의뢰인 준비사항</a></li>
+								<li><a data-toggle="tab" href="#tab-3" role="tab">리뷰</a></li>
 							</ul>
 						</div>
 						<div class="tab-item-content">
 							<div class="tab-content">
 								<div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
+									<!-- 포트폴리오 탭 -->
 									<div class="product-content">
 										<div class="row">
-											<div class="col-lg-7">
-												<h5>Introduction</h5>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit, sed do eiusmod tempor incididunt ut labore et dolore
-													magna aliqua. Ut enim ad minim veniam, quis nostrud
-													exercitation ullamco laboris nisi ut aliquip ex ea commodo
-													consequat. Duis aute irure dolor in</p>
-												<h5>Features</h5>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit, sed do eiusmod tempor incididunt ut labore et dolore
-													magna aliqua. Ut enim ad minim veniam, quis nostrud
-													exercitation ullamco laboris nisi ut aliquip ex ea commodo
-													consequat. Duis aute irure dolor in</p>
+											<div class="col-lg-5">
+												<a href="http://www.naver.com"><img src="img/pt/pt1.jpg"
+													alt=""></a>
+												<h5 style='text-align: center'>
+													<br>포트폴리오 1
+												</h5>
 											</div>
 											<div class="col-lg-5">
-												<img src="img/product-single/tab-desc.jpg" alt="">
+												<a href="http://www.naver.com"><img src="img/pt/pt2.jpg"
+													alt=""></a>
+												<h5 style='text-align: center'>
+													<br>포트폴리오 2
+												</h5>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane fade" id="tab-2" role="tabpanel">
+									<!-- 서비스 설명 및 의뢰인 준비사항 탭-->
 									<div class="specification-table">
-										<table>
-											<tr>
-												<td class="p-catagory">Customer Rating</td>
-												<td>
-													<div class="pd-rating">
-														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star-o"></i> <span>(5)</span>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Price</td>
-												<td>
-													<div class="p-price">$495.00</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Add To Cart</td>
-												<td>
-													<div class="cart-add">+ add to cart</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Availability</td>
-												<td>
-													<div class="p-stock">22 in stock</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Weight</td>
-												<td>
-													<div class="p-weight">1,3kg</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Size</td>
-												<td>
-													<div class="p-size">Xxl</div>
-												</td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Color</td>
-												<td><span class="cs-color"></span></td>
-											</tr>
-											<tr>
-												<td class="p-catagory">Sku</td>
-												<td>
-													<div class="p-code">00012</div>
-												</td>
-											</tr>
-										</table>
+										<div class="col-lg-7">
+											<h5>서비스 설명</h5>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in 
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in</p>
+											<h5>의뢰인 준비사항</h5>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in</p>
+										</div>
 									</div>
 								</div>
 								<div class="tab-pane fade" id="tab-3" role="tabpanel">
+								<!-- 리뷰 탭 -->
 									<div class="customer-review-option">
 										<h4>2 Comments</h4>
 										<div class="comment-option">
@@ -395,7 +377,7 @@
 													<h5>
 														Brandon Kelley <span>27 Aug 2019</span>
 													</h5>
-													<div class="at-reply">Nice !</div>
+													<div class="at-reply">Good !</div>
 												</div>
 											</div>
 											<div class="co-item">
@@ -415,32 +397,6 @@
 												</div>
 											</div>
 										</div>
-										<div class="personal-rating">
-											<h6>Your Ratind</h6>
-											<div class="rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star-o"></i>
-											</div>
-										</div>
-										<div class="leave-comment">
-											<h4>Leave A Comment</h4>
-											<form action="#" class="comment-form">
-												<div class="row">
-													<div class="col-lg-6">
-														<input type="text" placeholder="Name">
-													</div>
-													<div class="col-lg-6">
-														<input type="text" placeholder="Email">
-													</div>
-													<div class="col-lg-12">
-														<textarea placeholder="Messages"></textarea>
-														<button type="submit" class="site-btn">Send
-															message</button>
-													</div>
-												</div>
-											</form>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -459,7 +415,7 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
 						</div>
 					</div>
 				</div>

@@ -1780,7 +1780,7 @@ body > section > div > div > div.col-lg-9.order-1.order-lg-2 {
 }
 
 body > section > div > div > div.col-lg-9 {
-	margin-left: 50px;
+	margin-left: 80px;
 }
 
 .filter-widget {
@@ -2220,7 +2220,7 @@ body > section > div > div > div.col-lg-9 {
 	color: #252525;
 	font-size: 18px;
 	position: absolute;
-	right: 0;
+	right: 130px;
 	top: 0;
 }
 
@@ -2423,7 +2423,7 @@ body > section > div > div > div.col-lg-9 {
 }
 
 .product-tab {
-	padding-top: 60px;
+	padding-top: 30px;
 }
 
 .tab-item ul li:nth-child(1) a {
