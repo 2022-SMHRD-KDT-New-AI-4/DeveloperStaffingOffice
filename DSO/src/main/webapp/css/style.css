@@ -1779,6 +1779,10 @@ body > section > div > div > div.col-lg-9.order-1.order-lg-2 {
 	margin-left: 50px;
 }
 
+body > section > div > div > div.col-lg-9 {
+	margin-left: 50px;
+}
+
 .filter-widget {
 	margin-bottom: 45px;
 }

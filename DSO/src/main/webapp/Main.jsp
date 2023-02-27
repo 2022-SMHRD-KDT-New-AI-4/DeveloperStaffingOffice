@@ -47,7 +47,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./Main.jsp"> <img src="img/dsologoc.png" alt="">
+							<a href="./Main.jsp"> <img src="img/logo/dsologoc.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='c1_UX.jsp'"
 						style="cursor: pointer;">
-						<img src="img/uximg.jpg" alt="">
+						<img src="img/category/uximg.jpg" alt="">
 						<div class="inner-text">
 							<h4>UX 기획</h4>
 						</div>
@@ -170,7 +170,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/webimg.jpg" alt="">
+						<img src="img/category/webimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>웹</h4>
 						</div>
@@ -180,7 +180,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/commimg.png" alt="">
+						<img src="img/category/commimg.png" alt="">
 						<div class="inner-text">
 							<h4>커머스</h4>
 						</div>
@@ -192,7 +192,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/mobimg.jpg" alt="">
+						<img src="img/category/mobimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>모바일</h4>
 						</div>
@@ -202,7 +202,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/progimg.jpg" alt="">
+						<img src="img/category/progimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>프로그램</h4>
 						</div>
@@ -212,7 +212,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/trendimg.jpg" alt="">
+						<img src="img/category/trendimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>트랜드</h4>
 						</div>
@@ -224,7 +224,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/dataimg.jpg" alt="">
+						<img src="img/category/dataimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>데이터</h4>
 						</div>
@@ -234,7 +234,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/unrimg.jpg" alt="">
+						<img src="img/category/unrimg.jpg" alt="">
 						<div class="inner-text">
 							<h4>언리얼</h4>
 						</div>
@@ -244,7 +244,7 @@
 					<div class="single-banner"
 						OnClick="location.href ='http://www.naver.com'"
 						style="cursor: pointer;">
-						<img src="img/etcimg.png" alt="">
+						<img src="img/category/etcimg.png" alt="">
 						<div class="inner-text">
 							<h4>기타</h4>
 						</div>
@@ -263,7 +263,7 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
 						</div>
 					</div>
 				</div>
