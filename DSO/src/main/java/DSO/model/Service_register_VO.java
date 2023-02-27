@@ -1,5 +1,7 @@
 package DSO.model;
 
+import java.util.ArrayList;
+
 // 상품 게시물 등록 VO
 public class Service_register_VO {
 //	private int service_seq;
