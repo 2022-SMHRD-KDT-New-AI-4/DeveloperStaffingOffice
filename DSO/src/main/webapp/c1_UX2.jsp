@@ -50,7 +50,7 @@
 						<div class="advanced-search">
 							<div class="input-group">
 								<input type="text" placeholder="검색어를 입력해주세요">
-								<button type="button">
+								<button type="button" OnClick="location.href ='search_result.jsp'">
 									<i class="ti-search"></i>
 								</button>
 							</div>
@@ -65,79 +65,67 @@
 				<div class="nav-depart">
 					<div class="depart-btn">
 						<i class="ti-menu"></i> <span>전체 카테고리</span>
+						<!-- 카테고리 바 -->
 						<ul class="depart-hover">
-							<li>
-								<h3>UX 기획</h3>
+							<li><a href="c1_UX.jsp"><h3>UX 기획</h3></a>
 								<ul>
 									<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 									<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
-								</ul>
-								<h3>웹</h3>
+								</ul> <a href="c2_Web.jsp"><h3>웹</h3></a>
 								<ul>
-									<li><a href="WEB1.jsp">홈페이지 </a></li>
-									<li><a href="WEB2.jsp">랜딩페이지</a></li>
-									<li><a href="WEB3.jsp">프론트엔드 · 퍼블리싱</a></li>
-									<li><a href="WEB4.jsp">검색 최적화 · SEO</a></li>
-									<li><a href="WEB5.jsp">애널리틱스</a></li>
-									<li><a href="WEb6.jsp">홈페이지 수정 · 유지보수</a></li>
-								</ul>
-							</li>
-							<li>
-								<h3>커머스</h3>
+									<li><a href="c2_Web.jsp">홈페이지 </a></li>
+									<li><a href="c2_Web.jsp">랜딩페이지</a></li>
+									<li><a href="c2_Web.jsp">프론트엔드 · 퍼블리싱</a></li>
+									<li><a href="c2_Web.jsp">검색 최적화 · SEO</a></li>
+									<li><a href="c2_Web.jsp">애널리틱스</a></li>
+									<li><a href="c2_Web.jsp">홈페이지 수정 · 유지보수</a></li>
+								</ul></li>
+							<li><a href="c3_Comm.jsp"><h3>커머스</h3></a>
 								<ul>
-									<li><a href="Commerce1">쇼핑몰</a></li>
-									<li><a href="Commerce2">쇼핑몰 수정 · 유지보수</a></li>
-								</ul>
-								<h3>모바일</h3>
+									<li><a href="c3_Comm.jsp">쇼핑몰</a></li>
+									<li><a href="c3_Comm.jsp">쇼핑몰 수정 · 유지보수</a></li>
+								</ul> <a href="c4_Mob.jsp"><h3>모바일</h3></a>
 								<ul>
-									<li><a href="mobile1.jsp">앱</a></li>
-									<li><a href="mobile2.jsp">앱 수정 · 유지보수</a></li>
-								</ul>
-							</li>
-							<li>
-								<h3>프로그램</h3>
+									<li><a href="c4_Mob.jsp">앱</a></li>
+									<li><a href="c4_Mob.jsp">앱 수정 · 유지보수</a></li>
+								</ul></li>
+							<li><a href="c5_Prog.jsp"><h3>프로그램</h3></a>
 								<ul>
-									<li><a href="program1.jsp">비지니스 애플리케이션</a></li>
-									<li><a href="program2.jsp">PC · 웹 프로그램</a></li>
-									<li><a href="program3.jsp">백엔드 · 서버</a></li>
-									<li><a href="program4.jsp">봇 · 챗봇</a></li>
-								</ul>
-								<h3>트랜드</h3>
+									<li><a href="c5_Prog.jsp">비지니스 애플리케이션</a></li>
+									<li><a href="c5_Prog.jsp">PC · 웹 프로그램</a></li>
+									<li><a href="c5_Prog.jsp">백엔드 · 서버</a></li>
+									<li><a href="c5_Prog.jsp">봇 · 챗봇</a></li>
+								</ul> <a href="c6_Trend.jsp"><h3>트랜드</h3></a>
 								<ul>
-									<li><a href="trend1.jsp">노코드 · 로우코드</a></li>
-									<li><a href="trend.jsp">메타버스</a></li>
-									<li><a href="trend3.jsp">블록체인 · NFT</a></li>
-								</ul>
-							</li>
-							<li>
-								<h3>데이터</h3>
+									<li><a href="c6_Trend.jsp">노코드 · 로우코드</a></li>
+									<li><a href="c6_Trend.jsp">메타버스</a></li>
+									<li><a href="c6_Trend.jsp">블록체인 · NFT</a></li>
+								</ul></li>
+							<li><a href="c7_Data.jsp"><h3>데이터</h3></a>
 								<ul>
-									<li><a href="data1.jsp">데이터 구매 · 구축</a></li>
-									<li><a href="data2.jsp">데이터 마이닝 · 크롤링</a></li>
-									<li><a href="data3.jsp">데이터 전처리</a></li>
-									<li><a href="data4.jsp">데이터 라벨링</a></li>
-									<li><a href="data5.jsp">데이터 분석 · 시각화</a></li>
-									<li><a href="data6.jsp">인공지능 · 머신러닝</a></li>
-									<li><a href="data7.jsp">데이터베이스</a></li>
-								</ul>
-							</li>
-							<li>
-								<h3>언리얼</h3>
+									<li><a href="c7_Data.jsp">데이터 구매 · 구축</a></li>
+									<li><a href="c7_Data.jsp">데이터 마이닝 · 크롤링</a></li>
+									<li><a href="c7_Data.jsp">데이터 전처리</a></li>
+									<li><a href="c7_Data.jsp">데이터 라벨링</a></li>
+									<li><a href="c7_Data.jsp">데이터 분석 · 시각화</a></li>
+									<li><a href="c7_Data.jsp">인공지능 · 머신러닝</a></li>
+									<li><a href="c7_Data.jsp">데이터베이스</a></li>
+								</ul></li>
+							<li><a href="c8_Unr.jsp"><h3>언리얼</h3></a>
 								<ul>
-									<li><a href="unreal1.jsp">2D · 3D 게임</a></li>
-									<li><a href="unreal2.jsp">AR · VR</a></li>
-								</ul>
-								<h3>기타</h3>
+									<li><a href="c8_Unr.jsp">2D · 3D 게임</a></li>
+									<li><a href="c8_Unr.jsp">AR · VR</a></li>
+								</ul> <a href="c9_ETC.jsp"><h3>기타</h3></a>
 								<ul>
-									<li><a href="etc1.jsp">하드웨어 · 임베디드</a></li>
-									<li><a href="etc2.jsp">보안</a></li>
-									<li><a href="etc3.jsp">QA · 테스트</a></li>
-									<li><a href="etc4.jsp">컴퓨터 기술지원</a></li>
-									<li><a href="etc5.jsp">파일변환</a></li>
-									<li><a href="etc6.jsp">기타</a></li>
-								</ul>
-							</li>
+									<li><a href="c9_ETC.jsp">하드웨어 · 임베디드</a></li>
+									<li><a href="c9_ETC.jsp">보안</a></li>
+									<li><a href="c9_ETC.jsp">QA · 테스트</a></li>
+									<li><a href="c9_ETC.jsp">컴퓨터 기술지원</a></li>
+									<li><a href="c9_ETC.jsp">파일변환</a></li>
+									<li><a href="c9_ETC.jsp">기타</a></li>
+								</ul></li>
 						</ul>
+						<!-- 카테고리바 끝 -->
 					</div>
 				</div>
 			</div>
@@ -163,74 +151,80 @@
 	<!-- Breadcrumb Section Begin -->
 
 	<!-- Product Shop Section Begin -->
-	<!-- 왼쪽 카테고리바 -->
 	<section class="product-shop spad">
 		<div class="container">
 			<div class="row">
 
+				<!-- 왼쪽 카테고리바 -->
 				<div class="filter-widget" style="padding-top: 0px">
-					<h4>UX 기획</h4>
+					<a href="c1_UX.jsp"><h4>UX 기획</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 						<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
 					</ul>
 					<BR>
-					<h4>웹</h4>
+					<a href="c2_Web.jsp"><h4>웹</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="WEB1.jsp">홈페이지 </a></li>
-						<li><a href="WEB1.jsp">랜딩페이지</a></li>
-						<li><a href="WEB2.jsp">프론트엔드 · 퍼블리싱</a></li>
-						<li><a href="WEB3.jsp">검색 최적화 · SEO</a></li>
-						<li><a href="WEB4.jsp">애널리틱스</a></li>
-						<li><a href="WEB5.jsp">홈페이지 수정 · 유지보수</a></li>
+						<li><a href="c2_Web.jsp">홈페이지 </a></li>
+						<li><a href="c2_Web.jsp">랜딩페이지</a></li>
+						<li><a href="c2_Web.jsp">프론트엔드 · 퍼블리싱</a></li>
+						<li><a href="c2_Web.jsp">검색 최적화 · SEO</a></li>
+						<li><a href="c2_Web.jsp">애널리틱스</a></li>
+						<li><a href="c2_Web.jsp">홈페이지 수정 · 유지보수</a></li>
 					</ul>
 					<BR>
-					<h4>커머스</h4>
+					<a href="c3_Comm.jsp"><h4>커머스</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="property-1.html">쇼핑몰</a></li>
-						<li><a href="property-2.html">쇼핑몰 수정 · 유지보수</a></li>
+						<li><a href="c3_Comm.jsp">쇼핑몰</a></li>
+						<li><a href="c3_Comm.jsp">쇼핑몰 수정 · 유지보수</a></li>
 					</ul>
 					<BR>
-					<h4>프로그램</h4>
+					<a href="c4_Mob.jsp"><h4>모바일</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="submit-property.html">비지니스 애플리케이션</a></li>
-						<li><a href="submit-property.html">PC · 웹 프로그램</a></li>
-						<li><a href="submit-property.html">백엔드 · 서버</a></li>
-						<li><a href="submit-property.html">봇 · 챗봇</a></li>
+						<li><a href="c4_Mob.jsp">앱</a></li>
+						<li><a href="c4_Mob.jsp">앱 수정 · 유지보수</a></li>
 					</ul>
 					<BR>
-					<h4>트랜드</h4>
+					<a href="c5_Prog.jsp"><h4>프로그램</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="submit-property.html">노코드 · 로우코드</a></li>
-						<li><a href="submit-property.html">메타버스</a></li>
-						<li><a href="submit-property.html">블록체인 · NFT</a></li>
+						<li><a href="c5_Prog.jsp">비지니스 애플리케이션</a></li>
+						<li><a href="c5_Prog.jsp">PC · 웹 프로그램</a></li>
+						<li><a href="c5_Prog.jsp">백엔드 · 서버</a></li>
+						<li><a href="c5_Prog.jsp">봇 · 챗봇</a></li>
 					</ul>
 					<BR>
-					<h4>데이터</h4>
+					<a href="c6_Trend.jsp"><h4>트랜드</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="submit-property.html">데이터 구매 · 구축</a></li>
-						<li><a href="submit-property.html">데이터 마이닝 · 크롤링</a></li>
-						<li><a href="submit-property.html">데이터 전처리</a></li>
-						<li><a href="submit-property.html">데이터 라벨링</a></li>
-						<li><a href="submit-property.html">데이터 분석 · 시각화</a></li>
-						<li><a href="submit-property.html">인공지능 · 머신러닝</a></li>
-						<li><a href="submit-property.html">데이터베이스</a></li>
+						<li><a href="c6_Trend.jsp">노코드 · 로우코드</a></li>
+						<li><a href="c6_Trend.jsp">메타버스</a></li>
+						<li><a href="c6_Trend.jsp">블록체인 · NFT</a></li>
 					</ul>
 					<BR>
-					<h4>언리얼</h4>
+					<a href="c7_Data.jsp"><h4>데이터</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="submit-property.html">2D · 3D 게임</a></li>
-						<li><a href="submit-property.html">AR · VR</a></li>
+						<li><a href="c7_Data.jsp">데이터 구매 · 구축</a></li>
+						<li><a href="c7_Data.jsp">데이터 마이닝 · 크롤링</a></li>
+						<li><a href="c7_Data.jsp">데이터 전처리</a></li>
+						<li><a href="c7_Data.jsp">데이터 라벨링</a></li>
+						<li><a href="c7_Data.jsp">데이터 분석 · 시각화</a></li>
+						<li><a href="c7_Data.jsp">인공지능 · 머신러닝</a></li>
+						<li><a href="c7_Data.jsp">데이터베이스</a></li>
 					</ul>
 					<BR>
-					<h4>기타</h4>
+					<a href="c8_Unr.jsp"><h4>언리얼</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="submit-property.html">하드웨어 · 임베디드</a></li>
-						<li><a href="submit-property.html">보안</a></li>
-						<li><a href="submit-property.html">QA · 테스트</a></li>
-						<li><a href="submit-property.html">컴퓨터 기술지원</a></li>
-						<li><a href="submit-property.html">파일변환</a></li>
-						<li><a href="submit-property.html">기타</a></li>
+						<li><a href="c8_Unr.jsp">2D · 3D 게임</a></li>
+						<li><a href="c8_Unr.jsp">AR · VR</a></li>
+					</ul>
+					<BR>
+					<a href="c9_ETC.jsp"><h4>기타</h4></a>
+					<ul class="filter-catagories">
+						<li><a href="c9_ETC.jsp">하드웨어 · 임베디드</a></li>
+						<li><a href="c9_ETC.jsp">보안</a></li>
+						<li><a href="c9_ETC.jsp">QA · 테스트</a></li>
+						<li><a href="c9_ETC.jsp">컴퓨터 기술지원</a></li>
+						<li><a href="c9_ETC.jsp">파일변환</a></li>
+						<li><a href="c9_ETC.jsp">기타</a></li>
 					</ul>
 				</div>
 				<!-- 왼쪽 카테고리바 끝 -->
@@ -257,9 +251,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -279,9 +273,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -301,9 +295,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -323,9 +317,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -345,9 +339,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
@@ -367,9 +361,9 @@
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
+										<div class="catagory-name">UX 기획(카테고리명)</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
+											<h4>UX 기획(상품 제목)</h4>
 										</a>
 										<div class="product-price">1,000 원</div>
 									</div>
