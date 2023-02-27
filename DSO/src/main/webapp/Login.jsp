@@ -22,7 +22,7 @@
 	Client_register_VO loginM = (Client_register_VO)session.getAttribute("loginM");
 %>
   
-    <form method="post" action="Client_Login_service">
+    <form method="post" action="#">
   	<table border="1px">
   	<tr>
   	<td colspan="2" style = "text-align : center;">
