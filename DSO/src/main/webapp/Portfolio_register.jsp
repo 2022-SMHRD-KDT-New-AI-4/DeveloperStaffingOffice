@@ -27,7 +27,7 @@
 <form action="#" method="post">
 	<button type="submit">업로드</button>
 </form>
-<div id="Portfolio_List" style="width: 1000px; height: 1000px;">
+<div id="Portfolio_List" style="width: 1000px; height: 500px;">
 
 </div>
 

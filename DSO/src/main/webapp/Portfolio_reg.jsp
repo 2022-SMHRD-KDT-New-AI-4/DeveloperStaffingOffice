@@ -10,16 +10,87 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>포트폴리오 등록하기</title>
 <style type="text/css">
-#wrap {
+#wrap,#reg {
 	width: 100%;
-	height: 100%;
+}
+
+#wrap {
+	margin-bottom: 30px;
 }
 
 #wrap .container-port {
-	width: 600px;
+	width: 450px;
 	height: 600px;
 	margin: 50px auto;
 }
+
+#reg {
+	margin-top: 80px;
+	width: 450px;
+}
+
+.ptregbtn {
+	background-color: #ffffff;
+    padding: 0px 0px;
+    border-width: 0px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    display:block; 
+    margin: auto;
+}
+
+.ptregbtn:before {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #EAB543;
+    content: "";
+}
+
+.ptregbtn:hover {
+	color: #EAB543;
+}
+
+#regbtn {
+	left: 85px;
+	bottom: 27px;
+}
+
+#canbtn{
+	left: -75px;
+	
+}
+
+#Portfolio_List{
+	padding-top : 30px;
+	padding-left : 25px;
+	width: 450px; 
+	height: 250px;
+}
+
+#Portfolio_List img {
+}
+
+.container-port>h1 {
+	position: relative;
+}
+
+.container-port>h1:before {
+	position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #EAB543;
+    content: "";
+}
+
 </style>
 
 <!-- Google Font -->
@@ -155,24 +226,23 @@
 	<!-- 내용 -->
 	<div id="wrap">
 		<div class="container-port">
-			<h1>𝑃𝑂𝑅𝑇𝐹𝑂𝐿𝐼𝑂 𝑅𝐸𝐺𝐼𝑆𝑇𝐸𝑅</h1>
+			<h1 style="text-align: center;">포트폴리오 등록</h1>
+			<br>
+			<div id="Portfolio_List" >
+			</div>
 			<form id="portfolio-form" enctype="multipart/form-data">
-				<div>
+				<div style="margin-top: 5px; margin-left: 150px;">
 					<input type="file" name="pf_img1" id="pf_img1">
 					<!-- 업로드 이미지 타입이 파일이면 배열로 취급, name = 받아올 파일 , id = 제이쿼리내에서 접근 -->
 					<!--    <input type="text" name="s_id" placeholder="아이디를 입력하세요."> -->
-					<button type="submit" style="margin-left: 25px;">포트폴리오 등록</button>
-					<a href="#"><img
-						style="width: 100px; height: 100px; margin-left: 100px;"
-						src='./DSO Image/뒤로가기.png'></a>
+				</div>
+				<div id="reg">
+					<div style="float: left; width: 100%;">
+						<button id="canbtn" class="ptregbtn" type="reset">초기화</button>
+						<button id="regbtn" class="ptregbtn" type="submit">등록하기</button>
+					</div>
 				</div>
 			</form>
-			<br>
-			<form action="#" method="post">
-				<button type="submit">업로드</button>
-			</form>
-			<div id="Portfolio_List" style="width: 1000px; height: 1000px;">
-			</div>
 		</div>
 	</div>
 
@@ -239,7 +309,6 @@
 		function photoList(data) {
 			//alert(data);
 			let tmp = "";
-			tmp += "<br><h2>𝐷𝑒𝑣𝑒𝑙𝑜𝑝𝑒𝑟 𝑆𝑡𝑎𝑓𝑓𝑖𝑛𝑔 𝑂𝑓𝑓𝑖𝑐𝑒</h2><br>";
 			$
 					.each(
 							data,
