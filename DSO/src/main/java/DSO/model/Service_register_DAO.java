@@ -27,6 +27,14 @@ public class Service_register_DAO {
 		session.close(); 
 		return cnt;
 	}
+
+
+	public int serviceupdate(Service_register_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("serviceupdat",vo);
+		session.close();
+		return cnt;
+	}
 	
 	
 }
