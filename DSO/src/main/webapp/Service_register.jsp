@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +8,41 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style type="text/css">
+<<<<<<< HEAD
+td#td {
+	text-align: center;
+}
+
+table {
+	margin: auto;
+}
+
+#service_title {
+	width: 816px;
+	height: 27px;
+	border: none;
+}
+
+#service_price {
+	width: 816px;
+	height: 27px;
+	border: none;
+}
+
+#service_category {
+	width: 823px;
+	height: 27px;
+	border: none;
+}
+
+#service_desc {
+	border: none;
+}
+
+#service_requisite {
+	border: none;
+}
+=======
 	#title{
 		text-align:center;
 	}
@@ -52,9 +87,50 @@
 		width:100%;
 		font-size:18px;
 	}
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 </style>
 </head>
 <body>
+<<<<<<< HEAD
+	<form method="post" action="Service_register_service">
+		<table border="1px">
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<h1>서비스 등록</h1>
+				</td>
+			</tr>
+			<!-- <label for="img"> 서비스 이미지:</label> -->
+			<tr>
+				<td id="td">
+					<div>이미지</div>
+					<form id="service_img_form" enctype="multipart/form-data">
+						<div>
+							<input type="file" name="service_img" id="service_img">
+							<button type="submit" style="margin-left: 25px;">이미지 등록</button>
+							<a href="#"><img
+								style="width: 80px; height: 50px; align-items: center;"
+								src='./DSO Image/뒤로가기.png'></a>
+						</div>
+					</form>
+					<form action="#" method="post">
+						<button type="submit">업로드</button>
+					</form>
+				</td>
+				<td>
+					<div id="#" style="width: 800px; height: 400px;"></div>
+				</td>
+			</tr>
+			<!-- <label for="title">서비스 제목:</label> -->
+			<tr>
+				<td id="td">제목</td>
+				<td><input type="text" id="service_title" name="service_title">
+				</td>
+			</tr>
+			<!-- <label for="category">서비스 카테고리:</label> -->
+			<tr>
+				<td id="td">카테고리</td>
+				<td><select id="service_category" name="service_category">
+=======
 <h1 id="title">상품 등록</h1>
 <form id="form1" name="form1" action="Service_register_service" method="post" enctype="multipart/form-data" >
 	
@@ -70,6 +146,7 @@
 			<td id="td">카테고리</td>
 			<td>
 				<select id="service_category" name="service_category">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 						<option>선택해주세요</option>
 						<option>웹 · 모바일 기획</option>
 						<option>프로그램 · 기타 기획</option>
@@ -105,27 +182,79 @@
 						<option>컴퓨터 기술지원</option>
 						<option>파일변환</option>
 						<option>기타</option>
+<<<<<<< HEAD
+				</select></td>
+			</tr>
+			<!-- <label for="price">서비스 가격:</label>  -->
+			<tr>
+				<td id="td">가격</td>
+				<td><input type="text" id="service_price" name="service_price">
+				</td>
+			</tr>
+			<!-- <label for="desc">서비스 설명:</label>  -->
+=======
 				</select>
 			</td>
 		</tr>
 		<!-- <label for="price">서비스 가격:</label>  -->
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 			<tr>
+<<<<<<< HEAD
+				<td id="td">설명</td>
+				<td><textarea rows="20px" cols="100px" id="service_desc"></textarea>
+=======
 				<td id="td">
 					가격
 				</td>
 				<td>
 					<input type="number" id="service_price" name="service_price"> 
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 				</td>
 			</tr>
-		<!-- <label for="desc">서비스 설명:</label>  -->
+			<!-- <label for="requisite">서비스 요구사항:</label>  -->
 			<tr>
+<<<<<<< HEAD
+				<td id="td">요구사항</td>
+				<td><textarea rows="20px" cols="100px" id="service_requisite"></textarea>
+=======
 				<td id="td">
 					설명
 				</td>
 				<td>
 					<textarea rows="20px" cols="120px" id="service_desc" name="service_desc"></textarea> 
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 				</td>
 			</tr>
+<<<<<<< HEAD
+		</table>
+	</form>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+				url : "Service_img_list_service",
+				method : "get",
+				dataType : "JSON",
+				success : photoList,
+				error : function(err){
+					console.log(err);
+				}
+			});
+		});
+		
+		var cnt = 0;
+		function photoList(data){
+			let tmp="";
+			tmp+="<br><h2>Developer Staffing Office</h2><br>";
+			$.each(data, function(index,obj){
+				tmp+="<img width='200px' height='200px' src='upload/"+obj.pf_Img1+"'/>";
+			});
+			$("#Service_img_List").html(tmp);
+		}
+		
+		$('#service_img_form').submit(function(e)){
+			e.preventDefault();
+=======
 		<!-- <label for="requisite">서비스 요구사항:</label>  -->
 			<tr>
 				<td id="td">
@@ -154,11 +283,13 @@
 					</div>
 				</td>
 			</tr>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 			
 	</table>
 </form>
 
 <script type="text/javascript">
+
 	$(document).ready(function(){
 		//서비스 등록 유효성 검사
 		$("#addBtn").click(function(){}

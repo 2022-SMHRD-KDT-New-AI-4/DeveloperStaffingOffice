@@ -50,7 +50,7 @@
   </insert>   
   
 <!-- 서비스 수정 -->
-  <update id="serviceupdate" parameterType="Service_reqister_VO">
+  <update id="serviceupdate" parameterType="Service_register_VO">
   	update tbl_service2 set service_title=#{service_title},service_category=#{service_category},service_price=#{service_price},service_desc=#{service_desc},service_requisite=#{service_requisite},service_img=#{service_img}
   </update>
   
