@@ -1,20 +1,10 @@
-<%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Fashi Template">
-<meta name="keywords" content="Fashi, unica, creative, html">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-.loginbtnCR{
-	padding-left: 22%
-}
-</style>
-<title>개발자 인력 사무소</title>
+<title>전문가마이페이지</title>
 
 <!-- Google Font -->
 <link
@@ -31,9 +21,9 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-<title>개발자 인력 사무소</title>
 </head>
-<!-- Page Preloder -->
+<body>
+	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
@@ -144,49 +134,93 @@
 	</header>
 	<!-- Header End -->
 
-	   <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Form Section Begin -->
 
-<%
-////loginM 키값이 지정되어있는 세션 값
-Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM"); 
-%>
 
-  <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                      
-                            <div class=loginbtnCR>
-							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
-                            <button type="button"onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
-                            </div>
+	<!-- Breadcrumb Section Begin -->
+	<div class="breacrumb-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb-text">
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+ 						<span>마이페이지</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumb Section Begin -->
 
-                        <div class="switch-login">
-                            <a href="Join_1.jsp" class="or-login">회원가입</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Register Form Section End -->
+	<!-- Product Shop Section Begin -->
+	<!-- 왼쪽 카테고리바 -->
+	<section class="product-shop spad">
+		<div class="container">
+			<div class="row">
 
+				<div class="filter-widget" style="padding-top: 0px">
+					<h4>마이페이지</h4>
+					<ul class="filter-catagories">
+						<br>
+						<li><a href="#">의뢰내역</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
+						<li><a href="#">찜</a></li>
+						<li><a href="#">1:1 채팅</a></li>
+						<li><a href="#">전문가 등록</a></li>
+					</ul>
+				</div>
+					<!-- 마이페이지 -->
+				<div class="col-lg-9 order-1 order-lg-2">
+					<div class="product-show-option">
+						<div class="row">
+							<div class="col-lg-7 col-md-7"></div>
+						</div>
+					</div>
+					<div class="product-list">
+						<div class="row">
+					<!-- 마이페이지 박스  -->
+									
+				
+					<div class="product-show-option">
+						<div class="row">
+							<div class="col-lg-7 col-md-7"></div>
+						</div>
+					</div>
+					<div class="product-list">
+						<div class="row">
+							<!-- 마이페이지 목록 한칸 -->
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic" style="background-color: #c9dee9" >
+										<a href="ProductDetail.jsp">구매중</a><span>1</span>	 					
+									</div>
+								</div>
+							</div>
+
+							<!-- 마이페이지 목록 한칸 -->
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic" >
+										<a href="ProductDetail.jsp">구매확인</a><span>1</span>	 					
+									</div>
+								</div>
+							</div>
+							<!-- 마이페이지 목록 한칸 -->
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic" >
+										<a href="ProductDetail.jsp">완료</a><span>1</span>	 					
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				<!-- 상품 목록 끝 -->
+			</div>
+
+		</div>
+	</section>
+	<!-- Product Shop Section End -->
 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
