@@ -24,7 +24,10 @@
 	}
 </style>
 <body>
-
+<%
+	//loginM 키값이 지정되어있는 세션 값
+	Client_register_VO loginM = (Client_register_VO)session.getAttribute("loginM");
+%>
   <form method="post" action="Client_Update_Serivce">
   	<table border="1px">
   	<tr>
@@ -32,13 +35,15 @@
   	<h1>의뢰인 정보수정</h1>
   	</td>
   	</tr>
-  <!-- 	<label for="email">이메일:</label> -->
-    <tr>
-    	<td id="td">
-    		이메일 
-    	</td>
-    	
-    </tr>
+  <!-- <label for="id">아이디:</label> -->
+  	<tr>
+  		<td id="td">
+  			아이디
+  		</td>
+  		<td>
+  			<input type="text" name="c_id" value="loginM">
+  		</td>
+  	</tr>	
   <!-- <label for="password">비밀번호:</label> -->
   	<tr>
   		<td id="td">

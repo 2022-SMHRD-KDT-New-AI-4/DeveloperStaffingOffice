@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-<title>개발자 인력 사무소</title>
+
 </head>
 <body>
 	<!-- Page Preloder -->

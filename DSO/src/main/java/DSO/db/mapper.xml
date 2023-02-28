@@ -46,8 +46,13 @@
   
 <!-- 서비스 등록 -->
   <insert id="serviceregister" parameterType="Service_register_VO">
-  	insert into tbl_service values(tbl_service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
+  	insert into tbl_service2 values(tbl_service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},sysdate) 
   </insert>   
+  
+<!-- 서비스 수정 -->
+  <update id="serviceupdate" parameterType="Service_register_VO">
+  	update tbl_service2 set service_title=#{service_title},service_category=#{service_category},service_price=#{service_price},service_desc=#{service_desc},service_requisite=#{service_requisite},service_img=#{service_img}
+  </update>
   
 <!-- 포트폴리오 등록 -->
    <select id="selectAllportfolios" resultType="Portfolio_VO">

@@ -11,7 +11,7 @@ public class Service_register_VO {
 	private String service_desc;
 	private String service_requisite;
 	private String service_img;
-	private String s_id;
+//	private String s_id;
 //	private String service_dt;
 	
 	
@@ -28,15 +28,29 @@ public class Service_register_VO {
 		this.service_desc = service_desc;
 		this.service_requisite = service_requisite;
 		this.service_img = service_img;
-		this.s_id = s_id;
+//		this.s_id = s_id;
 //		this.service_dt = service_dt;
+	}
+	
+	
+
+
+	public Service_register_VO(String service_title, String service_category, int service_price, String service_desc,
+			String service_requisite, String service_img) {
+		super();
+		this.service_title = service_title;
+		this.service_category = service_category;
+		this.service_price = service_price;
+		this.service_desc = service_desc;
+		this.service_requisite = service_requisite;
+		this.service_img = service_img;
 	}
 
 	@Override
 	public String toString() {
 		return "Service_register_VO [service_title=" + service_title + ", service_category=" + service_category
 				+ ", service_price=" + service_price + ", service_desc=" + service_desc + ", service_requisite="
-				+ service_requisite + ", service_img=" + service_img + ", s_id=" + s_id + "]";
+				+ service_requisite + ", service_img=" + service_img + "]";
 	}
 //	public int getService_seq() {
 //		return service_seq;
@@ -80,12 +94,12 @@ public class Service_register_VO {
 	public void setService_img(String service_img) {
 		this.service_img = service_img;
 	}
-	public String getS_id() {
-		return s_id;
-	}
-	public void setS_id(String s_id) {
-		this.s_id = s_id;
-	}
+//	public String getS_id() {
+//		return s_id;
+//	}
+//	public void setS_id(String s_id) {
+//		this.s_id = s_id;
+//	}
 //	public String getService_dt() {
 //		return service_dt;
 //	}

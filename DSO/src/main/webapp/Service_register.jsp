@@ -2,11 +2,13 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
-<title>서비스 등록 페이지</title>
+<title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style type="text/css">
+<<<<<<< HEAD
 td#td {
 	text-align: center;
 }
@@ -40,9 +42,56 @@ table {
 #service_requisite {
 	border: none;
 }
+=======
+	#title{
+		text-align:center;
+	}
+	td#td{
+		text-align:center;
+	}
+	table{
+		margin:auto;
+	}
+	#service_title{
+		width:860px;
+		height:27px;
+		border:none;
+	}
+	#service_price{
+		width:860px;
+		height:27px;
+		border:none;
+	}
+	#service_category{
+		width:863px;
+		height:27px;
+		border:none;
+	}
+	#service_desc{
+		border:none;
+	}
+	#service_requisite{
+		border:none;
+	}
+	div.button{
+		margin:auto;
+		width:50%;
+	}
+	div.button input{
+		padding:5px;
+		width:100%;
+		font-size:18px;
+	}
+	div.button button{
+		padding:5px;
+		width:100%;
+		font-size:18px;
+	}
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 	<form method="post" action="Service_register_service">
 		<table border="1px">
 			<tr>
@@ -81,6 +130,23 @@ table {
 			<tr>
 				<td id="td">카테고리</td>
 				<td><select id="service_category" name="service_category">
+=======
+<h1 id="title">상품 등록</h1>
+<form id="form1" name="form1" action="Service_register_service" method="post" enctype="multipart/form-data" >
+	
+		
+	<table border="1">
+		<!-- <label for="title">서비스 제목:</label> -->
+		<tr>
+			<td id="td">제목</td>
+			<td><input type="text" id="service_title" name="service_title"></td>
+		</tr>
+		<!-- <label for="category">서비스 카테고리:</label> -->			
+		<tr>
+			<td id="td">카테고리</td>
+			<td>
+				<select id="service_category" name="service_category">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 						<option>선택해주세요</option>
 						<option>웹 · 모바일 기획</option>
 						<option>프로그램 · 기타 기획</option>
@@ -116,6 +182,7 @@ table {
 						<option>컴퓨터 기술지원</option>
 						<option>파일변환</option>
 						<option>기타</option>
+<<<<<<< HEAD
 				</select></td>
 			</tr>
 			<!-- <label for="price">서비스 가격:</label>  -->
@@ -125,17 +192,40 @@ table {
 				</td>
 			</tr>
 			<!-- <label for="desc">서비스 설명:</label>  -->
+=======
+				</select>
+			</td>
+		</tr>
+		<!-- <label for="price">서비스 가격:</label>  -->
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 			<tr>
+<<<<<<< HEAD
 				<td id="td">설명</td>
 				<td><textarea rows="20px" cols="100px" id="service_desc"></textarea>
+=======
+				<td id="td">
+					가격
+				</td>
+				<td>
+					<input type="number" id="service_price" name="service_price"> 
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 				</td>
 			</tr>
 			<!-- <label for="requisite">서비스 요구사항:</label>  -->
 			<tr>
+<<<<<<< HEAD
 				<td id="td">요구사항</td>
 				<td><textarea rows="20px" cols="100px" id="service_requisite"></textarea>
+=======
+				<td id="td">
+					설명
+				</td>
+				<td>
+					<textarea rows="20px" cols="120px" id="service_desc" name="service_desc"></textarea> 
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 				</td>
 			</tr>
+<<<<<<< HEAD
 		</table>
 	</form>
 
@@ -164,24 +254,76 @@ table {
 		
 		$('#service_img_form').submit(function(e)){
 			e.preventDefault();
+=======
+		<!-- <label for="requisite">서비스 요구사항:</label>  -->
+			<tr>
+				<td id="td">
+					요구사항
+				</td>
+				<td>
+					<textarea rows="20px" cols="120px" id="service_requisite" name="service_requisite"></textarea> 
+				</td>
+			</tr>
+			<tr>
+				<td id="td">이미지</td>
+				<td><input type="file" name="service_img" id="service_img"></td>
+			</tr>
+			<tr>
+    			<td colspan="2">
+    				<div class="button">
+    					<button type="button" onclick="location.href='Portfolio_register.jsp'">포트폴리오 등록</button>
+    				</div>
+    			</td>
+    		</tr>
+						
+			<tr>
+				<td colspan="2">
+					<div class="button">
+						<input type="submit" value="등록" id="addBtn">
+					</div>
+				</td>
+			</tr>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 			
-			let formData = new FormData(this);
-			formData.append("service_img", $("#service_img")[0].files[0]);
-			$.ajax({
-				url : "Service_register_service",
-				method : "POST",
-				data : formData,
-				contentType: false,
-				processData : false,
-				success : function(){
-					$('#service_img_form')[0].reset();
-					location.href="Service_register.jsp";
-				},
-				error : function(err){
-					console.log(err);
-				}
-			});
-		});
-	</script>
+	</table>
+</form>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		//서비스 등록 유효성 검사
+		$("#addBtn").click(function(){}
+		var service_title = $("#service_title").val();
+		var service_category = $("#service_category").val();
+		var service_price = $("#service_price").val();
+		var service_desc = $("#service_desc").val();
+		var service_requisite = $("#service_requisite").val();
+		var service_img = $("#service_img").val();
+		
+		if(service_title == ""){
+			alert("제목을 입력해주세요")		
+			service_title.focus();
+		}else if(service_category == ""){
+			alert("카테고리를 선택해주세요")
+			service_category.focus();
+		}else if(service_price == ""){
+			alert("가격을 입력해주세요")
+			service_price.focus();
+		}else if(service_desc == ""){
+			alert("설명란을 작성해주세요")
+			service_desc.focus();
+		}else if(service_requisite == ""){
+			alert("요구사항을 입력해주세요")
+			service_requisite.focus();
+		}else if(service_img == ""){
+			alert("이미지를 등록해주세요")
+			service_img.focus();
+		}
+	});
+		// 상품 정보 전송
+//		document.form1.action = "${path}/DSO/DSO.controller/Service_register.java";
+//		document.form1.submit();
+	});
+</script>
 </body>
 </html>
