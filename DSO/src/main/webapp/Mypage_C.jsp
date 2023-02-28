@@ -22,6 +22,20 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/mypageliststyle.css" type="text/css" />
+<style type="text/css">
+	.col-lg-4{
+
+	height: 100px;
+	text-align: center;		
+	}
+	.inner_box{
+	width: 200px;
+	height: 80px;
+	
+
+	}
+</style>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -163,6 +177,8 @@
 	<!-- Breadcrumb Section Begin -->
 
 	<!-- Product Shop Section Begin -->
+
+	<!-- Product Shop Section Begin -->
 	<!-- 왼쪽 카테고리바 -->
 	<section class="product-shop spad">
 		<div class="container">
@@ -179,79 +195,84 @@
 						<li><a href="#">전문가 등록</a></li>
 					</ul>
 				</div>
-					<!-- 마이페이지 -->
+					<!-- 마이페이지 박스 -->
 				<div class="col-lg-9 order-1 order-lg-2">
+					
 					<div class="product-show-option">
 						<div class="row">
 							<div class="col-lg-7 col-md-7"></div>
 						</div>
 					</div>
+				
+			
+							
 					<div class="product-list">
 						<div class="row">
-					<!-- 마이페이지 박스  -->
-									<!-- 상품 목록 -->
-				<div class="col-lg-9 order-1 order-lg-2">
-					<div class="product-show-option">
-						<div class="row">
-							<div class="col-lg-7 col-md-7"></div>
-						</div>
-					</div>
-					<div class="product-list">
-						<div class="row">
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl2.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
+						
+							<!-- 마이페이지 목록 한칸 -->
+									<!-- 마이페이지 목록 한칸 -->
+								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
+									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
+										<a href="ProductDetail.jsp">구매중</a><span>1</span>	 					
 									</div>
 								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl3.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
+							<!-- 한칸 끝 -->	
+							<!-- 마이페이지 목록 한칸 -->
+									<!-- 마이페이지 목록 한칸 -->
+								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
+									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
+										<a href="ProductDetail.jsp">구매확인</a><span>1</span>	 					
 									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
+								</div>		
+							<!-- 한칸 끝 -->	
+							<!-- 마이페이지 목록 한칸 -->
+								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
+									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
+										<a href="ProductDetail.jsp">완료</a><span>1</span>	 					
 									</div>
-								</div>
-							</div>
+								</div>	
+													<!-- 마이페이지 목록  -->			 
+						
+								<div style="padding-left: 15px; padding-top: 20px" > 
+									<div style="width: 100%; background-color: red; ">
+								  	<!---기본 메뉴--->
+									  <ul class="board">
+									  	<li class="fl tc w70 title t_line">번호</li>
+									  	<li class="fl tc w500 title t_line">의뢰내용</li>
+									  	<li class="fl tc w120 title t_line">의뢰인</li>
+									  	<li class="fl tc w100 title t_line">진행완료</li>
+									  	<li class="fl tc w100 title ">조회수</li>
+									  </ul>
+									  <!--- 리스트 --->
+									  <ul class="board">
+									  	<li class="fl tc w70 list t_line lt_line">1</li>
+									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
+									  	<li class="fl tc w120 list t_line lt_line">웹 · 모바일 기획</li>
+									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
+									  	<li class="fl tc w100 list  lt_line">1</li>
+									  </ul>
+									  <ul class="board">
+									  	<li class="fl tc w70 list t_line lt_line">2</li>
+									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
+									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
+									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
+									  	<li class="fl tc w100 list  lt_line">1</li>
+									  </ul>
+									 </div>
+							</div>									
 
+						<!-- 마이페이지 목록끝 -->
+							<!-- 한칸 끝 -->						
 						</div>
-					</div>
+						
+					</div>											
+					</div>					
 				</div>
-				<!-- 상품 목록 끝 -->
 			</div>
+	
+	</section>				
 
-		</div>
-	</section>
-	<!-- Product Shop Section End -->
-
+	<!-- Product Shop Section End -->	
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">

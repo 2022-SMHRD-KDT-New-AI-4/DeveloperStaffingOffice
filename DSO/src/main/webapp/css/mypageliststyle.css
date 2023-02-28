@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/* 공통옵션 */
+ul li {list-style:none; }
+.fl {float:left; }
+.tc {text-align:center; }
+
+/* 게시판 목록 */
+.board {width: 950px; }
+.w70 {width:70px; }
+.w500 {width:120px; }
+.w120 {width:550px; }
+.w100 {width:100px; }
+.title {
+	height: 50px;
+	line-height: 60px;
+	background :#ebf4f5;
+	font-weight: bold;
+}
+
+.list {
+	height: 40px;
+	line-height: 40px;
+	background: white;
+}
+.listbtn{
+
+	border-color: #f3f3f3;
+	all: unset;
+	color: black;
+}
+
