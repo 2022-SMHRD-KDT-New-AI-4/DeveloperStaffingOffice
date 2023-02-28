@@ -21,8 +21,70 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+
+<style type="text/css">
+.likeBtn {
+   background : white;
+   border: 0;
+   border-radius: 50px;
+   font-size:  18px;
+	}
+.dislikeBtn{
+  background : white;
+   border: 0;
+   border-radius: 50px;
+   font-size: 18px;
+  
+	}
+.product-price{
+	margin-left: 25px;
+}
+</style>
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
+
+	<!-- 좋아요 스크립트   -->
+  <script type="text/javascript">
+
+$(document).on('click', 'button[class=likeBtn]', function(){
+    $(this).text('🧡');
+    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
+    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
+    //$(this).removeAttr('class');  -> (class)객체를 삭제  
+    $(this).removeClass('likeBtn');    // -> 객체
+    $(this).attr('class','dislikeBtn');
+ });
+ $(document).on('click', '.dislikeBtn', function(){
+    $(this).text('🤍');
+    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
+    $(this).removeAttr('class');
+    $(this).attr('class','likeBtn');
+ });
+</script> 
+	<!-- 좋아요 스크립트 -->
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -255,7 +317,7 @@
 										<a href="ProductDetail.jsp">
 											<h4>UX 기획(상품 제목)</h4>
 										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
 									</div>
 								</div>
 							</div>
@@ -268,8 +330,7 @@
 										<a href="ProductDetail.jsp"> <img src="img/pl/pl3.png"
 											alt=""></a>
 										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
+											<li class="quick-view"><a href="ProductDetail.jsp">상품상세 정보</a></li>
 										</ul>
 									</div>
 									<div class="pi-text">
@@ -277,7 +338,7 @@
 										<a href="ProductDetail.jsp">
 											<h4>UX 기획(상품 제목)</h4>
 										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
 									</div>
 								</div>
 							</div>
@@ -299,7 +360,7 @@
 										<a href="ProductDetail.jsp">
 											<h4>UX 기획(상품 제목)</h4>
 										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
 									</div>
 								</div>
 							</div>
@@ -321,7 +382,7 @@
 										<a href="ProductDetail.jsp">
 											<h4>UX 기획(상품 제목)</h4>
 										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
 									</div>
 								</div>
 							</div>
@@ -343,7 +404,7 @@
 										<a href="ProductDetail.jsp">
 											<h4>UX 기획(상품 제목)</h4>
 										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
 									</div>
 								</div>
 							</div>
@@ -365,7 +426,7 @@
 										<a href="ProductDetail.jsp">
 											<h4>UX 기획(상품 제목)</h4>
 										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
 									</div>
 								</div>
 							</div>
@@ -379,7 +440,10 @@
 		</div>
 	</section>
 	<!-- Product Shop Section End -->
+	
 
+	
+	
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -422,16 +486,6 @@
 	</footer>
 	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+
 </body>
 </html>
