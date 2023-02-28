@@ -43,23 +43,27 @@ public class WebChatServer extends HttpServlet {
 	
 	@OnOpen
 	public void onOpen(Session session){
-		String userName = "user";
+		String userName = "익명의 바보 ";
 		int rand_num = (int)(Math.random()*1000);
 		
 		
 		ChatClient client = new ChatClient();
 		System.out.println(session);
-		client.setName(userName+rand_num);
+		client.setName(userName+rand_num+"호");
 		
 		System.out.println(session + " connect");
 		
 		users.put(session, client);
-		sendNotice(client.getName() + "님이 입장하셨습니다. 현재 사용자 " + users.size() + "명");
+		sendNotice("- -"+client.getName() + "님이 입장하셨습니다." + "- - 현재 사용자 " + users.size() + "명"	
+				);
+		
+					
+				/* sendNotice("현재 사용자 " + users.size() + "명"); */
 	}
 	
 	
 	public void sendNotice(String message){
-		String userName = "server";
+		String userName = "DSO server";
 		System.out.println(userName + " : " + message);
 		
 		synchronized (users) {
@@ -79,7 +83,7 @@ public class WebChatServer extends HttpServlet {
 	public void onClose(Session session) {
 		String userName = users.get(session).getName();
 		users.remove(session);
-		sendNotice(userName + "님이 퇴장하셨습니다. 현재 사용자 " + users.size() + "명");
+		sendNotice("- -"+userName + "님이 퇴장하셨습니다." + "- - 현재 사용자 " + users.size() + "명");
 	}
 
 }
