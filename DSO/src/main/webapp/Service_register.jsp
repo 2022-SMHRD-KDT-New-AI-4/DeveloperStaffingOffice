@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,85 +7,80 @@
 <title>서비스 등록 페이지</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style type="text/css">
-	td#td{
-		text-align:center;
-	}
-	table{
-		margin:auto;
-	}
-	#service_title{
-		width:816px;
-		height:27px;
-		border:none;
-	}
-	#service_price{
-		width:816px;
-		height:27px;
-		border:none;
-	}
-	#service_category{
-		width:823px;
-		height:27px;
-		border:none;
-	}
-	#service_desc{
-		border:none;
-	}
-	#service_requisite{
-		border:none;
-	}
+td#td {
+	text-align: center;
+}
+
+table {
+	margin: auto;
+}
+
+#service_title {
+	width: 816px;
+	height: 27px;
+	border: none;
+}
+
+#service_price {
+	width: 816px;
+	height: 27px;
+	border: none;
+}
+
+#service_category {
+	width: 823px;
+	height: 27px;
+	border: none;
+}
+
+#service_desc {
+	border: none;
+}
+
+#service_requisite {
+	border: none;
+}
 </style>
 </head>
 <body>
 	<form method="post" action="Service_register_service">
 		<table border="1px">
 			<tr>
-				<td colspan="2" style="text-align:center;">
-				<h1>서비스 등록</h1>
+				<td colspan="2" style="text-align: center;">
+					<h1>서비스 등록</h1>
 				</td>
 			</tr>
-		<!-- <label for="img"> 서비스 이미지:</label> -->	
+			<!-- <label for="img"> 서비스 이미지:</label> -->
 			<tr>
-
-				<td>
-					<form id="service_img_form" enctype="multipart/form-data" >
-						<div >
-							<input type="file" name="service_img" id="service_img" >
-							<button type="submit" style="margin-left:25px;">이미지 등록</button>
-							<a href="#"><img style="width:80px; height:50px; align-items:center; "src='./DSO Image/뒤로가기.png'></a>
+				<td id="td">
+					<div>이미지</div>
+					<form id="service_img_form" enctype="multipart/form-data">
+						<div>
+							<input type="file" name="service_img" id="service_img">
+							<button type="submit" style="margin-left: 25px;">이미지 등록</button>
+							<a href="#"><img
+								style="width: 80px; height: 50px; align-items: center;"
+								src='./DSO Image/뒤로가기.png'></a>
 						</div>
 					</form>
 					<form action="#" method="post">
 						<button type="submit">업로드</button>
 					</form>
 				</td>
-			</tr>	
-			<tr>	
-				<td id="td">
-					이미지
-				</td>
-				<td>	
-					<div id="#" style="width:800px; height:400px;">
-					
-					</div>
+				<td>
+					<div id="#" style="width: 800px; height: 400px;"></div>
 				</td>
 			</tr>
-		<!-- <label for="title">서비스 제목:</label> -->
+			<!-- <label for="title">서비스 제목:</label> -->
 			<tr>
-				<td id="td">
-					제목
-				</td>	
-				<td>
-					<input type="text" id="service_title" name="service_title">
-				</td>		
-			</tr>
-		<!-- <label for="category">서비스 카테고리:</label> -->	
-			<tr>
-				<td id="td">
-					카테고리
+				<td id="td">제목</td>
+				<td><input type="text" id="service_title" name="service_title">
 				</td>
-				<td>
-					<select id="service_category" name="service_category">
+			</tr>
+			<!-- <label for="category">서비스 카테고리:</label> -->
+			<tr>
+				<td id="td">카테고리</td>
+				<td><select id="service_category" name="service_category">
 						<option>선택해주세요</option>
 						<option>웹 · 모바일 기획</option>
 						<option>프로그램 · 기타 기획</option>
@@ -121,39 +116,29 @@
 						<option>컴퓨터 기술지원</option>
 						<option>파일변환</option>
 						<option>기타</option>
-					</select>
+				</select></td>
+			</tr>
+			<!-- <label for="price">서비스 가격:</label>  -->
+			<tr>
+				<td id="td">가격</td>
+				<td><input type="text" id="service_price" name="service_price">
 				</td>
 			</tr>
-		<!-- <label for="price">서비스 가격:</label>  -->
+			<!-- <label for="desc">서비스 설명:</label>  -->
 			<tr>
-				<td id="td">
-					가격
-				</td>
-				<td>
-					<input type="text" id="service_price" name="service_price"> 
+				<td id="td">설명</td>
+				<td><textarea rows="20px" cols="100px" id="service_desc"></textarea>
 				</td>
 			</tr>
-		<!-- <label for="desc">서비스 설명:</label>  -->
+			<!-- <label for="requisite">서비스 요구사항:</label>  -->
 			<tr>
-				<td id="td">
-					설명
-				</td>
-				<td>
-					<textarea rows="20px" cols="100px" id="service_desc"></textarea> 
+				<td id="td">요구사항</td>
+				<td><textarea rows="20px" cols="100px" id="service_requisite"></textarea>
 				</td>
 			</tr>
-		<!-- <label for="requisite">서비스 요구사항:</label>  -->
-			<tr>
-				<td id="td">
-					요구사항
-				</td>
-				<td>
-					<textarea rows="20px" cols="100px" id="service_requisite"></textarea> 
-				</td>
-			</tr>					
 		</table>
 	</form>
-	
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$.ajax({

@@ -91,6 +91,20 @@
     content: "";
 }
 
+.upimginput{
+	width: 200px;
+}
+
+.upimgbtn{
+    border-width: 1px;
+    border-style: outset;
+    border-color: gray;
+    border-image: initial;
+    border-radius: 4px;
+    font-size: 18px;
+    position: relative;
+}
+
 </style>
 
 <!-- Google Font -->
@@ -231,15 +245,16 @@
 			<div id="Portfolio_List" >
 			</div>
 			<form id="portfolio-form" enctype="multipart/form-data">
-				<div style="margin-top: 5px; margin-left: 150px;">
-					<input type="file" name="pf_img1" id="pf_img1">
+				<div style="margin-top: 5px; margin-left: 100px;">
+					<input class="upimginput" type="file" name="pf_img1" id="pf_img1" >
 					<!-- 업로드 이미지 타입이 파일이면 배열로 취급, name = 받아올 파일 , id = 제이쿼리내에서 접근 -->
 					<!--    <input type="text" name="s_id" placeholder="아이디를 입력하세요."> -->
+					<button class="upimgbtn" type="submit">등록</button>
 				</div>
 				<div id="reg">
 					<div style="float: left; width: 100%;">
 						<button id="canbtn" class="ptregbtn" type="reset">초기화</button>
-						<button id="regbtn" class="ptregbtn" type="submit">등록하기</button>
+						<button id="regbtn" class="ptregbtn" type="button" onclick="location.href='Main.jsp'">완료</button>
 					</div>
 				</div>
 			</form>
@@ -313,7 +328,7 @@
 					.each(
 							data,
 							function(index, obj) {
-								tmp += "<img width='200px' height='200px' src='upload/"+obj.pf_Img1+"'/>";
+								tmp += "<img class='upimg' width='200px' height='200px' src='upload/"+obj.pf_Img1+"'/>";
 							});
 			$("#Portfolio_List").html(tmp);
 		}
@@ -332,7 +347,7 @@
 				success : function() {
 					//alert(data.result);
 					$('#portfolio-form')[0].reset();
-					location.href = "Portfolio_register.jsp";
+					location.href = "Portfolio_reg.jsp";
 				},
 				error : function(err) {
 					console.log(err);
