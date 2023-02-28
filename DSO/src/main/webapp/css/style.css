@@ -1846,6 +1846,10 @@ body>section>div>div>div.filter-widget a>h4:hover {
 	line-height: 39px;
 }
 
+.filter-widget .filter-catagories li a:hover {
+	color: #EAB543;
+}
+
 .filter-widget .fw-brand-check .bc-item {
 	margin-bottom: 3px;
 }
@@ -2747,7 +2751,7 @@ body>section>div>div>div.filter-widget a>h4:hover {
   Shopping Cart
 -----------------------*/
 .shopping-cart {
-	padding-top: 80px;
+	padding-top:80px;
 	padding-bottom: 60px;
 }
 
@@ -3865,8 +3869,10 @@ body>section>div>div>div.filter-widget a>h4:hover {
   Register Form
 -----------------------*/
 .register-login-section {
-	padding-top: 72px;
+	margin-top: -40px;
+	padding-top: 20px;
 	padding-bottom: 80px;
+	padding-left: 60px;
 }
 
 .register-form h2, .login-form h2 {

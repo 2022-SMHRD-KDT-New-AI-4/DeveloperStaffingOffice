@@ -234,7 +234,7 @@
 													<!-- 마이페이지 목록  -->			 
 						
 								<div style="padding-left: 15px; padding-top: 20px" > 
-									<div style="width: 100%; background-color: red; ">
+									<div>
 								  	<!---기본 메뉴--->
 									  <ul class="board">
 									  	<li class="fl tc w70 title t_line">번호</li>

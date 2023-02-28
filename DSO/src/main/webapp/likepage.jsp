@@ -1,5 +1,3 @@
-<%@page import="javax.security.auth.spi.LoginModule"%>
-<%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,7 +8,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>의뢰인정보수정</title>
+<title>개발자 인력 사무소</title>
 
 <!-- Google Font -->
 <link
@@ -27,7 +25,28 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-<title>개발자 인력 사무소</title>
+<style type="text/css">
+	.listname{ height: 50px;}
+.likeBtn{
+   background-color: rgb(242, 212, 242);
+   border: 0;
+   border-radius: 50px;
+   color: purple;
+	}
+.shopping-cart {padding-top: 0px;}
+
+</style>
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -141,142 +160,141 @@
 	</header>
 	<!-- Header End -->
 	
-    <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span><a
-							href="Mypage_C.jsp"><i class="fa"> </i>마이페이지</a> <span>내 정보관리</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Form Section Begin -->
+	<!-- Breadcrumb Section Begin -->
+	<div class="breacrumb-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb-text">
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+ 						<span>마이페이지</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumb Section Begin -->
 
-    <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-            <!-- 마이페이지 왼쪽 카테고리바 -->
+	<!-- Product Shop Section Begin -->
+
+	<!-- Product Shop Section Begin -->
+	<!-- 왼쪽 카테고리바 -->
+	<section class="product-shop spad">
+		<div class="container">
+			<div class="row">
+
 				<div class="filter-widget" style="padding-top: 0px">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
 						<br>
-						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
+						<li><a href="#">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
 						<li><a href="#">찜</a></li>
 						<li><a href="#">1:1 채팅</a></li>
 						<li><a href="#">전문가 등록</a></li>
 					</ul>
 				</div>
-				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="register-form">
-                        <h2>의뢰인 정보수정</h2>
-                        <form method="post" action="Client_regi	ster_service">
-                            <div class="group-input">
-                                <label for="username">E-mail ID  </label>  
-                                                                                
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">비밀번호 *</label>
-                                <input type="password" id="pass" name="c_pw">
-                            </div>
-                 			<!-- <div class="group-input">
-                                <label for="con-pass">비밀번호 확인*</label>
-                                <input type="text" id="con-pass">
-                            </div> -->
-               				<div class="group-input">
-                                <label for="username">이름 *</label>
-                                <input type="text" id="username" name="c_name">
-                            </div>
-               				<div class="group-input">
-                                <label for="job">직업 &nbsp;&nbsp;
-	                                <select style="width:235px;"  id="job" name="c_job">
-					                    
-					                    <option value="j1"> 선택안함 </option>
-					                    <option value="j1"> 백수 </option>
-					                    <option value="j2"> 직장인 </option>
-					                    <option value="j3">학생 </option>	
-									</select>
-								</label>
-							</div>
-							<div class="group-input">
-                                <label for="business">비지니스분야&nbsp;&nbsp; 
-									<select style="width:185px;" id="c_businesslist" name="c_business"">						                    
-						  				<option >선택해주세요</option>
-						  				<option >UX기획</option>
-						  				<option >웹</option>
-						  				<option >커머스</option>
-						  				<option >모바일</option>
-						  				<option >프로그램</option>
-						  				<option >트랜드</option>
-						  				<option >데이터</option>
-						  				<option >언리얼</option>
-						  				<option >기타</option>
-						  			</select>
-				                </label>
-                            </div>
- 							<div class="group-input">
-                                <label for="job">관심분야 &nbsp;&nbsp;
-									<select style="width:205px;" id="c_interestlist" name="c_interest">
-				                    </select>
-				                </label>
-                            </div>                           
-                            
-                           <button class="site-btn login-btn" type="submit" >수정하기</button>
-                        </form>
-                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript">
-  	
-  $('#c_businesslist').change(function(){
-	  var data = $(this).val();
-	  console.log(data);
-	  var list;
-	  if(data=='UX기획'){
-		  list = ['선택해주세요','웹 · 모바일 기획', '프로그램 · 기타 기획'];
-	  }else if(data=='웹'){
-		  list = ['선택해주세요','홈페이지','랜딩페이지','프론트엔드 · 퍼블리싱','검색 최적화 · SEO','애널리틱스','홈페이지 수정 · 유지보수'];
-	  }else if(data=='커머스'){
-		  list = ['선택해주세요','쇼핑몰', '쇼핑몰 수정 · 유지보수'];
-	  }else if(data=='모바일'){
-		  list = ['선택해주세요','앱','앱 수정 · 유지보수'];
-	  }else if(data=='프로그램'){
-		  list = ['선택해주세요','비지니스 애플리케이션','PC · 웹 프로그램','백엔드 · 서버','봇 · 챗봇'];
-	  }else if(data=='트랜드'){
-		  list = ['선택해주세요','노코드 · 로우코드','메타버스','블록체인 · NFT'];
-	  }else if(data=='데이터'){
-		  list = ['선택해주세요','데이터 구매 · 구축','데이터 마이닝 · 크롤링','데이터 전처리','데이터 라벨링','데이터 분석 · 시각화','인공지능 · 머신러닝','데이터베이스'];
-	  }else if(data=='언리얼'){
-		  list = ['선택해주세요','2D · 3D게임','AR · VR'];
-	  }else if(data=='기타'){
-		  list = ['선택해주세요','하드웨어 · 임베디드','보안','QA · 테스트','컴퓨터 기술지원','파일변환','기타'];
-	  }
-	  
-	  var html = "";
-	  for(var i = 0; i < list.length; i++){
-		  html += "<option>";
-		  html += list[i];
-		  html += "</option>";
-	  }
-	  
-	  $('#c_interestlist').html(html);
-	  
-  });
-  
-  </script>
-  
-  
-                    </div>
+					<!-- 마이페이지 박스 -->
+				<div class="col-lg-9 order-1 order-lg-2">
+					
+					<div class="product-show-option">
+						<div class="row">
+							<div class="col-lg-7 col-md-7"></div>
+						</div>
+					</div>
+				
+			
+							
+					<div class="product-list">
+						<div class="row">
+						
+				
+<!-- Breadcrumb Section Begin -->
+	<div class="breacrumb-section">
+		<div class="container">
+			<div class="row">
+
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumb Section Begin -->
+   <!-- Shopping Cart Section Begin -->
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cart-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="5">찜 목록</th>                                
+                                </tr>
+                            </thead>
+                            <tbody>
+                           	<!-- 찜목록 한줄  -->
+                                <tr>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl1.png" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl3.png" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl4.png" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl2.png" alt=""></td>
+                                    
+                                </tr>
+
+                                <tr class="listname">
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>                               
+                               <!--찜 목록 한줄 끝  -->    
+                                                          	<!-- 찜목록 한줄  -->
+                                <tr>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl1.png" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl3.png" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl4.png" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="img/pl/pl2.png" alt=""></td>
+                                    
+                                </tr>
+
+                                <tr class="listname">
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>                               
+                               <!--찜 목록 한줄 끝  -->   
+                      
+                            </tbody>
+                        </table>
+                    </div>                
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Register Form Section End -->
+    </section>
+    <!-- Shopping Cart Section End -->
+  <script type="text/javascript">
 
+$(document).on('click', 'button[class=likeBtn]', function(){
+    $(this).text('🤍');
+    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
+    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
+    //$(this).removeAttr('class');  -> (class)객체를 삭제  
+    $(this).removeClass('likeBtn');    // -> 객체
+    $(this).attr('class','dislikeBtn');
+ });
+ $(document).on('click', '.dislikeBtn', function(){
+    $(this).text('🧡');
+    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
+    $(this).removeAttr('class');
+    $(this).attr('class','likeBtn');
+ });
+</script>  
+
+	<!-- Product Shop Section End -->	
+						</div>											
+					</div>					
+				</div>
+			</div>
+	
+	</section>	 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -284,7 +302,8 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/logo/dsologoblack.png"
+								alt=""></a>
 						</div>
 					</div>
 				</div>
@@ -318,30 +337,6 @@
 	</footer>
 	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>
-
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+	
 </body>
 </html>
