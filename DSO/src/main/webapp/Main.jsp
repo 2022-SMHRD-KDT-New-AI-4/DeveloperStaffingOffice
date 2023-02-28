@@ -55,10 +55,12 @@
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">
-								<input type="text" placeholder="검색어를 입력해주세요">
-								<button type="button" OnClick="location.href ='search_result.jsp'">
+								<form action="Search_service" method="post">
+								<input type="text" name="sendSearch" placeholder="검색어를 입력해주세요" />
+								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
+								</form>
 							</div>
 						</div>
 					</div>

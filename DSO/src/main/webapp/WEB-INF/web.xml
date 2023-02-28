@@ -12,9 +12,19 @@
   	<description></description>
   	<servlet-class>DSO.controller.test1</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Service_delete_service</servlet-name>
+  	<display-name>Service_delete_service</display-name>
+  	<description></description>
+  	<servlet-class>DSO.controller.Service_delete_service</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>test1</servlet-name>
   	<url-pattern>/test1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Service_delete_service</servlet-name>
+  	<url-pattern>/Service_delete_service</url-pattern>
   </servlet-mapping>
   
   
