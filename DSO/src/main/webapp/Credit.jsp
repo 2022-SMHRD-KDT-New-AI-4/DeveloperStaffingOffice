@@ -111,8 +111,8 @@
                 pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
-                name : '결제테스트', // 임의의 결제자 성명
-                amount : 55000000,  // 임의로 결제 비용 설정
+                name : '프로젝트 결제', // 임의의 결제자 성명
+                amount : 500000000,  // 임의로 결제 비용 설정
                 buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
                 buyer_name : '권선택',
                 buyer_tel : '010-1234-5678',
