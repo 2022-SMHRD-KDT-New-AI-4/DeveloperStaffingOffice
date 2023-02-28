@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <style type="text/css">
 	.listname{ height: 50px;}
-button{
+.likeBtn{
    background-color: rgb(242, 212, 242);
    border: 0;
    border-radius: 50px;
