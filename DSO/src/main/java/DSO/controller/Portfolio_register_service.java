@@ -71,7 +71,7 @@ public class Portfolio_register_service extends HttpServlet {
         
         HttpSession session=request.getSession();
         //String s_Id=(String) session.getAttribute("s_Id");// 세션에 등록된 아이디 받아오기.
-        String s_Id="test"; // 테스트용 임시 아이디임.
+        String s_Id="test"; // 테스트용 임시 아이디
         Portfolio_VO vo=new Portfolio_VO();
         vo.setS_Id(s_Id);
         vo.setPf_Img1(uploadedFileName);        

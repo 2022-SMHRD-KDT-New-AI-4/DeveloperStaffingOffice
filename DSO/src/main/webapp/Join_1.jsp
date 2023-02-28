@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <style type="text/css">
 .loginbtnCR{
-	padding-left: 22%
+	padding-left: 18%
 }
 </style>
-<title>개발자 인력 사무소</title>
+<title>회원가입</title>
 
 <!-- Google Font -->
 <link
@@ -33,7 +33,8 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <title>개발자 인력 사무소</title>
 </head>
-<!-- Page Preloder -->
+<body>
+	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
@@ -170,15 +171,15 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="login-form">
-                        <h2>Login</h2>
+                        <h2>회원가입</h2>
                       
                             <div class=loginbtnCR>
-							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
-                            <button type="button"onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
+							<button type="button" onclick="location.href='join_C.jsp'"class="site-btn ">의뢰인 회원가입</button>
+                            <button type="button"onclick="location.href='join_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가 회원가입</button>                            
                             </div>
 
                         <div class="switch-login">
-                            <a href="Join_1.jsp" class="or-login">회원가입</a>
+                            <a href="Login_1.jsp" class="or-login">로그인</a>
                         </div>
                     </div>
                 </div>

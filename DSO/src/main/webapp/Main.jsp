@@ -38,7 +38,7 @@
 		<div class="header-top">
 			<div class="ht-right">
 				<!-- <a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>  -->
-				<a href="./Login.jsp" class="login-panel">마이페이지</a> <a
+				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
 					href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 			</div>
