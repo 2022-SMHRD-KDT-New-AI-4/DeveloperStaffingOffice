@@ -159,6 +159,7 @@
 </form>
 
 <script type="text/javascript">
+
 	$(document).ready(function(){
 		//서비스 등록 유효성 검사
 		$("#addBtn").click(function(){}
