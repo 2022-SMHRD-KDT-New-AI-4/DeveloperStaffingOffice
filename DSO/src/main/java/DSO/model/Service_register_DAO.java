@@ -34,5 +34,11 @@ public class Service_register_DAO {
 		return cnt;
 	}
 	
-	
+	public int servicedelete(String s_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("servicedelete",s_id);
+		session.close();
+		return cnt;
+	}
+
 }
