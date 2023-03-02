@@ -34,10 +34,10 @@ public class Service_register_DAO {
 		return cnt;
 	}
 	
-	public ArrayList<Service_register_VO> selectSearch(String sendSearch){
+	public ArrayList<Service_register_VO> selectSearch(String value){
 		SqlSession session = sqlSessionFactory.openSession(true);
 		System.out.println("성공");
-		List<Service_register_VO> list = session.selectList("selectSearch",sendSearch);
+		List<Service_register_VO> list = session.selectList("selectSearch",value);
 		System.out.println("성공");
 		session.close();
 		System.out.println("성공");

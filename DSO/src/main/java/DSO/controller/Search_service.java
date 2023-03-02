@@ -23,13 +23,13 @@ public class Search_service extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String sendSearch = request.getParameter("sendSearch");
-		System.out.println(sendSearch);
+		String value = request.getParameter("sendSearch");
+		System.out.println(value);
 		Service_register_DAO dao = new Service_register_DAO();
 		
-		System.out.println(sendSearch);
+		System.out.println(value);
 		
-		ArrayList<Service_register_VO> list = dao.selectSearch(sendSearch);
+		ArrayList<Service_register_VO> list = dao.selectSearch(value);
 		
 		System.out.println(list.toString());
 	}

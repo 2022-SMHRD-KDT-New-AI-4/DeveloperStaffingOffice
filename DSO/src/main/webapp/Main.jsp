@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">	
 <link rel="stylesheet" href="css/style.css" type="text/css">
 
 </head>
@@ -56,7 +56,7 @@
 						<div class="advanced-search">
 							<div class="input-group">
 								<form action="Search_service" method="post">
-								<input type="text" id="search" name="sendSearch" placeholder="검색어를 입력해주세요" />
+								<input type="text" id="search" name="value" placeholder="검색어를 입력해주세요" />
 								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
