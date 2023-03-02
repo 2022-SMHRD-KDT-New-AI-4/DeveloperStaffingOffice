@@ -1,3 +1,6 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DSO.model.Service_info_pr_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,53 +26,57 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <style type="text/css">
 .likeBtn {
-   background : white;
-   border: 0;
-   border-radius: 50px;
-   font-size:  18px;
-	}
-.dislikeBtn{
-  background : white;
-   border: 0;
-   border-radius: 50px;
-   font-size: 18px;
-  
-	}
-.product-price{
+	background: white;
+	border: 0;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.dislikeBtn {
+	background: white;
+	border: 0;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.product-price {
 	margin-left: 25px;
 }
 </style>
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="js/jquery.dd.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
 </head>
 <body>
 	<!-- 좋아요 스크립트   -->
-  <script type="text/javascript">
-
-$(document).on('click', 'button[class=likeBtn]', function(){
-    $(this).text('🧡');
-    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
-    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
-    //$(this).removeAttr('class');  -> (class)객체를 삭제  
-    $(this).removeClass('likeBtn');    // -> 객체
-    $(this).attr('class','dislikeBtn');
- });
- $(document).on('click', '.dislikeBtn', function(){
-    $(this).text('🤍');
-    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
-    $(this).removeAttr('class');
-    $(this).attr('class','likeBtn');
- });
-</script> 
+	<script type="text/javascript">
+		$(document).on('click', 'button[class=likeBtn]', function() {
+			$(this).text('🧡');
+			$('.likeBtn+span').text(Number($('.likeBtn+span').text()) + 1);
+			//$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
+			//$(this).removeAttr('class');  -> (class)객체를 삭제  
+			$(this).removeClass('likeBtn'); // -> 객체
+			$(this).attr('class', 'dislikeBtn');
+		});
+		$(document).on(
+				'click',
+				'.dislikeBtn',
+				function() {
+					$(this).text('🤍');
+					$('.dislikeBtn+span').text(
+							Number($('.dislikeBtn+span').text()) - 1);
+					$(this).removeAttr('class');
+					$(this).attr('class', 'likeBtn');
+				});
+	</script>
 
 	<!-- 좋아요 스크립트 -->
 	<!-- Page Preloder -->
@@ -99,7 +106,8 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 						<div class="advanced-search">
 							<div class="input-group">
 								<input type="text" placeholder="검색어를 입력해주세요">
-								<button type="button" OnClick="location.href ='search_result.jsp'">
+								<button type="button"
+									OnClick="location.href ='search_result.jsp'">
 									<i class="ti-search"></i>
 								</button>
 							</div>
@@ -210,8 +218,7 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 						<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
 						<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
 					</ul>
-					<BR>
-					<a href="c2_Web.jsp"><h4>웹</h4></a>
+					<BR> <a href="c2_Web.jsp"><h4>웹</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c2_Web.jsp">홈페이지 </a></li>
 						<li><a href="c2_Web.jsp">랜딩페이지</a></li>
@@ -220,35 +227,30 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 						<li><a href="c2_Web.jsp">애널리틱스</a></li>
 						<li><a href="c2_Web.jsp">홈페이지 수정 · 유지보수</a></li>
 					</ul>
-					<BR>
-					<a href="c3_Comm.jsp"><h4>커머스</h4></a>
+					<BR> <a href="c3_Comm.jsp"><h4>커머스</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c3_Comm.jsp">쇼핑몰</a></li>
 						<li><a href="c3_Comm.jsp">쇼핑몰 수정 · 유지보수</a></li>
 					</ul>
-					<BR>
-					<a href="c4_Mob.jsp"><h4>모바일</h4></a>
+					<BR> <a href="c4_Mob.jsp"><h4>모바일</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c4_Mob.jsp">앱</a></li>
 						<li><a href="c4_Mob.jsp">앱 수정 · 유지보수</a></li>
 					</ul>
-					<BR>
-					<a href="c5_Prog.jsp"><h4>프로그램</h4></a>
+					<BR> <a href="c5_Prog.jsp"><h4>프로그램</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c5_Prog.jsp">비지니스 애플리케이션</a></li>
 						<li><a href="c5_Prog.jsp">PC · 웹 프로그램</a></li>
 						<li><a href="c5_Prog.jsp">백엔드 · 서버</a></li>
 						<li><a href="c5_Prog.jsp">봇 · 챗봇</a></li>
 					</ul>
-					<BR>
-					<a href="c6_Trend.jsp"><h4>트랜드</h4></a>
+					<BR> <a href="c6_Trend.jsp"><h4>트랜드</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c6_Trend.jsp">노코드 · 로우코드</a></li>
 						<li><a href="c6_Trend.jsp">메타버스</a></li>
 						<li><a href="c6_Trend.jsp">블록체인 · NFT</a></li>
 					</ul>
-					<BR>
-					<a href="c7_Data.jsp"><h4>데이터</h4></a>
+					<BR> <a href="c7_Data.jsp"><h4>데이터</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c7_Data.jsp">데이터 구매 · 구축</a></li>
 						<li><a href="c7_Data.jsp">데이터 마이닝 · 크롤링</a></li>
@@ -258,14 +260,12 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 						<li><a href="c7_Data.jsp">인공지능 · 머신러닝</a></li>
 						<li><a href="c7_Data.jsp">데이터베이스</a></li>
 					</ul>
-					<BR>
-					<a href="c8_Unr.jsp"><h4>언리얼</h4></a>
+					<BR> <a href="c8_Unr.jsp"><h4>언리얼</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c8_Unr.jsp">2D · 3D 게임</a></li>
 						<li><a href="c8_Unr.jsp">AR · VR</a></li>
 					</ul>
-					<BR>
-					<a href="c9_ETC.jsp"><h4>기타</h4></a>
+					<BR> <a href="c9_ETC.jsp"><h4>기타</h4></a>
 					<ul class="filter-catagories">
 						<li><a href="c9_ETC.jsp">하드웨어 · 임베디드</a></li>
 						<li><a href="c9_ETC.jsp">보안</a></li>
@@ -286,7 +286,14 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 					</div>
 					<div class="product-list">
 						<div class="row">
-							<!-- 상품 목록 한칸 -->
+
+							<%
+							ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+							%>
+
+
+							<!-- 상품 한칸 -->
+							<% for(int i=0;i<cate.size();i++) {%>
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
 									<div class="pi-pic" href="ProductDetail.jsp">
@@ -299,123 +306,27 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
+										<div class="catagory-name">
+										
+											<%if(cate.get(i).getService_categorynum2().equals("01")){%>
+												웹 · 모바일 기획
+											<% } else {%>
+												프로그램 · 기타 기획
+											<%} %>
+										
+										</div>
 										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
+											<h4><%=cate.get(i).getService_title() %></h4>
 										</a>
-										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
+										<div class="product-price">
+											<%=cate.get(i).getService_price()%>원
+											<button class="likeBtn">🤍</button>
+										</div>
 									</div>
 								</div>
 							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl3.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl4.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl4.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl3.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl2.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원 <button class="likeBtn">🤍</button></div>
-									</div>
-								</div>
-							</div>
+							<%} %>
+							<!-- 상품 한칸 끝 -->
 
 						</div>
 					</div>

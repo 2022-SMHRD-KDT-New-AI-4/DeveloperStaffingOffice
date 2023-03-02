@@ -146,7 +146,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="single-banner" OnClick="location.href ='c1_UX.jsp'"
+					<div class="single-banner" OnClick="location.href ='ToUx'"
 						style="cursor: pointer;">
 						<img src="img/category/uximg.jpg" alt="">
 						<div class="inner-text">

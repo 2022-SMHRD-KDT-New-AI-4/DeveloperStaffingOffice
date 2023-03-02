@@ -72,5 +72,10 @@
 	<select id="selectSearch" resultType="Service_register_VO" parameterType="string">
 		SELECT service_title,service_category,service_price,service_desc,service_requisite,service_img FROM tbl_SERVICE2 Where service_TITLE LIKE '%${value}%' 
 	</select>
+	
+<!-- UX카테고리 게시물 불러오기 -->
+	<select id="selectCateUX" resultType="DSO.model.Service_info_pr_VO">
+		Select * from tbl_service3 where service_categorynum1 = 1
+	</select>
 
 </mapper>
