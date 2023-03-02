@@ -1,3 +1,5 @@
+<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,7 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>의뢰인마이페이지</title>
-
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -20,8 +25,12 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css">
 <link rel="stylesheet" href="css/mypageliststyle.css" type="text/css" />
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 <style type="text/css">
 	.col-lg-4{
 		height: 100px;
@@ -71,10 +80,17 @@
 	<header class="header-section">
 		<div class="header-top">
 			<div class="ht-right">
-				<!-- <a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>  -->
+				<%if (loginC == null && loginS == null) {%>
+				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
+				<%} else if (loginC != null){%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
+				<%} else if (loginS != null){%>
+				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
+					로그아웃</a>
+				<%} %>
 			</div>
 		</div>
 		<div class="container">
@@ -82,10 +98,16 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./Main.jsp"> <img src="img/logo/dsologoc.png" alt="">
+							<a href="./Main.jsp"> 
+							<%if(loginS!=null){ %>
+							<img src="img/logo/dsologos.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoc.png" alt="">
+							<%} %>
 							</a>
 						</div>
 					</div>
+					<!-- 검색 박스 -->
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">

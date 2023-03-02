@@ -1,9 +1,15 @@
+<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="DSO.model.Client_register_VO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <%
     String userName=null;
     if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
@@ -38,6 +44,7 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <style type="text/css">
 	.listname{ height: 50px;}
@@ -186,9 +193,17 @@
 		<div class="header-top">
 			<div class="ht-right">
 				<!-- <a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>  -->
+				<%if (loginC == null && loginS == null) {%>
+				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
+				<%} else if (loginC != null){%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
+				<%} else if (loginS != null){%>
+				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
+					로그아웃</a>
+				<%} %>
 			</div>
 		</div>
 		<div class="container">
@@ -196,10 +211,16 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./Main.jsp"> <img src="img/logo/dsologoc.png" alt="">
+							<a href="./Main.jsp"> 
+							<%if(loginS!=null){ %>
+							<img src="img/logo/dsologos.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoc.png" alt="">
+							<%} %>
 							</a>
 						</div>
 					</div>
+					<!-- 검색박스  -->
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">

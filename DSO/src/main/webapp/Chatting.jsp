@@ -1,3 +1,5 @@
+<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="DSO.model.Client_register_VO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
@@ -18,6 +20,10 @@
 <head>
 <meta charset="UTF-8">
 <title>DSO Chatting</title>
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 
