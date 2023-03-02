@@ -9,6 +9,15 @@
 <html>
 <head>
 <title>상품 상세 페이지</title>
+<%
+		Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+		Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+		String seq = request.getParameter("seq");
+		Service_info_pr_DAO dao = new Service_info_pr_DAO();
+		Service_info_pr_VO post = dao.selectPost(seq);
+		String cateBigNum = (String)session.getAttribute("cateBigNum");
+		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
+	%>
 <meta charset="UTF-8">
 <meta name="description" content="Fashi Template">
 <meta name="keywords" content="Fashi, unica, creative, html">
@@ -29,18 +38,15 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 </head>
 <body>
-	<%
-		Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-		Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-		String seq = request.getParameter("seq");
-		Service_info_pr_DAO dao = new Service_info_pr_DAO();
-		Service_info_pr_VO post = dao.selectPost(seq);
-		String cateBigNum = (String)session.getAttribute("cateBigNum");
-		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
-	%>
+	
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -83,11 +89,7 @@
 							<div class="input-group">
 								<form action="Search_service" method="post">
 								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
-								<%if(loginS!=null) {%>
-								<button type="submit" style="border: 1px solid #1B9CFC;	background: #1B9CFC;">
-								<%}else {%>
-								<button type="submit" style="border: 1px solid #EAB543;	background: #EAB543;">
-								<%} %>
+								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
 								</form>
@@ -580,8 +582,13 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png"
-								alt=""></a>
+							<a href="Main.jsp">
+							<%if(loginS!=null) {%>
+							<img src="img/logo/dsologosblack.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoblack.png" alt="">
+							<%} %>							
+							</a>
 						</div>
 					</div>
 				</div>
@@ -614,7 +621,7 @@
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
+	
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
