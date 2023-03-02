@@ -536,8 +536,6 @@ input::placeholder {
 	position: absolute;
 	right: -3px;
 	top: -1px;
-	border: 1px solid #EAB543;
-	background: #EAB543;
 	padding: 12px 16px 12px;
 	cursor: pointer;
 }

@@ -18,18 +18,13 @@ import DSO.model.Specialist_register_VO;
 public class Specialist_Login_Service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
 
 		String s_id = request.getParameter("s_id");  
 		String s_pw = request.getParameter("s_pw");
 
-		
 		Specialist_register_VO vo = new Specialist_register_VO(s_id,s_pw);
 		
 		Specialist_register_DAO dao = new Specialist_register_DAO();
@@ -41,14 +36,13 @@ public class Specialist_Login_Service extends HttpServlet {
 		// 로그인 성공 / 실패 판단
 		if (lvo != null) { // 로그인 성공
 			System.out.println("전문가 로그인 성공");
-			// 세션에 사용자의 정보 저장
 			HttpSession session = request.getSession();
 			session.setAttribute("loginS", lvo);
 		} else { // 로그인 실패
 			System.out.println("전문가 로그인 실패");
 		}
 
-//		response.sendRedirect("#");
+		response.sendRedirect("Main.jsp");
 	}
 
 }
