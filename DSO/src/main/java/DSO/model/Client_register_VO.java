@@ -9,7 +9,7 @@ public class Client_register_VO {
 	private String c_job;
 	private String c_business;
 	private String c_interest;
-//	private String c_joindate;
+	private String c_joindate;
 	
 	public Client_register_VO() {
 		
@@ -23,7 +23,7 @@ public class Client_register_VO {
 		this.c_job = c_job;
 		this.c_business = c_business;
 		this.c_interest = c_interest;
-//		this.c_joindate = c_joindate;
+		this.c_joindate = c_joindate;
 	}
 
 	
@@ -88,12 +88,12 @@ public class Client_register_VO {
 		this.c_interest = c_interest;
 	}
 
-//	public String getC_joindate() {
-//		return c_joindate;
-//	}
-//
-//	public void setC_joindate(String c_joindate) {
-//		this.c_joindate = c_joindate;
-//	}
+	public String getC_joindate() {
+		return c_joindate;
+	}
+
+	public void setC_joindate(String c_joindate) {
+		this.c_joindate = c_joindate;
+	}
 	
 }
