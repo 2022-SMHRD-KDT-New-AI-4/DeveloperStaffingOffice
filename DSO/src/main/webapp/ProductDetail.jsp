@@ -17,6 +17,7 @@
 		Service_info_pr_VO post = dao.selectPost(seq);
 		String cateBigNum = (String)session.getAttribute("cateBigNum");
 		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
+		
 	%>
 <meta charset="UTF-8">
 <meta name="description" content="Fashi Template">
@@ -182,93 +183,93 @@
 					<div class="breadcrumb-text">
 						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> 
 							<span><a href="CateBig.jsp"><i class="fa"> </i>
-							<%if(cateBigNum.equals("1")) {%>
+							<%if(post.getService_categorynum1().equals("1")) {%>
 						UX기획
-						<%}else if(cateBigNum.equals("2")) {%>
+						<%}else if(post.getService_categorynum1().equals("2")) {%>
 						웹
-						<%}else if(cateBigNum.equals("3")) {%>
+						<%}else if(post.getService_categorynum1().equals("3")) {%>
 						커머스
-						<%}else if(cateBigNum.equals("4")) {%>
+						<%}else if(post.getService_categorynum1().equals("4")) {%>
 						모바일
-						<%}else if(cateBigNum.equals("5")) {%>
+						<%}else if(post.getService_categorynum1().equals("5")) {%>
 						프로그램
-						<%}else if(cateBigNum.equals("6")) {%>
+						<%}else if(post.getService_categorynum1().equals("6")) {%>
 						트랜드
-						<%}else if(cateBigNum.equals("7")) {%>
+						<%}else if(post.getService_categorynum1().equals("7")) {%>
 						데이터
-						<%}else if(cateBigNum.equals("8")) {%>
+						<%}else if(post.getService_categorynum1().equals("8")) {%>
 						언리얼
-						<%}else if(cateBigNum.equals("9")) {%>
+						<%}else if(post.getService_categorynum1().equals("9")) {%>
 						기타
 						<%} %></a> 
 							<span>
-							<%if(cateBigNum.equals("1")&&cateSmallNum.equals("01")) {%>
+							<%if(post.getService_categorynum1().equals("1")&&post.getService_categorynum2().equals("01")) {%>
 								웹 · 모바일 기획
-							<%}else if(cateBigNum.equals("1")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("1")&&post.getService_categorynum2().equals("02")){%>
 								프로그램 · 기타 기획
-							<%}else if(cateBigNum.equals("2")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("01")){%>
 								홈페이지
-							<%}else if(cateBigNum.equals("2")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("02")){%>
 								랜딩페이지
-							<%}else if(cateBigNum.equals("2")&&cateSmallNum.equals("03")){%>
+							<%}else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("03")){%>
 								프론트엔드 · 퍼블리싱
-							<%}else if(cateBigNum.equals("2")&&cateSmallNum.equals("04")){%>
+							<%}else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("04")){%>
 								검색 최적화 · SEO
-							<%}else if(cateBigNum.equals("2")&&cateSmallNum.equals("05")){%>
+							<%}else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("05")){%>
 								애널리틱스
-							<%}else if(cateBigNum.equals("2")&&cateSmallNum.equals("06")){%>
+							<%}else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("06")){%>
 								홈페이지 수정 · 유지보수
-							<%}else if(cateBigNum.equals("3")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("3")&&post.getService_categorynum2().equals("01")){%>
 								쇼핑몰
-							<%}else if(cateBigNum.equals("3")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("3")&&post.getService_categorynum2().equals("02")){%>
 								쇼핑몰 수정 · 유지보수
-							<%}else if(cateBigNum.equals("4")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("4")&&post.getService_categorynum2().equals("01")){%>
 								앱
-							<%}else if(cateBigNum.equals("4")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("4")&&post.getService_categorynum2().equals("02")){%>
 								앱 수정 · 유지보수
-							<%}else if(cateBigNum.equals("5")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("01")){%>
 								비지니스 애플리케이션
-							<%}else if(cateBigNum.equals("5")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("02")){%>
 								PC · 웹 프로그램
-							<%}else if(cateBigNum.equals("5")&&cateSmallNum.equals("03")){%>
+							<%}else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("03")){%>
 								백엔드 · 서버
-							<%}else if(cateBigNum.equals("5")&&cateSmallNum.equals("04")){%>
+							<%}else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("04")){%>
 								봇 · 챗봇
-							<%}else if(cateBigNum.equals("6")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("6")&&post.getService_categorynum2().equals("01")){%>
 								노코드 · 로우코드
-							<%}else if(cateBigNum.equals("6")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("6")&&post.getService_categorynum2().equals("02")){%>
 								메타버스
-							<%}else if(cateBigNum.equals("6")&&cateSmallNum.equals("03")){%>
+							<%}else if(post.getService_categorynum1().equals("6")&&post.getService_categorynum2().equals("03")){%>
 								블록체인 · NFT
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("01")){%>
 								데이터 구매 · 구축
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("02")){%>
 								데이터 마이닝 · 크롤링
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("03")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("03")){%>
 								데이터 전처리
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("04")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("04")){%>
 								데이터 라벨링
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("05")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("05")){%>
 								데이터 분석 · 시각화
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("06")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("06")){%>
 								인공지능 · 머신러닝
-							<%}else if(cateBigNum.equals("7")&&cateSmallNum.equals("07")){%>
+							<%}else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("07")){%>
 								데이터베이스
-							<%}else if(cateBigNum.equals("8")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("8")&&post.getService_categorynum2().equals("01")){%>
 								2D · 3D 게임
-							<%}else if(cateBigNum.equals("8")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("8")&&post.getService_categorynum2().equals("02")){%>
 								AR · VR
-							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("01")){%>
+							<%}else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("01")){%>
 								하드웨어 · 임베디드
-							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("02")){%>
+							<%}else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("02")){%>
 								보안
-							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("03")){%>
+							<%}else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("03")){%>
 								QA · 테스트
-							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("04")){%>
+							<%}else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("04")){%>
 								컴퓨터 기술지원
-							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("05")){%>
+							<%}else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("05")){%>
 								파일변환
-							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("06")){%>
+							<%}else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("06")){%>
 								기타
 							<%} %>
 							

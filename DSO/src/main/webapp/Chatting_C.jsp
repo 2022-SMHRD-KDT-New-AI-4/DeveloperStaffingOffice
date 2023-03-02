@@ -43,10 +43,15 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <style type="text/css">
+	/* 채팅 */
 	.listname{ height: 50px;}
 	.likeBtn {
 	   background : white;
@@ -63,11 +68,6 @@
 	.row {
        margin-top: 10px;
 	}
-.shopping-cart {padding-top: 0px;}
-	*{
-		/* font-family: 나눔고딕; */
-
-	}
 	
 	/* 채팅 CSS */
 	
@@ -79,12 +79,10 @@
 	#inputMessage{
 		width:500px;
 		height:30px;
-		border: 1px solid #EAB543 ;
 		border-radius : 10px 10px 10px 10px;
 	}
 	#btn-submit{
 		background: white;
-		background: #EAB543;
 		width:60px;
 		height:30px;
 		color:white;
@@ -94,7 +92,6 @@
 	#main-container{
 		width:820px;
 		height:420px;
-		border:1px solid #EAB543 ;
 		margin:10px;
 		display: inline-block;
 		border-radius : 10px 10px 10px 10px;
@@ -102,14 +99,12 @@
 	}
 	#chat-container{
 		vertical-align: bottom;
-		border: 1px solid #EAB543 ;
 		margin:10px;
 		width:800px;
 		min-height: 350px;
 		max-height: 350px;
 		overflow: scroll;
 		overflow-x:hidden;
-		background: wheat;
 		border-radius : 10px 10px 10px 10px;
 	}
 	
@@ -162,9 +157,6 @@
 	.my-chat-box{
 		text-align: right;
 	}
-	
-	
-	
 </style>
 
 <!-- Js Plugins -->
@@ -347,14 +339,29 @@
 				
 				<!-- 마이페이지 박스 -->
 				<div class="col-lg-9 order-1 order-lg-2">
-			
-						<div id="main-container">
-		<div id="chat-container">
+				<%if(loginS!=null) {%>
+					<div id="main-container" style="border:1px solid #1B9CFC ;">
+				<%}else{ %>
+					<div id="main-container" style="border:1px solid #EAB543 ;">
+				<%} %>
+		<%if(loginS!=null) {%>
+		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #63cdda;">
+		<%}else{ %>
+		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
+		<%} %>
 			
 		</div>
 		<div id="bottom-container">
-			<input id="inputMessage" type="text">
-			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;" >
+			<%if(loginS!=null) {%>
+			<input id="inputMessage" type="text" style="border: 1px solid #1B9CFC;">
+			<%}else {%>
+			<input id="inputMessage" type="text" style="border: 1px solid #EAB543;">
+			<%} %>
+			<%if(loginS!=null) {%>
+			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #1B9CFC;" >
+			<%}else {%>
+			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
+			<%} %>
 		</div>
 	</div>
 					</div>
