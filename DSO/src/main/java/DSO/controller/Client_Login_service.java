@@ -32,7 +32,7 @@ public class Client_Login_service extends HttpServlet {
 		if (lvo != null) { // 로그인 성공
 			System.out.println("로그인 성공");
 			HttpSession session = request.getSession();
-			session.setAttribute("loginM", lvo);
+			session.setAttribute("loginC", lvo);
 		}else {
 			System.out.println("로그인 실패");
 		}
