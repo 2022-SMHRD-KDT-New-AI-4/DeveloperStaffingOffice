@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>의뢰인 정보수정 페이지</title>
+  <title>전문가 정보수정 페이지</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <style>
@@ -29,7 +29,7 @@
   	<table border="1px">
   	<tr>
   	<td colspan="2" style = "text-align : center;">
-  	<h1>의뢰인 정보수정</h1>
+  	<h1>전문가 정보수정</h1>
   	</td>
   	</tr>
   <!-- 	<label for="email">이메일:</label> -->
