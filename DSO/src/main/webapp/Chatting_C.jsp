@@ -1,7 +1,24 @@
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
+<%
+    String userName=null;
+    if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
+    	userName="GUEST";
+    }else{
+       userName=(String)request.getAttribute("userName");
+    }
+
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -10,14 +27,8 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-
-</style>
 <title>개발자 인력 사무소</title>
-<%
-Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-%>
+
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -37,9 +48,132 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
-<title>개발자 인력 사무소</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<style type="text/css">
+	/* 채팅 */
+	.listname{ height: 50px;}
+	.likeBtn {
+	   background : white;
+	   border: 0;
+	   border-radius: 50px;
+	   font-size:  18px;
+	}
+	.dislikeBtn{
+	   background : white;
+	   border: 0;
+	   border-radius: 50px;
+	   font-size: 18px;
+	}
+	.row {
+       margin-top: 10px;
+	}
+	
+	/* 채팅 CSS */
+	
+
+	#messageWindow{
+		background: black;
+		color: greenyellow;
+	}
+	#inputMessage{
+		width:500px;
+		height:30px;
+		border-radius : 10px 10px 10px 10px;
+	}
+	#btn-submit{
+		background: white;
+		width:60px;
+		height:30px;
+		color:white;
+		border:none;
+	}
+	
+	#main-container{
+		width:820px;
+		height:420px;
+		margin:10px;
+		display: inline-block;
+		border-radius : 10px 10px 10px 10px;
+		
+	}
+	#chat-container{
+		vertical-align: bottom;
+		margin:10px;
+		width:800px;
+		min-height: 350px;
+		max-height: 350px;
+		overflow: scroll;
+		overflow-x:hidden;
+		border-radius : 10px 10px 10px 10px;
+	}
+	
+	.chat{
+		font-size: 20px;
+		color:black;
+		margin: 5px;
+		min-height: 20px;
+		padding: 5px;
+		min-width: 50px;
+		text-align: left;
+        height:auto;
+        word-break : break-all;
+        background: #ffffff;
+        width:auto;
+        display:inline-block;
+        border-radius: 10px 10px 10px 10px; 
+	}
+	
+	.notice{
+		color:white;
+		font-weight: bold;
+		border : none;
+		text-align: center;
+		background-color: #9bbbd4;
+		display: block;
+	}
+	.my-chat{
+		text-align: right;
+		background: white;
+		/* border-radius: 5px 5px 5px 5px; */
+	}
+	
+	#bottom-container{
+		margin:auto;
+		margin-left: 100px;
+	}
+	
+	.chat-info{
+		color:#556677;
+		font-size: 10px;
+		text-align: right;
+		padding: 5px;
+		padding-top: 0px;
+	}
+	
+	.chat-box{
+		text-align:left;
+	}
+	.my-chat-box{
+		text-align: right;
+	}
+</style>
+
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
+	<!-- 좋아요 스크립트   -->
+
 
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -167,59 +301,153 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 		</div>
 	</header>
 	<!-- Header End -->
+	
+	<!-- Breadcrumb Section Begin -->
 
-	   <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Form Section Begin -->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="margin: auto;">
+					<div class="breadcrumb-text">
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+						<a href="Mypage_C.jsp"></i> 마이페이지</a>
+ 						<span>1:1채팅</span>
+					</div>
+				</div>
+			</div>
+		</div>
 
+	<!-- Breadcrumb Section Begin -->
 
-  <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="Specialist_Login_Service" method="post">
-                            <div class="group-input">
-                                <label for="username"> Email 입력해주세요 *</label>
-                                <input type="text" id="s_id" name="s_id">
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">비밀번호 입력해주세요 *</label>
-                                <input type="password" id="s_pw" name="s_pw">
-                            </div>
-                            <div class="group-input gi-check">
-                                <div class="gi-more">                             
-                                    <a href="#" class="forget-pass">Forget your Password</a>
-                                </div>
-                            </div>
-                            <div class=loginbtnCR>
-								<button type="submit" class="site-btn login-btn" style="background-color: #1B9CFC">전문가로그인</button>
-                            </div>
-                        </form>
-                        <div class="switch-login">
-                            <a href="Join_1.jsp" class="or-login">회원가입</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Register Form Section End -->
+	<!-- Product Shop Section Begin -->
 
+	<!-- Product Shop Section Begin -->
+	<!-- 왼쪽 카테고리바 -->
+	<section class="product-shop spad">
+		<div class="container">
+			<div class="row">
 
+				<div class="filter-widget">
+					<h4>마이페이지</h4>
+					<ul class="filter-catagories">
+						<br>
+						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
+						<li><a href="likepage.jsp">찜</a></li>
+						<li><a href="#">1:1 채팅</a></li>
+						<li><a href="#">전문가 등록</a></li>
+					</ul>
+				</div>
+				<!-- 왼쪽 카테고리바 끝 -->
+				
+				<!-- 마이페이지 박스 -->
+				<div class="col-lg-9 order-1 order-lg-2">
+				<%if(loginS!=null) {%>
+					<div id="main-container" style="border:1px solid #1B9CFC ;">
+				<%}else{ %>
+					<div id="main-container" style="border:1px solid #EAB543 ;">
+				<%} %>
+		<%if(loginS!=null) {%>
+		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #63cdda;">
+		<%}else{ %>
+		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
+		<%} %>
+			
+		</div>
+		<div id="bottom-container">
+			<%if(loginS!=null) {%>
+			<input id="inputMessage" type="text" style="border: 1px solid #1B9CFC;">
+			<%}else {%>
+			<input id="inputMessage" type="text" style="border: 1px solid #EAB543;">
+			<%} %>
+			<%if(loginS!=null) {%>
+			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #1B9CFC;" >
+			<%}else {%>
+			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
+			<%} %>
+		</div>
+	</div>
+					</div>
+				</div>
+			</div>
+	</section>	
+	
+	
+	<script type="text/javascript">
+		
+		var textarea = document.getElementById("messageWindow");
+		var webSocket = new WebSocket("ws://220.71.97.239:8080/DSO/webChatServer/{<%=userName%>}");
+		
+		// 로컬에서 테스트할 때 사용하는 URL입니다.
+	// 	var webSocket = new WebSocket('ws://localhost/DevEricServers/webChatServer');
+		var inputMessage = document.getElementById('inputMessage');
+		
+		webSocket.onerror = function(e){
+			onError(e);
+		};
+		webSocket.onopen = function(e){
+			onOpen(e);
+		};
+		webSocket.onmessage = function(e){
+			onMessage(e);
+		};
+		
+		
+		function onMessage(e){
+			var chatMsg = event.data;
+			var date = new Date();
+			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			if(chatMsg.substring(0,10) == 'DSO server'){
+				var $chat = $("<div class='chat notice' style='background-color:#EAB543; border-radius : 10px 10px 10px 10px;'>" + chatMsg + "</div>");
+				$('#chat-container').append($chat);
+			}else{
+				var $chat = $("<div class='chat-box'><div class='chat'>" + chatMsg + "</div><div class='chat-info chat-box'>"+ dateInfo +"</div></div>");
+				$('#chat-container').append($chat);
+			}
+			
+			
+			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+		}
+		
+		function onOpen(e){
+			
+		}
+		
+		function onError(e){
+			alert(e.data);
+		}
+		
+		function send(){
+			var chatMsg = inputMessage.value;
+			if(chatMsg == ''){
+				return;
+			}
+			var date = new Date();
+			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			$('#chat-container').append($chat);
+			webSocket.send(chatMsg);
+			inputMessage.value = "";
+			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+		}
+		
+	</script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#inputMessage').keydown(function(key){
+				if(key.keyCode == 13){
+					$('#inputMessage').focus();
+					send();
+				}
+			});
+			$('#btn-submit').click(function(){
+				send();
+			});
+			
+		})
+	</script>
+					
+ 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -266,17 +494,6 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+	
 </body>
 </html>

@@ -3,21 +3,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Fashi Template">
-<meta name="keywords" content="Fashi, unica, creative, html">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-
-</style>
-<title>개발자 인력 사무소</title>
+<title>의뢰인마이페이지</title>
 <%
-Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-%>
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -32,14 +25,51 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/mypageliststyle.css" type="text/css" />
 <%if(loginS!=null) {%>
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
-<title>개발자 인력 사무소</title>
+<style type="text/css">
+	.col-lg-4{
+		height: 100px;
+		text-align: center;		
+	}
+	.inner_box{
+		width: 200px;
+		height: 80px;
+	}
+	body>section>div>div>div.col-lg-9.order-1.order-lg-2{
+		margin: auto;
+		
+	}
+	
+	.board {width: 650px; }
+	.w70  {width:70px; }
+	.w500 {width:100px; }
+	.w120 {width:430px; }
+	.w100 {width:0px; }
+	
+</style>
+
+
+
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
+	<!-- 좋아요 스크립트   -->
+
 
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -167,59 +197,76 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 		</div>
 	</header>
 	<!-- Header End -->
+	
+	<!-- Breadcrumb Section Begin -->
 
-	   <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Form Section Begin -->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="margin: auto;">
+					<div class="breadcrumb-text">
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+						<a href="Mypage_C.jsp"></i> 마이페이지</a>
+ 						<span>1:1채팅</span>
+					</div>
+				</div>
+			</div>
+		</div>
 
+	<!-- Breadcrumb Section Begin -->
 
-  <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="Specialist_Login_Service" method="post">
-                            <div class="group-input">
-                                <label for="username"> Email 입력해주세요 *</label>
-                                <input type="text" id="s_id" name="s_id">
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">비밀번호 입력해주세요 *</label>
-                                <input type="password" id="s_pw" name="s_pw">
-                            </div>
-                            <div class="group-input gi-check">
-                                <div class="gi-more">                             
-                                    <a href="#" class="forget-pass">Forget your Password</a>
-                                </div>
-                            </div>
-                            <div class=loginbtnCR>
-								<button type="submit" class="site-btn login-btn" style="background-color: #1B9CFC">전문가로그인</button>
-                            </div>
-                        </form>
-                        <div class="switch-login">
-                            <a href="Join_1.jsp" class="or-login">회원가입</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Register Form Section End -->
+	<!-- Product Shop Section Begin -->
 
+	<!-- Product Shop Section Begin -->
+	<!-- 왼쪽 카테고리바 -->
+	<section class="product-shop spad">
+		<div class="container">
+			<div class="row">
 
+				<div class="filter-widget">
+					<h4>마이페이지</h4>
+					<ul class="filter-catagories">
+						<br>
+						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
+						<li><a href="likepage.jsp">찜</a></li>
+						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
+						<li><a href="#">전문가 등록</a></li>
+					</ul>
+				</div>
+				<!-- 왼쪽 카테고리바 끝 -->
+				
+				<!-- 마이페이지 박스 -->
+				<div class="col-lg-9 order-1 order-lg-2" ">
+						   <!-- 마이페이지 목록  -->			 
+						
+						
+									<div>
+								  	  <!---기본 메뉴--->
+									  <ul class="board">
+									  	<li class="fl tc w70 title t_line">번호</li>
+									  	<li class="fl tc w500 title t_line">의뢰인</li>
+									  	<li class="fl tc w120 title t_line" style="text-align: left;">의뢰내용</li>
+		
+									  </ul>
+									  <!--- 리스트 --->
+									  <ul class="board">
+									  	<li class="fl tc w70 list t_line lt_line">1</li>
+									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
+									  	<li class="fl tc w120 list t_line lt_line" style="text-align: left;"><a href="Chatting_C.jsp">웹 · 모바일 기획</a></li>
+								
+									  </ul>
+								 </div>
+							</div>									
+
+						<!-- 마이페이지 목록끝 -->
+					</div>
+				</div>
+			
+	</section>	
+	
+	
+
+ 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -266,17 +313,6 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+	
 </body>
 </html>
