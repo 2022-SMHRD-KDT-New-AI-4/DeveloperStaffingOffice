@@ -1,10 +1,12 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="DSO.model.Service_info_pr_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>UX 기획</title>
+<title>검색결과</title>
 
 <!-- Google Font -->
 <link
@@ -23,6 +25,10 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
+<%
+ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+String searchWord = (String)session.getAttribute("searchWord");
+%>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -46,16 +52,20 @@
 							</a>
 						</div>
 					</div>
+					<!-- 검색 박스 -->
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">
-								<input type="text" placeholder="검색어를 입력해주세요">
-								<button type="button" OnClick="location.href ='search_result.jsp'">
+								<form action="Search_service" method="post">
+								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
+								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
+								</form>
 							</div>
 						</div>
 					</div>
+					<!-- 검색 박스 끝 -->
 					<div class="col-lg-3 text-right col-md-3"></div>
 				</div>
 			</div>
@@ -67,62 +77,62 @@
 						<i class="ti-menu"></i> <span>전체 카테고리</span>
 						<!-- 카테고리 바 -->
 						<ul class="depart-hover">
-							<li><a href="c1_UX.jsp"><h3>UX 기획</h3></a>
+							<li><a href="ToMenu?menu=1"><h3>UX 기획</h3></a>
 								<ul>
-									<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
-									<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
-								</ul> <a href="c2_Web.jsp"><h3>웹</h3></a>
+									<li><a href="ToMenu?menu=1&smenu=01">웹 · 모바일 기획</a></li>
+									<li><a href="ToMenu?menu=1&smenu=02">프로그램 · 기타 기획</a></li>
+								</ul> <a href="ToMenu?menu=2"><h3>웹</h3></a>
 								<ul>
-									<li><a href="c2_Web.jsp">홈페이지 </a></li>
-									<li><a href="c2_Web.jsp">랜딩페이지</a></li>
-									<li><a href="c2_Web.jsp">프론트엔드 · 퍼블리싱</a></li>
-									<li><a href="c2_Web.jsp">검색 최적화 · SEO</a></li>
-									<li><a href="c2_Web.jsp">애널리틱스</a></li>
-									<li><a href="c2_Web.jsp">홈페이지 수정 · 유지보수</a></li>
+									<li><a href="ToMenu?menu=2&smenu=01">홈페이지 </a></li>
+									<li><a href="ToMenu?menu=2&smenu=02">랜딩페이지</a></li>
+									<li><a href="ToMenu?menu=2&smenu=03">프론트엔드 · 퍼블리싱</a></li>
+									<li><a href="ToMenu?menu=2&smenu=04">검색 최적화 · SEO</a></li>
+									<li><a href="ToMenu?menu=2&smenu=05">애널리틱스</a></li>
+									<li><a href="ToMenu?menu=2&smenu=06">홈페이지 수정 · 유지보수</a></li>
 								</ul></li>
-							<li><a href="c3_Comm.jsp"><h3>커머스</h3></a>
+							<li><a href="ToMenu?menu=3"><h3>커머스</h3></a>
 								<ul>
-									<li><a href="c3_Comm.jsp">쇼핑몰</a></li>
-									<li><a href="c3_Comm.jsp">쇼핑몰 수정 · 유지보수</a></li>
-								</ul> <a href="c4_Mob.jsp"><h3>모바일</h3></a>
+									<li><a href="ToMenu?menu=3&smenu=01">쇼핑몰</a></li>
+									<li><a href="ToMenu?menu=3&smenu=02">쇼핑몰 수정 · 유지보수</a></li>
+								</ul> <a href="ToMenu?menu=4"><h3>모바일</h3></a>
 								<ul>
-									<li><a href="c4_Mob.jsp">앱</a></li>
-									<li><a href="c4_Mob.jsp">앱 수정 · 유지보수</a></li>
+									<li><a href="ToMenu?menu=4&smenu=01">앱</a></li>
+									<li><a href="ToMenu?menu=4&smenu=02">앱 수정 · 유지보수</a></li>
 								</ul></li>
-							<li><a href="c5_Prog.jsp"><h3>프로그램</h3></a>
+							<li><a href="ToMenu?menu=5"><h3>프로그램</h3></a>
 								<ul>
-									<li><a href="c5_Prog.jsp">비지니스 애플리케이션</a></li>
-									<li><a href="c5_Prog.jsp">PC · 웹 프로그램</a></li>
-									<li><a href="c5_Prog.jsp">백엔드 · 서버</a></li>
-									<li><a href="c5_Prog.jsp">봇 · 챗봇</a></li>
-								</ul> <a href="c6_Trend.jsp"><h3>트랜드</h3></a>
+									<li><a href="ToMenu?menu=5&smenu=01">비지니스 애플리케이션</a></li>
+									<li><a href="ToMenu?menu=5&smenu=02">PC · 웹 프로그램</a></li>
+									<li><a href="ToMenu?menu=5&smenu=03">백엔드 · 서버</a></li>
+									<li><a href="ToMenu?menu=5&smenu=04">봇 · 챗봇</a></li>
+								</ul> <a href="ToMenu?menu=6"><h3>트랜드</h3></a>
 								<ul>
-									<li><a href="c6_Trend.jsp">노코드 · 로우코드</a></li>
-									<li><a href="c6_Trend.jsp">메타버스</a></li>
-									<li><a href="c6_Trend.jsp">블록체인 · NFT</a></li>
+									<li><a href="ToMenu?menu=6&smenu=01">노코드 · 로우코드</a></li>
+									<li><a href="ToMenu?menu=6&smenu=02">메타버스</a></li>
+									<li><a href="ToMenu?menu=6&smenu=03">블록체인 · NFT</a></li>
 								</ul></li>
-							<li><a href="c7_Data.jsp"><h3>데이터</h3></a>
+							<li><a href="ToMenu?menu=7"><h3>데이터</h3></a>
 								<ul>
-									<li><a href="c7_Data.jsp">데이터 구매 · 구축</a></li>
-									<li><a href="c7_Data.jsp">데이터 마이닝 · 크롤링</a></li>
-									<li><a href="c7_Data.jsp">데이터 전처리</a></li>
-									<li><a href="c7_Data.jsp">데이터 라벨링</a></li>
-									<li><a href="c7_Data.jsp">데이터 분석 · 시각화</a></li>
-									<li><a href="c7_Data.jsp">인공지능 · 머신러닝</a></li>
-									<li><a href="c7_Data.jsp">데이터베이스</a></li>
+									<li><a href="ToMenu?menu=7&smenu=01">데이터 구매 · 구축</a></li>
+									<li><a href="ToMenu?menu=7&smenu=02">데이터 마이닝 · 크롤링</a></li>
+									<li><a href="ToMenu?menu=7&smenu=03">데이터 전처리</a></li>
+									<li><a href="ToMenu?menu=7&smenu=04">데이터 라벨링</a></li>
+									<li><a href="ToMenu?menu=7&smenu=05">데이터 분석 · 시각화</a></li>
+									<li><a href="ToMenu?menu=7&smenu=06">인공지능 · 머신러닝</a></li>
+									<li><a href="ToMenu?menu=7&smenu=07">데이터베이스</a></li>
 								</ul></li>
-							<li><a href="c8_Unr.jsp"><h3>언리얼</h3></a>
+							<li><a href="ToMenu?menu=8"><h3>언리얼</h3></a>
 								<ul>
-									<li><a href="c8_Unr.jsp">2D · 3D 게임</a></li>
-									<li><a href="c8_Unr.jsp">AR · VR</a></li>
-								</ul> <a href="c9_ETC.jsp"><h3>기타</h3></a>
+									<li><a href="ToMenu?menu=8&smenu=01">2D · 3D 게임</a></li>
+									<li><a href="ToMenu?menu=8&smenu=02">AR · VR</a></li>
+								</ul> <a href="ToMenu?menu=9"><h3>기타</h3></a>
 								<ul>
-									<li><a href="c9_ETC.jsp">하드웨어 · 임베디드</a></li>
-									<li><a href="c9_ETC.jsp">보안</a></li>
-									<li><a href="c9_ETC.jsp">QA · 테스트</a></li>
-									<li><a href="c9_ETC.jsp">컴퓨터 기술지원</a></li>
-									<li><a href="c9_ETC.jsp">파일변환</a></li>
-									<li><a href="c9_ETC.jsp">기타</a></li>
+									<li><a href="ToMenu?menu=9&smenu=01">하드웨어 · 임베디드</a></li>
+									<li><a href="ToMenu?menu=9&smenu=02">보안</a></li>
+									<li><a href="ToMenu?menu=9&smenu=03">QA · 테스트</a></li>
+									<li><a href="ToMenu?menu=9&smenu=04">컴퓨터 기술지원</a></li>
+									<li><a href="ToMenu?menu=9&smenu=05">파일변환</a></li>
+									<li><a href="ToMenu?menu=9&smenu=06">기타</a></li>
 								</ul></li>
 						</ul>
 						<!-- 카테고리바 끝 -->
@@ -140,7 +150,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span>검색결과 : 검색내용</span>
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span>검색결과 : <%=searchWord%></span>
 					</div>
 				</div>
 			</div>
@@ -155,74 +165,66 @@
 
 				<!-- 왼쪽 카테고리바 -->
 				<div class="filter-widget" style="padding-top: 0px">
-					<a href="c1_UX.jsp"><h4>UX 기획</h4></a>
+					<a href="ToMenu?menu=1"><h4>UX 기획</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c1_UX1.jsp">웹 · 모바일 기획</a></li>
-						<li><a href="c1_UX2.jsp">프로그램 · 기타 기획</a></li>
+						<li><a href="ToMenu?menu=1&smenu=01">웹 · 모바일 기획</a></li>
+						<li><a href="ToMenu?menu=1&smenu=02">프로그램 · 기타 기획</a></li>
 					</ul>
-					<BR>
-					<a href="c2_Web.jsp"><h4>웹</h4></a>
+					<BR> <a href="ToMenu?menu=2"><h4>웹</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c2_Web.jsp">홈페이지 </a></li>
-						<li><a href="c2_Web.jsp">랜딩페이지</a></li>
-						<li><a href="c2_Web.jsp">프론트엔드 · 퍼블리싱</a></li>
-						<li><a href="c2_Web.jsp">검색 최적화 · SEO</a></li>
-						<li><a href="c2_Web.jsp">애널리틱스</a></li>
-						<li><a href="c2_Web.jsp">홈페이지 수정 · 유지보수</a></li>
+						<li><a href="ToMenu?menu=2&smenu=01">홈페이지 </a></li>
+						<li><a href="ToMenu?menu=2&smenu=02">랜딩페이지</a></li>
+						<li><a href="ToMenu?menu=2&smenu=03">프론트엔드 · 퍼블리싱</a></li>
+						<li><a href="ToMenu?menu=2&smenu=04">검색 최적화 · SEO</a></li>
+						<li><a href="ToMenu?menu=2&smenu=05">애널리틱스</a></li>
+						<li><a href="ToMenu?menu=2&smenu=06">홈페이지 수정 · 유지보수</a></li>
 					</ul>
-					<BR>
-					<a href="c3_Comm.jsp"><h4>커머스</h4></a>
+					<BR> <a href="ToMenu?menu=3"><h4>커머스</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c3_Comm.jsp">쇼핑몰</a></li>
-						<li><a href="c3_Comm.jsp">쇼핑몰 수정 · 유지보수</a></li>
+						<li><a href="ToMenu?menu=3&smenu=01">쇼핑몰</a></li>
+						<li><a href="ToMenu?menu=3&smenu=02">쇼핑몰 수정 · 유지보수</a></li>
 					</ul>
-					<BR>
-					<a href="c4_Mob.jsp"><h4>모바일</h4></a>
+					<BR> <a href="ToMenu?menu=4"><h4>모바일</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c4_Mob.jsp">앱</a></li>
-						<li><a href="c4_Mob.jsp">앱 수정 · 유지보수</a></li>
+						<li><a href="ToMenu?menu=4&smenu=01">앱</a></li>
+						<li><a href="ToMenu?menu=4&smenu=02">앱 수정 · 유지보수</a></li>
 					</ul>
-					<BR>
-					<a href="c5_Prog.jsp"><h4>프로그램</h4></a>
+					<BR> <a href="ToMenu?menu=5"><h4>프로그램</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c5_Prog.jsp">비지니스 애플리케이션</a></li>
-						<li><a href="c5_Prog.jsp">PC · 웹 프로그램</a></li>
-						<li><a href="c5_Prog.jsp">백엔드 · 서버</a></li>
-						<li><a href="c5_Prog.jsp">봇 · 챗봇</a></li>
+						<li><a href="ToMenu?menu=5&smenu=01">비지니스 애플리케이션</a></li>
+						<li><a href="ToMenu?menu=5&smenu=02">PC · 웹 프로그램</a></li>
+						<li><a href="ToMenu?menu=5&smenu=03">백엔드 · 서버</a></li>
+						<li><a href="ToMenu?menu=5&smenu=04">봇 · 챗봇</a></li>
 					</ul>
-					<BR>
-					<a href="c6_Trend.jsp"><h4>트랜드</h4></a>
+					<BR> <a href="ToMenu?menu=6"><h4>트랜드</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c6_Trend.jsp">노코드 · 로우코드</a></li>
-						<li><a href="c6_Trend.jsp">메타버스</a></li>
-						<li><a href="c6_Trend.jsp">블록체인 · NFT</a></li>
+						<li><a href="ToMenu?menu=6&smenu=01">노코드 · 로우코드</a></li>
+						<li><a href="ToMenu?menu=6&smenu=02">메타버스</a></li>
+						<li><a href="ToMenu?menu=6&smenu=03">블록체인 · NFT</a></li>
 					</ul>
-					<BR>
-					<a href="c7_Data.jsp"><h4>데이터</h4></a>
+					<BR> <a href="ToMenu?menu=7"><h4>데이터</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c7_Data.jsp">데이터 구매 · 구축</a></li>
-						<li><a href="c7_Data.jsp">데이터 마이닝 · 크롤링</a></li>
-						<li><a href="c7_Data.jsp">데이터 전처리</a></li>
-						<li><a href="c7_Data.jsp">데이터 라벨링</a></li>
-						<li><a href="c7_Data.jsp">데이터 분석 · 시각화</a></li>
-						<li><a href="c7_Data.jsp">인공지능 · 머신러닝</a></li>
-						<li><a href="c7_Data.jsp">데이터베이스</a></li>
+						<li><a href="ToMenu?menu=7&smenu=01">데이터 구매 · 구축</a></li>
+						<li><a href="ToMenu?menu=7&smenu=02">데이터 마이닝 · 크롤링</a></li>
+						<li><a href="ToMenu?menu=7&smenu=03">데이터 전처리</a></li>
+						<li><a href="ToMenu?menu=7&smenu=04">데이터 라벨링</a></li>
+						<li><a href="ToMenu?menu=7&smenu=05">데이터 분석 · 시각화</a></li>
+						<li><a href="ToMenu?menu=7&smenu=06">인공지능 · 머신러닝</a></li>
+						<li><a href="ToMenu?menu=7&smenu=07">데이터베이스</a></li>
 					</ul>
-					<BR>
-					<a href="c8_Unr.jsp"><h4>언리얼</h4></a>
+					<BR> <a href="ToMenu?menu=8"><h4>언리얼</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c8_Unr.jsp">2D · 3D 게임</a></li>
-						<li><a href="c8_Unr.jsp">AR · VR</a></li>
+						<li><a href="ToMenu?menu=8&smenu=01">2D · 3D 게임</a></li>
+						<li><a href="ToMenu?menu=8&smenu=02">AR · VR</a></li>
 					</ul>
-					<BR>
-					<a href="c9_ETC.jsp"><h4>기타</h4></a>
+					<BR> <a href="ToMenu?menu=9"><h4>기타</h4></a>
 					<ul class="filter-catagories">
-						<li><a href="c9_ETC.jsp">하드웨어 · 임베디드</a></li>
-						<li><a href="c9_ETC.jsp">보안</a></li>
-						<li><a href="c9_ETC.jsp">QA · 테스트</a></li>
-						<li><a href="c9_ETC.jsp">컴퓨터 기술지원</a></li>
-						<li><a href="c9_ETC.jsp">파일변환</a></li>
-						<li><a href="c9_ETC.jsp">기타</a></li>
+						<li><a href="ToMenu?menu=9&smenu=01">하드웨어 · 임베디드</a></li>
+						<li><a href="ToMenu?menu=9&smenu=02">보안</a></li>
+						<li><a href="ToMenu?menu=9&smenu=03">QA · 테스트</a></li>
+						<li><a href="ToMenu?menu=9&smenu=04">컴퓨터 기술지원</a></li>
+						<li><a href="ToMenu?menu=9&smenu=05">파일변환</a></li>
+						<li><a href="ToMenu?menu=9&smenu=06">기타</a></li>
 					</ul>
 				</div>
 				<!-- 왼쪽 카테고리바 끝 -->
@@ -236,137 +238,103 @@
 					</div>
 					<div class="product-list">
 						<div class="row">
-							<!-- 상품 목록 한칸 -->
+						
+							<!-- 상품 한칸 -->
+							<% for(int i=0;i<cate.size();i++) {%>
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl2.png"
+									<div class="pi-pic">
+										<a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>"> <img src="img/pl/pl2.png"
 											alt=""></a>
 										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
+											<li class="quick-view"><a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>">상품
 													상세 정보</a></li>
 										</ul>
 									</div>
 									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
+										<div class="catagory-name">
+										
+											<%if(cate.get(i).getService_categorynum1().equals("1")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												웹 · 모바일 기획
+											<% } else if(cate.get(i).getService_categorynum1().equals("1")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												프로그램 · 기타 기획
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												홈페이지
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												랜딩페이지
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												프론트엔드 · 퍼블리싱
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												검색 최적화 · SEO
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("05")){%>
+												애널리틱스
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("06")){%>
+												홈페이지 수정 · 유지보수
+											<% } else if(cate.get(i).getService_categorynum1().equals("3")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												쇼핑몰
+											<% } else if(cate.get(i).getService_categorynum1().equals("3")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												쇼핑몰 수정 · 유지보수
+											<% } else if(cate.get(i).getService_categorynum1().equals("4")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												앱
+											<% } else if(cate.get(i).getService_categorynum1().equals("4")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												앱 수정 · 유지보수
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												비지니스 애플리케이션
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												PC · 웹 프로그램
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												백엔드 · 서버
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												봇 · 챗봇
+											<% } else if(cate.get(i).getService_categorynum1().equals("6")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												노코드 · 로우코드
+											<% } else if(cate.get(i).getService_categorynum1().equals("6")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												메타버스
+											<% } else if(cate.get(i).getService_categorynum1().equals("6")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												블록체인 · NFT
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												데이터 구매 · 구축
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												데이터 마이닝 · 크롤링
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												데이터 전처리
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												데이터 라벨링
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("05")){%>
+												데이터 분석 · 시각화
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("06")){%>
+												인공지능 · 머신러닝
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("07")){%>
+												데이터베이스
+											<% } else if(cate.get(i).getService_categorynum1().equals("8")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												2D · 3D 게임
+											<% } else if(cate.get(i).getService_categorynum1().equals("8")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												AR · VR
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												하드웨어 · 임베디드
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												보안
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												QA · 테스트
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												컴퓨터 기술지원
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("05")){%>
+												파일변환
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("06")){%>
+												기타
+											<% } %>
+										
+										</div>
+											<h4><%=cate.get(i).getService_title() %></h4>
+										<div class="product-price">
+											<%=cate.get(i).getService_price()%>원
+											<button class="likeBtn">🤍</button>
+										</div>
 									</div>
 								</div>
 							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl3.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl4.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl4.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl3.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- 상품 목록 한칸 -->
-							<div class="col-lg-4 col-sm-6">
-								<div class="product-item">
-									<div class="pi-pic" href="ProductDetail.jsp">
-
-										<a href="ProductDetail.jsp"> <img src="img/pl/pl2.png"
-											alt=""></a>
-										<ul>
-											<li class="quick-view"><a href="ProductDetail.jsp">상품
-													상세 정보</a></li>
-										</ul>
-									</div>
-									<div class="pi-text">
-										<div class="catagory-name">UX 기획(카테고리명)</div>
-										<a href="ProductDetail.jsp">
-											<h4>UX 기획(상품 제목)</h4>
-										</a>
-										<div class="product-price">1,000 원</div>
-									</div>
-								</div>
-							</div>
+							<%} %>
+							<!-- 상품 한칸 끝 -->
 
 						</div>
 					</div>

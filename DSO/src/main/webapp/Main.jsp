@@ -52,11 +52,12 @@
 							</a>
 						</div>
 					</div>
+					<!-- 검색 박스 -->
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">
 								<form action="Search_service" method="post">
-								<input type="text" name="sendSearch" placeholder="검색어를 입력해주세요" />
+								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
 								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
@@ -64,6 +65,7 @@
 							</div>
 						</div>
 					</div>
+					<!-- 검색 박스 끝 -->
 					<div class="col-lg-3 text-right col-md-3"></div>
 				</div>
 			</div>
@@ -146,11 +148,8 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-4">
-<<<<<<< HEAD
-					<div class="single-banner" OnClick="location.href ='ToMenu?menu=1'"
-=======
-					<div class="single-banner" OnClick="location.href ='c1_UX.jsp'"
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
+					<div class="single-banner" 
+						OnClick="location.href ='ToMenu?menu=1'"
 						style="cursor: pointer;">
 						<img src="img/category/uximg.jpg" alt="">
 						<div class="inner-text">

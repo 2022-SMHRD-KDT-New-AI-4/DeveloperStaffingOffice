@@ -35,4 +35,12 @@ public class Service_info_pr_DAO {
 		session.close();
 		return post;
 	}
+	
+	public ArrayList<Service_info_pr_VO> selectSearch(String value){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<Service_info_pr_VO> list = session.selectList("selectSearch", value);
+		session.close();
+		return (ArrayList<Service_info_pr_VO>)list;
+	}
+	
 }
