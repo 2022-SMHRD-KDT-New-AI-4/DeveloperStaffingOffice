@@ -68,9 +68,4 @@
         WHERE pf_seq = #{pf_seq}
     </delete> -->
 
-<!-- 검색 -->
-	<select id="selectSearch" resultType="Service_register_VO" parameterType="String">
-		SELECT service_title,service_category,service_price,service_desc,service_requisite,service_img FROM tbl_SERVICE2 Where service_TITLE LIKE '%#{sendSearch}%'
-	</select>
-
 </mapper>
