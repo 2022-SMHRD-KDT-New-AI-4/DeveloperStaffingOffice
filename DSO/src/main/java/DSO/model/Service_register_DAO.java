@@ -29,10 +29,19 @@ public class Service_register_DAO {
 
 	public int serviceupdate(Service_register_VO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.update("serviceupdat",vo);
+		int cnt = session.update("serviceupdate",vo);
 		session.close();
 		return cnt;
 	}
 	
+	public ArrayList<Service_register_VO> selectSearch(String sendSearch){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		System.out.println("성공");
+		List<Service_register_VO> list = session.selectList("selectSearch",sendSearch);
+		System.out.println("성공");
+		session.close();
+		System.out.println("성공");
+		return (ArrayList<Service_register_VO>)list;
+	}
 	
 }

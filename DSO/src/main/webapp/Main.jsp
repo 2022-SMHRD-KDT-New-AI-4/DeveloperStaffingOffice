@@ -56,7 +56,7 @@
 						<div class="advanced-search">
 							<div class="input-group">
 								<form action="Search_service" method="post">
-								<input type="text" name="sendSearch" placeholder="검색어를 입력해주세요" />
+								<input type="text" id="search" name="sendSearch" placeholder="검색어를 입력해주세요" />
 								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
