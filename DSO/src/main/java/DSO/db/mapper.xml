@@ -73,9 +73,18 @@
 		SELECT service_title,service_category,service_price,service_desc,service_requisite,service_img FROM tbl_SERVICE2 Where service_TITLE LIKE '%${value}%' 
 	</select>
 	
-<!-- UX카테고리 게시물 불러오기 -->
-	<select id="selectCateUX" resultType="DSO.model.Service_info_pr_VO">
-		Select * from tbl_service3 where service_categorynum1 = 1
+<!-- 큰 카테고리 게시물 불러오기 -->
+	<select id="selectCateMenu" resultType="DSO.model.Service_info_pr_VO" parameterType="string">
+		Select * from tbl_service3 where service_categorynum1 = #{menu}
 	</select>
-
+	
+<!-- 작은 카테고리 게시물 불러오기 -->
+	<select id="selectCateSmenu" resultType="DSO.model.Service_info_pr_VO" parameterType="string">
+		Select * from tbl_service3 where service_categorynum2 = #{smenu}
+	</select>
+	
+<!-- 게시물 한개 불러오기 -->
+	<select id="selectPost" resultType="DSO.model.Service_info_pr_VO">
+		select * from tbl_service3 where service_seq = #{seq}
+	</select>
 </mapper>

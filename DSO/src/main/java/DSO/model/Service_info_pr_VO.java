@@ -3,6 +3,7 @@ package DSO.model;
 public class Service_info_pr_VO {
 	// 민우
 	
+	private	int service_seq;
 	private String service_title;
 	private String service_categorynum1;
 	private String service_categorynum2;
@@ -10,14 +11,14 @@ public class Service_info_pr_VO {
 	private String service_desc;
 	private String service_requisite;
 	private String service_img;
+	private String s_id;
+	private String service_dt;
 	
-	public Service_info_pr_VO() {
+	public Service_info_pr_VO(int service_seq, String service_title, String service_categorynum1,
+			String service_categorynum2, int service_price, String service_desc, String service_requisite,
+			String service_img, String s_id, String service_dt) {
 		super();
-	}
-
-	public Service_info_pr_VO(String service_title, String service_categorynum1, String service_categorynum2,
-			int service_price, String service_desc, String service_requisite, String service_img) {
-		super();
+		this.service_seq = service_seq;
 		this.service_title = service_title;
 		this.service_categorynum1 = service_categorynum1;
 		this.service_categorynum2 = service_categorynum2;
@@ -25,6 +26,20 @@ public class Service_info_pr_VO {
 		this.service_desc = service_desc;
 		this.service_requisite = service_requisite;
 		this.service_img = service_img;
+		this.s_id = s_id;
+		this.service_dt = service_dt;
+	}
+
+	public Service_info_pr_VO() {
+		super();
+	}
+
+	public int getService_seq() {
+		return service_seq;
+	}
+
+	public void setService_seq(int service_seq) {
+		this.service_seq = service_seq;
 	}
 
 	public String getService_title() {
@@ -83,13 +98,32 @@ public class Service_info_pr_VO {
 		this.service_img = service_img;
 	}
 
+	public String getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(String s_id) {
+		this.s_id = s_id;
+	}
+
+	public String getService_dt() {
+		return service_dt;
+	}
+
+	public void setService_dt(String service_dt) {
+		this.service_dt = service_dt;
+	}
+
 	@Override
 	public String toString() {
-		return "Service_info_pr_VO [service_title=" + service_title + ", service_categorynum1=" + service_categorynum1
-				+ ", service_categorynum2=" + service_categorynum2 + ", service_price=" + service_price
-				+ ", service_desc=" + service_desc + ", service_requisite=" + service_requisite + ", service_img="
-				+ service_img + "]";
+		return "Service_info_pr_VO [service_seq=" + service_seq + ", service_title=" + service_title
+				+ ", service_categorynum1=" + service_categorynum1 + ", service_categorynum2=" + service_categorynum2
+				+ ", service_price=" + service_price + ", service_desc=" + service_desc + ", service_requisite="
+				+ service_requisite + ", service_img=" + service_img + ", s_id=" + s_id + ", service_dt=" + service_dt
+				+ "]";
 	}
+	
+	
 	
 	
 }
