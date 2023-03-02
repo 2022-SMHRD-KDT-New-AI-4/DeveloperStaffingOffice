@@ -68,4 +68,23 @@
         WHERE pf_seq = #{pf_seq}
     </delete> -->
 
+<!-- 검색 -->
+	<select id="selectSearch" resultType="DSO.model.Service_info_pr_VO" parameterType="string">
+		SELECT * FROM tbl_SERVICE3 Where service_TITLE LIKE '%${value}%' 
+	</select>
+	
+<!-- 큰 카테고리 게시물 불러오기 -->
+	<select id="selectCateMenu" resultType="DSO.model.Service_info_pr_VO" parameterType="string">
+		Select * from tbl_service3 where service_categorynum1 = #{menu}
+	</select>
+	
+<!-- 작은 카테고리 게시물 불러오기 -->
+	<select id="selectCateSmenu" resultType="DSO.model.Service_info_pr_VO" parameterType="string">
+		Select * from tbl_service3 where service_categorynum2 = #{smenu}
+	</select>
+	
+<!-- 게시물 한개 불러오기 -->
+	<select id="selectPost" resultType="DSO.model.Service_info_pr_VO">
+		select * from tbl_service3 where service_seq = #{seq}
+	</select>
 </mapper>

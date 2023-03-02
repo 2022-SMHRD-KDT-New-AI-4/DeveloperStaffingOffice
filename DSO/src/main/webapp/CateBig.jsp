@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DSO.model.Service_info_pr_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>검색결과</title>
+<title>상품 목록 페이지(큰 카테고리)</title>
 
 <!-- Google Font -->
 <link
@@ -23,12 +24,66 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<style type="text/css">
+.likeBtn {
+	background: white;
+	border: 0;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.dislikeBtn {
+	background: white;
+	border: 0;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.product-price {
+	margin-left: 25px;
+}
+</style>
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="js/jquery.dd.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
 </head>
 <body>
-<%
-ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
-String searchWord = (String)session.getAttribute("searchWord");
-%>
+	<%
+	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	String cateBigNum = (String)session.getAttribute("cateBigNum");
+	%>
+
+	<!-- 좋아요 스크립트   -->
+	<script type="text/javascript">
+		$(document).on('click', 'button[class=likeBtn]', function() {
+			$(this).text('🧡');
+			$('.likeBtn+span').text(Number($('.likeBtn+span').text()) + 1);
+			//$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
+			//$(this).removeAttr('class');  -> (class)객체를 삭제  
+			$(this).removeClass('likeBtn'); // -> 객체
+			$(this).attr('class', 'dislikeBtn');
+		});
+		$(document).on(
+				'click',
+				'.dislikeBtn',
+				function() {
+					$(this).text('🤍');
+					$('.dislikeBtn+span').text(
+							Number($('.dislikeBtn+span').text()) - 1);
+					$(this).removeAttr('class');
+					$(this).attr('class', 'likeBtn');
+				});
+	</script>
+
+	<!-- 좋아요 스크립트 -->
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -52,20 +107,17 @@ String searchWord = (String)session.getAttribute("searchWord");
 							</a>
 						</div>
 					</div>
-					<!-- 검색 박스 -->
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">
-								<form action="Search_service" method="post">
-								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
-								<button type="submit">
+								<input type="text" placeholder="검색어를 입력해주세요">
+								<button type="button"
+									OnClick="location.href ='search_result.jsp'">
 									<i class="ti-search"></i>
 								</button>
-								</form>
 							</div>
 						</div>
 					</div>
-					<!-- 검색 박스 끝 -->
 					<div class="col-lg-3 text-right col-md-3"></div>
 				</div>
 			</div>
@@ -150,7 +202,28 @@ String searchWord = (String)session.getAttribute("searchWord");
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span>검색결과 : <%=searchWord%></span>
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a> 
+						<span>
+						<%if(cateBigNum.equals("1")) {%>
+						UX기획
+						<%}else if(cateBigNum.equals("2")) {%>
+						웹
+						<%}else if(cateBigNum.equals("3")) {%>
+						커머스
+						<%}else if(cateBigNum.equals("4")) {%>
+						모바일
+						<%}else if(cateBigNum.equals("5")) {%>
+						프로그램
+						<%}else if(cateBigNum.equals("6")) {%>
+						트랜드
+						<%}else if(cateBigNum.equals("7")) {%>
+						데이터
+						<%}else if(cateBigNum.equals("8")) {%>
+						언리얼
+						<%}else if(cateBigNum.equals("9")) {%>
+						기타
+						<%} %>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -238,7 +311,7 @@ String searchWord = (String)session.getAttribute("searchWord");
 					</div>
 					<div class="product-list">
 						<div class="row">
-						
+							
 							<!-- 상품 한칸 -->
 							<% for(int i=0;i<cate.size();i++) {%>
 							<div class="col-lg-4 col-sm-6">
@@ -347,7 +420,6 @@ String searchWord = (String)session.getAttribute("searchWord");
 	<!-- Product Shop Section End -->
 
 
-
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -390,16 +462,6 @@ String searchWord = (String)session.getAttribute("searchWord");
 	</footer>
 	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+
 </body>
 </html>

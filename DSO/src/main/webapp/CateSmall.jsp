@@ -1,17 +1,12 @@
-<%@page import="DSO.model.Service_info_pr_DAO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="DSO.model.Service_info_pr_VO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>상품 상세 페이지</title>
 <meta charset="UTF-8">
-<meta name="description" content="Fashi Template">
-<meta name="keywords" content="Fashi, unica, creative, html">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>상품 목록 페이지(작은 카테고리)</title>
 
 <!-- Google Font -->
 <link
@@ -28,15 +23,75 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+
+<style type="text/css">
+.likeBtn {
+   background : white;
+   border: 0;
+   border-radius: 50px;
+   font-size:  18px;
+	}
+.dislikeBtn{
+  background : white;
+   border: 0;
+   border-radius: 50px;
+   font-size: 18px;
+  
+	}
+.product-price{
+	margin-left: 25px;
+}
+</style>
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 	<%
-		String seq = request.getParameter("seq");
-		Service_info_pr_DAO dao = new Service_info_pr_DAO();
-		Service_info_pr_VO post = dao.selectPost(seq);
-		String cateBigNum = (String)session.getAttribute("cateBigNum");
-		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
+	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	String cateBigNum = (String)session.getAttribute("cateBigNum");
+	String cateSmallNum = (String)session.getAttribute("cateSmallNum");
 	%>
+
+	<!-- 좋아요 스크립트   -->
+  <script type="text/javascript">
+
+$(document).on('click', 'button[class=likeBtn]', function(){
+    $(this).text('🧡');
+    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
+    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
+    //$(this).removeAttr('class');  -> (class)객체를 삭제  
+    $(this).removeClass('likeBtn');    // -> 객체
+    $(this).attr('class','dislikeBtn');
+ });
+ $(document).on('click', '.dislikeBtn', function(){
+    $(this).text('🤍');
+    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
+    $(this).removeAttr('class');
+    $(this).attr('class','likeBtn');
+ });
+</script> 
+	<!-- 좋아요 스크립트 -->
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -46,10 +101,9 @@
 	<header class="header-section">
 		<div class="header-top">
 			<div class="ht-right">
-				<!-- <a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>  -->
-				<a href="./Login.jsp" class="login-panel">마이페이지</a> <a
-					href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
+				<a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
+					로그인</a>
+
 			</div>
 		</div>
 		<div class="container">
@@ -148,6 +202,7 @@
 	</header>
 	<!-- Header End -->
 
+
 	<!-- Breadcrumb Section Begin -->
 	<div class="breacrumb-section">
 		<div class="container">
@@ -245,7 +300,6 @@
 							<%}else if(cateBigNum.equals("9")&&cateSmallNum.equals("06")){%>
 								기타
 							<%} %>
-							
 							</span>
 					</div>
 				</div>
@@ -255,9 +309,10 @@
 	<!-- Breadcrumb Section Begin -->
 
 	<!-- Product Shop Section Begin -->
-	<section class="product-shop spad page-details">
+	<section class="product-shop spad">
 		<div class="container">
 			<div class="row">
+
 				<!-- 왼쪽 카테고리바 -->
 				<div class="filter-widget" style="padding-top: 0px">
 					<a href="ToMenu?menu=1"><h4>UX 기획</h4></a>
@@ -323,232 +378,129 @@
 					</ul>
 				</div>
 				<!-- 왼쪽 카테고리바 끝 -->
-							
 
-				<!-- 상품 내용 -->
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-6">
-							<div>
-								<img class="product-big-img" src="img/pl/pl1.png" alt="">
-							</div>
-							<div class="product-thumbs">
-								<div class="product-thumbs-track ps-slider owl-carousel">
-									<div class="pt active" data-imgbigurl="img/pl/pl1.png">
-										<img src="img/pl/pl1.png" alt="">
-									</div>
-									<div class="pt" data-imgbigurl="img/pl/pl2.png">
-										<img src="img/pl/pl2.png" alt="">
-									</div>
-									<div class="pt" data-imgbigurl="img/pl/pl3.png">
-										<img src="img/pl/pl3.png" alt="">
-									</div>
-									<div class="pt" data-imgbigurl="img/pl/pl4.png">
-										<img src="img/pl/pl4.png" alt="">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="product-details">
-								<div class="pd-title">
-									<span><%=post.getS_id() %></span>
-									<h3><%=post.getService_title() %></h3>
-									<a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
-								</div>
-								<div class="pd-rating">
-									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-										class="fa fa-star-o"></i> <span>(4)</span>
-								</div>
-								<div class="pd-desc">
-									<p>
-										<%=post.getService_desc() %>
-									</p>
-									<h4>
-										<%=post.getService_price() %> 원<span></span>
-									</h4>
-								</div>
-								<div class="quantity">
-									<a href="http://www.naver.com" class="primary-btn pd-cart">전문가와
-										대화</a>
-								</div>
-								<ul class="pd-tags">
-									<li><span>카테고리:</span><%
-									if(post.getService_categorynum1().equals("1")&&post.getService_categorynum2().equals("01")){%>
-										웹 · 모바일 기획										
-									<%}	else if(post.getService_categorynum1().equals("1")&&post.getService_categorynum2().equals("02")) {%>
-										프로그램 · 기타 기획
-									<%}	else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("01")) {%>
-										홈페이지
-									<%}	else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("02")) {%>
-										랜딩페이지
-									<%}	else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("03")) {%>
-										프론트엔드 · 퍼블리싱
-									<%}	else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("04")) {%>
-										검색 최적화 · SEO
-									<%}	else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("05")) {%>
-										애널리틱스
-									<%}	else if(post.getService_categorynum1().equals("2")&&post.getService_categorynum2().equals("06")) {%>
-										홈페이지 수정 · 유지보수
-									<%}	else if(post.getService_categorynum1().equals("3")&&post.getService_categorynum2().equals("01")) {%>
-										쇼핑몰
-									<%}	else if(post.getService_categorynum1().equals("3")&&post.getService_categorynum2().equals("02")) {%>
-										쇼핑몰 수정 · 유지보수
-									<%}	else if(post.getService_categorynum1().equals("4")&&post.getService_categorynum2().equals("01")) {%>
-										앱
-									<%}	else if(post.getService_categorynum1().equals("4")&&post.getService_categorynum2().equals("02")) {%>
-										앱 수정 · 유지보수
-									<%}	else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("01")) {%>
-										비지니스 애플리케이션
-									<%}	else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("02")) {%>
-										PC · 웹 프로그램
-									<%}	else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("03")) {%>
-										백엔드 · 서버
-									<%}	else if(post.getService_categorynum1().equals("5")&&post.getService_categorynum2().equals("04")) {%>
-										봇 · 챗봇
-									<%}	else if(post.getService_categorynum1().equals("6")&&post.getService_categorynum2().equals("01")) {%>
-										노코드 · 로우코드
-									<%}	else if(post.getService_categorynum1().equals("6")&&post.getService_categorynum2().equals("02")) {%>
-										메타버스
-									<%}	else if(post.getService_categorynum1().equals("6")&&post.getService_categorynum2().equals("03")) {%>
-										블록체인 · NFT
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("01")) {%>
-										데이터 구매 · 구축
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("02")) {%>
-										데이터 마이닝 · 크롤링
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("03")) {%>
-										데이터 전처리
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("04")) {%>
-										데이터 라벨링
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("05")) {%>
-										데이터 분석 · 시각화
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("06")) {%>
-										인공지능 · 머신러닝
-									<%}	else if(post.getService_categorynum1().equals("7")&&post.getService_categorynum2().equals("07")) {%>
-										데이터베이스
-									<%}	else if(post.getService_categorynum1().equals("8")&&post.getService_categorynum2().equals("01")) {%>
-										2D · 3D 게임
-									<%}	else if(post.getService_categorynum1().equals("8")&&post.getService_categorynum2().equals("02")) {%>
-										AR · VR
-									<%}	else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("01")) {%>
-										하드웨어 · 임베디드
-									<%}	else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("02")) {%>
-										보안
-									<%}	else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("03")) {%>
-										QA · 테스트
-									<%}	else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("04")) {%>
-										컴퓨터 기술지원
-									<%}	else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("05")) {%>
-										파일변환
-									<%}	else if(post.getService_categorynum1().equals("9")&&post.getService_categorynum2().equals("06")) {%>
-										기타
-									<%} %>
-									</li>
-									<li>
-									<%=post.getService_dt() %>
-									</li>
-								</ul>
-							</div>
+				<!-- 상품 목록 -->
+				<div class="col-lg-9 order-1 order-lg-2">
+					<div class="product-show-option">
+						<div class="row">
+							<div class="col-lg-7 col-md-7"></div>
 						</div>
 					</div>
-					<div class="product-tab">
-						<div class="tab-item">
-							<ul class="nav" role="tablist">
-								<li><a class="active" data-toggle="tab" href="#tab-1"
-									role="tab">포트폴리오</a></li>
-								<li><a data-toggle="tab" href="#tab-2" role="tab">서비스
-										설명 및 의뢰인 준비사항</a></li>
-								<li><a data-toggle="tab" href="#tab-3" role="tab">리뷰</a></li>
-							</ul>
-						</div>
-						<div class="tab-item-content">
-							<div class="tab-content">
-								<div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-									<!-- 포트폴리오 탭 -->
-									<div class="product-content">
-										<div class="row">
-											<div class="col-lg-5">
-												<a
-													href="https://ovenapp.io/view/STZmH63UtKq1j4KX0aqzJO3czG6I69Ba/"><img
-													src="img/pt/pt1.jpg" alt=""></a>
-												<h5 style='text-align: center'>
-													<br>포트폴리오 1
-												</h5>
-											</div>
-											<div class="col-lg-5">
-												<a
-													href="https://ovenapp.io/view/STZmH63UtKq1j4KX0aqzJO3czG6I69Ba/"><img
-													src="img/pt/pt2.jpg" alt=""></a>
-												<h5 style='text-align: center'>
-													<br>포트폴리오 2
-												</h5>
-											</div>
-										</div>
+					<div class="product-list">
+						<div class="row">
+						
+							<!-- 상품 한칸 -->
+							<% for(int i=0;i<cate.size();i++) {%>
+								<% if(cate.get(i).getService_categorynum1().equals(cateBigNum)) {%>
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic">
+										<a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>"> <img src="img/pl/pl2.png"
+											alt=""></a>
+										<ul>
+											<li class="quick-view"><a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>">상품
+													상세 정보</a></li>
+										</ul>
 									</div>
-								</div>
-								<div class="tab-pane fade" id="tab-2" role="tabpanel">
-									<!-- 서비스 설명 및 의뢰인 준비사항 탭-->
-									<div class="specification-table">
-										<div class="col-lg-7">
-											<h5>서비스 설명</h5>
-											<p><%=post.getService_desc() %></p>
-											<h5>의뢰인 준비사항</h5>
-											<p><%=post.getService_requisite() %></p>
+									<div class="pi-text">
+										<div class="catagory-name">
+										
+											<%if(cate.get(i).getService_categorynum1().equals("1")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												웹 · 모바일 기획
+											<% } else if(cate.get(i).getService_categorynum1().equals("1")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												프로그램 · 기타 기획
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												홈페이지
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												랜딩페이지
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												프론트엔드 · 퍼블리싱
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												검색 최적화 · SEO
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("05")){%>
+												애널리틱스
+											<% } else if(cate.get(i).getService_categorynum1().equals("2")&&cate.get(i).getService_categorynum2().equals("06")){%>
+												홈페이지 수정 · 유지보수
+											<% } else if(cate.get(i).getService_categorynum1().equals("3")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												쇼핑몰
+											<% } else if(cate.get(i).getService_categorynum1().equals("3")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												쇼핑몰 수정 · 유지보수
+											<% } else if(cate.get(i).getService_categorynum1().equals("4")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												앱
+											<% } else if(cate.get(i).getService_categorynum1().equals("4")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												앱 수정 · 유지보수
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												비지니스 애플리케이션
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												PC · 웹 프로그램
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												백엔드 · 서버
+											<% } else if(cate.get(i).getService_categorynum1().equals("5")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												봇 · 챗봇
+											<% } else if(cate.get(i).getService_categorynum1().equals("6")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												노코드 · 로우코드
+											<% } else if(cate.get(i).getService_categorynum1().equals("6")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												메타버스
+											<% } else if(cate.get(i).getService_categorynum1().equals("6")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												블록체인 · NFT
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												데이터 구매 · 구축
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												데이터 마이닝 · 크롤링
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												데이터 전처리
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												데이터 라벨링
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("05")){%>
+												데이터 분석 · 시각화
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("06")){%>
+												인공지능 · 머신러닝
+											<% } else if(cate.get(i).getService_categorynum1().equals("7")&&cate.get(i).getService_categorynum2().equals("07")){%>
+												데이터베이스
+											<% } else if(cate.get(i).getService_categorynum1().equals("8")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												2D · 3D 게임
+											<% } else if(cate.get(i).getService_categorynum1().equals("8")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												AR · VR
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("01")){%>
+												하드웨어 · 임베디드
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("02")){%>
+												보안
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("03")){%>
+												QA · 테스트
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("04")){%>
+												컴퓨터 기술지원
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("05")){%>
+												파일변환
+											<% } else if(cate.get(i).getService_categorynum1().equals("9")&&cate.get(i).getService_categorynum2().equals("06")){%>
+												기타
+											<% } %>
+										
 										</div>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="tab-3" role="tabpanel">
-									<!-- 리뷰 탭 -->
-									<div class="customer-review-option">
-										<h4>2 Comments</h4>
-										<div class="comment-option">
-											<div class="co-item">
-												<div class="avatar-pic">
-													<img src="img/product-single/avatar-1.png" alt="">
-												</div>
-												<div class="avatar-text">
-													<div class="at-rating">
-														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star-o"></i>
-													</div>
-													<h5>
-														Brandon Kelley <span>27 Aug 2019</span>
-													</h5>
-													<div class="at-reply">Good !</div>
-												</div>
-											</div>
-											<div class="co-item">
-												<div class="avatar-pic">
-													<img src="img/product-single/avatar-2.png" alt="">
-												</div>
-												<div class="avatar-text">
-													<div class="at-rating">
-														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star-o"></i>
-													</div>
-													<h5>
-														Roy Banks <span>27 Aug 2019</span>
-													</h5>
-													<div class="at-reply">Nice !</div>
-												</div>
-											</div>
+											<h4><%=cate.get(i).getService_title() %></h4>
+										<div class="product-price">
+											<%=cate.get(i).getService_price()%>원
+											<button class="likeBtn">🤍</button>
 										</div>
 									</div>
 								</div>
 							</div>
+								<%} %>
+							<%} %>
+							<!-- 상품 한칸 끝 -->
+							
 						</div>
 					</div>
 				</div>
-				<!-- 상품 내용 끝 -->
-
+				<!-- 상품 목록 끝 -->
 			</div>
+
 		</div>
 	</section>
 	<!-- Product Shop Section End -->
+	
 
+	
+	
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -591,16 +543,6 @@
 	</footer>
 	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+
 </body>
 </html>
