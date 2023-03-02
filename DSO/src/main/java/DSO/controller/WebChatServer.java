@@ -1,9 +1,15 @@
 package DSO.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
@@ -39,27 +45,31 @@ public class WebChatServer extends HttpServlet {
 			}
 		}
 		
+		
 	}
 	
 	@OnOpen
 	public void onOpen(Session session){
-		String userName = "익명의 바보 ";
-		int rand_num = (int)(Math.random()*1000);
+	
+		String userName = "낯선 사람";
+	
+//		int rand_num = (int)(Math.random()*1000);
 		
 		
 		ChatClient client = new ChatClient();
 		System.out.println(session);
-		client.setName(userName+rand_num+"호");
+		client.setName(userName);
+//		client.setName(userName+rand_num+"호");
 		
 		System.out.println(session + " connect");
 		
 		users.put(session, client);
-		sendNotice("- -"+client.getName() + "님이 입장하셨습니다." + "- - 현재 사용자 " + users.size() + "명"	
-				);
+		sendNotice(client.getName() + "이 입장하셨습니다." + " 현재 사용자 " + users.size() + "명");
 		
-					
-				/* sendNotice("현재 사용자 " + users.size() + "명"); */
 	}
+
+	
+	
 	
 	
 	public void sendNotice(String message){
@@ -77,6 +87,7 @@ public class WebChatServer extends HttpServlet {
 				}
 			}
 		}
+	
 	}
 
 	@OnClose
@@ -85,5 +96,35 @@ public class WebChatServer extends HttpServlet {
 		users.remove(session);
 		sendNotice("- -"+userName + "님이 퇴장하셨습니다." + "- - 현재 사용자 " + users.size() + "명");
 	}
+	
+	
+
 
 }
+//	public List<String> getChatRoomList() {
+//	    try {
+//	        Socket socket = new Socket("localhost", 1234);
+//	        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//	        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+//
+//	        // Send a request for the list of chat rooms
+//	        out.println("getChatRoomList");
+//
+//	        // Read the response from the server
+//	        String response = in.readLine();
+//
+//	        // Parse the response into a list of chat room names
+//	        List<String> roomNames = new ArrayList<>();
+//	        String[] parts = response.split(",");
+//	        for (String part : parts) {
+//	            roomNames.add(part);
+//	        }
+//
+//	        // Close the socket and return the list of chat room names
+//	        socket.close();
+//	        return roomNames;
+//	    } catch (IOException e) {
+//	        e.printStackTrace();
+//	        return null;
+//	    }
+//	}
