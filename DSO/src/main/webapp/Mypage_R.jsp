@@ -190,7 +190,7 @@
 						<br>
 						<li><a href="#">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
-						<li><a href="#">찜</a></li>
+						<li><a href="likepage.jsp">찜</a></li>
 						<li><a href="#">1:1 채팅</a></li>
 						<li><a href="#">전문가 등록</a></li>
 					</ul>

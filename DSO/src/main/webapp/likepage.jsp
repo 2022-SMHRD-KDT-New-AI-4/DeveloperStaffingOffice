@@ -27,11 +27,20 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <style type="text/css">
 	.listname{ height: 50px;}
-.likeBtn{
-   background-color: rgb(242, 212, 242);
-   border: 0;
-   border-radius: 50px;
-   color: purple;
+	.likeBtn {
+	   background : white;
+	   border: 0;
+	   border-radius: 50px;
+	   font-size:  18px;
+	}
+	.dislikeBtn{
+	   background : white;
+	   border: 0;
+	   border-radius: 50px;
+	   font-size: 18px;
+	}
+	.row {
+       margin-top: 10px;
 	}
 .shopping-cart {padding-top: 0px;}
 
@@ -49,6 +58,26 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
+	<!-- 좋아요 스크립트   -->
+  <script type="text/javascript">
+
+$(document).on('click', 'button[class=likeBtn]', function(){
+    $(this).text('🤍');
+    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
+    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
+    //$(this).removeAttr('class');  -> (class)객체를 삭제  
+    $(this).removeClass('likeBtn');    // -> 객체
+    $(this).attr('class','dislikeBtn');
+ });
+ $(document).on('click', '.dislikeBtn', function(){
+    $(this).text('🧡');
+    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
+    $(this).removeAttr('class');
+    $(this).attr('class','likeBtn');
+ });
+</script> 
+
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -183,18 +212,20 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="filter-widget" style="padding-top: 0px">
+				<div class="filter-widget">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
 						<br>
-						<li><a href="#">의뢰내역</a></li>
+						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
-						<li><a href="#">찜</a></li>
+						<li><a href="likepage.jsp">찜</a></li>
 						<li><a href="#">1:1 채팅</a></li>
 						<li><a href="#">전문가 등록</a></li>
 					</ul>
 				</div>
-					<!-- 마이페이지 박스 -->
+				<!-- 왼쪽 카테고리바 끝 -->
+				
+				<!-- 마이페이지 박스 -->
 				<div class="col-lg-9 order-1 order-lg-2">
 					
 					<div class="product-show-option">
@@ -202,35 +233,33 @@
 							<div class="col-lg-7 col-md-7"></div>
 						</div>
 					</div>
-				
-			
-							
+										
 					<div class="product-list">
 						<div class="row">
 						
 				
-<!-- Breadcrumb Section Begin -->
-	<div class="breacrumb-section">
-		<div class="container">
-			<div class="row">
-
-			</div>
-		</div>
-	</div>
-	<!-- Breadcrumb Section Begin -->
-   <!-- Shopping Cart Section Begin -->
-    <section class="shopping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="cart-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="5">찜 목록</th>                                
-                                </tr>
-                            </thead>
-                            <tbody>
+				<!-- Breadcrumb Section Begin -->
+					<div class="breacrumb-section">
+						<div class="container">
+							<div class="row">
+				
+							</div>
+						</div>
+					</div>
+					<!-- Breadcrumb Section Begin -->
+				   <!-- Shopping Cart Section Begin -->
+				    <section class="shopping-cart spad">
+				        <div class="container">
+				            <div class="row">
+				                <div class="col-lg-12">
+				                    <div class="cart-table">
+				                        <table>
+				                            <thead>
+				                                <tr>
+				                                  <th colspan="5">찜 목록</th>                                
+				                                </tr>
+				                            </thead>
+				                            <tbody>
                            	<!-- 찜목록 한줄  -->
                                 <tr>
                                     <td class="cart-pic first-row"><img src="img/pl/pl1.png" alt=""></td>
@@ -241,10 +270,10 @@
                                 </tr>
 
                                 <tr class="listname">
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>                               
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>                               
                                <!--찜 목록 한줄 끝  -->    
                                                           	<!-- 찜목록 한줄  -->
                                 <tr>
@@ -256,9 +285,9 @@
                                 </tr>
 
                                 <tr class="listname">
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">&nbsp;🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">&nbsp;🧡</button></td>
+                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">&nbsp;🧡</button></td>
                                     <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>                               
                                <!--찜 목록 한줄 끝  -->   
                       
@@ -270,23 +299,6 @@
         </div>
     </section>
     <!-- Shopping Cart Section End -->
-  <script type="text/javascript">
-
-$(document).on('click', 'button[class=likeBtn]', function(){
-    $(this).text('🤍');
-    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
-    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
-    //$(this).removeAttr('class');  -> (class)객체를 삭제  
-    $(this).removeClass('likeBtn');    // -> 객체
-    $(this).attr('class','dislikeBtn');
- });
- $(document).on('click', '.dislikeBtn', function(){
-    $(this).text('🧡');
-    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
-    $(this).removeAttr('class');
-    $(this).attr('class','likeBtn');
- });
-</script>  
 
 	<!-- Product Shop Section End -->	
 						</div>											
@@ -336,7 +348,6 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
 	
 </body>
 </html>

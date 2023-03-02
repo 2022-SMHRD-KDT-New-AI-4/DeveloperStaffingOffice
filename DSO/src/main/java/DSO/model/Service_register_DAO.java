@@ -44,4 +44,12 @@ public class Service_register_DAO {
 		return (ArrayList<Service_register_VO>)list;
 	}
 	
+
+	public int servicedelete(String s_id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("servicedelete",s_id);
+		session.close();
+		return cnt;
+	}
+
 }
