@@ -68,6 +68,7 @@
         WHERE pf_seq = #{pf_seq}
     </delete> -->
 
+<<<<<<< HEAD
 <!-- 검색 -->
 	<select id="selectSearch" resultType="Service_register_VO" parameterType="string">
 		SELECT service_title,service_category,service_price,service_desc,service_requisite,service_img FROM tbl_SERVICE2 Where service_TITLE LIKE '%${value}%' 
@@ -87,4 +88,6 @@
 	<select id="selectPost" resultType="DSO.model.Service_info_pr_VO">
 		select * from tbl_service3 where service_seq = #{seq}
 	</select>
+=======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice.git
 </mapper>
