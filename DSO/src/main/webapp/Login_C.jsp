@@ -14,7 +14,10 @@
 
 </style>
 <title>개발자 인력 사무소</title>
-
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -29,14 +32,14 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 <title>개발자 인력 사무소</title>
 </head>
 <body>
-<%
-Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-%>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -79,11 +82,7 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 							<div class="input-group">
 								<form action="Search_service" method="post">
 								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
-								<%if(loginS!=null) {%>
-								<button type="submit" style="border: 1px solid #1B9CFC;	background: #1B9CFC;">
-								<%}else {%>
-								<button type="submit" style="border: 1px solid #EAB543;	background: #EAB543;">
-								<%} %>
+								<button type="submit">
 									<i class="ti-search"></i>
 								</button>
 								</form>
@@ -229,7 +228,13 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp">
+							<%if(loginS!=null) {%>
+							<img src="img/logo/dsologosblack.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoblack.png" alt="">
+							<%} %>							
+							</a>
 						</div>
 					</div>
 				</div>
