@@ -10,7 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 목록 페이지(큰 카테고리)</title>
-
+	<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	String cateBigNum = (String)session.getAttribute("cateBigNum");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -25,7 +30,11 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 <style type="text/css">
 .likeBtn {
 	background: white;
@@ -58,12 +67,7 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-	<%
-	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
-	String cateBigNum = (String)session.getAttribute("cateBigNum");
-	%>
+
 
 	<!-- 좋아요 스크립트   -->
 	<script type="text/javascript">
