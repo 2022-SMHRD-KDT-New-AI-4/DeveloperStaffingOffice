@@ -4,6 +4,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String userName=null;
+    if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
+    	userName="GUEST";
+    }else{
+       userName=(String)request.getAttribute("userName");
+    }
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,7 +132,7 @@
 <script type="text/javascript">
 	
 	var textarea = document.getElementById("messageWindow");
-	var webSocket = new WebSocket('ws://220.71.97.239:8080/DSO/webChatServer');
+	var webSocket = new WebSocket("ws://220.71.97.239:8080/DSO/webChatServer/{<%=userName%>}");
 	
 	// 로컬에서 테스트할 때 사용하는 URL입니다.
 // 	var webSocket = new WebSocket('ws://localhost/DevEricServers/webChatServer');

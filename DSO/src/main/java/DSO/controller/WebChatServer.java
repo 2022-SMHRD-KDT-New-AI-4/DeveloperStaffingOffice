@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
+import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import DSO.model.ChatClient;
@@ -24,7 +27,7 @@ import DSO.model.ChatClient;
 
 
 
-@ServerEndpoint("/webChatServer")
+@ServerEndpoint("/webChatServer/{userName}")
 public class WebChatServer extends HttpServlet {
 	private static Map<Session,ChatClient> users = Collections.synchronizedMap(new HashMap<Session, ChatClient>());
 	
@@ -32,6 +35,7 @@ public class WebChatServer extends HttpServlet {
 	
 	@OnMessage
 	public void onMsg(String message, Session session) throws IOException{
+		
 		String userName = users.get(session).getName();
 		System.out.println(userName + " : " + message);
 		
@@ -49,13 +53,14 @@ public class WebChatServer extends HttpServlet {
 	}
 	
 	@OnOpen
-	public void onOpen(Session session){
-	
-		String userName = "낯선 사람";
-	
+	public void onOpen(Session session,@PathParam(value = "userName") String userName){		
+		//HttpSession sess=request.getSession();
+		//String userName=(String) sess.getAttribute("name"); // :
+		int cnt = 0;
+		//String userName = "전문가";
+		//String userName1 = "의뢰인";
 //		int rand_num = (int)(Math.random()*1000);
-		
-		
+	
 		ChatClient client = new ChatClient();
 		System.out.println(session);
 		client.setName(userName);
@@ -64,15 +69,17 @@ public class WebChatServer extends HttpServlet {
 		System.out.println(session + " connect");
 		
 		users.put(session, client);
-		sendNotice(client.getName() + "이 입장하셨습니다." + " 현재 사용자 " + users.size() + "명");
+		sendNotice(client.getName() + "이(가) 입장하셨습니다." + " 현재 사용자 " + users.size() + "명");
+		}
 		
-	}
+
 
 	
 	
 	
 	
 	public void sendNotice(String message){
+		
 		String userName = "DSO server";
 		System.out.println(userName + " : " + message);
 		
