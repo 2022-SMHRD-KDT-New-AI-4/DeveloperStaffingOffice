@@ -1,5 +1,4 @@
-	
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -176,7 +175,7 @@
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
 						<li><a href="likepage.jsp">찜</a></li>
-						<li><a href="#">1:1 채팅</a></li>
+						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
 						<li><a href="#">전문가 등록</a></li>
 					</ul>
 				</div>
@@ -217,7 +216,7 @@
 										<a href="ProductDetail.jsp">완료</a><span>1</span>	 					
 									</div>
 								</div>	
-													<!-- 마이페이지 목록  -->			 
+						   <!-- 마이페이지 목록  -->			 
 						
 								<div style="padding-left: 15px; padding-top: 20px" > 
 									<div>

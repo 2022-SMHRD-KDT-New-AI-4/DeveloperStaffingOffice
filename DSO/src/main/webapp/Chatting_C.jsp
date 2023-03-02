@@ -1,7 +1,18 @@
-<%@page import="javax.security.auth.spi.LoginModule"%>
-<%@page import="DSO.model.Client_register_VO"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String userName=null;
+    if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
+    	userName="GUEST";
+    }else{
+       userName=(String)request.getAttribute("userName");
+    }
+
+%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -10,7 +21,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>의뢰인정보수정</title>
+<title>개발자 인력 사무소</title>
 
 <!-- Google Font -->
 <link
@@ -27,9 +38,144 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-<title>개발자 인력 사무소</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<style type="text/css">
+	.listname{ height: 50px;}
+	.likeBtn {
+	   background : white;
+	   border: 0;
+	   border-radius: 50px;
+	   font-size:  18px;
+	}
+	.dislikeBtn{
+	   background : white;
+	   border: 0;
+	   border-radius: 50px;
+	   font-size: 18px;
+	}
+	.row {
+       margin-top: 10px;
+	}
+.shopping-cart {padding-top: 0px;}
+	*{
+		/* font-family: 나눔고딕; */
+
+	}
+	
+	/* 채팅 CSS */
+	
+
+	#messageWindow{
+		background: black;
+		color: greenyellow;
+	}
+	#inputMessage{
+		width:500px;
+		height:30px;
+		border: 1px solid #EAB543 ;
+		border-radius : 10px 10px 10px 10px;
+	}
+	#btn-submit{
+		background: white;
+		background: #EAB543;
+		width:60px;
+		height:30px;
+		color:white;
+		border:none;
+	}
+	
+	#main-container{
+		width:820px;
+		height:420px;
+		border:1px solid #EAB543 ;
+		margin:10px;
+		display: inline-block;
+		border-radius : 10px 10px 10px 10px;
+		
+	}
+	#chat-container{
+		vertical-align: bottom;
+		border: 1px solid #EAB543 ;
+		margin:10px;
+		width:800px;
+		min-height: 350px;
+		max-height: 350px;
+		overflow: scroll;
+		overflow-x:hidden;
+		background: wheat;
+		border-radius : 10px 10px 10px 10px;
+	}
+	
+	.chat{
+		font-size: 20px;
+		color:black;
+		margin: 5px;
+		min-height: 20px;
+		padding: 5px;
+		min-width: 50px;
+		text-align: left;
+        height:auto;
+        word-break : break-all;
+        background: #ffffff;
+        width:auto;
+        display:inline-block;
+        border-radius: 10px 10px 10px 10px; 
+	}
+	
+	.notice{
+		color:white;
+		font-weight: bold;
+		border : none;
+		text-align: center;
+		background-color: #9bbbd4;
+		display: block;
+	}
+	.my-chat{
+		text-align: right;
+		background: white;
+		/* border-radius: 5px 5px 5px 5px; */
+	}
+	
+	#bottom-container{
+		margin:auto;
+		margin-left: 100px;
+	}
+	
+	.chat-info{
+		color:#556677;
+		font-size: 10px;
+		text-align: right;
+		padding: 5px;
+		padding-top: 0px;
+	}
+	
+	.chat-box{
+		text-align:left;
+	}
+	.my-chat-box{
+		text-align: right;
+	}
+	
+	
+	
+</style>
+
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
+	<!-- 좋아요 스크립트   -->
+
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -141,142 +287,137 @@
 	</header>
 	<!-- Header End -->
 	
-    <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a> <span><a
-							href="Mypage_C.jsp"><i class="fa"> </i>마이페이지</a> <span>내 정보관리</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Form Section Begin -->
+	<!-- Breadcrumb Section Begin -->
 
-    <!-- Register Section Begin -->
-    <div class="register-login-section spad">
-        <div class="container">
-            <div class="row">
-            <!-- 마이페이지 왼쪽 카테고리바 -->
-				<div class="filter-widget" style="padding-top: 0px">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="margin: auto;">
+					<div class="breadcrumb-text">
+						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+						<a href="Mypage_C.jsp"></i> 마이페이지</a>
+ 						<span>1:1채팅</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!-- Breadcrumb Section Begin -->
+
+	<!-- Product Shop Section Begin -->
+
+	<!-- Product Shop Section Begin -->
+	<!-- 왼쪽 카테고리바 -->
+	<section class="product-shop spad">
+		<div class="container">
+			<div class="row">
+
+				<div class="filter-widget">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
 						<br>
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
 						<li><a href="likepage.jsp">찜</a></li>
-						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
+						<li><a href="#">1:1 채팅</a></li>
 						<li><a href="#">전문가 등록</a></li>
 					</ul>
 				</div>
-				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="register-form">
-                        <h2>의뢰인 정보수정</h2>
-                        <form method="post" action="Client_regi	ster_service">
-                            <div class="group-input">
-                                <label for="username">E-mail ID  </label>  
-                                                                                
-                            </div>
-                            <div class="group-input">
-                                <label for="pass">비밀번호 *</label>
-                                <input type="password" id="pass" name="c_pw">
-                            </div>
-                 			<!-- <div class="group-input">
-                                <label for="con-pass">비밀번호 확인*</label>
-                                <input type="text" id="con-pass">
-                            </div> -->
-               				<div class="group-input">
-                                <label for="username">이름 *</label>
-                                <input type="text" id="username" name="c_name">
-                            </div>
-               				<div class="group-input">
-                                <label for="job">직업 &nbsp;&nbsp;
-	                                <select style="width:235px;"  id="job" name="c_job">
-					                    
-					                    <option value="j1"> 선택안함 </option>
-					                    <option value="j1"> 백수 </option>
-					                    <option value="j2"> 직장인 </option>
-					                    <option value="j3">학생 </option>	
-									</select>
-								</label>
-							</div>
-							<div class="group-input">
-                                <label for="business">비지니스분야&nbsp;&nbsp; 
-									<select style="width:185px;" id="c_businesslist" name="c_business"">						                    
-						  				<option >선택해주세요</option>
-						  				<option >UX기획</option>
-						  				<option >웹</option>
-						  				<option >커머스</option>
-						  				<option >모바일</option>
-						  				<option >프로그램</option>
-						  				<option >트랜드</option>
-						  				<option >데이터</option>
-						  				<option >언리얼</option>
-						  				<option >기타</option>
-						  			</select>
-				                </label>
-                            </div>
- 							<div class="group-input">
-                                <label for="job">관심분야 &nbsp;&nbsp;
-									<select style="width:205px;" id="c_interestlist" name="c_interest">
-				                    </select>
-				                </label>
-                            </div>                           
-                            
-                           <button class="site-btn login-btn" type="submit" >수정하기</button>
-                        </form>
-                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript">
-  	
-  $('#c_businesslist').change(function(){
-	  var data = $(this).val();
-	  console.log(data);
-	  var list;
-	  if(data=='UX기획'){
-		  list = ['선택해주세요','웹 · 모바일 기획', '프로그램 · 기타 기획'];
-	  }else if(data=='웹'){
-		  list = ['선택해주세요','홈페이지','랜딩페이지','프론트엔드 · 퍼블리싱','검색 최적화 · SEO','애널리틱스','홈페이지 수정 · 유지보수'];
-	  }else if(data=='커머스'){
-		  list = ['선택해주세요','쇼핑몰', '쇼핑몰 수정 · 유지보수'];
-	  }else if(data=='모바일'){
-		  list = ['선택해주세요','앱','앱 수정 · 유지보수'];
-	  }else if(data=='프로그램'){
-		  list = ['선택해주세요','비지니스 애플리케이션','PC · 웹 프로그램','백엔드 · 서버','봇 · 챗봇'];
-	  }else if(data=='트랜드'){
-		  list = ['선택해주세요','노코드 · 로우코드','메타버스','블록체인 · NFT'];
-	  }else if(data=='데이터'){
-		  list = ['선택해주세요','데이터 구매 · 구축','데이터 마이닝 · 크롤링','데이터 전처리','데이터 라벨링','데이터 분석 · 시각화','인공지능 · 머신러닝','데이터베이스'];
-	  }else if(data=='언리얼'){
-		  list = ['선택해주세요','2D · 3D게임','AR · VR'];
-	  }else if(data=='기타'){
-		  list = ['선택해주세요','하드웨어 · 임베디드','보안','QA · 테스트','컴퓨터 기술지원','파일변환','기타'];
-	  }
-	  
-	  var html = "";
-	  for(var i = 0; i < list.length; i++){
-		  html += "<option>";
-		  html += list[i];
-		  html += "</option>";
-	  }
-	  
-	  $('#c_interestlist').html(html);
-	  
-  });
-  
-  </script>
-  
-  
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Register Form Section End -->
-
+				<!-- 왼쪽 카테고리바 끝 -->
+				
+				<!-- 마이페이지 박스 -->
+				<div class="col-lg-9 order-1 order-lg-2">
+			
+						<div id="main-container">
+		<div id="chat-container">
+			
+		</div>
+		<div id="bottom-container">
+			<input id="inputMessage" type="text">
+			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;" >
+		</div>
+	</div>
+					</div>
+				</div>
+			</div>
+	</section>	
+	
+	
+	<script type="text/javascript">
+		
+		var textarea = document.getElementById("messageWindow");
+		var webSocket = new WebSocket("ws://220.71.97.239:8080/DSO/webChatServer/{<%=userName%>}");
+		
+		// 로컬에서 테스트할 때 사용하는 URL입니다.
+	// 	var webSocket = new WebSocket('ws://localhost/DevEricServers/webChatServer');
+		var inputMessage = document.getElementById('inputMessage');
+		
+		webSocket.onerror = function(e){
+			onError(e);
+		};
+		webSocket.onopen = function(e){
+			onOpen(e);
+		};
+		webSocket.onmessage = function(e){
+			onMessage(e);
+		};
+		
+		
+		function onMessage(e){
+			var chatMsg = event.data;
+			var date = new Date();
+			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			if(chatMsg.substring(0,10) == 'DSO server'){
+				var $chat = $("<div class='chat notice' style='background-color:#EAB543; border-radius : 10px 10px 10px 10px;'>" + chatMsg + "</div>");
+				$('#chat-container').append($chat);
+			}else{
+				var $chat = $("<div class='chat-box'><div class='chat'>" + chatMsg + "</div><div class='chat-info chat-box'>"+ dateInfo +"</div></div>");
+				$('#chat-container').append($chat);
+			}
+			
+			
+			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+		}
+		
+		function onOpen(e){
+			
+		}
+		
+		function onError(e){
+			alert(e.data);
+		}
+		
+		function send(){
+			var chatMsg = inputMessage.value;
+			if(chatMsg == ''){
+				return;
+			}
+			var date = new Date();
+			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			$('#chat-container').append($chat);
+			webSocket.send(chatMsg);
+			inputMessage.value = "";
+			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+		}
+		
+	</script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#inputMessage').keydown(function(key){
+				if(key.keyCode == 13){
+					$('#inputMessage').focus();
+					send();
+				}
+			});
+			$('#btn-submit').click(function(){
+				send();
+			});
+			
+		})
+	</script>
+					
+ 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -284,7 +425,8 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png" alt=""></a>
+							<a href="Main.jsp"><img src="img/logo/dsologoblack.png"
+								alt=""></a>
 						</div>
 					</div>
 				</div>
@@ -317,31 +459,6 @@
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>
-
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+	
 </body>
 </html>
