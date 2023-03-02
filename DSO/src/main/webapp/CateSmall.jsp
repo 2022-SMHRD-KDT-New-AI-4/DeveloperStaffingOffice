@@ -537,8 +537,13 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png"
-								alt=""></a>
+							<a href="Main.jsp">
+							<%if(loginS!=null) {%>
+							<img src="img/logo/dsologosblack.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoblack.png" alt="">
+							<%} %>							
+							</a>
 						</div>
 					</div>
 				</div>
@@ -571,7 +576,6 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
 
 </body>
 </html>
