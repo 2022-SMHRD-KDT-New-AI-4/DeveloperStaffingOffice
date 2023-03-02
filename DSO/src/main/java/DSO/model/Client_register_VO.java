@@ -16,7 +16,7 @@ public class Client_register_VO {
 	}
 
 	public Client_register_VO(String c_id, String c_pw, String c_name, String c_job, String c_business,
-			String c_interest) {
+			String c_interest, String c_joindate) {
 		this.c_id = c_id;
 		this.c_pw = c_pw;
 		this.c_name = c_name;
