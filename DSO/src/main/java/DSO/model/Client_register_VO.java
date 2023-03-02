@@ -16,14 +16,13 @@ public class Client_register_VO {
 	}
 
 	public Client_register_VO(String c_id, String c_pw, String c_name, String c_job, String c_business,
-			String c_interest, String c_joindate) {
+			String c_interest) {
 		this.c_id = c_id;
 		this.c_pw = c_pw;
 		this.c_name = c_name;
 		this.c_job = c_job;
 		this.c_business = c_business;
 		this.c_interest = c_interest;
-		this.c_joindate = c_joindate;
 	}
 
 	
@@ -92,8 +91,5 @@ public class Client_register_VO {
 		return c_joindate;
 	}
 
-	public void setC_joindate(String c_joindate) {
-		this.c_joindate = c_joindate;
-	}
 	
 }
