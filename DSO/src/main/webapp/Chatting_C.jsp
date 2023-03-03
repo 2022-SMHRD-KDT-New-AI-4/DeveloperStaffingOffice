@@ -347,7 +347,7 @@
 					<div id="main-container" style="border:1px solid #EAB543 ;">
 				<%} %>
 		<%if(loginS!=null) {%>
-		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #63cdda;">
+		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #98cffa;">
 		<%}else{ %>
 		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
 		<%} %>
@@ -427,9 +427,18 @@
 			}
 			var date = new Date();
 			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			if(chatMsg.indexOf("http://")!=-1){ // indextOf("") : 문자열에 해당 문자가 포함되어 있다면 출력.
+			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'><a href='"+chatMsg+"'>" + chatMsg + "</a></div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			}
+			else{
 			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			}
 			$('#chat-container').append($chat);
+			if(chatMsg.indexOf("http://")!=-1){
+				webSocket.send("<a href='"+chatMsg+"'>" + chatMsg + "</a>");
+			}else{
 			webSocket.send(chatMsg);
+			}
 			inputMessage.value = "";
 			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
 		}

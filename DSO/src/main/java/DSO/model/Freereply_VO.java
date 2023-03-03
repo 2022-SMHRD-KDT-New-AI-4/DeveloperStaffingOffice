@@ -1,29 +1,37 @@
 package DSO.model;
 
 public class Freereply_VO {
-	private String loginM;
+	private String loginC;
 	private String review;
 	private int rate;
+	private int service_seq;
 	
 	public Freereply_VO() {
 		
 	}
-	
 
-	public Freereply_VO(String loginM, String review, int rate) {
+	
+	
+	
+	
+	public Freereply_VO(String loginC, String review, int rate, int service_seq) {
 		super();
-		this.loginM = loginM;
+		this.loginC = loginC;
 		this.review = review;
 		this.rate = rate;
+		this.service_seq = service_seq;
 	}
 
 
-	public String getloginM() {
-		return loginM;
+
+
+
+	public String getLoginC() {
+		return loginC;
 	}
 
-	public void setUserId(String loginM) {
-		this.loginM = loginM;
+	public void setLoginC(String loginC) {
+		this.loginC = loginC;
 	}
 
 	public String getReview() {
@@ -42,11 +50,22 @@ public class Freereply_VO {
 		this.rate = rate;
 	}
 
+	public int getService_seq() {
+		return service_seq;
+	}
+
+	public void setService_seq(int service_seq) {
+		this.service_seq = service_seq;
+	}
+
 	@Override
 	public String toString() {
-		return "Freereply_VO [loginM=" + loginM + ", review=" + review + ", rate=" + rate + "]";
+		return "Freereply_VO [loginC=" + loginC + ", review=" + review + ", rate=" + rate + ", service_seq="
+				+ service_seq + "]";
 	}
 	
+	
+
 	
 	
 	

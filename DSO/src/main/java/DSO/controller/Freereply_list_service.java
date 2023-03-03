@@ -20,7 +20,7 @@ public class Freereply_list_service extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Freereply_DAO dao = new Freereply_DAO();
-		ArrayList<Freereply_VO> list = dao.freereply();
+		ArrayList<Freereply_VO> list = dao.freereplyList();
 		
 		Gson gson = new Gson();
 		String result = gson.toJson(list);
