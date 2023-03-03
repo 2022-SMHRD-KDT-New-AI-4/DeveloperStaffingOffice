@@ -96,6 +96,13 @@
 		and A.service_seq = B.service_seq
 	</select>
 	
-
-			
+<!-- 좋아요 추가 -->
+	<insert id="insertLike" parameterType="DSO.model.Like_VO">
+        INSERT INTO tbl_likelist VALUES (#{Service_seq},#{c_Id})
+    </insert>
+    
+<!-- 좋아요 삭제 -->
+	<delete id="deleteLike" parameterType="DSO.model.Like_VO">
+		delete from tbl_likelist where service_seq = #{service_seq} and c_id = #{c_id}
+	</delete>		
 </mapper>

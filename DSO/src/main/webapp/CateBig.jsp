@@ -1,3 +1,4 @@
+<%@page import="DSO.model.Like_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
@@ -14,7 +15,9 @@
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
 	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 	String cateBigNum = (String)session.getAttribute("cateBigNum");
+	System.out.println(likeList);
 	%>
 <!-- Google Font -->
 <link
@@ -79,7 +82,7 @@
 				url : "Like_Insert_service",
 				method : "POST",
 				data : {"likeSeq" : likeSeq},
-				success : function(data){
+				success : function(){
 					$(this).text('🧡');
 					$(this).removeClass('likeBtn');
 					$(this).attr('class', 'dislikeBtn');
@@ -94,7 +97,7 @@
 				url : "Like_Delete_service",
 				method : "POST",
 				data : {"dislikeSeq" : dislikeSeq},
-				success : function(data){
+				success : function(){
 					$(this).text('🤍');
 					$(this).removeAttr('class');
 					$(this).attr('class', 'likeBtn');
@@ -445,8 +448,14 @@
 											<h4><%=cate.get(i).getService_title() %></h4>
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
-											<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+											<%if(loginC.getC_id().equals(likeList.get(i).getC_id())) {
+												for(int j=0;j<likeList.size();j++) {
+													if(cate.get(i).getService_seq()==likeList.get(j).getService_seq()) {%>
 											<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
+											<%} } %>
+											<%}else {%>
+											<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+											<%} %>
 										</div>
 									</div>
 								</div>
