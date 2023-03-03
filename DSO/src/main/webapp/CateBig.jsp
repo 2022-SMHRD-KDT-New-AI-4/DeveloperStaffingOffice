@@ -71,27 +71,43 @@
 
 	<!-- 좋아요 스크립트   -->
 	<script type="text/javascript">
+		let likeSeq = $('.likeBtn').val();
+		let disLikeSeq = $('.dislikeBtn').val();
+	
 		$(document).on('click', 'button[class=likeBtn]', function() {
-			$(this).text('🧡');
-			$('.likeBtn+span').text(Number($('.likeBtn+span').text()) + 1);
-			//$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
-			//$(this).removeAttr('class');  -> (class)객체를 삭제  
-			$(this).removeClass('likeBtn'); // -> 객체
-			$(this).attr('class', 'dislikeBtn');
+			$.ajax({
+				url : "Like_Insert_service",
+				method : "POST",
+				data : {"likeSeq" : likeSeq},
+				success : function(data){
+					$(this).text('🧡');
+					$(this).removeClass('likeBtn');
+					$(this).attr('class', 'dislikeBtn');
+				},
+				error : function(err){
+					console.log(err)
+				}
+			});
 		});
-		$(document).on(
-				'click',
-				'.dislikeBtn',
-				function() {
+		$(document).on('click',	'.dislikeBtn', function() {
+			$.ajax({
+				url : "Like_Delete_service",
+				method : "POST",
+				data : {"dislikeSeq" : dislikeSeq},
+				success : function(data){
 					$(this).text('🤍');
-					$('.dislikeBtn+span').text(
-							Number($('.dislikeBtn+span').text()) - 1);
 					$(this).removeAttr('class');
 					$(this).attr('class', 'likeBtn');
-				});
+				},
+				error : function(err){
+					console.log(err)
+				}
+			});
+			
+		});
 	</script>
+	<!-- 좋아요 스크립트 끝 -->
 
-	<!-- 좋아요 스크립트 -->
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -429,7 +445,8 @@
 											<h4><%=cate.get(i).getService_title() %></h4>
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
-											<button class="likeBtn">🤍</button>
+											<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+											<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
 										</div>
 									</div>
 								</div>

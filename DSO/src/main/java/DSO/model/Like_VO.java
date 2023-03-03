@@ -1,9 +1,10 @@
 package DSO.model;
 
-public class Service_info_pr_VO {
+public class Like_VO {
 	
-	// 민우
+	// 찜
 	
+	private String c_id;
 	private	int service_seq;
 	private String service_title;
 	private String service_categorynum1;
@@ -15,10 +16,15 @@ public class Service_info_pr_VO {
 	private String s_id;
 	private String service_dt;
 	
-	public Service_info_pr_VO(int service_seq, String service_title, String service_categorynum1,
+	public Like_VO() {
+		super();
+	}
+
+	public Like_VO(String c_id, int service_seq, String service_title, String service_categorynum1,
 			String service_categorynum2, int service_price, String service_desc, String service_requisite,
 			String service_img, String s_id, String service_dt) {
 		super();
+		this.c_id = c_id;
 		this.service_seq = service_seq;
 		this.service_title = service_title;
 		this.service_categorynum1 = service_categorynum1;
@@ -31,8 +37,21 @@ public class Service_info_pr_VO {
 		this.service_dt = service_dt;
 	}
 
-	public Service_info_pr_VO() {
-		super();
+	@Override
+	public String toString() {
+		return "Like_VO [c_id=" + c_id + ", service_seq=" + service_seq + ", service_title=" + service_title
+				+ ", service_categorynum1=" + service_categorynum1 + ", service_categorynum2=" + service_categorynum2
+				+ ", service_price=" + service_price + ", service_desc=" + service_desc + ", service_requisite="
+				+ service_requisite + ", service_img=" + service_img + ", s_id=" + s_id + ", service_dt=" + service_dt
+				+ "]";
+	}
+
+	public String getC_id() {
+		return c_id;
+	}
+
+	public void setC_id(String c_id) {
+		this.c_id = c_id;
 	}
 
 	public int getService_seq() {
@@ -115,16 +134,5 @@ public class Service_info_pr_VO {
 		this.service_dt = service_dt;
 	}
 
-	@Override
-	public String toString() {
-		return "Service_info_pr_VO [service_seq=" + service_seq + ", service_title=" + service_title
-				+ ", service_categorynum1=" + service_categorynum1 + ", service_categorynum2=" + service_categorynum2
-				+ ", service_price=" + service_price + ", service_desc=" + service_desc + ", service_requisite="
-				+ service_requisite + ", service_img=" + service_img + ", s_id=" + s_id + ", service_dt=" + service_dt
-				+ "]";
-	}
-	
-	
-	
 	
 }

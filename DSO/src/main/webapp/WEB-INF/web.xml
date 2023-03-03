@@ -7,9 +7,42 @@
 		<servlet-name>ToMenu</servlet-name>
 		<servlet-class>DSO.controller.ToMenu</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ToLike</display-name>
+		<servlet-name>ToLike</servlet-name>
+		<servlet-class>DSO.controller.ToLike</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Like_Insert_service</display-name>
+		<servlet-name>Like_Insert_service</servlet-name>
+		<servlet-class>DSO.controller.Like_Insert_service</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Like_Delete_service</display-name>
+		<servlet-name>Like_Delete_service</servlet-name>
+		<servlet-class>DSO.controller.Like_Delete_service</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ToMenu</servlet-name>
 		<url-pattern>/ToMenu</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ToLike</servlet-name>
+		<url-pattern>/ToLike</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Like_Insert_service</servlet-name>
+		<url-pattern>/Like_Insert_service</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Like_Delete_service</servlet-name>
+		<url-pattern>/Like_Delete_service</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
