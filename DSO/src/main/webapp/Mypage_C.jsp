@@ -258,7 +258,7 @@
 									  <ul class="board" name="ex_form">
 									  	<li class="fl tc w70 list t_line lt_line">1</li>
 									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
-									  	<li class="fl tc w120 list t_line lt_line"><a href="#" id="incrementButton" >웹 · 모바일 기획</a></li>  <!-- 조회수 증가 업데이트 서블릿 생성 후 지우기 -->
+									  	<li class="fl tc w120 list t_line lt_line"><a href="ProductDetail.jsp?seq=1" id="incrementButton" >웹 · 모바일 기획</a></li>  <!-- 조회수 증가 업데이트 서블릿 생성 후 지우기 -->
 									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
 									  	<form method="post" action="viewsUp">
 									  	<li class="fl tc w100 list  lt_line" id=views name="views">1</li>
