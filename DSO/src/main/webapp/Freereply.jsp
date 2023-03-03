@@ -74,7 +74,7 @@
     <form name="reviewform" class="reviewform" method="post" action="Freeply_service">
         <input type="hidden" name="rate" id="rate" value="0"/>
         <input type="hidden" name="loginM" value="test123"/>
-<!--    <input type="hidden" name="pseq" value="2"/>--> 
+<!--    <input type="hidden" name="service_seq" value="2"/>-->
         <p class="title_star">별점과 리뷰를 남겨주세요.</p>
  
         <div class="review_rating">
@@ -125,6 +125,19 @@
 						html += "<tr>"
 						html += "<td>"
 						html += data[i].loginM;
+						if(data[i].rate==0){
+							html += ☆☆☆☆☆
+						}else if(data[i].rate==1){
+							html += ★☆☆☆☆
+						}else if(data[i].rate==2){
+							html += ★★☆☆☆
+						}else if(data[i].rate==3){
+							html += ★★★☆☆
+						}else if(data[i].rate==4){
+							html += ★★★★☆
+						}else if(data[i].rate==5){
+							html += ★★★★★
+						}
 						html += "<br>";
 						html += data[i].review;
 						html += "</td>"

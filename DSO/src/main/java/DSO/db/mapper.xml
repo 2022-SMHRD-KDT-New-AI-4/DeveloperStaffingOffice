@@ -36,12 +36,12 @@
   
   <!-- 의뢰인 수정 -->
   <update id="clientupdate" parameterType="Client_register_VO">
-  	update member set c_id=#{c_id},c_pw=#{c_pw},c_name=#{c_name},c_business=#{c_business} c_interest=#{c_interest}
+  	update tbl_client set c_id=#{c_id},c_pw=#{c_pw},c_name=#{c_name},c_business=#{c_business} c_interest=#{c_interest}
   </update>
   
 <!-- 전문가 수정 -->
-	  <update id="specialistupdate" parameterType="Specialist_register_VO">
-  	update member set s_id=#{s_id},s_pw=#{s_pw},s_name=#{s_name},s_business=#{s_business} s_interest=#{s_interest}
+  <update id="specialistupdate" parameterType="Specialist_register_VO">
+  	update tbl_speciallist set s_id=#{s_id},s_pw=#{s_pw},s_name=#{s_name},s_business=#{s_business} s_interest=#{s_interest}
   </update>
   
 <!-- 서비스 등록 -->
@@ -96,5 +96,29 @@
 		and A.service_seq = B.service_seq
 	</select>
 	
+<!--의뢰인 댓글 별점 등록-->
+	<insert id="freereplyinsert" parameterType="Freereply_VO">
+		insert into tbl_freereply values(#{loginC},#{review},#{rate},#{service_seq})
+	</insert>
+
+<!--전문가 댓글 별점 등록-->
+	<insert id="freereplyinsert" parameterType="Freereply_VO">
+		insert into tbl_freereply values(#{loginS},#{review},#{rate},#{service_seq})
+	</insert>	
 	
+<!--의뢰인,전문가 댓글 별점 조회-->
+	<select id="freereplyselect" resultType="Freereply_VO">
+		select * from tbl_freereply where service_seq=#{service_seq} 
+	</select>	
+	
+<!--댓글 별점 수정-->
+	<update id="freereplyupdate" parameterType="Freereply_VO">
+		update tbl_freereply set review=#{review},rate=#{rate}
+	</update>
+	
+<!--댓글 별점 삭제-->
+	<delete id="freereplydelete" parameterType="String">
+		delete from tbl_freereply where (service_seq=#{service_seq} and loginC=#{loginC}) or (service_seq=#{service_seq} and loginR=#{loginS})
+	</delete>
+			
 </mapper>
