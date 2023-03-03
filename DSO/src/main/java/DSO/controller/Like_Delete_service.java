@@ -19,6 +19,9 @@ public class Like_Delete_service extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		int dislikeSeq = Integer.parseInt(request.getParameter("dislikeSeq"));
 		Like_DAO dao = new Like_DAO();
 		
@@ -27,13 +30,11 @@ public class Like_Delete_service extends HttpServlet {
 		
 		int cnt = dao.deleteLike(dislikepost);
 		
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		
 		if(cnt>0) {
 			System.out.println("좋아요취소 성공");
 			out.print("<script>");
-	        out.print("location.reload();");
+	        out.print("location.href = 'CateBig.jsp';");
 	        out.print("</script>");
 		} else {
 			System.out.println("좋아요취소 실패");

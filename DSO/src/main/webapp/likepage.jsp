@@ -72,7 +72,7 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<!-- 좋아요 스크립트   -->
+<!-- 좋아요 스크립트   -->
   <script type="text/javascript">
 
 $(document).on('click', 'button[class=likeBtn]', function(){
@@ -90,7 +90,7 @@ $(document).on('click', 'button[class=likeBtn]', function(){
     $(this).attr('class','likeBtn');
  });
 </script> 
-
+<!-- 좋아요 스크립트 끝 -->
 
 	<!-- Page Preloder -->
 	<div id="preloder">

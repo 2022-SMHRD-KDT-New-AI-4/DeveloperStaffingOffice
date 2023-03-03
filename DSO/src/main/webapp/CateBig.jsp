@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 목록 페이지(큰 카테고리)</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -70,46 +71,50 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-
-
-	<!-- 좋아요 스크립트   -->
-	<script type="text/javascript">
-		let likeSeq = $('.likeBtn').val();
-		let disLikeSeq = $('.dislikeBtn').val();
+<!-- 좋아요 스크립트   -->
+  <script type="text/javascript">
 	
-		$(document).on('click', 'button[class=likeBtn]', function() {
-			$.ajax({
-				url : "Like_Insert_service",
-				method : "POST",
-				data : {"likeSeq" : likeSeq},
-				success : function(){
-					$(this).text('🧡');
-					$(this).removeClass('likeBtn');
-					$(this).attr('class', 'dislikeBtn');
-				},
-				error : function(err){
-					console.log(err)
-				}
-			});
+  	let likeSeq = $('.likeBtn').val();
+	let dislikeSeq = $('.dislikeBtn').val();
+  	
+	$(document).on('click', 'button[class=likeBtn]', function() {
+		$.ajax({
+			type : "POST",
+			url : "Like_Insert_service",
+			dataType : "json",
+			data : {"likeSeq" : likeSeq},
+			success : function(data){
+			    $(this).text('🤍');
+			    $(this).removeClass('likeBtn');  
+			    $(this).attr('class','dislikeBtn');
+			},
+			error : function(err){
+				console.log(err)
+			}
 		});
-		$(document).on('click',	'.dislikeBtn', function() {
-			$.ajax({
-				url : "Like_Delete_service",
-				method : "POST",
-				data : {"dislikeSeq" : dislikeSeq},
-				success : function(){
-					$(this).text('🤍');
-					$(this).removeAttr('class');
-					$(this).attr('class', 'likeBtn');
-				},
-				error : function(err){
-					console.log(err)
-				}
-			});
-			
+	});
+	$(document).on('click',	'.dislikeBtn', function() {
+		$.ajax({
+			type : "POST",
+			url : "Like_Delete_service",
+			dataType : "json",
+			data : {"dislikeSeq" : dislikeSeq},
+			success : function(data){
+			    $(this).text('🧡');
+			    $(this).removeAttr('class');
+			    $(this).attr('class','likeBtn');
+			},
+			error : function(err){
+				console.log(err)
+			}
 		});
-	</script>
-	<!-- 좋아요 스크립트 끝 -->
+		
+	});
+ 
+</script> 
+<!-- 좋아요 스크립트 끝 -->
+
+
 
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -448,12 +453,18 @@
 											<h4><%=cate.get(i).getService_title() %></h4>
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
-											<%if(loginC.getC_id().equals(likeList.get(i).getC_id())) {
-												for(int j=0;j<likeList.size();j++) {
-													if(cate.get(i).getService_seq()==likeList.get(j).getService_seq()) {%>
+											<%
+											int t = 0;
+											int f = 0;
+											
+											for(int j = 0;j<cate.size();j++) {
+											
+											if(cate.get(i).getService_seq()==likeList.get(j).getService_seq()) {
+													t++;
+											} }
+											if(t>0) {%>
 											<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
-											<%} } %>
-											<%}else {%>
+											<%} else { %>
 											<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
 											<%} %>
 										</div>

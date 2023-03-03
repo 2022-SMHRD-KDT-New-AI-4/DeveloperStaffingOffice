@@ -99,7 +99,7 @@
 	
 <!-- 좋아요 추가 -->
 	<insert id="insertLike" parameterType="DSO.model.Like_VO">
-        INSERT INTO tbl_likelist VALUES (#{Service_seq},#{c_Id})
+        INSERT INTO tbl_likelist VALUES (#{service_seq},#{c_Id})
     </insert>
     
 <!-- 좋아요 삭제 -->
