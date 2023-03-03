@@ -1,6 +1,8 @@
 package DSO.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +39,13 @@ public class Client_register_service extends HttpServlet {
 		int cnt = dao.clientjoin(vo);
 		
 		if(cnt > 0) {
-			System.out.println("회원가입 성공!");
+			System.out.println("의뢰인 회원가입 성공!");
+			RequestDispatcher rd =  request.getRequestDispatcher("Main.jsp"); 
+	        rd.forward(request, response);
 		}else {
-			System.out.println("회원가입 실패...");
+			System.out.println("의뢰인 회원가입 실패...");
+			RequestDispatcher rd =  request.getRequestDispatcher("join_C.jsp"); 
+	        rd.forward(request, response);
 		}
 	}
 
