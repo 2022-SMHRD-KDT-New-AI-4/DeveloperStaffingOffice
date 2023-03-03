@@ -252,14 +252,34 @@
 									  	<li class="fl tc w120 title t_line">의뢰인</li>
 									  	<li class="fl tc w100 title t_line">진행완료</li>
 									  	<li class="fl tc w100 title ">조회수</li>
+									  	
 									  </ul>
 									  <!--- 리스트 --->
-									  <ul class="board">
+									  <ul class="board" name="ex_form">
 									  	<li class="fl tc w70 list t_line lt_line">1</li>
 									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
-									  	<li class="fl tc w120 list t_line lt_line">웹 · 모바일 기획</li>
+									  	<li class="fl tc w120 list t_line lt_line"><a href="#" id="incrementButton">웹 · 모바일 기획</a></li>
 									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
+									  	<li class="fl tc w100 list  lt_line" id=views>1</li>
+									  	<!-- <button id="incrementButton">증가</button> -->
+									  	<script>
+									 	
+									 	// Get the button element
+									  	let button = document.getElementById("incrementButton");
+
+									  	// Set the initial number of views
+									  	let views = 0;
+
+									  	// Add a click event listener to the button
+									  	button.addEventListener("click", function() {
+									  	  // Increase the number of views by 1
+									  	  views++;
+
+									  	  // Update the number of views on the webpage
+									  	  document.getElementById("views").innerHTML = views;
+									  	});
+									  	
+									  	</script>
 									  </ul>
 									  <!--- 리스트 --->
 									  <ul class="board">
@@ -470,5 +490,6 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+
 </body>
 </html>
