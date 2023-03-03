@@ -168,7 +168,7 @@
 		
 		.head{
 		
-			background: #f7e6c2;
+			background: #1B9CFC;
 			width: 105%;
 			height: 60px;
 			position: fixed;
