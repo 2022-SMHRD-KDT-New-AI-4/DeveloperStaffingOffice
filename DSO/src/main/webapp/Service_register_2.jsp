@@ -1,24 +1,8 @@
 <%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="javax.security.auth.spi.LoginModule"%>
 <%@page import="DSO.model.Client_register_VO"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-	%>
-<%
-    String userName=null;
-    if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
-    	userName="GUEST";
-    }else{
-       userName=(String)request.getAttribute("userName");
-    }
-
-%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -27,8 +11,11 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>개발자 인력 사무소</title>
-
+<title>의뢰인정보수정</title>
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -43,138 +30,15 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+
 <%if(loginS!=null) {%>
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<style type="text/css">
-	/* 채팅 */
-	.listname{ height: 50px;}
-	.likeBtn {
-	   background : white;
-	   border: 0;
-	   border-radius: 50px;
-	   font-size:  18px;
-	}
-	.dislikeBtn{
-	   background : white;
-	   border: 0;
-	   border-radius: 50px;
-	   font-size: 18px;
-	}
-	.row {
-       margin-top: 10px;
-	}
-	
-	/* 채팅 CSS */
-	
-
-	#messageWindow{
-		background: black;
-		color: greenyellow;
-	}
-	#inputMessage{
-		width:500px;
-		height:30px;
-		border-radius : 10px 10px 10px 10px;
-	}
-	#btn-submit{
-		background: white;
-		width:60px;
-		height:30px;
-		color:white;
-		border:none;
-	}
-	
-	#main-container{
-		width:820px;
-		height:420px;
-		margin:10px;
-		display: inline-block;
-		border-radius : 10px 10px 10px 10px;
-		
-	}
-	#chat-container{
-		vertical-align: bottom;
-		margin:10px;
-		width:800px;
-		min-height: 350px;
-		max-height: 350px;
-		overflow: scroll;
-		overflow-x:hidden;
-		border-radius : 10px 10px 10px 10px;
-	}
-	
-	.chat{
-		font-size: 20px;
-		color:black;
-		margin: 5px;
-		min-height: 20px;
-		padding: 5px;
-		min-width: 50px;
-		text-align: left;
-        height:auto;
-        word-break : break-all;
-        background: #ffffff;
-        width:auto;
-        display:inline-block;
-        border-radius: 10px 10px 10px 10px; 
-	}
-	
-	.notice{
-		color:white;
-		font-weight: bold;
-		border : none;
-		text-align: center;
-		background-color: #9bbbd4;
-		display: block;
-	}
-	.my-chat{
-		text-align: right;
-		background: white;
-		/* border-radius: 5px 5px 5px 5px; */
-	}
-	
-	#bottom-container{
-		margin:auto;
-		margin-left: 100px;
-	}
-	
-	.chat-info{
-		color:#556677;
-		font-size: 10px;
-		text-align: right;
-		padding: 5px;
-		padding-top: 0px;
-	}
-	
-	.chat-box{
-		text-align:left;
-	}
-	.my-chat-box{
-		text-align: right;
-	}
-</style>
-
-<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+<title>개발자 인력 사무소</title>
 </head>
 <body>
-	<!-- 좋아요 스크립트   -->
-
-
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -302,157 +166,182 @@
 	</header>
 	<!-- Header End -->
 	
-	<!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+                        <a href="Mypage_C.jsp"><i class="fa"> </i>마이페이지</a> 
+                        <span>상품등록</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Form Section Begin -->
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12" style="margin: auto;">
-					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-						<a href="Mypage_C.jsp"></i> 마이페이지</a>
-						<a href="Chatting_list.jsp"></i>1:1채팅목록</a>
- 						<span>1:1채팅</span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	<!-- Breadcrumb Section Begin -->
-
-	<!-- Product Shop Section Begin -->
-
-	<!-- Product Shop Section Begin -->
-	<!-- 왼쪽 카테고리바 -->
-	<section class="product-shop spad">
-		<div class="container">
-			<div class="row">
-
-				<div class="filter-widget">
+    <!-- Register Section Begin -->
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+            <!-- 마이페이지 왼쪽 카테고리바 -->
+				<div class="filter-widget" style="padding-top: 0px">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
 						<br>
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
 						<li><a href="likepage.jsp">찜</a></li>
-						<li><a href="#">1:1 채팅</a></li>
+						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
 						<li><a href="#">전문가 등록</a></li>
 					</ul>
 				</div>
-				<!-- 왼쪽 카테고리바 끝 -->
-				
-				<!-- 마이페이지 박스 -->
-				<div class="col-lg-9 order-1 order-lg-2">
-				<%if(loginS!=null) {%>
-					<div id="main-container" style="border:1px solid #1B9CFC ;">
-				<%}else{ %>
-					<div id="main-container" style="border:1px solid #EAB543 ;">
-				<%} %>
-		<%if(loginS!=null) {%>
-		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #63cdda;">
-		<%}else{ %>
-		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
-		<%} %>
-			
-		</div>
-		<div id="bottom-container">
-			<%if(loginS!=null) {%>
-			<input id="inputMessage" type="text" style="border: 1px solid #1B9CFC;">
-			<%}else {%>
-			<input id="inputMessage" type="text" style="border: 1px solid #EAB543;">
-			<%} %>
-			<%if(loginS!=null) {%>
-			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #1B9CFC;" >
-			<%}else {%>
-			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
-			<%} %>
-		</div>
-	</div>
-					</div>
-				</div>
-			</div>
-	</section>	
-	
-	
-	<script type="text/javascript">
-		
-		var textarea = document.getElementById("messageWindow");
-		var webSocket = new WebSocket("ws://220.71.97.239:8080/DSO/webChatServer/{<%=userName%>}");
-		
-		// 로컬에서 테스트할 때 사용하는 URL입니다.
-	// 	var webSocket = new WebSocket('ws://localhost/DevEricServers/webChatServer');
-		var inputMessage = document.getElementById('inputMessage');
-		
-		webSocket.onerror = function(e){
-			onError(e);
-		};
-		webSocket.onopen = function(e){
-			onOpen(e);
-		};
-		webSocket.onmessage = function(e){
-			onMessage(e);
-		};
-		
-		
-		function onMessage(e){
-			var chatMsg = event.data;
-			var date = new Date();
-			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-			if(chatMsg.substring(0,10) == 'DSO server'){
-				<%if(loginS!=null){%>
-				var $chat = $("<div class='chat notice' style='background-color:#1B9CFC; border-radius : 10px 10px 10px 10px;'>" + chatMsg + "</div>");
-				<%}else{%>
-				var $chat = $("<div class='chat notice' style='background-color:#EAB543; border-radius : 10px 10px 10px 10px;'>" + chatMsg + "</div>");
-				<%}%>
-				$('#chat-container').append($chat);
-			}else{
-				var $chat = $("<div class='chat-box'><div class='chat'>" + chatMsg + "</div><div class='chat-info chat-box'>"+ dateInfo +"</div></div>");
-				$('#chat-container').append($chat);
+				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="register-form">
+                        <h2>상품등록</h2>
+                      <form id="form1" name="form1" action="Service_register_service" method="post" enctype="multipart/form-data">
+                            <div class="group-input">
+                                <label>제목</label>  
+                                <input type="text" id="service_title" name="service_title">                                                
+                            </div>
+                            <div class="group-input">
+                                <label>카테고리</label>  
+                                <select id="service_category" name="service_category">
+							<option>선택해주세요</option>
+							<option>웹 · 모바일 기획</option>
+							<option>프로그램 · 기타 기획</option>
+							<option>홈페이지</option>
+							<option>랜딩페이지</option>
+							<option>프론트엔드 · 퍼블리싱</option>
+							<option>검색 최적화 · SEO</option>
+							<option>애널리틱스</option>
+							<option>홈페이지 수정 · 유지보수</option>
+							<option>쇼핑몰</option>
+							<option>쇼핑몰 수정 · 유지보수</option>
+							<option>앱</option>
+							<option>앱 수정 · 유지보수</option>
+							<option>비지니스 애플리케이션</option>
+							<option>PC · 웹 프로그램</option>
+							<option>백엔드 · 서버</option>
+							<option>봇 · 챗봇</option>
+							<option>노코드 · 로우코드</option>
+							<option>메타버스</option>
+							<option>블록체인 · NFT</option>
+							<option>데이터 구매 · 구축</option>
+							<option>데이터 마이닝 · 크롤링</option>
+							<option>데이터 전처리</option>
+							<option>데이터 라벨링</option>
+							<option>데이터 분석 · 시각화</option>
+							<option>인공지능 · 머신러닝</option>
+							<option>데이터베이스</option>
+							<option>2D · 3D게임</option>
+							<option>AR · VR</option>
+							<option>하드웨어 · 임베디드</option>
+							<option>보안</option>
+							<option>QA · 테스트</option>
+							<option>컴퓨터 기술지원</option>
+							<option>파일변환</option>
+							<option>기타</option>
+					</select>                                                
+                            </div>
+                            <div class="group-input">
+                                <label>가격</label>  
+                                <input type="number" id="service_price" name="service_price">                                                 
+                            </div>
+                            <div class="group-input">
+                                <label>설명</label>  
+                                <textarea rows="20px" cols="120px" id="service_desc" name="service_desc"></textarea>                                                 
+                            </div>
+                            
+               				<div class="group-input">
+                                <label for="username">요구사항</label>
+                                <textarea rows="20px" cols="120px" id="service_requisite" name="service_requisite"></textarea> 
+                            </div>
+               				<div class="group-input">
+                                <label for="username">이미지</label>
+                                <div id="imgViewArea" style="margin-top:10px; display:none;">
+								<img id="imgArea" style="width:200px; height:200px;" onerror="imgAreaError()"/>
+								<input type="file" name="service_img" id="service_img" accept="image/*">
+							</div> 
+                            </div>                        
+                          <button type="button" onclick="location.href='Portfolio_register.jsp'">포트폴리오 등록</button>
+                          <input type="submit" value="등록">
+                        </form>
+                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+  <script type="text/javascript" >
+	function readURL(input){
+		if(input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+					$('#imgArea').attr('src',e.target.result);	
 			}
-			
-			
-			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
+			reader.readAsDataURL(input.files[0]);
 		}
-		
-		function onOpen(e){
-			
-		}
-		
-		function onError(e){
-			alert(e.data);
-		}
-		
-		function send(){
-			var chatMsg = inputMessage.value;
-			if(chatMsg == ''){
-				return;
-			}
-			var date = new Date();
-			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
-			$('#chat-container').append($chat);
-			webSocket.send(chatMsg);
-			inputMessage.value = "";
-			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
-		}
-		
-	</script>
+	}
 	
-	<script type="text/javascript">
-		$(function(){
-			$('#inputMessage').keydown(function(key){
-				if(key.keyCode == 13){
-					$('#inputMessage').focus();
-					send();
-				}
-			});
-			$('#btn-submit').click(function(){
-				send();
-			});
-			
-		})
-	</script>
-					
- 
+	$(":input[name='service_img']").change(function() {
+		if($(":input[name='service_img']").val()==''){
+				$('#imgArea').attr('src','');
+		}
+		$('#imgViewArea').css({'display':''});
+		readURL(this);
+	});
+	
+	function imgAreaError(){
+			$('#imgViewArea').css({'display':'none'});
+	}
+</script>
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		//서비스 등록 유효성 검사
+		$("#addBtn").click(function(){}
+		var service_title = $("#service_title").val();
+		var service_category = $("#service_category").val();
+		var service_price = $("#service_price").val();
+		var service_desc = $("#service_desc").val();
+		var service_requisite = $("#service_requisite").val();
+		var service_img = $("#service_img").val();
+		
+		if(service_title == ""){
+			alert("제목을 입력해주세요")		
+			service_title.focus();
+		}else if(service_category == ""){
+			alert("카테고리를 선택해주세요")
+			service_category.focus();
+		}else if(service_price == ""){
+			alert("가격을 입력해주세요")
+			service_price.focus();
+		}else if(service_desc == ""){
+			alert("설명란을 작성해주세요")
+			service_desc.focus();
+		}else if(service_requisite == ""){
+			alert("요구사항을 입력해주세요")
+			service_requisite.focus();
+		}else if(service_img == ""){
+			alert("이미지를 등록해주세요")
+			service_img.focus();
+		}
+	});
+
+	});
+</script>
+  
+  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form Section End -->
+
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -499,6 +388,31 @@
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-	
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

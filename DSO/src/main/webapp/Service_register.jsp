@@ -153,7 +153,7 @@
 				<tr>
 					<td colspan="3">
 						<div class="button">
-							<input type="submit" value="등록" id="addBtn">
+							<input type="submit" value="등록">
 						</div>
 					</td>
 				</tr>

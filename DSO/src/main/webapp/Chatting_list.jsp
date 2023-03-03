@@ -68,7 +68,7 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<!-- 좋아요 스크립트   -->
+
 
 
 	<!-- Page Preloder -->
