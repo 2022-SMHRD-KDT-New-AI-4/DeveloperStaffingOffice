@@ -427,7 +427,12 @@
 			}
 			var date = new Date();
 			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+			if(chatMsg.indexOf("http://")!=-1){ // indextOf("") : 문자열에 해당 문자가 포함되어 있다면 출력.
+			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'><a href='"+chatMsg+"'>" + chatMsg + "</a></div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			}
+			else{
 			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
+			}
 			$('#chat-container').append($chat);
 			webSocket.send(chatMsg);
 			inputMessage.value = "";
