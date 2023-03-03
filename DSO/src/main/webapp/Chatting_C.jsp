@@ -94,8 +94,7 @@
 		height:420px;
 		margin:10px;
 		display: inline-block;
-		border-radius : 10px 10px 10px 10px;
-		
+		border-radius : 10px 10px 10px 10px;	
 	}
 	#chat-container{
 		vertical-align: bottom;

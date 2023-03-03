@@ -220,8 +220,7 @@
                             </div>
                				<div class="group-input">
                                 <label for="job">직업 &nbsp;&nbsp;
-	                                <select style="width:235px;"  id="job" name="c_job">
-					                    
+	                                <select style="width:235px;"  id="job" name="c_job">                   
 					                    <option value="j1"> 선택안함 </option>
 					                    <option value="j1"> 백수 </option>
 					                    <option value="j2"> 직장인 </option>

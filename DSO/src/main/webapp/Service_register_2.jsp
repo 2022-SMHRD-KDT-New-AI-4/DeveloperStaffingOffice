@@ -37,7 +37,18 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
 <title>개발자 인력 사무소</title>
+<style type="text/css">
+	.main-container{
+		width:820px;
+		height:420px;
+		margin:10px;
+		display: inline-block;
+		border-radius : 10px 10px 10px 10px;	
+	}
+	
+	</style>
 </head>
+
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -201,64 +212,67 @@
 				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h2>상품등록</h2>
+                    
+                      <h2>상품등록</h2>         
                       <form id="form1" name="form1" action="Service_register_service" method="post" enctype="multipart/form-data">
                             <div class="group-input">
                                 <label>제목</label>  
                                 <input type="text" id="service_title" name="service_title">                                                
                             </div>
                             <div class="group-input">
-                                <label>카테고리</label>  
-                                <select id="service_category" name="service_category">
-							<option>선택해주세요</option>
-							<option>웹 · 모바일 기획</option>
-							<option>프로그램 · 기타 기획</option>
-							<option>홈페이지</option>
-							<option>랜딩페이지</option>
-							<option>프론트엔드 · 퍼블리싱</option>
-							<option>검색 최적화 · SEO</option>
-							<option>애널리틱스</option>
-							<option>홈페이지 수정 · 유지보수</option>
-							<option>쇼핑몰</option>
-							<option>쇼핑몰 수정 · 유지보수</option>
-							<option>앱</option>
-							<option>앱 수정 · 유지보수</option>
-							<option>비지니스 애플리케이션</option>
-							<option>PC · 웹 프로그램</option>
-							<option>백엔드 · 서버</option>
-							<option>봇 · 챗봇</option>
-							<option>노코드 · 로우코드</option>
-							<option>메타버스</option>
-							<option>블록체인 · NFT</option>
-							<option>데이터 구매 · 구축</option>
-							<option>데이터 마이닝 · 크롤링</option>
-							<option>데이터 전처리</option>
-							<option>데이터 라벨링</option>
-							<option>데이터 분석 · 시각화</option>
-							<option>인공지능 · 머신러닝</option>
-							<option>데이터베이스</option>
-							<option>2D · 3D게임</option>
-							<option>AR · VR</option>
-							<option>하드웨어 · 임베디드</option>
-							<option>보안</option>
-							<option>QA · 테스트</option>
-							<option>컴퓨터 기술지원</option>
-							<option>파일변환</option>
-							<option>기타</option>
-					</select>                                                
+                            
+                                <label>카테고리  &nbsp;&nbsp;
+                                <select  name="service_category" style="width:235px;">
+										<option>선택해주세요</option>
+										<option>웹 · 모바일 기획</option>
+										<option>프로그램 · 기타 기획</option>
+										<option>홈페이지</option>
+										<option>랜딩페이지</option>
+										<option>프론트엔드 · 퍼블리싱</option>
+										<option>검색 최적화 · SEO</option>
+										<option>애널리틱스</option>
+										<option>홈페이지 수정 · 유지보수</option>
+										<option>쇼핑몰</option>
+										<option>쇼핑몰 수정 · 유지보수</option>
+										<option>앱</option>
+										<option>앱 수정 · 유지보수</option>
+										<option>비지니스 애플리케이션</option>
+										<option>PC · 웹 프로그램</option>
+										<option>백엔드 · 서버</option>
+										<option>봇 · 챗봇</option>
+										<option>노코드 · 로우코드</option>
+										<option>메타버스</option>
+										<option>블록체인 · NFT</option>
+										<option>데이터 구매 · 구축</option>
+										<option>데이터 마이닝 · 크롤링</option>
+										<option>데이터 전처리</option>
+										<option>데이터 라벨링</option>
+										<option>데이터 분석 · 시각화</option>
+										<option>인공지능 · 머신러닝</option>
+										<option>데이터베이스</option>
+										<option>2D · 3D게임</option>
+										<option>AR · VR</option>
+										<option>하드웨어 · 임베디드</option>
+										<option>보안</option>
+										<option>QA · 테스트</option>
+										<option>컴퓨터 기술지원</option>
+										<option>파일변환</option>
+										<option>기타</option>
+								</select>
+								</label>                                                  
                             </div>
                             <div class="group-input">
                                 <label>가격</label>  
                                 <input type="number" id="service_price" name="service_price">                                                 
                             </div>
                             <div class="group-input">
-                                <label>설명</label>  
-                                <textarea rows="20px" cols="120px" id="service_desc" name="service_desc"></textarea>                                                 
+                                <label >설명</label>  
+                                <textarea style="border:none; background-color: #FFEFD5 " rows="10px" cols="74px" id="service_desc" name="service_desc" placeholder="여기에 입력하세요."></textarea>                                                 
                             </div>
                             
                				<div class="group-input">
                                 <label for="username">요구사항</label>
-                                <textarea rows="20px" cols="120px" id="service_requisite" name="service_requisite"></textarea> 
+                                <textarea rows="10px" cols="50px" id="service_requisite" name="service_requisite"></textarea> 
                             </div>
                				<div class="group-input">
                                 <label for="username">이미지</label>
@@ -270,9 +284,13 @@
                           <button type="button" onclick="location.href='Portfolio_register.jsp'">포트폴리오 등록</button>
                           <input type="submit" value="등록">
                         </form>
+                       
                           <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   <script type="text/javascript" >
 	function readURL(input){
 		if(input.files && input.files[0]) {
@@ -334,12 +352,6 @@
 	});
 </script>
   
-  
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Register Form Section End -->
 
 	<!-- Footer Section Begin -->
