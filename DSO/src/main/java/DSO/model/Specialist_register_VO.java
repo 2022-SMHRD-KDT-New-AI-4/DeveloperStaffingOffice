@@ -1,6 +1,7 @@
 package DSO.model;
 
 // 전문가 등록 VO
+
 public class Specialist_register_VO {
 	private String s_id;
 	private String s_pw;
@@ -8,14 +9,12 @@ public class Specialist_register_VO {
 	private String s_job;
 	private String s_business;
 	private String s_interest;
-//	private String s_joindate;
+	private String s_joindate;
 	
 	public Specialist_register_VO() {
 		
 	}
 	
-	
-
 	public Specialist_register_VO(String s_id, String s_pw, String s_name, String s_job, String s_business,
 			String s_interest) {
 		this.s_id = s_id;
@@ -24,7 +23,6 @@ public class Specialist_register_VO {
 		this.s_job = s_job;
 		this.s_business = s_business;
 		this.s_interest = s_interest;
-//		this.s_joindate = s_joindate;
 	}
 
 	
@@ -94,14 +92,10 @@ public class Specialist_register_VO {
 		this.s_interest = s_interest;
 	}
 
-//	public String getS_joindate() {
-//		return s_joindate;
-//	}
-//
-//	public void setS_joindate(String s_joindate) {
-//		this.s_joindate = s_joindate;
-//	}
-//	
+	public String getS_joindate() {
+		return s_joindate;
+	}
+
 	
 	
 	

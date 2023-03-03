@@ -1,3 +1,5 @@
+<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="DSO.model.Client_register_VO"%>
 <%@page import="DSO.model.Service_info_pr_VO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,7 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 목록 페이지(작은 카테고리)</title>
-
+	<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	String cateBigNum = (String)session.getAttribute("cateBigNum");
+	String cateSmallNum = (String)session.getAttribute("cateSmallNum");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -22,7 +30,11 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 
 <style type="text/css">
 .likeBtn {
@@ -66,11 +78,7 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<%
-	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
-	String cateBigNum = (String)session.getAttribute("cateBigNum");
-	String cateSmallNum = (String)session.getAttribute("cateSmallNum");
-	%>
+
 
 	<!-- 좋아요 스크립트   -->
   <script type="text/javascript">
@@ -101,9 +109,17 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 	<header class="header-section">
 		<div class="header-top">
 			<div class="ht-right">
-				<a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
-					로그인</a>
-
+				<%if (loginC == null && loginS == null) {%>
+				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
+				<%} else if (loginC != null){%>
+				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
+					로그아웃</a>
+				<%} else if (loginS != null){%>
+				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
+					로그아웃</a>
+				<%} %>
 			</div>
 		</div>
 		<div class="container">
@@ -111,20 +127,33 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./Main.jsp"> <img src="img/logo/dsologoc.png" alt="">
+							<a href="./Main.jsp"> 
+							<%if(loginS!=null){ %>
+							<img src="img/logo/dsologos.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoc.png" alt="">
+							<%} %>
 							</a>
 						</div>
 					</div>
+					<!-- 검색 박스 -->
 					<div class="col-lg-7 col-md-7">
 						<div class="advanced-search">
 							<div class="input-group">
-								<input type="text" placeholder="검색어를 입력해주세요">
-								<button type="button" OnClick="location.href ='search_result.jsp'">
+								<form action="Search_service" method="post">
+								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
+								<%if(loginS!=null) {%>
+								<button type="submit" style="border: 1px solid #1B9CFC;	background: #1B9CFC;">
+								<%}else {%>
+								<button type="submit" style="border: 1px solid #EAB543;	background: #EAB543;">
+								<%} %>
 									<i class="ti-search"></i>
 								</button>
+								</form>
 							</div>
 						</div>
 					</div>
+					<!-- 검색 박스 끝 -->
 					<div class="col-lg-3 text-right col-md-3"></div>
 				</div>
 			</div>
@@ -508,8 +537,13 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png"
-								alt=""></a>
+							<a href="Main.jsp">
+							<%if(loginS!=null) {%>
+							<img src="img/logo/dsologosblack.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoblack.png" alt="">
+							<%} %>							
+							</a>
 						</div>
 					</div>
 				</div>
@@ -542,7 +576,6 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
 
 </body>
 </html>

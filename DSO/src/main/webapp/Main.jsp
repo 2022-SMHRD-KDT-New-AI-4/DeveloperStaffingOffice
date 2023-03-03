@@ -1,3 +1,6 @@
+<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +12,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>개발자 인력 사무소</title>
-
+<%
+	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	%>
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
@@ -24,10 +30,18 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+
+<%if(loginS!=null) {%>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
+<%} %>
 
 </head>
 <body>
+	
+	
+	
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -37,10 +51,17 @@
 	<header class="header-section">
 		<div class="header-top">
 			<div class="ht-right">
-				<!-- <a href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>  -->
+				<%if (loginC == null && loginS == null) {%>
+				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
+				<%} else if (loginC != null){%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="./Login.jsp" class="login-panel"><i class="fa fa-user"></i>
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
+				<%} else if (loginS != null){%>
+				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
+					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
+					로그아웃</a>
+				<%} %>
 			</div>
 		</div>
 		<div class="container">
@@ -48,7 +69,12 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="./Main.jsp"> <img src="img/logo/dsologoc.png" alt="">
+							<a href="./Main.jsp"> 
+							<%if(loginS!=null){ %>
+							<img src="img/logo/dsologos.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoc.png" alt="">
+							<%} %>
 							</a>
 						</div>
 					</div>
@@ -254,8 +280,13 @@
 				<div class="col-lg-3">
 					<div class="footer-left">
 						<div class="footer-logo">
-							<a href="Main.jsp"><img src="img/logo/dsologoblack.png"
-								alt=""></a>
+							<a href="Main.jsp">
+							<%if(loginS!=null) {%>
+							<img src="img/logo/dsologosblack.png" alt="">
+							<%}else {%>
+							<img src="img/logo/dsologoblack.png" alt="">
+							<%} %>							
+							</a>
 						</div>
 					</div>
 				</div>
