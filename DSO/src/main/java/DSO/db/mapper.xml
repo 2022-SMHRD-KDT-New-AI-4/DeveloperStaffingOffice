@@ -106,5 +106,8 @@
 		select * from tbl_freereply2 where service_seq=#{service_seq} 
 	</select>		
 
-			
+<!-- 게시물 조회수 증가 -->
+		<update id="views" parameterType="DSO.model.viewsVO">
+		update tbl_list set views=#{views}
+		</update>
 </mapper>
