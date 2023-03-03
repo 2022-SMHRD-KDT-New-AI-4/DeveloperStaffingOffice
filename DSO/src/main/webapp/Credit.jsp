@@ -112,8 +112,8 @@
                 pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
-                name : '프로젝트 결제', // 임의의 결제자 성명
-                amount : 500000000,  // 임의로 결제 비용 설정
+                name : '넥슨 캐시 결제', // 임의의 결제자 성명
+                amount : 999999999,  // 임의로 결제 비용 설정
                 buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
                 buyer_name : '권선택',
                 buyer_tel : '010-1234-5678',
