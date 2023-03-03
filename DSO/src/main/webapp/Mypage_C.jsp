@@ -262,7 +262,7 @@
 									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
 									  	<li class="fl tc w100 list  lt_line" id=views>1</li>
 									  	<!-- <button id="incrementButton">증가</button> -->
-									  	<script>
+									  	<script>/* 조회수 증가 기능 추가 // 선택  */
 									 	
 									 	// Get the button element
 									  	let button = document.getElementById("incrementButton");
