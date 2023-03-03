@@ -277,8 +277,8 @@
 	        	<button id="Ans_1" class="btn" style="color: black; float: right; ">개발자 인력 사무소란?</button>
 				<button id="Ans_2" class="btn" style="color: black; float: right; ">로그인이 안돼요</button>
 				<button id="Ans_3" class="btn" style="color: black; float: right; ">결제방법</button>
-				<button id="Ans_4" class="btn" style="color: black; float: right; ">질문4. 자고 싶어요</button>
-				<button id="Ans_5" class="btn" style="color: black; float: right; ">질문5. 가나다라마바지사장</button>
+				<button id="Ans_4" class="btn" style="color: black; float: right; ">배가 고파요</button>
+				<button id="Ans_5" class="btn" style="color: black; float: right; ">상담원과 연결하기</button>
 				<button id="back" class="btn btn-outline-dark" style=" float: right; display: none">질문 목록 보기</button>
 			</div>
 		
