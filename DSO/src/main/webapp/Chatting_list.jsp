@@ -273,7 +273,7 @@
 	    <div id = "chatbotArea">
 	    
   	    	<% if(loginS != null ){%>
-				챗봇 전문가 버전
+				<!-- 챗봇 전문가 버전 -->
 		    	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_S.jsp" scolling ="yes"></iframe>
 		    	
 		    	<!-- 챗봇 닫기 버튼 -->
