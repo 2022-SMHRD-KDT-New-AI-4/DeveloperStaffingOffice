@@ -213,7 +213,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                     
-                      <h2>상품등록</h2>         
+                       <h2>상품등록</h2>         
                       <form id="form1" name="form1" action="Service_register_service" method="post" enctype="multipart/form-data">
                             <div class="group-input">
                                 <label>제목</label>  

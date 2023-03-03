@@ -347,7 +347,7 @@
 					<div id="main-container" style="border:1px solid #EAB543 ;">
 				<%} %>
 		<%if(loginS!=null) {%>
-		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #63cdda;">
+		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #98cffa;">
 		<%}else{ %>
 		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
 		<%} %>

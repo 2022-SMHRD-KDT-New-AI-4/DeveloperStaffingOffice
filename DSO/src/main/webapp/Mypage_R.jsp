@@ -1,4 +1,3 @@
-	
 	<%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -206,7 +205,7 @@
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
 						<li><a href="likepage.jsp">찜</a></li>
 						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<li><a href="#">전문가 등록</a></li>
+						<li><a href="Service_register_1.jsp">상품 등록</a></li>
 					</ul>
 				</div>
 				<!-- 마이페이지 박스 -->
