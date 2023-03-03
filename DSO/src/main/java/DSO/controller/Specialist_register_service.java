@@ -1,6 +1,8 @@
 package DSO.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,10 +39,13 @@ public class Specialist_register_service extends HttpServlet {
 		
 		if(cnt > 0) {
 			System.out.println("전문가 회원가입 성공!");
+			RequestDispatcher rd =  request.getRequestDispatcher("Main.jsp"); 
+	         rd.forward(request, response);
 		}else {
 			System.out.println("전문가 회원가입 실패...");
+			RequestDispatcher rd =  request.getRequestDispatcher("join_R.jsp"); 
+	         rd.forward(request, response);
 		}
-		response.sendRedirect("Login.jsp");
 	}
 
 }

@@ -187,14 +187,14 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>회원가입</h2>
-                        <form action="#">
+                        <form action="Specialist_register_service" method="post"> <!-- 선택 수정 : method, action -->
                             <div class="group-input">
                                 <label for="username">E-mail ID *</label>
                                 <input type="text" id="username" name="s_id">
                             </div>
                             <div class="group-input">
                                 <label for="pass">비밀번호 *</label>
-                                <input type="text" id="pass" name="s_pw">
+                                <input type="password" id="pass" name="s_pw">
                             </div>
            <!--                  <div class="group-input">
                                 <label for="con-pass">비밀번호 확인*</label>
