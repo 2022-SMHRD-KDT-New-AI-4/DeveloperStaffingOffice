@@ -40,7 +40,8 @@
 			width : 190px;
 			height: auto;
 			float: right;
-			
+			margin-right: 30px;
+		
 		}
 		
 		.chatbutton>.btn:not(:last-child) {
