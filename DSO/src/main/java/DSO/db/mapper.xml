@@ -87,4 +87,14 @@
 	<select id="selectPost" resultType="DSO.model.Service_info_pr_VO">
 		select * from tbl_service3 where service_seq = #{seq}
 	</select>
+	
+<!-- 좋아요 게시물 불러오기 -->
+	<select id="selectLike" resultType="DSO.model.Like_VO" parameterType="string">
+		select A.c_id , B.* 
+		from tbl_likelist A, tbl_service3 B 
+		where A.c_id = #{value} 
+		and A.service_seq = B.service_seq
+	</select>
+	
+	
 </mapper>

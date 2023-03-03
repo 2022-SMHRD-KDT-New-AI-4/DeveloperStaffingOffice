@@ -1,4 +1,7 @@
- <%@page import="DSO.model.Specialist_register_VO"%>
+ <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="DSO.model.Like_VO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,6 +17,7 @@
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 	%>
 <!-- Google Font -->
 <link
@@ -235,11 +239,11 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 	<!-- Product Shop Section Begin -->
 
 	<!-- Product Shop Section Begin -->
-	<!-- 왼쪽 카테고리바 -->
 	<section class="product-shop spad">
 		<div class="container">
 			<div class="row">
 
+				<!-- 왼쪽 카테고리바 -->
 				<div class="filter-widget">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
@@ -253,88 +257,122 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 				</div>
 				<!-- 왼쪽 카테고리바 끝 -->
 				
-				<!-- 마이페이지 박스 -->
+				<!-- 상품 목록 -->
 				<div class="col-lg-9 order-1 order-lg-2">
-					
 					<div class="product-show-option">
 						<div class="row">
 							<div class="col-lg-7 col-md-7"></div>
 						</div>
 					</div>
-										
 					<div class="product-list">
 						<div class="row">
-						
-				
-				<!-- Breadcrumb Section Begin -->
-					<div class="breacrumb-section">
-						<div class="container">
-							<div class="row">
-				
+							
+							<!-- 상품 한칸 -->
+							<% for(int i=0;i<likeList.size();i++) {%>
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic">
+										<a href="ProductDetail.jsp?seq=<%=likeList.get(i).getService_seq()%>"> <img src="img/pl/pl2.png"
+											alt=""></a>
+										<ul>
+											<li class="quick-view"><a href="ProductDetail.jsp?seq=<%=likeList.get(i).getService_seq()%>">상품
+													상세 정보</a></li>
+										</ul>
+									</div>
+									<div class="pi-text">
+										<div class="catagory-name">
+
+											<%if(likeList.get(i).getService_categorynum1().equals("1")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												웹 · 모바일 기획
+											<% } else if(likeList.get(i).getService_categorynum1().equals("1")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												프로그램 · 기타 기획
+											<% } else if(likeList.get(i).getService_categorynum1().equals("2")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												홈페이지
+											<% } else if(likeList.get(i).getService_categorynum1().equals("2")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												랜딩페이지
+											<% } else if(likeList.get(i).getService_categorynum1().equals("2")&&likeList.get(i).getService_categorynum2().equals("03")){%>
+												프론트엔드 · 퍼블리싱
+											<% } else if(likeList.get(i).getService_categorynum1().equals("2")&&likeList.get(i).getService_categorynum2().equals("04")){%>
+												검색 최적화 · SEO
+											<% } else if(likeList.get(i).getService_categorynum1().equals("2")&&likeList.get(i).getService_categorynum2().equals("05")){%>
+												애널리틱스
+											<% } else if(likeList.get(i).getService_categorynum1().equals("2")&&likeList.get(i).getService_categorynum2().equals("06")){%>
+												홈페이지 수정 · 유지보수
+											<% } else if(likeList.get(i).getService_categorynum1().equals("3")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												쇼핑몰
+											<% } else if(likeList.get(i).getService_categorynum1().equals("3")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												쇼핑몰 수정 · 유지보수
+											<% } else if(likeList.get(i).getService_categorynum1().equals("4")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												앱
+											<% } else if(likeList.get(i).getService_categorynum1().equals("4")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												앱 수정 · 유지보수
+											<% } else if(likeList.get(i).getService_categorynum1().equals("5")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												비지니스 애플리케이션
+											<% } else if(likeList.get(i).getService_categorynum1().equals("5")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												PC · 웹 프로그램
+											<% } else if(likeList.get(i).getService_categorynum1().equals("5")&&likeList.get(i).getService_categorynum2().equals("03")){%>
+												백엔드 · 서버
+											<% } else if(likeList.get(i).getService_categorynum1().equals("5")&&likeList.get(i).getService_categorynum2().equals("04")){%>
+												봇 · 챗봇
+											<% } else if(likeList.get(i).getService_categorynum1().equals("6")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												노코드 · 로우코드
+											<% } else if(likeList.get(i).getService_categorynum1().equals("6")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												메타버스
+											<% } else if(likeList.get(i).getService_categorynum1().equals("6")&&likeList.get(i).getService_categorynum2().equals("03")){%>
+												블록체인 · NFT
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												데이터 구매 · 구축
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												데이터 마이닝 · 크롤링
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("03")){%>
+												데이터 전처리
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("04")){%>
+												데이터 라벨링
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("05")){%>
+												데이터 분석 · 시각화
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("06")){%>
+												인공지능 · 머신러닝
+											<% } else if(likeList.get(i).getService_categorynum1().equals("7")&&likeList.get(i).getService_categorynum2().equals("07")){%>
+												데이터베이스
+											<% } else if(likeList.get(i).getService_categorynum1().equals("8")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												2D · 3D 게임
+											<% } else if(likeList.get(i).getService_categorynum1().equals("8")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												AR · VR
+											<% } else if(likeList.get(i).getService_categorynum1().equals("9")&&likeList.get(i).getService_categorynum2().equals("01")){%>
+												하드웨어 · 임베디드
+											<% } else if(likeList.get(i).getService_categorynum1().equals("9")&&likeList.get(i).getService_categorynum2().equals("02")){%>
+												보안
+											<% } else if(likeList.get(i).getService_categorynum1().equals("9")&&likeList.get(i).getService_categorynum2().equals("03")){%>
+												QA · 테스트
+											<% } else if(likeList.get(i).getService_categorynum1().equals("9")&&likeList.get(i).getService_categorynum2().equals("04")){%>
+												컴퓨터 기술지원
+											<% } else if(likeList.get(i).getService_categorynum1().equals("9")&&likeList.get(i).getService_categorynum2().equals("05")){%>
+												파일변환
+											<% } else if(likeList.get(i).getService_categorynum1().equals("9")&&likeList.get(i).getService_categorynum2().equals("06")){%>
+												기타
+											<% } %>
+										
+										</div>
+											<h4><%=likeList.get(i).getService_title() %></h4>
+										<div class="product-price">
+											<%=likeList.get(i).getService_price()%>원
+											<button class="likeBtn">🤍</button>
+										</div>
+									</div>
+								</div>
 							</div>
+							<%} %>
+							<!-- 상품 한칸 끝 -->
+
 						</div>
 					</div>
-					<!-- Breadcrumb Section Begin -->
-				   <!-- Shopping Cart Section Begin -->
-				    <section class="shopping-cart spad">
-				        <div class="container">
-				            <div class="row">
-				                <div class="col-lg-12">
-				                    <div class="cart-table">
-				                        <table>
-				                            <thead>
-				                                <tr>
-				                                  <th colspan="5">찜 목록</th>                                
-				                                </tr>
-				                            </thead>
-				                            <tbody>
-                           	<!-- 찜목록 한줄  -->
-                                <tr>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl1.png" alt=""></td>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl3.png" alt=""></td>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl4.png" alt=""></td>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl2.png" alt=""></td>
-                                    
-                                </tr>
-
-                                <tr class="listname">
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn"> 🧡</button></td>                               
-                               <!--찜 목록 한줄 끝  -->    
-                                                          	<!-- 찜목록 한줄  -->
-                                <tr>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl1.png" alt=""></td>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl3.png" alt=""></td>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl4.png" alt=""></td>
-                                    <td class="cart-pic first-row"><img src="img/pl/pl2.png" alt=""></td>
-                                    
-                                </tr>
-
-                                <tr class="listname">
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">&nbsp;🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">&nbsp;🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">&nbsp;🧡</button></td>
-                                    <td style="text-align: center;">UX 기획(상품 제목)<button class="likeBtn">🧡</button></td>                               
-                               <!--찜 목록 한줄 끝  -->   
-                      
-                            </tbody>
-                        </table>
-                    </div>                
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Shopping Cart Section End -->
-
-	<!-- Product Shop Section End -->	
-						</div>											
-					</div>					
 				</div>
-			</div>
-	
+				<!-- 상품 목록 끝 -->
+
+			</div>											
+		</div>					
 	</section>	 
+	<!-- Product Shop Section End -->	
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
