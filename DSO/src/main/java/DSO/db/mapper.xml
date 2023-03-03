@@ -95,7 +95,16 @@
 		where A.c_id = #{value} 
 		and A.service_seq = B.service_seq
 	</select>
+<!--의뢰인 댓글 별점 등록-->
+	<insert id="freereplyinsert" parameterType="DSO.model.Freereply_VO">
+		insert into tbl_freereply2(rep_seq,loginC,review,rate,service_seq) values(tbl_freereply2_SEQ.nextval,#{loginC},#{review},#{rate},#{service_seq})
+	</insert>
+
 	
+<!--의뢰인 댓글 별점 조회-->
+	<select id="freereplyselect" resultType="DSO.model.Freereply_VO">
+		select * from tbl_freereply2 where service_seq=#{service_seq} 
+	</select>		
 
 			
 </mapper>
