@@ -187,7 +187,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>회원가입</h2>
-                        <form method="post" action="Client_regi	ster_service">
+                        <form method="post" action="Client_register_service">
                             <div class="group-input">
                                 <label for="username">E-mail ID *</label>
                                 <input type="text" id="userid" name="c_id">

@@ -9,7 +9,7 @@
 <%
     String userName=null;
     if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
-    	userName="GUEST";
+    	userName="GHOST";
     }else{
        userName=(String)request.getAttribute("userName");
     }
