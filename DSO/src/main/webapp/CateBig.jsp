@@ -38,25 +38,7 @@
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
-<style type="text/css">
-.likeBtn {
-	background: white;
-	border: 0;
-	border-radius: 50px;
-	font-size: 18px;
-}
 
-.dislikeBtn {
-	background: white;
-	border: 0;
-	border-radius: 50px;
-	font-size: 18px;
-}
-
-.product-price {
-	margin-left: 25px;
-}
-</style>
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
