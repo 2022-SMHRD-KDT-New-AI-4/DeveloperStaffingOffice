@@ -78,20 +78,20 @@
 	var dislikeSeq = $('.dislikeBtn').val();
   	
 	$(document).on('click', 'button[class=likeBtn]', function() { 
-		var likeSeq = $('.likeBtn').val();
-		var dislikeSeq = $('.dislikeBtn').val();
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
 		$.ajax({
 			type : "POST",
 			url : "Like_Insert_service",
 			dataType : "json",
 			data : {"likeSeq" : likeSeq},
-			success : function(data){debugger;
+			success : function(data){
 				if(data>0){
-				    $(this).text('🧡');
-				    $(this).removeClass('likeBtn');  
-				    $(this).attr('class','dislikeBtn');
+				    $("#lbtn"+likeSeq).text('🧡');
+				    $("#lbtn"+likeSeq).removeClass('likeBtn');  
+				    $("#lbtn"+likeSeq).attr('class','dislikeBtn');
 				}else{
-					alert("메롱")
+					alert("메롱");
 				}
 			},
 			error : function(err){
@@ -100,17 +100,21 @@
 		});
 	});
 	$(document).on('click',	'.dislikeBtn', function() {
-		var likeSeq = $('.likeBtn').val();
-		var dislikeSeq = $('.dislikeBtn').val();
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
 		$.ajax({
 			type : "POST",
 			url : "Like_Delete_service",
 			dataType : "json",
 			data : {"dislikeSeq" : dislikeSeq},
-			success : function(data){debugger;
-			    $(this).text('🤍');
-			    $(this).removeAttr('class');
-			    $(this).attr('class','likeBtn');
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+dislikeSeq).text('🤍');
+				    $("#lbtn"+dislikeSeq).removeAttr('class');
+				    $("#lbtn"+dislikeSeq).attr('class','likeBtn');
+				}else{
+					alert("메롱");
+				}
 			},
 			error : function(err){
 				console.log(err)
@@ -471,10 +475,10 @@
 													} 
 												}
 											if(t>0) {%>
-												<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
+												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
 											<%} 
 											else { %>
-												<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
 											<%} %>
 										</div>
 									</div>
