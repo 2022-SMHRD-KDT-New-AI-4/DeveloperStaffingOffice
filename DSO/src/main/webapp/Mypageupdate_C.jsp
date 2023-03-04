@@ -201,14 +201,14 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>내 정보 수정</h2>
-                        <form method="post" action="Client_regi	ster_service">
+                        <form method="post" action="Client_Update_Serivce">
                             <div class="group-input">
                                 <label for="username">E-mail ID  </label>  
                                                                                 
                             </div>
                             <div class="group-input">
                                 <label for="pass">비밀번호 *</label>
-                                <input type="password" id="pass" name="c_pw">
+                                <input type="password" id="pass" name="pw">
                             </div>
                  			<!-- <div class="group-input">
                                 <label for="con-pass">비밀번호 확인*</label>
@@ -216,21 +216,21 @@
                             </div> -->
                				<div class="group-input">
                                 <label for="username">이름 *</label>
-                                <input type="text" id="username" name="c_name">
+                                <input type="text" id="username" name="name">
                             </div>
                				<div class="group-input">
                                 <label for="job">직업 &nbsp;&nbsp;
-	                                <select style="width:235px;"  id="job" name="c_job">                   
-					                    <option value="j1"> 선택안함 </option>
-					                    <option value="j1"> 백수 </option>
-					                    <option value="j2"> 직장인 </option>
-					                    <option value="j3">학생 </option>	
+	                                <select style="width:235px;"  id="job" name="job">                   
+					                    <option > 선택안함 </option>
+					                    <option > 백수 </option>
+					                    <option > 직장인 </option>
+					                    <option > 학생 </option>	
 									</select>
 								</label>
 							</div>
 							<div class="group-input">
                                 <label for="business">비지니스분야&nbsp;&nbsp; 
-									<select style="width:185px;" id="c_businesslist" name="c_business"">						                    
+									<select style="width:185px;" id="businesslist" name="business"">						                    
 						  				<option >선택해주세요</option>
 						  				<option >UX기획</option>
 						  				<option >웹</option>
@@ -246,7 +246,7 @@
                             </div>
  							<div class="group-input">
                                 <label for="job">관심분야 &nbsp;&nbsp;
-									<select style="width:205px;" id="c_interestlist" name="c_interest">
+									<select style="width:205px;" id="interestlist" name="interest">
 				                    </select>
 				                </label>
                             </div>                           
@@ -256,7 +256,7 @@
                           <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
   	
-  $('#c_businesslist').change(function(){
+  $('#businesslist').change(function(){
 	  var data = $(this).val();
 	  console.log(data);
 	  var list;
@@ -287,7 +287,7 @@
 		  html += "</option>";
 	  }
 	  
-	  $('#c_interestlist').html(html);
+	  $('#interestlist').html(html);
 	  
   });
   

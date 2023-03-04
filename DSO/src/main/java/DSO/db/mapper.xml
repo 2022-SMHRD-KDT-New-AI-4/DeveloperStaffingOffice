@@ -36,12 +36,12 @@
   
   <!-- 의뢰인 수정 -->
   <update id="clientupdate" parameterType="Client_register_VO">
-  	update tbl_client set c_id=#{c_id},c_pw=#{c_pw},c_name=#{c_name},c_business=#{c_business} c_interest=#{c_interest}
+  	update tbl_client set c_pw=#{c_pw},c_name=#{c_name},c_job=#{c_job},c_business=#{c_business}, c_interest=#{c_interest} where c_id = #{c_id}
   </update>
   
 <!-- 전문가 수정 -->
   <update id="specialistupdate" parameterType="Specialist_register_VO">
-  	update tbl_speciallist set s_id=#{s_id},s_pw=#{s_pw},s_name=#{s_name},s_business=#{s_business} s_interest=#{s_interest}
+  	update tbl_specialist set s_pw=#{s_pw},s_name=#{s_name},s_job=#{s_job},s_business=#{s_business}, s_interest=#{s_interest} where s_id = #{s_id}
   </update>
   
 <!-- 서비스 등록 -->

@@ -25,7 +25,6 @@ public class Client_Login_service extends HttpServlet {
 		
 		String c_id = request.getParameter("c_id");  
 		String c_pw = request.getParameter("c_pw");
-
 		
 		Client_register_VO vo = new Client_register_VO(c_id,c_pw);
 		
@@ -41,7 +40,6 @@ public class Client_Login_service extends HttpServlet {
 			Like_DAO dao2 = new Like_DAO();
 			ArrayList<Like_VO> list = dao2.selectLike(value);
 			session.setAttribute("likeList", list);
-			
 		}else {
 			System.out.println("로그인 실패");
 		}
