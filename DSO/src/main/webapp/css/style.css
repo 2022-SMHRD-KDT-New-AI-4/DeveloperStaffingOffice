@@ -430,6 +430,10 @@ transparent;
 	padding-bottom: 15px;
 }
 
+.header-top .ht-right .login-panel:hover{
+	color: #EAB543;
+}
+
 .header-top .ht-right .login-panel i {
 	margin: center;
 }

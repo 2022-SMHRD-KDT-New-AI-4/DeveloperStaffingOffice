@@ -11,7 +11,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>의뢰인정보수정</title>
+<title>내 정보 수정</title>
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -200,7 +200,7 @@
 				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h2>의뢰인 정보수정</h2>
+                        <h2>내 정보 수정</h2>
                         <form method="post" action="Client_regi	ster_service">
                             <div class="group-input">
                                 <label for="username">E-mail ID  </label>  

@@ -1,6 +1,7 @@
 package DSO.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DSO.model.Like_DAO;
+import DSO.model.Like_VO;
 import DSO.model.Specialist_register_DAO;
 import DSO.model.Specialist_register_VO;
 
@@ -38,6 +41,10 @@ public class Specialist_Login_Service extends HttpServlet {
 			System.out.println("전문가 로그인 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginS", lvo);
+			String value = lvo.getS_id();
+			Like_DAO dao2 = new Like_DAO();
+			ArrayList<Like_VO> list = dao2.selectLike(value);
+			session.setAttribute("likeList", list);
 		} else { // 로그인 실패
 			System.out.println("전문가 로그인 실패");
 		}
