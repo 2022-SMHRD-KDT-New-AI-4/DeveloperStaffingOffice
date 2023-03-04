@@ -197,15 +197,12 @@
 				<div class="filter-widget" style="padding-top: 0px">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
-						<br>
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
 						<li><a href="ToLike">찜</a></li>
 						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<%if(loginS==null) {%>
-						<li><a href="#">전문가 등록</a></li>
-						<%}else{ %>
-						<li><a href="#">상품 등록</a></li>
+						<%if(loginS!=null) {%>
+						<li><a href="Service_register_2.jsp">상품 등록</a></li>
 						<%} %>
 					</ul>
 				</div>

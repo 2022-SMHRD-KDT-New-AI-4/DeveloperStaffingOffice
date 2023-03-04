@@ -46,6 +46,49 @@
 		border-radius : 10px 10px 10px 10px;	
 	}
 	
+	#service_price{
+		display: inline;
+    	height: 35px;
+    	width: 80px;
+   		margin-left: 5px;
+   		padding-left: 10px;
+  		padding-right: 2px;
+	}
+	
+	div.group-input>textarea{
+		width: 100%;
+		border: 1px solid #ebebeb;
+		padding: 4px 4px 4px 4px;
+	}
+	
+	body > div.register-login-section.spad > div > div > div.col-lg-6.offset-lg-3 {
+		margin-left: 200px;
+	}
+	
+	body > div.register-login-section.spad > div > div > div.col-lg-6.offset-lg-3 > div > h2 {
+		position: relative;
+		display: inline;
+   		margin-left: 39.91%;
+	}
+	
+	body > div.register-login-section.spad > div > div > div.col-lg-6.offset-lg-3 > div > h2:before {
+		position: absolute;
+		left: 0;
+		bottom: -4px;
+		width: 100%;
+		height: 2px;
+		background: #1B9CFC;
+		content: "";
+	}
+	
+	#form1 > div:nth-child(1) > label {
+		margin-top: 13px;
+	}
+	
+	#form1 > input[type=submit] {
+		position: absolute;
+    	right: 15px;
+	}
 	</style>
 </head>
 
@@ -221,8 +264,8 @@
                             </div>
                             <div class="group-input">
                             
-                                <label>카테고리  &nbsp;&nbsp;
-                                <select  name="service_category" style="width:235px;">
+                                <label style="display:inline;">카테고리  &nbsp;&nbsp;</label>
+                                <select  name="service_category" style="width:200px;">
 										<option>선택해주세요</option>
 										<option>웹 · 모바일 기획</option>
 										<option>프로그램 · 기타 기획</option>
@@ -259,15 +302,13 @@
 										<option>파일변환</option>
 										<option>기타</option>
 								</select>
-								</label>                                                  
-                            </div>
-                            <div class="group-input">
-                                <label>가격</label>  
-                                <input type="number" id="service_price" name="service_price">                                                 
+								<label style="display:inline; margin-left: 120px;">가격</label>  
+                                <input style="text-align:right" type="number" id="service_price" name="service_price">  
+                                <label style="display:inline;">원</label>                                                  
                             </div>
                             <div class="group-input">
                                 <label >설명</label>  
-                                <textarea style="border:none; background-color: #FFEFD5 " rows="10px" cols="74px" id="service_desc" name="service_desc" placeholder="여기에 입력하세요."></textarea>                                                 
+                                <textarea rows="10px" cols="74px" id="service_desc" name="service_desc" placeholder="여기에 입력하세요."></textarea>                                                 
                             </div>
                             
                				<div class="group-input">

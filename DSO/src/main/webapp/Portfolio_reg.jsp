@@ -10,7 +10,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>포트폴리오 등록하기</title>
+<title>포트폴리오 등록</title>
 <%
 Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -55,12 +55,12 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background: #EAB543;
+    background: #1B9CFC;
     content: "";
 }
 
 .ptregbtn:hover {
-	color: #EAB543;
+	color: #1B9CFC;
 }
 
 #regbtn {
@@ -93,7 +93,7 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background: #EAB543;
+    background: #1B9CFC;
     content: "";
 }
 

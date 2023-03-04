@@ -37,6 +37,8 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
 <title>개발자 인력 사무소</title>
+<style type="text/css">
+</style>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -203,8 +205,12 @@
                         <h2>내 정보 수정</h2>
                         <form method="post" action="Client_Update_Serivce">
                             <div class="group-input">
-                                <label for="username">E-mail ID  </label>  
-                                                                                
+                                <label for="username">E-mail ID  </label>
+                                <%if(loginS==null) {%>
+                                <input type="text" id="id" name="id" placeholder="<%=loginC.getC_id()%>" disabled>
+                                <%}else {%>                                           
+                                <input type="text" id="id" name="id" placeholder="<%=loginS.getS_id()%>" disabled>
+                                <%} %>                                           
                             </div>
                             <div class="group-input">
                                 <label for="pass">비밀번호 *</label>
