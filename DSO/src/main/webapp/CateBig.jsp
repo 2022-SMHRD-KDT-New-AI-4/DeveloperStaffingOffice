@@ -74,19 +74,25 @@
 <!-- 좋아요 스크립트   -->
   <script type="text/javascript">
 	
-  	let likeSeq = $('.likeBtn').val();
-	let dislikeSeq = $('.dislikeBtn').val();
+  	var likeSeq = $('.likeBtn').val();
+	var dislikeSeq = $('.dislikeBtn').val();
   	
-	$(document).on('click', 'button[class=likeBtn]', function() {
+	$(document).on('click', 'button[class=likeBtn]', function() { 
+		var likeSeq = $('.likeBtn').val();
+		var dislikeSeq = $('.dislikeBtn').val();
 		$.ajax({
 			type : "POST",
 			url : "Like_Insert_service",
 			dataType : "json",
 			data : {"likeSeq" : likeSeq},
-			success : function(data){
-			    $(this).text('🤍');
-			    $(this).removeClass('likeBtn');  
-			    $(this).attr('class','dislikeBtn');
+			success : function(data){debugger;
+				if(data>0){
+				    $(this).text('🧡');
+				    $(this).removeClass('likeBtn');  
+				    $(this).attr('class','dislikeBtn');
+				}else{
+					alert("메롱")
+				}
 			},
 			error : function(err){
 				console.log(err)
@@ -94,13 +100,15 @@
 		});
 	});
 	$(document).on('click',	'.dislikeBtn', function() {
+		var likeSeq = $('.likeBtn').val();
+		var dislikeSeq = $('.dislikeBtn').val();
 		$.ajax({
 			type : "POST",
 			url : "Like_Delete_service",
 			dataType : "json",
 			data : {"dislikeSeq" : dislikeSeq},
-			success : function(data){
-			    $(this).text('🧡');
+			success : function(data){debugger;
+			    $(this).text('🤍');
 			    $(this).removeAttr('class');
 			    $(this).attr('class','likeBtn');
 			},
@@ -454,18 +462,19 @@
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
 											<%
-											int t = 0;
-											int f = 0;
-											
-											for(int j = 0;j<cate.size();j++) {
-											
-											if(cate.get(i).getService_seq()==likeList.get(j).getService_seq()) {
-													t++;
-											} }
+												int t = 0;
+												int f = 0;
+												
+												for(int j = 0;j<likeList.size();j++) {
+													if(cate.get(i).getService_seq() == likeList.get(j).getService_seq()) {
+															t++;
+													} 
+												}
 											if(t>0) {%>
-											<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
-											<%} else { %>
-											<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+												<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
+											<%} 
+											else { %>
+												<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
 											<%} %>
 										</div>
 									</div>

@@ -34,15 +34,15 @@ public class Like_Insert_service extends HttpServlet {
 		Like_DAO dao2 = new Like_DAO();
 		int cnt = dao2.insertLike(likepost);
 		
+		/*
+		 * if(cnt>0) { System.out.println("좋아요 성공"); out.print("<script>");
+		 * out.print("location.href = 'CateBig.jsp';"); out.print("</script>"); } else {
+		 * System.out.println("좋아요 실패"); }
+		 */
 		
-		if(cnt>0) {
-			System.out.println("좋아요 성공");
-			out.print("<script>");
-	        out.print("location.href = 'CateBig.jsp';");
-	        out.print("</script>");
-		} else {
-			System.out.println("좋아요 실패");
-		}
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(cnt);
+		
 		
 	}
 

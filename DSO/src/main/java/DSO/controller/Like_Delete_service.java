@@ -31,14 +31,13 @@ public class Like_Delete_service extends HttpServlet {
 		int cnt = dao.deleteLike(dislikepost);
 		
 		
-		if(cnt>0) {
-			System.out.println("좋아요취소 성공");
-			out.print("<script>");
-	        out.print("location.href = 'CateBig.jsp';");
-	        out.print("</script>");
-		} else {
-			System.out.println("좋아요취소 실패");
-		}
+		/*
+		 * if(cnt>0) { System.out.println("좋아요취소 성공"); out.print("<script>");
+		 * out.print("location.href = 'CateBig.jsp';"); out.print("</script>"); } else {
+		 * System.out.println("좋아요취소 실패"); }
+		 */
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(cnt);
 	}
 
 }
