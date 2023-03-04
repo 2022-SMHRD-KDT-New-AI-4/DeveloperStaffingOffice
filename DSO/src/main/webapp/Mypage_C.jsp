@@ -198,7 +198,7 @@
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
-						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
 						<li><a href="ToLike">찜</a></li>
 						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
 						<%if(loginS!=null) {%>
