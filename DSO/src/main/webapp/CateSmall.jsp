@@ -1,3 +1,4 @@
+<%@page import="DSO.model.Like_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@page import="DSO.model.Service_info_pr_VO"%>
@@ -13,6 +14,7 @@
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
 	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 	String cateBigNum = (String)session.getAttribute("cateBigNum");
 	String cateSmallNum = (String)session.getAttribute("cateSmallNum");
 	%>
@@ -79,27 +81,60 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-
-
-	<!-- 좋아요 스크립트   -->
+<!-- 좋아요 스크립트   -->
   <script type="text/javascript">
-
-$(document).on('click', 'button[class=likeBtn]', function(){
-    $(this).text('🧡');
-    $('.likeBtn+span').text(Number($('.likeBtn+span').text())+1);  
-    //$('.likeBtn+span') <-계층선택자 likeBtn에붙어있는 span태그도 같이 적용
-    //$(this).removeAttr('class');  -> (class)객체를 삭제  
-    $(this).removeClass('likeBtn');    // -> 객체
-    $(this).attr('class','dislikeBtn');
- });
- $(document).on('click', '.dislikeBtn', function(){
-    $(this).text('🤍');
-    $('.dislikeBtn+span').text(Number($('.dislikeBtn+span').text())-1);
-    $(this).removeAttr('class');
-    $(this).attr('class','likeBtn');
- });
+	
+  	var likeSeq = $('.likeBtn').val();
+	var dislikeSeq = $('.dislikeBtn').val();
+  	
+	$(document).on('click', 'button[class=likeBtn]', function() { 
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
+		$.ajax({
+			type : "POST",
+			url : "Like_Insert_service",
+			dataType : "json",
+			data : {"likeSeq" : likeSeq},
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+likeSeq).text('🧡');
+				    $("#lbtn"+likeSeq).removeClass('likeBtn');  
+				    $("#lbtn"+likeSeq).attr('class','dislikeBtn');
+				}else{
+					alert("메롱");
+				}
+			},
+			error : function(err){
+				console.log(err)
+			}
+		});
+	});
+	$(document).on('click',	'.dislikeBtn', function() {
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
+		$.ajax({
+			type : "POST",
+			url : "Like_Delete_service",
+			dataType : "json",
+			data : {"dislikeSeq" : dislikeSeq},
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+dislikeSeq).text('🤍');
+				    $("#lbtn"+dislikeSeq).removeAttr('class');
+				    $("#lbtn"+dislikeSeq).attr('class','likeBtn');
+				}else{
+					alert("메롱");
+				}
+			},
+			error : function(err){
+				console.log(err)
+			}
+		});
+		
+	});
+ 
 </script> 
-	<!-- 좋아요 스크립트 -->
+<!-- 좋아요 스크립트 끝 -->
 
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -509,7 +544,21 @@ $(document).on('click', 'button[class=likeBtn]', function(){
 											<h4><%=cate.get(i).getService_title() %></h4>
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
-											<button class="likeBtn">🤍</button>
+											<%
+												int t = 0;
+												int f = 0;
+												
+												for(int j = 0;j<likeList.size();j++) {
+													if(cate.get(i).getService_seq() == likeList.get(j).getService_seq()) {
+															t++;
+													} 
+												}
+											if(t>0) {%>
+												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
+											<%} 
+											else { %>
+												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+											<%} %>
 										</div>
 									</div>
 								</div>

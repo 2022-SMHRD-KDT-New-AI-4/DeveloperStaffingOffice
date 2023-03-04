@@ -18,7 +18,6 @@
 	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
 	ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 	String cateBigNum = (String)session.getAttribute("cateBigNum");
-	System.out.println(likeList);
 	%>
 <!-- Google Font -->
 <link
