@@ -6,7 +6,7 @@
 
 <!-- 의뢰인 회원가입 -->
   <insert id="clientjoin" parameterType="Client_register_VO">
-  	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},sysdate)
+  	insert into tbl_client values(#{c_id},#{c_pw},#{c_name},#{c_job},#{c_business},#{c_interest},sysdate)
   </insert>
 
 <!-- 의뢰인 회원탈퇴 -->
@@ -46,7 +46,7 @@
   
 <!-- 서비스 등록 -->
   <insert id="serviceregister" parameterType="DSO.model.Service_info_pr_VO">
-  	insert into tbl_service3 values(tbl_service_seq.nextval,#{service_title},#{service_category1},#{service_category2},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
+  	insert into tbl_service3 values(tbl_service_seq.nextval,#{service_title},#{service_categorynum1},#{service_categorynum2},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
   </insert>   
   
 <!-- 서비스 수정 -->

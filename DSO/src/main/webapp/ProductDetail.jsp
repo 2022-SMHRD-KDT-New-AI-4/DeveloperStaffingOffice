@@ -56,9 +56,10 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -355,7 +356,7 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div>
-								<img class="product-big-img" src="img/pl/pl1.png" alt="">
+								<img class="product-big-img" src="boardImg/<%=post.getService_img() %>" alt="">
 							</div>
 							<div class="product-thumbs">
 								<div class="product-thumbs-track ps-slider owl-carousel">

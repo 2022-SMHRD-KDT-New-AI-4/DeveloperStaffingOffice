@@ -52,9 +52,10 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -193,10 +194,10 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
                     <div class="login-form">
                         <h2>Login</h2>
                       
-                            <div class=loginbtnCR>
+                        <div class=loginbtnCR>
 							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
-                            <button type="button"onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
-                            </div>
+                            <button type="button" onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
+                        </div>
 
                         <div class="switch-login">
                             <a href="Join_1.jsp" class="or-login">회원가입</a>

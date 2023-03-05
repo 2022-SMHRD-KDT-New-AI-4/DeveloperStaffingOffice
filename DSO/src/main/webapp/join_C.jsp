@@ -46,9 +46,10 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -194,10 +195,10 @@
                                 <label for="pass">비밀번호 *</label>
                                 <input type="password" id="pass" name="c_pw">
                             </div>
-  <!--                           <div class="group-input">
-                                <label for="con-pass">비밀번호 확인*</label>
-                                <input type="text" id="con-pass">
-                            </div> -->
+                            <div class="group-input">
+                                <label for="con-pass">비밀번호 확인 *</label>
+                                <input type="password" id="con-pass" name="con_pw">
+                            </div>
                				<div class="group-input">
                                 <label for="username">이름 *</label>
                                 <input type="text" id="username" name="c_name">
@@ -205,17 +206,16 @@
                				<div class="group-input">
                                 <label for="job">직업 &nbsp;&nbsp;
 	                                <select style="width:235px;"  id="job" name="c_job">
-					                    
-					                    <option value="j1"> 선택안함 </option>
-					                    <option value="j1"> 백수 </option>
-					                    <option value="j2"> 직장인 </option>
-					                    <option value="j3">학생 </option>	
+					                    <option >선택안함</option>
+					                    <option >백수</option>
+					                    <option >직장인</option>
+					                    <option >학생</option>	
 									</select>
 								</label>
 							</div>
 							<div class="group-input">
                                 <label for="business">비지니스분야&nbsp;&nbsp; 
-									<select style="width:185px;" id="c_businesslist" name="c_business"">						                    
+									<select style="width:185px;" id="c_businesslist" name="c_business">						                    
 						  				<option >선택해주세요</option>
 						  				<option >UX기획</option>
 						  				<option >웹</option>
@@ -235,10 +235,9 @@
 				                    </select>
 				                </label>
                             </div>                           
-                            
-                           <button class="site-btn login-btn" type="submit" >회원가입</button>
+                           <button class="site-btn login-btn" type="submit">회원가입</button>
                         </form>
-                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+                        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
   	
   $('#c_businesslist').change(function(){

@@ -56,10 +56,6 @@
 	   border-radius: 50px;
 	   font-size: 18px;
 	}
-	.row {
-       margin-top: 10px;
-	}
-.shopping-cart {padding-top: 0px;}
 
 </style>
 <!-- Js Plugins -->
@@ -124,7 +120,6 @@
 				console.log(err)
 			}
 		});
-		
 	});
  
 </script> 
@@ -138,9 +133,10 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a

@@ -120,9 +120,10 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -283,9 +284,9 @@
                             <div class="group-input">
                             
                                 <label style="display:inline;">카테고리  &nbsp;&nbsp;</label>
-                                <select  name="service_category" style="width:200px;">
+                                <select id="service_category" name="service_category" style="width:200px;">
 										<option>선택해주세요</option>
-										<option value="1" value2="01">웹 · 모바일 기획</option>
+										<option value="1,01">웹 · 모바일 기획</option>
 										<option>프로그램 · 기타 기획</option>
 										<option>홈페이지</option>
 										<option>랜딩페이지</option>

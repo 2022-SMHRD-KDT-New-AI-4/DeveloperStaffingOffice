@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import DSO.model.Client_register_VO;
 import DSO.model.Like_DAO;
 import DSO.model.Like_VO;
+import DSO.model.Specialist_register_VO;
 
 public class Like_Delete_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,9 +25,15 @@ public class Like_Delete_service extends HttpServlet {
 		
 		int dislikeSeq = Integer.parseInt(request.getParameter("dislikeSeq"));
 		Like_DAO dao = new Like_DAO();
+		Like_VO dislikepost = new Like_VO();
 		
-		Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-		Like_VO dislikepost = new Like_VO(loginC.getC_id(),dislikeSeq);
+		if(session.getAttribute("loginS")==null) {
+			Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+			dislikepost = new Like_VO(loginC.getC_id(),dislikeSeq);
+		} else {
+			Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+			dislikepost = new Like_VO(loginS.getS_id(),dislikeSeq);
+		}
 		
 		int cnt = dao.deleteLike(dislikepost);
 		

@@ -145,9 +145,10 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -279,7 +280,7 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 				<div id="reg">
 					<div style="float: left; width: 100%;">
 						<button id="canbtn" class="ptregbtn" type="reset">초기화</button>
-						<button id="regbtn" class="ptregbtn" type="button" onclick="location.href='Main.jsp'">완료</button>
+						<button id="regbtn" class="ptregbtn" type="button" onclick="location.href='Service_register_2.jsp'">완료</button>
 					</div>
 				</div>
 			</form>

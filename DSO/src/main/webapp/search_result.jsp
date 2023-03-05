@@ -113,9 +113,10 @@ String searchWord = (String)session.getAttribute("searchWord");
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
-			<!-- 로그인 마이페이지 -->
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -229,7 +230,6 @@ String searchWord = (String)session.getAttribute("searchWord");
 		</div>
 	</header>
 	<!-- Header End -->
-
 
 	<!-- Breadcrumb Section Begin -->
 	<div class="breacrumb-section">
@@ -412,22 +412,21 @@ String searchWord = (String)session.getAttribute("searchWord");
 											<% } %>
 										
 										</div>
-											<h4><%=cate.get(i).getService_title() %></h4>
+										<h4><%=cate.get(i).getService_title() %></h4>
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
 											<%
-												int t = 0;
-												int f = 0;
-												
+											int t = 0;
+											if(loginC!=null||loginS!=null){
 												for(int j = 0;j<likeList.size();j++) {
 													if(cate.get(i).getService_seq() == likeList.get(j).getService_seq()) {
 															t++;
-													} 
+													}
 												}
+											}
 											if(t>0) {%>
 												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
-											<%} 
-											else { %>
+											<%} else { %>
 												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
 											<%} %>
 										</div>
@@ -442,12 +441,9 @@ String searchWord = (String)session.getAttribute("searchWord");
 				</div>
 				<!-- 상품 목록 끝 -->
 			</div>
-
 		</div>
 	</section>
 	<!-- Product Shop Section End -->
-
-
 
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">

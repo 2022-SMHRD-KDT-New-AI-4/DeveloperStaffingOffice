@@ -147,6 +147,7 @@
 			<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
 				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
@@ -544,13 +545,13 @@
 											<%=cate.get(i).getService_price()%>원
 											<%
 												int t = 0;
-												int f = 0;
-												
+											if(loginC!=null||loginS!=null){
 												for(int j = 0;j<likeList.size();j++) {
 													if(cate.get(i).getService_seq() == likeList.get(j).getService_seq()) {
 															t++;
 													} 
 												}
+											}
 											if(t>0) {%>
 												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
 											<%} 
