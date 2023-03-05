@@ -81,15 +81,34 @@
 		content: "";
 	}
 	
-	#form1 > div:nth-child(1) > label {
-		margin-top: 13px;
-	}
 	
 	#form1 > input[type=submit] {
 		position: absolute;
     	right: 15px;
 	}
+	
+	#service_img {
+		display: block;
+		border: none;
+  	  	padding-left: 5px;
+    	margin-top: 10px;
+	}
+	
+	#imgViewArea > label {
+		display: inline;
+	}
+	
+	
+	#form1 > div:nth-child(1) > label {
+		display: inline;
+	}
+	
+	#title {
+		margin-bottom: 8px;
+	}
+	
 	</style>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -258,9 +277,9 @@
                        <h2>상품등록</h2>         
                       <form id="form1" name="form1" action="Service_register_service" method="post" enctype="multipart/form-data">
                             <div class="group-input">
-                                <label>제목</label>  
-                                <input type="text" id="service_title" name="service_title">                                                
-                            </div>
+								<label id="title">제목</label>  
+                                <input type="text" id="service_title" name="service_title">     
+							</div> 
                             <div class="group-input">
                             
                                 <label style="display:inline;">카테고리  &nbsp;&nbsp;</label>
@@ -305,6 +324,17 @@
                                 <input style="text-align:right" type="number" id="service_price" name="service_price">  
                                 <label style="display:inline;">원</label>                                                  
                             </div>
+                            <div class="group-input" style="width: 270px; display: inline-block;">
+                                <label for="username">이미지</label>
+                                <div id="imgViewArea" style="margin-top:10px;">
+									<img id="imgArea" style="width:200px; height:200px;" onerror="imgAreaError()"/>
+									<input type="file" name="service_img" id="service_img" accept="image/*">
+								</div> 
+                            </div> 
+                            <div class="group-input" style="width: 270px; display: inline-block; position: relative; bottom: 210px;">
+                            	<label>포트폴리오</label>
+								<button type="button" onclick="location.href='Portfolio_reg.jsp'">포트폴리오 등록</button>
+							</div>
                             <div class="group-input">
                                 <label >설명</label>  
                                 <textarea rows="10px" cols="74px" id="service_desc" name="service_desc" placeholder="여기에 입력하세요."></textarea>                                                 
@@ -314,18 +344,8 @@
                                 <label for="username">요구사항</label>
                                 <textarea rows="10px" cols="50px" id="service_requisite" name="service_requisite"></textarea> 
                             </div>
-               				<div class="group-input">
-                                <label for="username">이미지</label>
-                                <div id="imgViewArea" style="margin-top:10px; display:none;">
-								<img id="imgArea" style="width:200px; height:200px;" onerror="imgAreaError()"/>
-								<input type="file" name="service_img" id="service_img" accept="image/*">
-							</div> 
-                            </div>                        
-                          <button type="button" onclick="location.href='Portfolio_register.jsp'">포트폴리오 등록</button>
                           <input type="submit" value="등록">
                         </form>
-                       
-                          <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
                     </div>
                 </div>
             </div>

@@ -387,9 +387,6 @@
 										class="fa fa-star-o"></i> <span>(4)</span>
 								</div>
 								<div class="pd-desc">
-									<p>
-										<%=post.getService_desc() %>
-									</p>
 									<h4>
 										<%=post.getService_price() %> 원<span></span>
 									</h4>
