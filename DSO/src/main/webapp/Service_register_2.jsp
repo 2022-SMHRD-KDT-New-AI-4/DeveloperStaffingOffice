@@ -267,7 +267,7 @@
                                 <label style="display:inline;">카테고리  &nbsp;&nbsp;</label>
                                 <select  name="service_category" style="width:200px;">
 										<option>선택해주세요</option>
-										<option>웹 · 모바일 기획</option>
+										<option value="1" value2="01">웹 · 모바일 기획</option>
 										<option>프로그램 · 기타 기획</option>
 										<option>홈페이지</option>
 										<option>랜딩페이지</option>
