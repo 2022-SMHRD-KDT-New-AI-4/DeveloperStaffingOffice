@@ -51,6 +51,7 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
@@ -60,6 +61,7 @@
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
