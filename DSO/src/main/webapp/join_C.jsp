@@ -190,6 +190,53 @@
                             <div class="group-input">
                                 <label for="username">E-mail ID *</label>
                                 <input type="text" id="userid" name="c_id">
+                                <div id="id_div"></div>
+                            <script type="text/JavaScript">
+                            $(document).ready(function(){
+                                /* 
+                                   함수명 : ID 중복확인
+                                   내용  : ID 중복확인 진행. (Ajax).
+                                */
+                                $(".id_confirm").on("focusout", function(){
+                                   var id = $('input[name=s_id]').val();
+                                   //alert(id);
+                                   $.ajax({
+                                      url : "id_confirm",
+                                      type : "POST",                                       
+                                      data : {"s_id" : id}
+                                     /*  success : function(data){
+                                         $('#id_div').html('<a>사용 가능한 ID입니다.</a>')
+                                      } error : function(err){
+                                         $('#id_div').html('<a> style="color:red;">사용 불가능한 ID입니다.</a>')
+                                      } */
+                                   })
+                                   .done(function(json){
+                                      
+                                      if(json!=1){
+                                         $('#id_div').html('<p style="color:blue;">사용 가능한 ID입니다.</p>')
+                                      }else{
+                                         $('#id_div').html('<p style="color:red;">사용 불가능한 ID입니다.</p>')
+                                      }
+                                      
+                                   })
+                                   
+                                   .fail(function(xhr, status, errThrwon){
+                                      console.log("Ajax 실패 : " + errorThrown);
+                                      $('#id_div').html('<a style="color:red;">통신중 오류가 발생했음.</a>');
+                                   })
+                                   
+                                });
+                                
+                                
+                                
+                                
+                             });
+                            
+                            
+                            
+                            </script> 
+                                
+                               
                             </div>
                             <div class="group-input">
                                 <label for="pass">비밀번호 *</label>

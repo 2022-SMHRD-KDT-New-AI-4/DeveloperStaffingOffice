@@ -123,16 +123,21 @@
 		update tbl_list set views=#{views}
 		</update>
 		
-<!-- 채팅방 생성 -->
-	<insert id="insertChatPost" parameterType="DSO.model.Service_info_pr_VO">
-		insert into tbl_register_specialist values(#{service_seq},#{service_title},#{s_id},0,sysdate)
+<!-- 구매목록 생성 -->
+	<insert id="insertChatPost" parameterType="DSO.model.ChatClient">
+		insert into tbl_register_specialist values(#{service_seq},#{service_title},#{c_id},#{s_id},0,sysdate)
 	</insert>
 	
 <!-- ID 중복 확인 -->
-	<select id="selectCsIdConfirm" resultType="int">
-		select count(*)
-		from tbl_specialist
-		where s_id = #{s_id}
+   <select id="selectCsIdConfirm" resultType="int">
+      select count(*)
+      from tbl_specialist
+      where s_id = #{s_id}
+   </select>
+	
+<!-- 구매목록 불러오기 -->
+	<select id="buyListLoad" resultType="DSO.model.ChatClient" parameterType="string">
+		Select * from tbl_register_specialist where c_id = #{value}
 	</select>
 
 </mapper>

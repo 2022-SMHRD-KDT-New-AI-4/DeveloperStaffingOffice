@@ -36,4 +36,11 @@ public class Client_register_DAO {
 		session.close();
 		return cnt;
 	}
+	
+	/*
+	 * public int selectid (String c_id) { // 의뢰인 아이디 중복 확인 SqlSession session =
+	 * sqlSessionFactory.openSession(true); int cnt =
+	 * session.selectOne("c_selectCsIdConfirm", c_id); session.close(); return cnt;
+	 * }
+	 */
 }
