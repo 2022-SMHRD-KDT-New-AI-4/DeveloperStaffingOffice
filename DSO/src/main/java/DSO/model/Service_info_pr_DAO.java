@@ -43,11 +43,18 @@ public class Service_info_pr_DAO {
 		return (ArrayList<Service_info_pr_VO>)list;
 	}
 	
-	public int insertChatPost(Service_info_pr_VO vo) {
+	public int insertChatPost(ChatClient vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.insert("insertChatPost",vo);
 		session.close();
 		return cnt;
+	}
+	
+	public ArrayList<ChatClient> buyListLoad(String value){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<ChatClient> list = session.selectList("buyListLoad", value);
+		session.close();
+		return (ArrayList<ChatClient>)list;
 	}
 	
 }
