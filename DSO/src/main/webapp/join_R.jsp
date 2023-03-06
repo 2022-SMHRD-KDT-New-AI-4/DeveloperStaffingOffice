@@ -36,6 +36,16 @@
 <%} %>
 
 <title>개발자 인력 사무소</title>
+   <script src="js/jquery-3.3.1.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery-ui.min.js"></script>
+   <script src="js/jquery.countdown.min.js"></script>
+   <script src="js/jquery.nice-select.min.js"></script>
+   <script src="js/jquery.zoom.min.js"></script>
+   <script src="js/jquery.dd.min.js"></script>
+   <script src="js/jquery.slicknav.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/main.js"></script>
 </head>
 <body>
 <!-- Page Preloder -->
@@ -189,7 +199,7 @@
                         <form action="Specialist_register_service" method="post"> <!-- 선택 수정 : method, action -->
                             <div class="group-input">
                                 <label for="username">E-mail ID *</label>
-                                <input type="text" id="username" name="s_id">
+                                <input type="text" id="username" name="s_id" class="id_confirm">
                                 <div id="id_div"></div>
                             <script type="text/JavaScript">
                                $(document).ready(function(){
@@ -198,25 +208,24 @@
                                      내용  : ID 중복확인 진행. (Ajax).
                                   */
                                   $(".id_confirm").on("focusout", function(){
-                                     var id = $('input[name=id]').val();
-                                     
+                                     var id = $('input[name=s_id]').val();
+                                     //alert(id);
                                      $.ajax({
-                                        url : "Specialist_register_Service",
-                                        type : "POST",
-                                        dataType : "JSON",
-                                        data : {"id" : id}
-                                        success : function(data){
+                                        url : "id_confirm",
+                                        type : "POST",                                       
+                                        data : {"s_id" : id}
+                                       /*  success : function(data){
                                            $('#id_div').html('<a>사용 가능한 ID입니다.</a>')
                                         } error : function(err){
                                            $('#id_div').html('<a> style="color:red;">사용 불가능한 ID입니다.</a>')
-                                        }
+                                        } */
                                      })
                                      .done(function(json){
                                         
-                                        if(json.succYn == "Y" && json.cnt ==0){
-                                           $('#id_div').html('<a>사용 가능한 ID입니다.</a>')
+                                        if(json!=1){
+                                           $('#id_div').html('<p style="color:blue;">사용 가능한 ID입니다.</p>')
                                         }else{
-                                           $('#id_div').html('<a> style="color:red;">사용 불가능한 ID입니다.</a>')
+                                           $('#id_div').html('<p style="color:red;">사용 불가능한 ID입니다.</p>')
                                         }
                                         
                                      })
@@ -384,15 +393,6 @@
 
 
    <!-- Js Plugins -->
-   <script src="js/jquery-3.3.1.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/jquery-ui.min.js"></script>
-   <script src="js/jquery.countdown.min.js"></script>
-   <script src="js/jquery.nice-select.min.js"></script>
-   <script src="js/jquery.zoom.min.js"></script>
-   <script src="js/jquery.dd.min.js"></script>
-   <script src="js/jquery.slicknav.js"></script>
-   <script src="js/owl.carousel.min.js"></script>
-   <script src="js/main.js"></script>
+
 </body>
 </html>

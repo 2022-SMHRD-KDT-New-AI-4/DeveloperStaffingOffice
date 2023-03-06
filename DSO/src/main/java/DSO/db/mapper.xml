@@ -129,7 +129,7 @@
 	</insert>
 	
 <!-- ID 중복 확인 -->
-	<select id="selectCsIdConfirm">
+	<select id="selectCsIdConfirm" resultType="int">
 		select count(*)
 		from tbl_specialist
 		where s_id = #{s_id}

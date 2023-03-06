@@ -26,7 +26,10 @@ public class Specialist_register_VO {
 	}
 
 	
+	public Specialist_register_VO(String s_id) {
+		this.s_id = s_id;
 
+	}
 	
 	public Specialist_register_VO(String s_id, String s_pw) {
 		super();

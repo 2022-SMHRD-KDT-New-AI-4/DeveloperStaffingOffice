@@ -14,11 +14,5 @@ public class Register_specialist_DAO {
 		session.close(); 
 		return cnt;
 	}
-	public int selectid (Register_specialist_VO vo) { // 전문가 아이디 중복 확인
-		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.selectOne("selectCsIdConfirm", vo);
-		session.close();
-		return cnt;
-	}
 
 }

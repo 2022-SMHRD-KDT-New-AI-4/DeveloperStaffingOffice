@@ -36,6 +36,12 @@ public class Specialist_register_DAO {
 		session.close();
 		return cnt;
 	}
+	public int selectid (String s_id) { // 전문가 아이디 중복 확인
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.selectOne("selectCsIdConfirm", s_id);
+		session.close();
+		return cnt;
+	}
 
 
 }
