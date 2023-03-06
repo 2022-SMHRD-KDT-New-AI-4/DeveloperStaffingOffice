@@ -38,6 +38,7 @@
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
+<link rel="stylesheet" href="css/chatbot.css" type="text/css">
 
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -476,6 +477,63 @@
 		</div>
 	</section>
 	<!-- Product Shop Section End -->
+	
+	
+	<!-- ChatBot area -->
+	
+		<!-- 챗봇 아이콘 클릭시 열림 -->
+		<img id ="chatbotImg" src="img/chatbot_main_logo.jpg" alt="chatbot" onclick="change()">
+	    <div id = "chatbotArea">
+	    
+  	    	<% if(loginS != null ){%>
+				<!-- 챗봇 전문가 버전 -->
+		    	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_S.jsp" scolling ="yes"></iframe>
+		    	
+		    	<!-- 챗봇 닫기 버튼 -->
+		    	<button id="closebtn" onclick="change()">✖</button>
+		     <% } else {%> 
+				<%-- 챗봇 의뢰인 버전 --%>
+		     	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_C.jsp" scolling ="yes"></iframe>
+		    	
+		    	<!-- 챗봇 닫기 버튼 -->
+		    	<button id="closebtn" onclick="change()">✖</button>
+ 		     <% } %>
+	    	
+	    </div>
+
+	
+	<!-- 챗봇 열고 닫고 12 -->	
+	<script>
+	
+			
+		function change(){
+
+		    const chatbotImg = document.getElementById('chatbotImg');
+		    const chatbotframe = document.getElementById('chatbotframe');
+		    const closebtn = document.getElementById('closebtn');
+		    
+
+		    if(chatbotframe.style.visibility !== 'visible'){
+		                
+		    	chatbotframe.style.visibility = 'visible'; 
+		    	closebtn.style.visibility = 'visible';
+		    	chatbotImg.style.visibility = 'hidden';
+		        
+		    } else {
+		        
+		    	chatbotframe.style.visibility = 'hidden';
+		    	closebtn.style.visibility = 'hidden';
+		    	chatbotImg.style.visibility = 'visible';
+		    	
+
+		     }
+
+		}
+	
+	</script>
+	
+	
+	<!-- ChatBot area -->
 
 
 	<!-- Footer Section Begin -->
