@@ -26,6 +26,23 @@ public class Freereply_DAO {
 	}
 
 
+	public int freereplyDelete(String loginC) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("freereplydelete",loginC);
+		session.close();
+		return cnt;
+	}
+
+	public int freereplyUpdate(Freereply_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt =session.update("freereplyUpdate", vo);
+		session.close();
+		return 0;
+	}
+
+
+
+
 
 
 }

@@ -14,6 +14,27 @@ public class Freereply_VO {
 	
 	
 	
+	public Freereply_VO(String loginC, String review, int service_seq) {
+		super();
+		this.loginC = loginC;
+		this.review = review;
+		this.service_seq = service_seq;
+	}
+
+
+
+
+
+	public Freereply_VO(String loginC, String review) {
+		super();
+		this.loginC = loginC;
+		this.review = review;
+	}
+
+
+
+
+
 	public Freereply_VO(String loginC, String review, int rate, int service_seq) {
 		super();
 		this.loginC = loginC;

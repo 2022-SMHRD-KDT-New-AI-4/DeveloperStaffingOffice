@@ -135,8 +135,11 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 					html += "<table style='margin:auto; style=width:440px'>"
 					for(let i = 0; i< data.length; i++){
 						html += "<tr>";
-						html += "<td style='width:220px'>";
+						html +="<form method='post' id='fo"+i+"'>";
+						html += "<td id='id"+i+"' style='width:220px'>";
 						html += data[i].loginC;
+						html += "</td>";
+						html += "</form>";
 						html += "<td style='color: red;width:220px'>"
 						if(data[i].rate==0){
 							html +="☆☆☆☆☆";
@@ -151,19 +154,21 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 						}else if(data[i].rate==5){
 							html += "★★★★★";
 						}
-						if(data[i].loginC==loginC){
-						html +="<input type='submit' name='update' id='update' value='수정'>"
-						html +="<input type='submit' name='delete' id='delete' value='삭제'>"	
-						}
-						html +="<input type='submit' name='update' id='update' value='수정'>"
-						html +="<input type='submit' name='delete' id='delete' value='삭제'>"
-						html += "</td>"
-						html += "<tr>"
-						html += "<td colspan=2 style='width:440px'>"
-						html += data[i].review;
-						html += "</td>"
-						html += "</tr>"
-						html += "</tr>"
+						html += "<input type='button' name='update' id='update' value='수정' onclick='goUpdateForm("+i+")'>";
+						html += "<input type='submit' name='delete' id='delete' value='삭제' onclick='goDeleteForm("+i+")'>";
+						html += "</td>";
+						html += "<tr>";
+						html += "<td id='re"+i+"' colspan=2 style='width:440px'>";
+						html += data[i].review;						
+						html += "</td>";
+						html += "</tr>";
+						html +="<form method='post' id='frm"+i+"'>";
+						html += "<tr id='u"+i+"' style='display:none'>";
+						html += "<td><input id='newre"+i+"' type='text'></td>";
+						html += "<td><input type='button' value='수정하기' onclick='goUpdate("+i+")'></td>";
+						html += "</tr>";
+						html += "</form>";
+						html += "</tr>";
 					}
 						html += "</table>"
 					$('#freereplyList').empty();
@@ -173,7 +178,7 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 					console.log(err);
 				}
 			});		
-		}
+		}	
 		$('#save').click(function(){
 			// 입력버튼을 클릭했을때 실행되는 함수
 			let review = $('#review').val();
@@ -197,6 +202,30 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 				}
 			});
 		});
+		function goUpdateForm(i){
+			$("#u"+i).css("display","block");
+			var replay=$("#re"+i).text();
+			$("#newre"+i).val(replay);					
+		}
+		function goUpdate(i){
+			$("#frm"+i).attr("action","Reply_Update_service");
+			var newre=$("#newre"+i).val();
+			var newra=$("#newra"+i).val();
+			var loginC=$("#id"+i).text();
+			var review="<input type='text' name='review' value='"+newre+"'>";
+			var loginCInput="<input type='hidden' name='loginC' value='"+loginC+"'>";
+			$("#frm"+i).append(review);
+			$("#frm"+i).append(loginCInput);
+			$("#frm"+i).submit();
+		}
+		
+		function goDeleteForm(i){
+			$("#fo"+i).attr("action","Reply_Delete_service");
+			var loginC=$('#id'+i).text();
+			var loginClnput="<input type='hidden' name='loginC' value='"+loginC+"'>";
+			$("#frm"+i).append(loginCInput);
+			$("#frm"+i).submit();
+		}
 	</script>		
 
 
@@ -282,6 +311,8 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
     }
 }
 </script>
-</body>
 
+
+
+</body>
 </html>
