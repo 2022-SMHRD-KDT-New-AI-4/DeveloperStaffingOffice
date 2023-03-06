@@ -290,12 +290,12 @@
 		    	
 		    	<!-- 챗봇 닫기 버튼 -->
 		    	<button id="closebtn" onclick="change()">✖</button>
-- 		     <% } %>
+ 		     <% } %>
 	    	
 	    </div>
 
 	
-	<!-- 챗봇 열고 닫고 -->	
+	<!-- 챗봇 열고 닫고 12 -->	
 	<script>
 	
 			

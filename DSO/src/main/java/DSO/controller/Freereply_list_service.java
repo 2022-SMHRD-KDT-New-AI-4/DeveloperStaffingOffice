@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import DSO.model.Freereply_DAO;
 import DSO.model.Freereply_VO;
 
-@WebServlet("/Freereply_list_service")
+@WebServlet("/freereply_list_Service")
 public class Freereply_list_service extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
