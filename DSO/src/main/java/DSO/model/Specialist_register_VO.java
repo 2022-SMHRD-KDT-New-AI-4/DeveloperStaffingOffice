@@ -25,11 +25,7 @@ public class Specialist_register_VO {
 		this.s_interest = s_interest;
 	}
 
-	
-	public Specialist_register_VO(String s_id) {
-		this.s_id = s_id;
 
-	}
 	
 	public Specialist_register_VO(String s_id, String s_pw) {
 		super();

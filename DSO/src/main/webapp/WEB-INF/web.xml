@@ -56,6 +56,13 @@
 		<servlet-name>id_confirm</servlet-name>
 		<servlet-class>DSO.controller.id_confirm</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>c_id_confirm</display-name>
+		<servlet-name>c_id_confirm</servlet-name>
+		<servlet-class>DSO.controller.c_id_confirm</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ToMenu</servlet-name>
 		<url-pattern>/ToMenu</url-pattern>
@@ -87,6 +94,10 @@
 	<servlet-mapping>
 		<servlet-name>id_confirm</servlet-name>
 		<url-pattern>/id_confirm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>c_id_confirm</servlet-name>
+		<url-pattern>/c_id_confirm</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

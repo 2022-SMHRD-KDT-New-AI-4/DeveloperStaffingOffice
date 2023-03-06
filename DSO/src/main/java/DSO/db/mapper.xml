@@ -128,13 +128,19 @@
 		insert into tbl_register_specialist values(#{service_seq},#{service_title},#{c_id},#{s_id},0,sysdate)
 	</insert>
 	
-<!-- ID 중복 확인 -->
+<!-- 전문가 ID 중복 확인 -->
    <select id="selectCsIdConfirm" resultType="int">
       select count(*)
       from tbl_specialist
       where s_id = #{s_id}
    </select>
 	
+<!-- 의뢰인 ID 중복 확인 -->	
+   <select id="c_selectCsIdConfirm" resultType="int">
+      select count(*)
+      from tbl_client
+      where c_id = #{c_id}
+   </select>
 <!-- 구매목록 불러오기 -->
 	<select id="buyListLoad" resultType="DSO.model.ChatClient" parameterType="string">
 		Select * from tbl_register_specialist where c_id = #{value}

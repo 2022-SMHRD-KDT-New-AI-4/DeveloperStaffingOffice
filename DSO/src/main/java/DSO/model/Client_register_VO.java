@@ -26,9 +26,8 @@ public class Client_register_VO {
 	}
 
 	
-	
+
 	public Client_register_VO(String c_id, String c_pw) {
-		super();
 		this.c_id = c_id;
 		this.c_pw = c_pw;
 	}
