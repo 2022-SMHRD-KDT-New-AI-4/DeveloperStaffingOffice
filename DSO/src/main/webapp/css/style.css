@@ -305,10 +305,16 @@ transparent;
   Header
 -----------------------*/
 .serv_img{
-		width: 260px;
-		height: 200px;
-		object-fit: cover;
-	}
+	width: 260px;
+	height: 200px;
+	object-fit: contain;
+}
+
+.product-big-img{
+	width: 400px;
+	height: 315px;
+	object-fit: contain;
+}
 
 .ht-right {
 	position: fixed;

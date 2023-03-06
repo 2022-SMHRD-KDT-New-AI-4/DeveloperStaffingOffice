@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="DSO.model.Like_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
@@ -325,13 +326,17 @@ String searchWord = (String)session.getAttribute("searchWord");
 					</div>
 					<div class="product-list">
 						<div class="row">
+							<%if(cate.size()==0) {%>
+								<h1 style="margin: auto;margin-top: 70px;">검색 결과가 없습니다!</h1>
+							<%} %>
+						
 						
 							<!-- 상품 한칸 -->
 							<% for(int i=0;i<cate.size();i++) {%>
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
 									<div class="pi-pic">
-										<a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>"> <img src="img/pl/pl2.png"
+										<a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>"> <img class="serv_img" src="boardImg/<%=cate.get(i).getService_img()%>"
 											alt=""></a>
 										<ul>
 											<li class="quick-view"><a href="ProductDetail.jsp?seq=<%=cate.get(i).getService_seq()%>">상품
@@ -435,7 +440,6 @@ String searchWord = (String)session.getAttribute("searchWord");
 							</div>
 							<%} %>
 							<!-- 상품 한칸 끝 -->
-
 						</div>
 					</div>
 				</div>
