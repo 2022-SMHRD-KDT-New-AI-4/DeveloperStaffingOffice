@@ -216,21 +216,61 @@
                                 <label for="pass">비밀번호 *</label>
                                 <input type="password" id="pass" name="pw">
                             </div>
-                 			<!-- <div class="group-input">
-                                <label for="con-pass">비밀번호 확인*</label>
-                                <input type="text" id="con-pass">
-                            </div> -->
+                 			<div class="group-input">
+                                <label for="con-pass">비밀번호 확인 *</label>
+                                <input type="password" id="con-pass" name="con_pw">
+                            </div>
                				<div class="group-input">
                                 <label for="username">이름 *</label>
-                                <input type="text" id="username" name="name">
+                                <%if(loginS==null) {%>
+                                <input type="text" id="username" name="name" value="<%=loginC.getC_name()%>">
+                                <%}else {%>
+                                <input type="text" id="username" name="name" value="<%=loginS.getS_name()%>">
+                                <%} %>
                             </div>
                				<div class="group-input">
                                 <label for="job">직업 &nbsp;&nbsp;
 	                                <select style="width:235px;"  id="job" name="job">                   
-					                    <option > 선택안함 </option>
-					                    <option > 백수 </option>
-					                    <option > 직장인 </option>
-					                    <option > 학생 </option>	
+					                    <option >선택안함</option>
+					                    <%if(loginS==null) {
+					                    	if(loginC.getC_job().equals("백수")){%>
+					                    <option selected>백수</option>
+					                    <%} else { %>
+					                    <option >백수</option>
+					                    <%} %>
+					                    <%} else { 
+					                    	if(loginS.getS_job().equals("백수")){%>
+					                    <option selected>백수</option>
+					                    <%}else {%>
+					                    <option >백수</option>
+					                    <%} %>
+					                    <%} %>
+					                    <%if(loginS==null) {
+					                    	if(loginC.getC_job().equals("직장인")){%>
+					                    <option selected>직장인</option>
+					                    <%} else { %>
+					                    <option >직장인</option>
+					                    <%} %>
+					                    <%} else { 
+					                    	if(loginS.getS_job().equals("직장인")){%>
+					                    <option selected>직장인</option>
+					                    <%}else {%>
+					                    <option >직장인</option>
+					                    <%} %>
+					                    <%} %>
+					                    <%if(loginS==null) {
+					                    	if(loginC.getC_job().equals("학생")){%>
+					                    <option selected>학생</option>
+					                    <%} else { %>
+					                    <option >학생</option>
+					                    <%} %>
+					                    <%} else { 
+					                    	if(loginS.getS_job().equals("학생")){%>
+					                    <option selected>학생</option>
+					                    <%}else {%>
+					                    <option >학생</option>
+					                    <%} %>
+					                    <%} %>
 									</select>
 								</label>
 							</div>
