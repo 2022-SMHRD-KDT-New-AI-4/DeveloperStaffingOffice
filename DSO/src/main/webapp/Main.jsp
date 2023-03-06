@@ -290,7 +290,7 @@
 		    	
 		    	<!-- 챗봇 닫기 버튼 -->
 		    	<button id="closebtn" onclick="change()">✖</button>
-- 		     <% } %>
+ 		     <% } %>
 	    	
 	    </div>
 
