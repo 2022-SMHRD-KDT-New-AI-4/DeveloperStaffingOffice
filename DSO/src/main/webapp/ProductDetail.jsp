@@ -1,3 +1,4 @@
+<%@page import="DSO.model.Like_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@page import="DSO.model.Service_info_pr_DAO"%>
@@ -17,7 +18,7 @@
 		Service_info_pr_VO post = dao.selectPost(seq);
 		String cateBigNum = (String)session.getAttribute("cateBigNum");
 		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
-		
+		ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 	%>
 <meta charset="UTF-8">
 <meta name="description" content="Fashi Template">
@@ -460,7 +461,21 @@
 								<div class="quantity">
 									<a href="Chatting_C.jsp" class="primary-btn pd-cart">전문가와
 										대화</a>
-										<button id="lbtn<%=post.getService_seq() %>" class="likeBtn" value="<%=post.getService_seq()%>">🤍</button>
+										<%
+												int t = 0;
+											if(loginC!=null||loginS!=null){
+												for(int j = 0;j<likeList.size();j++) {
+													if(post.getService_seq() == likeList.get(j).getService_seq()) {
+															t++;
+													} 
+												}
+											}
+											if(t>0) {%>
+												<button id="lbtn<%=post.getService_seq()%>" class="dislikeBtn" value="<%=post.getService_seq()%>">🧡</button>
+											<%} 
+											else { %>
+												<button id="lbtn<%=post.getService_seq()%>" class="likeBtn" value="<%=post.getService_seq()%>">🤍</button>
+											<%} %>
 								</div>
 								<ul class="pd-tags">
 									<li><span>카테고리:</span><%
