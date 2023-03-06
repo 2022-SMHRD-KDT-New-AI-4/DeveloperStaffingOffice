@@ -17,7 +17,9 @@ public class Register_specialist_VO {
 		this.s_id = s_id;
 		this.register_cnt = register_cnt;
 	}
-
+	public Register_specialist_VO(String s_id) {
+		this.s_id = s_id;
+	}
 	@Override
 	public String toString() {
 		return "Register_specialist_VO [s_id=" + s_id + ", register_cnt=" + register_cnt + "]";
