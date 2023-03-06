@@ -45,8 +45,73 @@
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+<script src="js/jquery.dd.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
 </head>
 <body>
+<!-- 좋아요 스크립트   -->
+  <script type="text/javascript">
+	
+  	var likeSeq = $('.likeBtn').val();
+	var dislikeSeq = $('.dislikeBtn').val();
+  	
+	$(document).on('click', 'button[class=likeBtn]', function() { 
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
+		$.ajax({
+			type : "POST",
+			url : "Like_Insert_service",
+			dataType : "json",
+			data : {"likeSeq" : likeSeq},
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+likeSeq).text('🧡');
+				    $("#lbtn"+likeSeq).removeClass('likeBtn');  
+				    $("#lbtn"+likeSeq).attr('class','dislikeBtn');
+				}else{
+					alert("메롱");
+				}
+			},
+			error : function(err){
+				console.log(err)
+			}
+		});
+	});
+	$(document).on('click',	'.dislikeBtn', function() {
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
+		$.ajax({
+			type : "POST",
+			url : "Like_Delete_service",
+			dataType : "json",
+			data : {"dislikeSeq" : dislikeSeq},
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+dislikeSeq).text('🤍');
+				    $("#lbtn"+dislikeSeq).removeAttr('class');
+				    $("#lbtn"+dislikeSeq).attr('class','likeBtn');
+				}else{
+					alert("메롱");
+				}
+			},
+			error : function(err){
+				console.log(err)
+			}
+		});
+		
+	});
+ 
+</script> 
+<!-- 좋아요 스크립트 끝 -->
 	
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -380,7 +445,6 @@
 								<div class="pd-title">
 									<span><%=post.getS_id() %></span>
 									<h3><%=post.getService_title() %></h3>
-									<a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
 								</div>
 								<div class="pd-rating">
 									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -393,8 +457,9 @@
 									</h4>
 								</div>
 								<div class="quantity">
-									<a href="http://www.naver.com" class="primary-btn pd-cart">전문가와
+									<a href="Chatting_C.jsp" class="primary-btn pd-cart">전문가와
 										대화</a>
+										<button id="lbtn<%=post.getService_seq() %>" class="likeBtn" value="<%=post.getService_seq()%>">🤍</button>
 								</div>
 								<ul class="pd-tags">
 									<li><span>카테고리:</span><%
@@ -619,16 +684,5 @@
 	</footer>
 	<!-- Footer Section End -->
 	
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>
