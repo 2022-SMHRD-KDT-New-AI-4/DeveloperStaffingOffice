@@ -36,6 +36,14 @@ public class Like_VO {
 		this.s_id = s_id;
 		this.service_dt = service_dt;
 	}
+	
+	
+
+	public Like_VO(String c_id, int service_seq) {
+		super();
+		this.c_id = c_id;
+		this.service_seq = service_seq;
+	}
 
 	@Override
 	public String toString() {

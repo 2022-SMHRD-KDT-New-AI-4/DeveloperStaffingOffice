@@ -19,4 +19,18 @@ public class Like_DAO {
 		return (ArrayList<Like_VO>)list;
 	}
 	
+	public int insertLike(Like_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.insert("insertLike",vo);
+		session.close(); 
+		return cnt;
+	}
+	
+	public int deleteLike(Like_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("deleteLike",vo);
+		session.close(); 
+		return cnt;
+	}
+	
 }

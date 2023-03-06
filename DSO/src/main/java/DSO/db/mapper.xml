@@ -6,7 +6,7 @@
 
 <!-- 의뢰인 회원가입 -->
   <insert id="clientjoin" parameterType="Client_register_VO">
-  	insert into tbl_client values(#{c_id},#{c_pw},#{c_job},#{c_name},#{c_business},#{c_interest},sysdate)
+  	insert into tbl_client values(#{c_id},#{c_pw},#{c_name},#{c_job},#{c_business},#{c_interest},sysdate)
   </insert>
 
 <!-- 의뢰인 회원탈퇴 -->
@@ -36,17 +36,17 @@
   
   <!-- 의뢰인 수정 -->
   <update id="clientupdate" parameterType="Client_register_VO">
-  	update tbl_client set c_id=#{c_id},c_pw=#{c_pw},c_name=#{c_name},c_business=#{c_business} c_interest=#{c_interest}
+  	update tbl_client set c_pw=#{c_pw},c_name=#{c_name},c_job=#{c_job},c_business=#{c_business}, c_interest=#{c_interest} where c_id = #{c_id}
   </update>
   
 <!-- 전문가 수정 -->
   <update id="specialistupdate" parameterType="Specialist_register_VO">
-  	update tbl_speciallist set s_id=#{s_id},s_pw=#{s_pw},s_name=#{s_name},s_business=#{s_business} s_interest=#{s_interest}
+  	update tbl_specialist set s_pw=#{s_pw},s_name=#{s_name},s_job=#{s_job},s_business=#{s_business}, s_interest=#{s_interest} where s_id = #{s_id}
   </update>
   
 <!-- 서비스 등록 -->
-  <insert id="serviceregister" parameterType="Service_register_VO">
-  	insert into tbl_service2 values(tbl_service_seq.nextval,#{service_title},#{service_category},#{service_price},#{service_desc},#{service_requisite},#{service_img},sysdate) 
+  <insert id="serviceregister" parameterType="DSO.model.Service_info_pr_VO">
+  	insert into tbl_service3 values(tbl_service_seq.nextval,#{service_title},#{service_categorynum1},#{service_categorynum2},#{service_price},#{service_desc},#{service_requisite},#{service_img},#{s_id},sysdate) 
   </insert>   
   
 <!-- 서비스 수정 -->
@@ -95,7 +95,32 @@
 		where A.c_id = #{value} 
 		and A.service_seq = B.service_seq
 	</select>
-	
 
-			
+	
+<!-- 좋아요 추가 -->
+	<insert id="insertLike" parameterType="DSO.model.Like_VO">
+        INSERT INTO tbl_likelist VALUES (#{service_seq},#{c_id})
+    </insert>
+    
+<!-- 좋아요 삭제 -->
+	<delete id="deleteLike" parameterType="DSO.model.Like_VO">
+		delete from tbl_likelist where service_seq = #{service_seq} and c_id = #{c_id}
+	</delete>		
+
+<!--의뢰인 댓글 별점 등록-->
+	<insert id="freereplyinsert" parameterType="DSO.model.Freereply_VO">
+		insert into tbl_freereply2(rep_seq,loginC,review,rate,service_seq) values(tbl_freereply2_SEQ.nextval,#{loginC},#{review},#{rate},#{service_seq})
+	</insert>
+
+	
+<!--의뢰인 댓글 별점 조회-->
+	<select id="freereplyselect" resultType="DSO.model.Freereply_VO">
+		select * from tbl_freereply2 where service_seq=#{service_seq} 
+	</select>		
+
+<!-- 게시물 조회수 증가 -->
+		<update id="views" parameterType="DSO.model.viewsVO">
+		update tbl_list set views=#{views}
+		</update>
+
 </mapper>

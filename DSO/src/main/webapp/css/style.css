@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 70px;
+	font-size: 55px;
 }
 
 h2 {
@@ -428,6 +428,10 @@ transparent;
 	padding-left: 20px;
 	padding-top: 18px;
 	padding-bottom: 15px;
+}
+
+.header-top .ht-right .login-panel:hover{
+	color: #EAB543;
 }
 
 .header-top .ht-right .login-panel i {
@@ -1761,6 +1765,24 @@ input::placeholder {
 /*---------------------
   Breadcrumb
 -----------------------*/
+.likeBtn {
+	background: white;
+	border: 0;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.dislikeBtn {
+	background: white;
+	border: 0;
+	border-radius: 50px;
+	font-size: 18px;
+}
+
+.product-price {
+	margin-left: 25px;
+}
+
 .breadcrumb-text {
 	border-bottom: 1px solid #ebebeb;
 	padding: 15px 0;
@@ -3871,7 +3893,7 @@ body>section>div>div>div.filter-widget a>h4:hover {
 .register-login-section {
 	margin-top: -40px;
 	padding-top: 20px;
-	padding-bottom: 80px;
+	padding-bottom: 170px;
 	padding-left: 60px;
 }
 

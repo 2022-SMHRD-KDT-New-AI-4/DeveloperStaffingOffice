@@ -1,12 +1,21 @@
-	<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
 <head>
 <meta charset="UTF-8">
-<title>전문가마이페이지</title>
+<meta name="description" content="Fashi Template">
+<meta name="keywords" content="Fashi, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style type="text/css">
+.loginbtnCR{
+	padding-left: 18%
+}
+</style>
+<title>회원가입</title>
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -25,25 +34,13 @@
 <link rel="stylesheet" href="css/nice-select.css" type="text/css">
 <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="css/mypageliststyle.css" type="text/css" />
 <%if(loginS!=null) {%>
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
-<style type="text/css">
-	.col-lg-4{
 
-	height: 100px;
-	text-align: center;		
-	}
-	.inner_box{
-	width: 200px;
-	height: 80px;
-	
-
-	}
-</style>
+<title>개발자 인력 사무소</title>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -54,19 +51,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -173,121 +169,40 @@
 	</header>
 	<!-- Header End -->
 
+	   <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
+                        <span>Register</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Form Section Begin -->
 
-	<!-- Breadcrumb Section Begin -->
-	<div class="breacrumb-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
- 						<span>마이페이지</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Breadcrumb Section Begin -->
-
-	<!-- Product Shop Section Begin -->
-
-	<!-- Product Shop Section Begin -->
-	<!-- 왼쪽 카테고리바 -->
-	<section class="product-shop spad">
-		<div class="container">
-			<div class="row">
-
-				<div class="filter-widget" style="padding-top: 0px">
-					<h4>마이페이지</h4>
-					<ul class="filter-catagories">
-						<br>
-						<li><a href="#">의뢰내역</a></li>
-						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
-						<li><a href="likepage.jsp">찜</a></li>
-						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<li><a href="Service_register_1.jsp">상품 등록</a></li>
-					</ul>
-				</div>
-				<!-- 마이페이지 박스 -->
-				<div class="col-lg-9 order-1 order-lg-2">
-					
-					<div class="product-show-option">
-						<div class="row">
-							<div class="col-lg-7 col-md-7"></div>
-						</div>
-					</div>
-				
-			
-							
-					<div class="product-list">
-						<div class="row">
-						
-							<!-- 마이페이지 목록 한칸 -->
-									<!-- 마이페이지 목록 한칸 -->
-								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
-									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a href="ProductDetail.jsp">구매중</a><span>1</span>	 					
-									</div>
-								</div>
-							<!-- 한칸 끝 -->	
-							<!-- 마이페이지 목록 한칸 -->
-									<!-- 마이페이지 목록 한칸 -->
-								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
-									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a href="ProductDetail.jsp">구매확인</a><span>1</span>	 					
-									</div>
-								</div>		
-							<!-- 한칸 끝 -->	
-							<!-- 마이페이지 목록 한칸 -->
-								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
-									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a href="ProductDetail.jsp">완료</a><span>1</span>	 					
-									</div>
-								</div>	
-													<!-- 마이페이지 목록  -->			 
-						
-								<div style="padding-left: 15px; padding-top: 20px" > 
-									<div>
-								  	<!---기본 메뉴--->
-									  <ul class="board">
-									  	<li class="fl tc w70 title t_line">번호</li>
-									  	<li class="fl tc w500 title t_line">의뢰내용</li>
-									  	<li class="fl tc w120 title t_line">의뢰인</li>
-									  	<li class="fl tc w100 title t_line">진행완료</li>
-									  	<li class="fl tc w100 title ">조회수</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">1</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
-									  	<li class="fl tc w120 list t_line lt_line">웹 · 모바일 기획</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									 </div>
-							</div>									
-
-						<!-- 마이페이지 목록끝 -->
-							<!-- 한칸 끝 -->						
-						</div>
-						
-					</div>											
-					</div>					
-				</div>
-			</div>
-	
-	</section>				
-				<!-- 상품 목록 끝 -->
+  <!-- Register Section Begin -->
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="login-form">
+                        <h2>가입 성공!</h2>
+                        <div class=loginbtnCR>
+							<button type="button" onclick="location.href='Login_C.jsp'"class="site-btn ">의뢰인로그인</button>
+                            <button type="button" onclick="location.href='Login_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가로그인</button>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form Section End -->
 
 
-	<!-- Product Shop Section End -->	
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -334,7 +249,7 @@
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-	
+
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

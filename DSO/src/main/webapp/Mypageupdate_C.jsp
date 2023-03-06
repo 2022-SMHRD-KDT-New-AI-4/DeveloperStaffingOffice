@@ -11,7 +11,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>의뢰인정보수정</title>
+<title>내 정보 수정</title>
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -37,6 +37,8 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
 <title>개발자 인력 사무소</title>
+<style type="text/css">
+</style>
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -47,19 +49,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -189,26 +190,31 @@
 				<div class="filter-widget" style="padding-top: 0px">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
-						<br>
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
-						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
-						<li><a href="likepage.jsp">찜</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
+						<li><a href="ToLike">찜 목록</a></li>
 						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<li><a href="#">전문가 등록</a></li>
+						<%if(loginS!=null) {%>
+						<li><a href="Service_register_2.jsp">상품 등록</a></li>
+						<%} %>
 					</ul>
 				</div>
 				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h2>의뢰인 정보수정</h2>
-                        <form method="post" action="Client_regi	ster_service">
+                        <h2>내 정보 수정</h2>
+                        <form method="post" action="Client_Update_Serivce">
                             <div class="group-input">
-                                <label for="username">E-mail ID  </label>  
-                                                                                
+                                <label for="username">E-mail ID  </label>
+                                <%if(loginS==null) {%>
+                                <input type="text" id="id" name="id" placeholder="<%=loginC.getC_id()%>" disabled>
+                                <%}else {%>                                           
+                                <input type="text" id="id" name="id" placeholder="<%=loginS.getS_id()%>" disabled>
+                                <%} %>                                           
                             </div>
                             <div class="group-input">
                                 <label for="pass">비밀번호 *</label>
-                                <input type="password" id="pass" name="c_pw">
+                                <input type="password" id="pass" name="pw">
                             </div>
                  			<!-- <div class="group-input">
                                 <label for="con-pass">비밀번호 확인*</label>
@@ -216,21 +222,21 @@
                             </div> -->
                				<div class="group-input">
                                 <label for="username">이름 *</label>
-                                <input type="text" id="username" name="c_name">
+                                <input type="text" id="username" name="name">
                             </div>
                				<div class="group-input">
                                 <label for="job">직업 &nbsp;&nbsp;
-	                                <select style="width:235px;"  id="job" name="c_job">                   
-					                    <option value="j1"> 선택안함 </option>
-					                    <option value="j1"> 백수 </option>
-					                    <option value="j2"> 직장인 </option>
-					                    <option value="j3">학생 </option>	
+	                                <select style="width:235px;"  id="job" name="job">                   
+					                    <option > 선택안함 </option>
+					                    <option > 백수 </option>
+					                    <option > 직장인 </option>
+					                    <option > 학생 </option>	
 									</select>
 								</label>
 							</div>
 							<div class="group-input">
                                 <label for="business">비지니스분야&nbsp;&nbsp; 
-									<select style="width:185px;" id="c_businesslist" name="c_business"">						                    
+									<select style="width:185px;" id="businesslist" name="business"">						                    
 						  				<option >선택해주세요</option>
 						  				<option >UX기획</option>
 						  				<option >웹</option>
@@ -246,7 +252,7 @@
                             </div>
  							<div class="group-input">
                                 <label for="job">관심분야 &nbsp;&nbsp;
-									<select style="width:205px;" id="c_interestlist" name="c_interest">
+									<select style="width:205px;" id="interestlist" name="interest">
 				                    </select>
 				                </label>
                             </div>                           
@@ -256,7 +262,7 @@
                           <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
   	
-  $('#c_businesslist').change(function(){
+  $('#businesslist').change(function(){
 	  var data = $(this).val();
 	  console.log(data);
 	  var list;
@@ -287,7 +293,7 @@
 		  html += "</option>";
 	  }
 	  
-	  $('#c_interestlist').html(html);
+	  $('#interestlist').html(html);
 	  
   });
   

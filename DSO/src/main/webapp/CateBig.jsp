@@ -1,3 +1,4 @@
+<%@page import="DSO.model.Like_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
@@ -10,10 +11,12 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 목록 페이지(큰 카테고리)</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
 	ArrayList<Service_info_pr_VO> cate = (ArrayList<Service_info_pr_VO>) session.getAttribute("cate");
+	ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 	String cateBigNum = (String)session.getAttribute("cateBigNum");
 	%>
 <!-- Google Font -->
@@ -35,25 +38,7 @@
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
-<style type="text/css">
-.likeBtn {
-	background: white;
-	border: 0;
-	border-radius: 50px;
-	font-size: 18px;
-}
 
-.dislikeBtn {
-	background: white;
-	border: 0;
-	border-radius: 50px;
-	font-size: 18px;
-}
-
-.product-price {
-	margin-left: 25px;
-}
-</style>
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -67,46 +52,62 @@
 <script src="js/main.js"></script>
 </head>
 <body>
-
-
-	<!-- 좋아요 스크립트   -->
-	<script type="text/javascript">
-		let likeSeq = $('.likeBtn').val();
-		let disLikeSeq = $('.dislikeBtn').val();
+<!-- 좋아요 스크립트   -->
+  <script type="text/javascript">
 	
-		$(document).on('click', 'button[class=likeBtn]', function() {
-			$.ajax({
-				url : "Like_Insert_service",
-				method : "POST",
-				data : {"likeSeq" : likeSeq},
-				success : function(data){
-					$(this).text('🧡');
-					$(this).removeClass('likeBtn');
-					$(this).attr('class', 'dislikeBtn');
-				},
-				error : function(err){
-					console.log(err)
+  	var likeSeq = $('.likeBtn').val();
+	var dislikeSeq = $('.dislikeBtn').val();
+  	
+	$(document).on('click', 'button[class=likeBtn]', function() { 
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
+		$.ajax({
+			type : "POST",
+			url : "Like_Insert_service",
+			dataType : "json",
+			data : {"likeSeq" : likeSeq},
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+likeSeq).text('🧡');
+				    $("#lbtn"+likeSeq).removeClass('likeBtn');  
+				    $("#lbtn"+likeSeq).attr('class','dislikeBtn');
+				}else{
+					alert("메롱");
 				}
-			});
+			},
+			error : function(err){
+				console.log(err)
+			}
 		});
-		$(document).on('click',	'.dislikeBtn', function() {
-			$.ajax({
-				url : "Like_Delete_service",
-				method : "POST",
-				data : {"dislikeSeq" : dislikeSeq},
-				success : function(data){
-					$(this).text('🤍');
-					$(this).removeAttr('class');
-					$(this).attr('class', 'likeBtn');
-				},
-				error : function(err){
-					console.log(err)
+	});
+	$(document).on('click',	'.dislikeBtn', function() {
+		var likeSeq = $(this).val();
+		var dislikeSeq = $(this).val();
+		$.ajax({
+			type : "POST",
+			url : "Like_Delete_service",
+			dataType : "json",
+			data : {"dislikeSeq" : dislikeSeq},
+			success : function(data){
+				if(data>0){
+				    $("#lbtn"+dislikeSeq).text('🤍');
+				    $("#lbtn"+dislikeSeq).removeAttr('class');
+				    $("#lbtn"+dislikeSeq).attr('class','likeBtn');
+				}else{
+					alert("메롱");
 				}
-			});
-			
+			},
+			error : function(err){
+				console.log(err)
+			}
 		});
-	</script>
-	<!-- 좋아요 스크립트 끝 -->
+		
+	});
+ 
+</script> 
+<!-- 좋아요 스크립트 끝 -->
+
+
 
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -116,19 +117,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -445,8 +445,21 @@
 											<h4><%=cate.get(i).getService_title() %></h4>
 										<div class="product-price">
 											<%=cate.get(i).getService_price()%>원
-											<button class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
-											<button class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
+											<%
+												int t = 0;
+											if(loginC!=null||loginS!=null){
+												for(int j = 0;j<likeList.size();j++) {
+													if(cate.get(i).getService_seq() == likeList.get(j).getService_seq()) {
+															t++;
+													} 
+												}
+											}
+											if(t>0) {%>
+												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="dislikeBtn" value="<%=cate.get(i).getService_seq()%>">🧡</button>
+											<%} 
+											else { %>
+												<button id="lbtn<%=cate.get(i).getService_seq()%>" class="likeBtn" value="<%=cate.get(i).getService_seq()%>">🤍</button>
+											<%} %>
 										</div>
 									</div>
 								</div>

@@ -18,7 +18,7 @@ public class Freereply_DAO {
 		return cnt;
 	}
 
-	public ArrayList<Freereply_VO> freereply() {
+	public ArrayList<Freereply_VO> freereplyList() {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		List<Freereply_VO> list = session.selectList("freereply");
 		session.close();

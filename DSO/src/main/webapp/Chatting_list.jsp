@@ -31,6 +31,7 @@
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
+<link rel="stylesheet" href="css/chatbot.css" type="text/css">
 <style type="text/css">
 	.col-lg-4{
 		height: 100px;
@@ -79,19 +80,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -217,23 +217,24 @@
 	<!-- Product Shop Section Begin -->
 
 	<!-- Product Shop Section Begin -->
-	<!-- 왼쪽 카테고리바 -->
 	<section class="product-shop spad">
 		<div class="container">
 			<div class="row">
 
-				<div class="filter-widget">
+				<!-- 마이페이지 왼쪽 카테고리바 -->
+				<div class="filter-widget" style="padding-top: 0px">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
-						<br>
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
-						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
-						<li><a href="likepage.jsp">찜</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
+						<li><a href="ToLike">찜 목록</a></li>
 						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<li><a href="Service_register_1.jsp">상품 등록</a></li>
+						<%if(loginS!=null) {%>
+						<li><a href="Service_register_2.jsp">상품 등록</a></li>
+						<%} %>
 					</ul>
 				</div>
-				<!-- 왼쪽 카테고리바 끝 -->
+				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
 				
 				<!-- 마이페이지 박스 -->
 				<div class="col-lg-9 order-1 order-lg-2" ">
@@ -265,7 +266,61 @@
 	</section>	
 	
 	
+	<!-- ChatBot area -->
+	
+		<!-- 챗봇 아이콘 클릭시 열림 -->
+		<img id ="chatbotImg" src="img/chatbot_main_logo.jpg" alt="chatbot" onclick="change()">
+	    <div id = "chatbotArea">
+	    
+  	    	<% if(loginS != null ){%>
+				<!-- 챗봇 전문가 버전 -->
+		    	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_S.jsp" scolling ="yes"></iframe>
+		    	
+		    	<!-- 챗봇 닫기 버튼 -->
+		    	<button id="closebtn" onclick="change()">✖</button>
+		     <% } else {%> 
+				<%-- 챗봇 의뢰인 버전 --%>
+		     	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_C.jsp" scolling ="yes"></iframe>
+		    	
+		    	<!-- 챗봇 닫기 버튼 -->
+		    	<button id="closebtn" onclick="change()">✖</button>
+- 		     <% } %>
+	    	
+	    </div>
 
+	
+	<!-- 챗봇 열고 닫고 -->	
+	<script>
+	
+			
+		function change(){
+
+		    const chatbotImg = document.getElementById('chatbotImg');
+		    const chatbotframe = document.getElementById('chatbotframe');
+		    const closebtn = document.getElementById('closebtn');
+		    
+
+		    if(chatbotframe.style.visibility !== 'visible'){
+		                
+		    	chatbotframe.style.visibility = 'visible'; 
+		    	closebtn.style.visibility = 'visible';
+		    	chatbotImg.style.visibility = 'hidden';
+		        
+		    } else {
+		        
+		    	chatbotframe.style.visibility = 'hidden';
+		    	closebtn.style.visibility = 'hidden';
+		    	chatbotImg.style.visibility = 'visible';
+		    	
+
+		     }
+
+		}
+	
+	</script>
+	
+	<!-- ChatBot area -->
+	
  
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">

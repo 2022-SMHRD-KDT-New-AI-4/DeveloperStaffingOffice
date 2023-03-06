@@ -10,7 +10,7 @@
 <meta name="keywords" content="Fashi, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>포트폴리오 등록하기</title>
+<title>포트폴리오 등록</title>
 <%
 Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -55,12 +55,12 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background: #EAB543;
+    background: #1B9CFC;
     content: "";
 }
 
 .ptregbtn:hover {
-	color: #EAB543;
+	color: #1B9CFC;
 }
 
 #regbtn {
@@ -93,7 +93,7 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background: #EAB543;
+    background: #1B9CFC;
     content: "";
 }
 
@@ -145,19 +145,18 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -281,7 +280,7 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 				<div id="reg">
 					<div style="float: left; width: 100%;">
 						<button id="canbtn" class="ptregbtn" type="reset">초기화</button>
-						<button id="regbtn" class="ptregbtn" type="button" onclick="location.href='Main.jsp'">완료</button>
+						<button id="regbtn" class="ptregbtn" type="button" onclick="location.href='Service_register_2.jsp'">완료</button>
 					</div>
 				</div>
 			</form>

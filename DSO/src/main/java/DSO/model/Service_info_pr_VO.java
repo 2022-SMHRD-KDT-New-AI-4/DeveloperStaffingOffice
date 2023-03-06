@@ -30,6 +30,19 @@ public class Service_info_pr_VO {
 		this.s_id = s_id;
 		this.service_dt = service_dt;
 	}
+	
+	public Service_info_pr_VO(String service_title, String service_categorynum1, String service_categorynum2,
+			int service_price, String service_desc, String service_requisite, String service_img, String s_id) {
+		super();
+		this.service_title = service_title;
+		this.service_categorynum1 = service_categorynum1;
+		this.service_categorynum2 = service_categorynum2;
+		this.service_price = service_price;
+		this.service_desc = service_desc;
+		this.service_requisite = service_requisite;
+		this.service_img = service_img;
+		this.s_id = s_id;
+	}
 
 	public Service_info_pr_VO() {
 		super();

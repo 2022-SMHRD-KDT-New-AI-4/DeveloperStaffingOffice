@@ -1,0 +1,72 @@
+@charset "UTF-8";
+	
+	.container-fluid{
+		
+		z-index : 1;
+		
+	}
+	
+	/* 챗봇 펼쳐지는 영역 */
+	#chatbotArea{
+	
+		position: fixed;
+		width: 370px;
+		height : 60%;
+		bottom : 70px;
+		right : 20px;
+		z-index: 100;
+		
+	}
+	
+	/* 챗봇 아이콘 */
+	#chatbotImg{
+	
+		width: 50px;
+		height: 50px;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		border-radius: 25%;
+		z-index: 1000;
+		border: 1px solid black;
+	    
+	}
+	
+	/* 챗봇  */
+	#chatbotframe{
+	
+		position : absolute;
+		top : 0;
+		left : 0;
+		height: 100%;
+		width: 100%;
+		background-color: white;
+		visibility: hidden;
+		border-radius: 20px;
+		border: 1px solid black;
+	    
+	}
+	
+	/* X 버튼 어거지로 만듦 화면 크기 줄이면 벗어나는 듯?*/		
+		
+	#closebtn{
+	
+		position : fixed;
+		top : 32.8%;
+		right : 21px;
+		width: 40px;
+		height: 40px;
+		background: none;
+		border : none;
+		z-index: 100;
+		font-size: 40px;
+		display : flex;
+		justify-content : center;
+		align-items : center;
+		border-top-right-radius : 20px;
+		visibility: hidden;
+	
+	}
+	
+	
+	

@@ -14,6 +14,7 @@ import DSO.model.Client_register_VO;
 import DSO.model.Like_DAO;
 import DSO.model.Like_VO;
 import DSO.model.Service_info_pr_VO;
+import DSO.model.Specialist_register_VO;
 
 public class ToLike extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,14 +23,20 @@ public class ToLike extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		String value = null;
+		
 		Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-		String value = loginC.getC_id();
+		if(loginC==null) {
+			Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+			value = loginS.getS_id();
+		} else {
+			value = loginC.getC_id();
+		}
 		Like_DAO dao = new Like_DAO();
 		ArrayList<Like_VO> list = dao.selectLike(value);
 		
 		session.setAttribute("likeList", list);
 		response.sendRedirect("likepage.jsp");
-		
 	}
 
 }

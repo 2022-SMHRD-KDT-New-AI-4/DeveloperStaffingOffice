@@ -51,19 +51,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -177,18 +176,13 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
+                        <span>Register</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Breadcrumb Form Section Begin -->
-
-<%
-////loginM 키값이 지정되어있는 세션 값
-Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM"); 
-%>
 
   <!-- Register Section Begin -->
     <div class="register-login-section spad">
@@ -200,7 +194,7 @@ Client_register_VO loginM =(Client_register_VO)session.getAttribute("loginM");
                       
                             <div class=loginbtnCR>
 							<button type="button" onclick="location.href='join_C.jsp'"class="site-btn ">의뢰인 회원가입</button>
-                            <button type="button"onclick="location.href='join_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가 회원가입</button>                            
+                            <button type="button" onclick="location.href='join_R.jsp'" class="site-btn" style="background-color: #1B9CFC">전문가 회원가입</button>                            
                             </div>
 
                         <div class="switch-login">

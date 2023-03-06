@@ -56,19 +56,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -357,7 +356,7 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div>
-								<img class="product-big-img" src="img/pl/pl1.png" alt="">
+								<img class="product-big-img" src="boardImg/<%=post.getService_img() %>" alt="">
 							</div>
 							<div class="product-thumbs">
 								<div class="product-thumbs-track ps-slider owl-carousel">
@@ -389,9 +388,6 @@
 										class="fa fa-star-o"></i> <span>(4)</span>
 								</div>
 								<div class="pd-desc">
-									<p>
-										<%=post.getService_desc() %>
-									</p>
 									<h4>
 										<%=post.getService_price() %> 원<span></span>
 									</h4>

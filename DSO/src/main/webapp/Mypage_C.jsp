@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>의뢰인마이페이지</title>
+<title>마이페이지</title>
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
@@ -31,6 +31,7 @@
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
+<link rel="stylesheet" href="css/chatbot.css" type="text/css">
 <style type="text/css">
 	.col-lg-4{
 
@@ -54,19 +55,18 @@
 	<!-- Header Section Begin -->
 	<header class="header-section">
 		<div class="header-top">
+		<!-- 로그인 마이페이지 -->
 			<div class="ht-right">
 				<%if (loginC == null && loginS == null) {%>
+				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
 				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else if (loginC != null){%>
+				<%} else {%>
 				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} else if (loginS != null){%>
-				<a href="./Mypage_R.jsp" class="login-panel">마이페이지</a> <a
 					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
 					로그아웃</a>
 				<%} %>
 			</div>
+		<!-- 로그인 마이페이지 끝 -->
 		</div>
 		<div class="container">
 			<div class="inner-header">
@@ -196,12 +196,13 @@
 				<div class="filter-widget" style="padding-top: 0px">
 					<h4>마이페이지</h4>
 					<ul class="filter-catagories">
-						<br>
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
-						<li><a href="Mypageupdate_C.jsp">내 정보관리</a></li>
-						<li><a href="ToLike">찜</a></li>
+						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
+						<li><a href="ToLike">찜 목록</a></li>
 						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<li><a href="#">전문가 등록</a></li>
+						<%if(loginS!=null) {%>
+						<li><a href="Service_register_2.jsp">상품 등록</a></li>
+						<%} %>
 					</ul>
 				</div>
 				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
@@ -252,14 +253,39 @@
 									  	<li class="fl tc w120 title t_line">의뢰인</li>
 									  	<li class="fl tc w100 title t_line">진행완료</li>
 									  	<li class="fl tc w100 title ">조회수</li>
+									  	
 									  </ul>
 									  <!--- 리스트 --->
-									  <ul class="board">
+									  <ul class="board" name="ex_form">
 									  	<li class="fl tc w70 list t_line lt_line">1</li>
 									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
-									  	<li class="fl tc w120 list t_line lt_line">웹 · 모바일 기획</li>
+									  	<li class="fl tc w120 list t_line lt_line"><a href="ProductDetail.jsp?seq=1" id="incrementButton" >웹 · 모바일 기획</a></li>  
 									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
+									  	<form method="post" action="viewsUp">
+									  	<li class="fl tc w100 list  lt_line" id=views name="views">0</li>
+									  	</form>
+									  	<!-- <button id="incrementButton">증가</button> -->
+									  	<script>/* 조회수 증가 기능 추가 // 선택  */
+									 	
+									  	
+									  	
+									  	
+									 	// Get the button element
+									  	let button = document.getElementById("incrementButton");
+
+									  	// Set the initial number of views
+									  	let views = 0;
+
+									  	// Add a click event listener to the button
+									  	button.addEventListener("click", function() {
+									  	  // Increase the number of views by 1
+									  	  views++;
+
+									  	  // Update the number of views on the webpage
+									  	  document.getElementById("views").innerHTML = views;
+									  	});
+									  	
+									  	</script>
 									  </ul>
 									  <!--- 리스트 --->
 									  <ul class="board">
@@ -411,7 +437,66 @@
 	
 	</section>				
 
-	<!-- Product Shop Section End -->	
+	<!-- Product Shop Section End -->
+	
+	
+	<!-- ChatBot area -->
+	
+		<!-- 챗봇 아이콘 클릭시 열림 -->
+		<img id ="chatbotImg" src="img/chatbot_main_logo.jpg" alt="chatbot" onclick="change()">
+	    <div id = "chatbotArea">
+	    
+  	    	<% if(loginS != null ){%>
+				<!-- 챗봇 전문가 버전 -->
+		    	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_S.jsp" scolling ="yes"></iframe>
+		    	
+		    	<!-- 챗봇 닫기 버튼 -->
+		    	<button id="closebtn" onclick="change()">✖</button>
+		     <% } else {%> 
+				<%-- 챗봇 의뢰인 버전 --%>
+		     	<iframe id ="chatbotframe" name="chatbotframe" src="chatbot_C.jsp" scolling ="yes"></iframe>
+		    	
+		    	<!-- 챗봇 닫기 버튼 -->
+		    	<button id="closebtn" onclick="change()">✖</button>
+- 		     <% } %>
+	    	
+	    </div>
+
+	
+	<!-- 챗봇 열고 닫고 -->	
+	<script>
+	
+			
+		function change(){
+
+		    const chatbotImg = document.getElementById('chatbotImg');
+		    const chatbotframe = document.getElementById('chatbotframe');
+		    const closebtn = document.getElementById('closebtn');
+		    
+
+		    if(chatbotframe.style.visibility !== 'visible'){
+		                
+		    	chatbotframe.style.visibility = 'visible'; 
+		    	closebtn.style.visibility = 'visible';
+		    	chatbotImg.style.visibility = 'hidden';
+		        
+		    } else {
+		        
+		    	chatbotframe.style.visibility = 'hidden';
+		    	closebtn.style.visibility = 'hidden';
+		    	chatbotImg.style.visibility = 'visible';
+		    	
+
+		     }
+
+		}
+	
+	</script>
+	
+	
+	<!-- ChatBot area -->
+	
+		
 	<!-- Footer Section Begin -->
 	<footer class="footer-section">
 		<div class="container">
@@ -470,5 +555,6 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+
 </body>
 </html>

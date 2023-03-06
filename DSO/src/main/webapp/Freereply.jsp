@@ -1,3 +1,5 @@
+<%@page import="DSO.model.Specialist_register_VO"%>
+<%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>댓글및평점</title>
+<%
+Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+
+%>
+
 <style type="text/css">
 /* 레이아웃 외곽 너비 400px 제한*/
 .wrap{
@@ -73,8 +80,8 @@
     <div id="comment_count">댓글<span id="count">0</span></div>
     <form name="reviewform" class="reviewform" method="post" action="Freeply_service">
         <input type="hidden" name="rate" id="rate" value="0"/>
-        <input type="hidden" name="loginM" value="test123"/>
-<!--    <input type="hidden" name="service_seq" value="2"/>-->
+        <input type="hidden" name="loginC" value="test123"/>
+  <input type="hidden" name="service_seq" value="1"/>
         <p class="title_star">별점과 리뷰를 남겨주세요.</p>
  
         <div class="review_rating">
@@ -114,7 +121,7 @@
 		function freereplyList(){
 			
 			$.ajax({
-				url : "freereplyListService",
+				url : "freereply_list_Service",
 				method : "post",
 				dataType : "JSON",
 				success : function(data){
@@ -123,7 +130,7 @@
 					html += "<table>"
 					for(let i = 0; i< data.length; i++){
 						html += "<tr>"
-						html += "<td>"
+						html += "<td style='fontColor:yellow'>"
 						html += data[i].loginM;
 						if(data[i].rate==0){
 							html += ☆☆☆☆☆
@@ -144,7 +151,7 @@
 						html += "</tr>"
 						html += "<br>";
 					}
-					html += "</table>"
+						html += "</table>"
 					$('#freereplyList').empty();
 					$('#freereplyList').html(html);
 				},
@@ -156,18 +163,20 @@
 		$('#save').click(function(){
 			// 입력버튼을 클릭했을때 실행되는 함수
 			let review = $('#review').val();
-			let loginM = $('#loginM').val();
+			let loginC = $('#loginC').val();
 			
-
+			
+			
 			$.ajax({
 				url : "freereplyInsertService",
 				method : "POST",
-				data : {"review" : review, "loginM": loginM},
+				data : {"review" : review, "loginC": loginC },
 				dataType : "JSON",
 				success : function(data){
 					alert(data.result);
-					$('#loginM').val("");
+					$('#loginC').val("");
 					$('#review').val("");
+					
 				},
 				error : function(err){
 					console.log(err);
@@ -175,7 +184,6 @@
 			});
 		});
 	</script>		
-
 
 
 
