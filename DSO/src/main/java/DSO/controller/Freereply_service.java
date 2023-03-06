@@ -34,6 +34,7 @@ public class Freereply_service extends HttpServlet {
 		
 		if(cnt > 0) {
 			System.out.println("댓글 등록성공!");
+			response.sendRedirect("Freereply.jsp");
 			
 		}else {
 			System.out.println("댓글 등록실패...");

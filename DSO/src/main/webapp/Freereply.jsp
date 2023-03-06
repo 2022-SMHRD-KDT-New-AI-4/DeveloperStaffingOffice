@@ -115,7 +115,8 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
     </form>
     
 </div>
-<div id="freereplyList" >
+
+<div id="freereplyList"> 
 
 </div>
 
@@ -125,18 +126,18 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	});	
 	function freereplyList(){			
 			$.ajax({
-				url : "freereply_list_Service",
+				url : "Freereply_list_Service",
 				method : "post",
 				dataType : "JSON",
 				success : function(data){
 					console.log(data);
-					var html = "";
-					html += "<table style='margin:auto;width:100px;height:100px'>"
+					var html ="";
+					html += "<table style='margin:auto; style=width:440px'>"
 					for(let i = 0; i< data.length; i++){
 						html += "<tr>";
-						html += "<td>";
+						html += "<td style='width:220px'>";
 						html += data[i].loginC;
-						html += "<td style='color: red';>"
+						html += "<td style='color: red;width:220px'>"
 						if(data[i].rate==0){
 							html +="☆☆☆☆☆";
 						}else if(data[i].rate==1){
@@ -150,14 +151,19 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 						}else if(data[i].rate==5){
 							html += "★★★★★";
 						}
+						if(data[i].loginC==loginC){
+						html +="<input type='submit' name='update' id='update' value='수정'>"
+						html +="<input type='submit' name='delete' id='delete' value='삭제'>"	
+						}
+						html +="<input type='submit' name='update' id='update' value='수정'>"
+						html +="<input type='submit' name='delete' id='delete' value='삭제'>"
 						html += "</td>"
 						html += "<tr>"
-						html += "<td colspan=2>"
+						html += "<td colspan=2 style='width:440px'>"
 						html += data[i].review;
 						html += "</td>"
 						html += "</tr>"
 						html += "</tr>"
-						html += "<br>";
 					}
 						html += "</table>"
 					$('#freereplyList').empty();

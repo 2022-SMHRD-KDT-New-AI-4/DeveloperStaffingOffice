@@ -31,7 +31,10 @@ public class Service_register_service extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
-		String directory=request.getRealPath("boardImg");
+		String directory=getServletContext().getRealPath("boardImg");
+		
+		
+		System.out.println(directory);
 		int sizeLimit = 100 * 1024 * 1024; // 100MB 제한
 
 		MultipartRequest multi = new MultipartRequest(request, directory, sizeLimit, "UTF-8",
