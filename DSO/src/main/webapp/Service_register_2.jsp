@@ -287,39 +287,39 @@
                                 <select id="service_category" name="service_category" style="width:200px;">
 										<option>선택해주세요</option>
 										<option value="1,01">웹 · 모바일 기획</option>
-										<option>프로그램 · 기타 기획</option>
-										<option>홈페이지</option>
-										<option>랜딩페이지</option>
-										<option>프론트엔드 · 퍼블리싱</option>
-										<option>검색 최적화 · SEO</option>
-										<option>애널리틱스</option>
-										<option>홈페이지 수정 · 유지보수</option>
-										<option>쇼핑몰</option>
-										<option>쇼핑몰 수정 · 유지보수</option>
-										<option>앱</option>
-										<option>앱 수정 · 유지보수</option>
-										<option>비지니스 애플리케이션</option>
-										<option>PC · 웹 프로그램</option>
-										<option>백엔드 · 서버</option>
-										<option>봇 · 챗봇</option>
-										<option>노코드 · 로우코드</option>
-										<option>메타버스</option>
-										<option>블록체인 · NFT</option>
-										<option>데이터 구매 · 구축</option>
-										<option>데이터 마이닝 · 크롤링</option>
-										<option>데이터 전처리</option>
-										<option>데이터 라벨링</option>
-										<option>데이터 분석 · 시각화</option>
-										<option>인공지능 · 머신러닝</option>
-										<option>데이터베이스</option>
-										<option>2D · 3D게임</option>
-										<option>AR · VR</option>
-										<option>하드웨어 · 임베디드</option>
-										<option>보안</option>
-										<option>QA · 테스트</option>
-										<option>컴퓨터 기술지원</option>
-										<option>파일변환</option>
-										<option>기타</option>
+										<option value="1,02">프로그램 · 기타 기획</option>
+										<option value="2,01">홈페이지</option>
+										<option value="2,02">랜딩페이지</option>
+										<option value="2,03">프론트엔드 · 퍼블리싱</option>
+										<option value="2,04">검색 최적화 · SEO</option>
+										<option value="2,05">애널리틱스</option>
+										<option value="2,06">홈페이지 수정 · 유지보수</option>
+										<option value="3,01">쇼핑몰</option>
+										<option value="3,02">쇼핑몰 수정 · 유지보수</option>
+										<option value="4,01">앱</option>
+										<option value="4,02">앱 수정 · 유지보수</option>
+										<option value="5,01">비지니스 애플리케이션</option>
+										<option value="5,02">PC · 웹 프로그램</option>
+										<option value="5,03">백엔드 · 서버</option>
+										<option value="5,04">봇 · 챗봇</option>
+										<option value="6,01">노코드 · 로우코드</option>
+										<option value="6,02">메타버스</option>
+										<option value="6,03">블록체인 · NFT</option>
+										<option value="7,01">데이터 구매 · 구축</option>
+										<option value="7,02">데이터 마이닝 · 크롤링</option>
+										<option value="7,03">데이터 전처리</option>
+										<option value="7,04">데이터 라벨링</option>
+										<option value="7,05">데이터 분석 · 시각화</option>
+										<option value="7,06">인공지능 · 머신러닝</option>
+										<option value="7,07">데이터베이스</option>
+										<option value="8,01">2D · 3D게임</option>
+										<option value="8,02">AR · VR</option>
+										<option value="9,01">하드웨어 · 임베디드</option>
+										<option value="9,02">보안</option>
+										<option value="9,03">QA · 테스트</option>
+										<option value="9,04">컴퓨터 기술지원</option>
+										<option value="9,05">파일변환</option>
+										<option value="9,06">기타</option>
 								</select>
 								<label style="display:inline; margin-left: 120px;">가격</label>  
                                 <input style="text-align:right" type="number" id="service_price" name="service_price">  

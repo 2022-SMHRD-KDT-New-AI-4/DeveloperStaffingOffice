@@ -428,16 +428,7 @@
 							<div class="product-thumbs">
 								<div class="product-thumbs-track ps-slider owl-carousel">
 									<div class="pt active" data-imgbigurl="img/pl/pl1.png">
-										<img src="img/pl/pl1.png" alt="">
-									</div>
-									<div class="pt" data-imgbigurl="img/pl/pl2.png">
-										<img src="img/pl/pl2.png" alt="">
-									</div>
-									<div class="pt" data-imgbigurl="img/pl/pl3.png">
-										<img src="img/pl/pl3.png" alt="">
-									</div>
-									<div class="pt" data-imgbigurl="img/pl/pl4.png">
-										<img src="img/pl/pl4.png" alt="">
+										<img src="boardImg/<%=post.getService_img() %>" alt="">
 									</div>
 								</div>
 							</div>
