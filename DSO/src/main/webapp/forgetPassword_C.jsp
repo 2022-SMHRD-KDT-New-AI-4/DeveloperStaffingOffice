@@ -189,23 +189,20 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="Client_Login_service" method="post">
+                        <h2>비밀번호 찾기</h2>
+                        <form action="Forget_password_service" method="post">
                             <div class="group-input">
                                 <label for="username"> Email 입력해주세요 *</label>
                                 <input type="text" id="c_id" name="c_id">
                             </div>
                             <div class="group-input">
-                                <label for="pass">비밀번호 입력해주세요 *</label>
-                                <input type="password" id="c_pw" name="c_pw">
+                                <label for="pass">이름을 입력해주세요 *</label>
+                                <input type="text" id="c_name" name="c_name">
                             </div>
                             <div class="group-input gi-check">
-                                <div class="gi-more">                             
-                                    <a href="forgetPassword_C.jsp" class="forget-pass">Forget your Password</a>
-                                </div>
                             </div>
                             <div class=loginbtnCR>
-                            <button type="submit" class="site-btn login-btn">의뢰인로그인</button>
+                            <button type="submit" class="site-btn login-btn">확인</button>
                            
                             </div>
                         </form>

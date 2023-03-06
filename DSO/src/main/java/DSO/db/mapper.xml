@@ -141,9 +141,15 @@
       from tbl_client
       where c_id = #{c_id}
    </select>
+   
 <!-- 구매목록 불러오기 -->
 	<select id="buyListLoad" resultType="DSO.model.ChatClient" parameterType="string">
 		Select * from tbl_register_specialist where c_id = #{value}
 	</select>
+	
+<!-- 의뢰인 로그인 -->
+  <select id="clientForget" resultType="Client_register_VO" parameterType="Client_register_VO">
+  	select * from tbl_client where c_id=#{c_id} and c_name=#{c_pw}
+  </select>
 
 </mapper>

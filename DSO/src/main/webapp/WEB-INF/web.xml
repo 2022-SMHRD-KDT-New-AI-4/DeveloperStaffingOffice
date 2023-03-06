@@ -63,6 +63,13 @@
 		<servlet-name>c_id_confirm</servlet-name>
 		<servlet-class>DSO.controller.c_id_confirm</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>Forget_password_service</display-name>
+		<servlet-name>Forget_password_service</servlet-name>
+		<servlet-class>DSO.controller.Forget_password_service</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ToMenu</servlet-name>
 		<url-pattern>/ToMenu</url-pattern>
@@ -98,6 +105,10 @@
 	<servlet-mapping>
 		<servlet-name>c_id_confirm</servlet-name>
 		<url-pattern>/c_id_confirm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Forget_password_service</servlet-name>
+		<url-pattern>/Forget_password_service</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

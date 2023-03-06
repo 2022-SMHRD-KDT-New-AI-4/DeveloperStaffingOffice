@@ -49,14 +49,15 @@ public class Client_Login_service extends HttpServlet {
 			Service_info_pr_DAO dao3 = new Service_info_pr_DAO();
 			ArrayList<ChatClient> buyList = dao3.buyListLoad(value);
 			session.setAttribute("buyList", buyList);
+			response.sendRedirect("Main.jsp");
 			
 		}else {
 			System.out.println("로그인 실패");
 			out.print("<script>");
 	        out.print("alert(`로그인 실패...`);");
+	        out.print("location.href='Login_1.jsp';");
 	        out.print("</script>");
 		}
-		response.sendRedirect("Main.jsp");
 	}
 }
 

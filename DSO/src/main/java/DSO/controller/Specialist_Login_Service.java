@@ -1,6 +1,7 @@
 package DSO.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,8 @@ public class Specialist_Login_Service extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
 		String s_id = request.getParameter("s_id");  
 		String s_pw = request.getParameter("s_pw");
@@ -40,10 +43,14 @@ public class Specialist_Login_Service extends HttpServlet {
 			Like_DAO dao2 = new Like_DAO();
 			ArrayList<Like_VO> list = dao2.selectLike(value);
 			session.setAttribute("likeList", list);
+			response.sendRedirect("Main.jsp");
 		} else { // 로그인 실패
 			System.out.println("전문가 로그인 실패");
+			out.print("<script>");
+	        out.print("alert(`로그인 실패...`);");
+	        out.print("location.href='Login_1.jsp';");
+	        out.print("</script>");
 		}
-		response.sendRedirect("Main.jsp");
 	}
 
 }

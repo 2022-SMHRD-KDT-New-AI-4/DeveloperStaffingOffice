@@ -37,13 +37,18 @@ public class Client_register_DAO {
 		session.close();
 		return cnt;
 	}
-	
-	
-	  public int c_selectid (String c_id) { // 의뢰인 아이디 중복 확인 SqlSession session =
-	  SqlSession session = sqlSessionFactory.openSession(true); 
-	  int cnt =session.selectOne("c_selectCsIdConfirm", c_id);
-	  session.close();
-	  return cnt;
-	  }
+
+	public int c_selectid (String c_id) { // 의뢰인 아이디 중복 확인 SqlSession session =
+		SqlSession session = sqlSessionFactory.openSession(true); 
+		int cnt =session.selectOne("c_selectCsIdConfirm", c_id);
+		session.close();
+		return cnt;
+	 }
 	 
+	public Client_register_VO clientForget(Client_register_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		Client_register_VO lvo = session.selectOne("clientForget", vo);
+		session.close(); 					
+		return lvo;
+	}
 }
