@@ -15,5 +15,4 @@ public class Register_specialist_DAO {
 		return cnt;
 	}
 
-
 }

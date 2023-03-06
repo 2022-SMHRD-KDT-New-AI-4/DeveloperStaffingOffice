@@ -136,8 +136,10 @@
    </select>
 	
 <!-- 구매목록 불러오기 -->
-	<select id="buyListLoad" resultType="DSO.model.ChatClient" parameterType="string">
-		Select * from tbl_register_specialist where c_id = #{value}
+	<select id="selectCsIdConfirm" resultType="int">
+		select count(*)
+		from tbl_specialist
+		where s_id = #{s_id}
 	</select>
 
 </mapper>

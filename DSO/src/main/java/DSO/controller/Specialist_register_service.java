@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import DSO.model.Client_register_DAO;
 import DSO.model.Client_register_VO;
+import DSO.model.Register_specialist_DAO;
+import DSO.model.Register_specialist_VO;
 import DSO.model.Specialist_register_DAO;
 import DSO.model.Specialist_register_VO;
 
@@ -78,9 +80,9 @@ public class Specialist_register_service extends HttpServlet {
            out.print("history.back()");
            out.print("</script>");
       } else {
-         Client_register_VO vo = new Client_register_VO(s_id,s_pw,s_name,s_job,s_business,s_interest);
-         Client_register_DAO dao = new Client_register_DAO();
-         int cnt = dao.clientjoin(vo);
+         Specialist_register_VO vo = new Specialist_register_VO(s_id,s_pw,s_name,s_job,s_business,s_interest);
+         Specialist_register_DAO dao = new Specialist_register_DAO();
+         int cnt = dao.specialistjoin(vo);
          if(cnt > 0) {
             System.out.println("전문가 회원가입 성공!");
             RequestDispatcher rd =  request.getRequestDispatcher("Main.jsp"); 
