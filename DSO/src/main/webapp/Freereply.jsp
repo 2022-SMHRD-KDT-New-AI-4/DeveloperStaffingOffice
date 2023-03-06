@@ -14,6 +14,11 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 
 <style type="text/css">
 /* 레이아웃 외곽 너비 400px 제한*/
+
+#freereplyList{
+	justify-content:center;
+	align-content:flex-start;
+}
 .wrap{
     max-width: 480px;
     margin: 0 auto; /* 화면 가운데로 */
@@ -108,18 +113,17 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
             <input type="submit" name="save" id="save" value="등록">
         </div>
     </form>
+    
 </div>
-<div id="freereplyList">
+<div id="freereplyList" >
 
 </div>
 
 <script type="text/javascript">
-		
-		setInterval(freereplyList, 1000);
-		freereplyList();
-	
-		function freereplyList(){
-			
+	$(document).ready(function(){		
+		freereplyList();		
+	});	
+	function freereplyList(){			
 			$.ajax({
 				url : "freereply_list_Service",
 				method : "post",
@@ -127,27 +131,31 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 				success : function(data){
 					console.log(data);
 					var html = "";
-					html += "<table>"
+					html += "<table style='margin:auto;width:100px;height:100px'>"
 					for(let i = 0; i< data.length; i++){
-						html += "<tr>"
-						html += "<td style='fontColor:yellow'>"
-						html += data[i].loginM;
+						html += "<tr>";
+						html += "<td>";
+						html += data[i].loginC;
+						html += "<td style='color: red';>"
 						if(data[i].rate==0){
-							html += ☆☆☆☆☆
+							html +="☆☆☆☆☆";
 						}else if(data[i].rate==1){
-							html += ★☆☆☆☆
+							html += "★☆☆☆☆";
 						}else if(data[i].rate==2){
-							html += ★★☆☆☆
+							html += "★★☆☆☆";
 						}else if(data[i].rate==3){
-							html += ★★★☆☆
+							html += "★★★☆☆";
 						}else if(data[i].rate==4){
-							html += ★★★★☆
+							html += "★★★★☆";
 						}else if(data[i].rate==5){
-							html += ★★★★★
+							html += "★★★★★";
 						}
-						html += "<br>";
+						html += "</td>"
+						html += "<tr>"
+						html += "<td colspan=2>"
 						html += data[i].review;
 						html += "</td>"
+						html += "</tr>"
 						html += "</tr>"
 						html += "<br>";
 					}
@@ -269,4 +277,5 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
 }
 </script>
 </body>
+
 </html>

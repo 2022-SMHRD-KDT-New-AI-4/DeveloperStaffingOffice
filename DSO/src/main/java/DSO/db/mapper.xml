@@ -115,7 +115,7 @@
 	
 <!--의뢰인 댓글 별점 조회-->
 	<select id="freereplyselect" resultType="DSO.model.Freereply_VO">
-		select * from tbl_freereply2 where service_seq=#{service_seq} 
+		select * from tbl_freereply2 <!--  where service_seq=#{service_seq} -->
 	</select>		
 
 <!-- 게시물 조회수 증가 -->
