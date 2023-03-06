@@ -130,9 +130,9 @@
 	
 <!-- ID 중복 확인 -->
 	<select id="selectCsIdConfirm">
-		select count(*) as cnt
-		from tm_cs
-		where cs_id = #{csId}
+		select count(*)
+		from tbl_specialist
+		where s_id = #{s_id}
 	</select>
 
 </mapper>
