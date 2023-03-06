@@ -452,6 +452,8 @@
 								<div class="quantity">
 									<a href="Chatting_C.jsp" class="primary-btn pd-cart">전문가와
 										대화</a>
+									<!-- <a href="ToChat?seq=<%=post.getService_seq()%>" class="primary-btn pd-cart">전문가와
+										대화</a> -->
 										<%
 												int t = 0;
 											if(loginC!=null||loginS!=null){

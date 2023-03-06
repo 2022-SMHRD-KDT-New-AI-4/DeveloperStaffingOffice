@@ -206,7 +206,7 @@
 					<div class="breadcrumb-text">
 						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
 						<a href="Mypage_C.jsp"></i> 마이페이지</a>
- 						<span>1:1채팅</span>
+ 						<span>1:1채팅 목록</span>
 					</div>
 				</div>
 			</div>
@@ -228,7 +228,7 @@
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
 						<li><a href="ToLike">찜 목록</a></li>
-						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
+						<li><a href="Chatting_list.jsp">1:1 채팅 목록</a></li>
 						<%if(loginS!=null) {%>
 						<li><a href="Service_register_2.jsp">상품 등록</a></li>
 						<%} %>

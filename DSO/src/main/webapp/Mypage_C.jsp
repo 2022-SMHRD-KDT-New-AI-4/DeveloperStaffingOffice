@@ -199,7 +199,7 @@
 						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
 						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
 						<li><a href="ToLike">찜 목록</a></li>
-						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
+						<li><a href="Chatting_list.jsp">1:1 채팅 목록</a></li>
 						<%if(loginS!=null) {%>
 						<li><a href="Service_register_2.jsp">상품 등록</a></li>
 						<%} %>
@@ -249,8 +249,8 @@
 								  	  <!---기본 메뉴--->
 									  <ul class="board">
 									  	<li class="fl tc w70 title t_line">번호</li>
-									  	<li class="fl tc w500 title t_line">의뢰내용</li>
-									  	<li class="fl tc w120 title t_line">의뢰인</li>
+									  	<li class="fl tc w500 title t_line">의뢰인</li>
+									  	<li class="fl tc w120 title t_line">의뢰내용</li>
 									  	<li class="fl tc w100 title t_line">진행완료</li>
 									  	<li class="fl tc w100 title ">조회수</li>
 									  	
@@ -286,142 +286,6 @@
 									  	});
 									  	
 									  	</script>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
-									  </ul>
-									  <!--- 리스트 --->
-									  <ul class="board">
-									  	<li class="fl tc w70 list t_line lt_line">2</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인2</li>
-									  	<li class="fl tc w120 list t_line lt_line">데이터 마이닝 · 크롤링</li>
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button> </li>
-									  	<li class="fl tc w100 list  lt_line">1</li>
 									  </ul>
 									 </div>
 							</div>									

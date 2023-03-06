@@ -35,6 +35,13 @@
 		<servlet-name>viewsUp</servlet-name>
 		<servlet-class>DSO.controller.viewsUp</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ToChat</display-name>
+		<servlet-name>ToChat</servlet-name>
+		<servlet-class>DSO.controller.ToChat</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ToMenu</servlet-name>
 		<url-pattern>/ToMenu</url-pattern>
@@ -54,6 +61,10 @@
 	<servlet-mapping>
 		<servlet-name>viewsUp</servlet-name>
 		<url-pattern>/viewsUp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ToChat</servlet-name>
+		<url-pattern>/ToChat</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
