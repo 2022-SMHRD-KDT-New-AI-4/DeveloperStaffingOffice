@@ -1,511 +1,506 @@
-<%@page import="DSO.model.Specialist_register_VO"%>
-<%@page import="DSO.model.Client_register_VO"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+x<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-	%>
-<%
-    String userName=null;
-    if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
-    	userName="GUEST";
-    }else{
-       userName=(String)request.getAttribute("userName");
-    }
-
-%>
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Fashi Template">
-<meta name="keywords" content="Fashi, unica, creative, html">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>개발자 인력 사무소</title>
+<title>전문가 챗봇</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
-	rel="stylesheet">
+<!-- 버튼 디자인 부트스트랩 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-<!-- Css Styles -->
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="css/themify-icons.css" type="text/css">
-<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-<%if(loginS!=null) {%>
-<link rel="stylesheet" href="css/styles.css" type="text/css">
-<%}else { %>
-<link rel="stylesheet" href="css/style.css" type="text/css">
-<%} %>
+	<style type="text/css">
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<style type="text/css">
-	/* 채팅 */
-	.listname{ height: 50px;}
-	.likeBtn {
-	   background : white;
-	   border: 0;
-	   border-radius: 50px;
-	   font-size:  18px;
-	}
-	.dislikeBtn{
-	   background : white;
-	   border: 0;
-	   border-radius: 50px;
-	   font-size: 18px;
-	}
-	.row {
-       margin-top: 10px;
-	}
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+/* 가로 스크롤 숨기기 */	
 	
-	/* 채팅 CSS */
-	
+		body{
+		
+			overflow : auto;
+			overflow-x : hidden; 
+		
+		}
 
-	#messageWindow{
-		background: black;
-		color: greenyellow;
-	}
-	#inputMessage{
-		width:500px;
-		height:30px;
-		border-radius : 10px 10px 10px 10px;
-	}
-	#btn-submit{
-		background: white;
-		width:60px;
-		height:30px;
-		color:white;
-		border:none;
-	}
-	
-	#main-container{
-		width:820px;
-		height:420px;
-		margin:10px;
-		display: inline-block;
-		border-radius : 10px 10px 10px 10px;	
-	}
-	#chat-container{
-		vertical-align: bottom;
-		margin:10px;
-		width:800px;
-		min-height: 350px;
-		max-height: 350px;
-		overflow: scroll;
-		overflow-x:hidden;
-		border-radius : 10px 10px 10px 10px;
-	}
-	
-	.chat{
-		font-size: 20px;
-		color:black;
-		margin: 5px;
-		min-height: 20px;
-		padding: 5px;
-		min-width: 50px;
-		text-align: left;
-        height:auto;
-        word-break : break-all;
-        background: #ffffff;
-        width:auto;
-        display:inline-block;
-        border-radius: 10px 10px 10px 10px; 
-	}
-	
-	.notice{
-		color:white;
-		font-weight: bold;
-		border : none;
-		text-align: center;
-		background-color: #9bbbd4;
-		display: block;
-	}
-	.my-chat{
-		text-align: right;
-		background: white;
-		/* border-radius: 5px 5px 5px 5px; */
-	}
-	
-	#bottom-container{
-		margin:auto;
-		margin-left: 100px;
-	}
-	
-	.chat-info{
-		color:#556677;
-		font-size: 10px;
-		text-align: right;
-		padding: 5px;
-		padding-top: 0px;
-	}
-	
-	.chat-box{
-		text-align:left;
-	}
-	.my-chat-box{
-		text-align: right;
-	}
-</style>
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+/* 제일 큰 영역 */	
 
-<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
+		.chatbotbox{
+		
+			height : auto;
+			width : 370px;
+		
+		}
+	
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */		
+/* 질문 버튼 */
+		
+		.chatbutton{
+		
+			width : 190px;
+			height: auto;
+			float: right;
+			margin-right: 30px;
+		
+		}
+		
+		.chatbutton>.btn:not(:last-child) {
+		
+			margin-bottom: 10px;
+			
+		}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */			
+		
+		/* 질문 목록 보기 버튼*/
+		#back {
+		
+			position: fixed;
+			bottom : 5%;
+			left: 50%;
+			transform: translate(-50%, 50%);
+			
+		}
+		
+
+		.ChatListbox{
+		
+			height: auto;
+			
+		}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+/* 질문 출력되는 영역 */
+		
+		.outerQue{
+		
+			width: 100%;
+			height: 40px;
+/* 			background: black; */
+			
+		}
+		
+		.innerQue{
+			
+			float: right;
+			margin-right : 30px;
+			width : 250px;
+			height : 100%;
+			background: #1B9CFC;
+			border-radius: 10px;
+			display : flex;
+            justify-content : center;
+            align-items : center;
+		
+		}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+/* 답변 출력되는 영역 */
+		
+		.outAnsBox{
+		
+			width: 100%;
+			height: auto;
+			/* background: blue; */
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-right: 50px;
+		
+		}
+		
+		.innerAnsbox{
+		
+			border : 1px solid black;
+			padding: 15px;
+			text-align: left;
+			background: #F2F2F2;
+			border-radius: 20px;
+		
+		}
+		
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+/* 버튼들 */
+		
+		.btn{
+		
+			color: black; 
+			background-color: white; 
+			float: right; 
+			border : 1px solid black;
+		
+		}
+		
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+/* 챗봇 상단 소개 영역 */
+		
+		.firstbox{
+		
+			width: 100%;
+			height: auto;
+			display : flex;
+            justify-content : center;
+            align-items : center;
+
+		
+		}
+		
+		.secondbox{
+		
+			border : 1px solid black;
+			padding: 15px;
+			text-align: left;
+			background: #F2F2F2;
+			border-radius: 20px;
+			font-size: 15px;
+			width: 330px;
+		
+		}
+		
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */			
+/* 챗봇 최상단 영역 */
+
+		@font-face {
+		    font-family: 'KOTRAHOPE';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		
+		.head{
+		
+			background: #1B9CFC;
+			width: 105%;
+			height: 60px;
+			position: fixed;
+			top : -10px;
+			left : -10px;
+			display : flex;
+            justify-content : center;
+            align-items : center;
+            border: 0.1px solid black;
+            border-top-right-radius : 15px;
+		    font-family: 'KOTRAHOPE';
+		    font-size: 30px;
+		    padding-top: 10px;
+            
+		}
+		
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */		
+/* 챗봇 로고 나오는 영역이랑 로고 */
+		
+		#logoImg{
+		
+			width: 150px;
+			height: 150px;
+		
+		}
+		
+		#imgBox{
+		
+			display : flex;
+            justify-content : center;
+            align-items : center;
+			padding-top: 50px;
+		
+		}
+		
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */		
+/* 스크롤바 숨기기 */
+
+		body{
+			-ms-overflow-style: none;
+		}
+		 
+		::-webkit-scrollbar {
+			display: none;
+		}
+		
+		/*특정 부분 스크롤바 없애기*/
+		
+		.box{
+			-ms-overflow-style: none;
+		}
+		.box::-webkit-scrollbar{
+			display:none;
+		}
+		
+		.empty{
+		
+			height: 1.05rem;
+		
+		}
+		
+		
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */	
+		
+	
+	
+	</style>
+
 </head>
 <body>
-	<!-- 좋아요 스크립트   -->
+	<div class="chatbotbox">
+		<div class="head">
+			<span>개발자 인력 사무소</span>
+		</div>
+		<div id="imgBox">
+			<img id="logoImg" alt="로고" src="img/chatbot_test_logo.png">
+		</div>
+		
+		<div id="chatbotList">
+			<div class="ChatListbox" style="text-align: center;">
+	 			<!-- 여기가 출력 되는 부분 -->
+	 			<div class="firstbox">
+	 			
+	 				<div class="secondbox">
+	 				
+	 					<div>안녕하세요👋🏻</div>
+						<div>개발자 인력 사무소 엔터프라이즈입니다.</div>
+						<div class="empty"></div>
+						<div>대한민국 개발자 절반 이상이</div>
+						<div>이용할 개발자 전용 솔루션입니다.</div>
+						<div class="empty"></div>
+						<div>·기업 프로젝트</div>
+						<div>·상주 프리랜서 채용</div>
+						<div>·정부지원사업 </div>
+						<div>모두 엔터프라이즈에서 해결해보세요.</div>
+						<div>✔1:1 대화 시스템</div>
+						<div>✔검증된 전문가</div>
+						<div>✔번거로운 행정 업무 대행</div>
+	 				
+	 				</div>
+	 			
+	 			</div>
+	 			<br>
+			</div>
+			
+			
+			<div class="chatbutton">
+				<button id="Ans_1" class="btn" style="color: black; float: right; ">개발자 인력 사무소란?</button>
+				<button id="Ans_2" class="btn" style="color: black; float: right; ">로그인이 안돼요</button>
+				<button id="Ans_3" class="btn" style="color: black; float: right; ">결제방법</button>
+				<button id="Ans_4" class="btn" style="color: black; float: right; ">배가 고파요</button>
+				<button id="Ans_5" class="btn" style="color: black; float: right; ">상담원과 연결하기</button>
+				<button id="back" class="btn btn-outline-dark" style=" float: right; display: none">질문 목록 보기</button>
+			</div>
+		
+		</div>
 
-
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
 	</div>
-
-	<!-- Header Section Begin -->
-	<header class="header-section">
-		<div class="header-top">
-		<!-- 로그인 마이페이지 -->
-			<div class="ht-right">
-				<%if (loginC == null && loginS == null) {%>
-				<a href="./Join_1.jsp" class="login-panel">회원 가입</a>
-				<a href="./Login_1.jsp" class="login-panel"><i class="fa fa-user"></i> 로그인</a>
-				<%} else {%>
-				<a href="./Mypage_C.jsp" class="login-panel">마이페이지</a> <a
-					href="LogoutService" class="login-panel"><i class="fa fa-user"></i>
-					로그아웃</a>
-				<%} %>
-			</div>
-		<!-- 로그인 마이페이지 끝 -->
-		</div>
-		<div class="container">
-			<div class="inner-header">
-				<div class="row">
-					<div class="col-lg-2 col-md-2">
-						<div class="logo">
-							<a href="./Main.jsp"> 
-							<%if(loginS!=null){ %>
-							<img src="img/logo/dsologos.png" alt="">
-							<%}else {%>
-							<img src="img/logo/dsologoc.png" alt="">
-							<%} %>
-							</a>
-						</div>
-					</div>
-					<!-- 검색 박스 -->
-					<div class="col-lg-7 col-md-7">
-						<div class="advanced-search">
-							<div class="input-group">
-								<form action="Search_service" method="post">
-								<input type="text" name="searchWord" placeholder="검색어를 입력해주세요" />
-								<button type="submit">
-									<i class="ti-search"></i>
-								</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<!-- 검색 박스 끝 -->
-					<div class="col-lg-3 text-right col-md-3"></div>
-				</div>
-			</div>
-		</div>
-		<div class="nav-item">
-			<div class="container">
-				<div class="nav-depart">
-					<div class="depart-btn">
-						<i class="ti-menu"></i> <span>전체 카테고리</span>
-						<!-- 카테고리 바 -->
-						<ul class="depart-hover">
-							<li><a href="ToMenu?menu=1"><h3>UX 기획</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=1&smenu=01">웹 · 모바일 기획</a></li>
-									<li><a href="ToMenu?menu=1&smenu=02">프로그램 · 기타 기획</a></li>
-								</ul> <a href="ToMenu?menu=2"><h3>웹</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=2&smenu=01">홈페이지 </a></li>
-									<li><a href="ToMenu?menu=2&smenu=02">랜딩페이지</a></li>
-									<li><a href="ToMenu?menu=2&smenu=03">프론트엔드 · 퍼블리싱</a></li>
-									<li><a href="ToMenu?menu=2&smenu=04">검색 최적화 · SEO</a></li>
-									<li><a href="ToMenu?menu=2&smenu=05">애널리틱스</a></li>
-									<li><a href="ToMenu?menu=2&smenu=06">홈페이지 수정 · 유지보수</a></li>
-								</ul></li>
-							<li><a href="ToMenu?menu=3"><h3>커머스</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=3&smenu=01">쇼핑몰</a></li>
-									<li><a href="ToMenu?menu=3&smenu=02">쇼핑몰 수정 · 유지보수</a></li>
-								</ul> <a href="ToMenu?menu=4"><h3>모바일</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=4&smenu=01">앱</a></li>
-									<li><a href="ToMenu?menu=4&smenu=02">앱 수정 · 유지보수</a></li>
-								</ul></li>
-							<li><a href="ToMenu?menu=5"><h3>프로그램</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=5&smenu=01">비지니스 애플리케이션</a></li>
-									<li><a href="ToMenu?menu=5&smenu=02">PC · 웹 프로그램</a></li>
-									<li><a href="ToMenu?menu=5&smenu=03">백엔드 · 서버</a></li>
-									<li><a href="ToMenu?menu=5&smenu=04">봇 · 챗봇</a></li>
-								</ul> <a href="ToMenu?menu=6"><h3>트랜드</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=6&smenu=01">노코드 · 로우코드</a></li>
-									<li><a href="ToMenu?menu=6&smenu=02">메타버스</a></li>
-									<li><a href="ToMenu?menu=6&smenu=03">블록체인 · NFT</a></li>
-								</ul></li>
-							<li><a href="ToMenu?menu=7"><h3>데이터</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=7&smenu=01">데이터 구매 · 구축</a></li>
-									<li><a href="ToMenu?menu=7&smenu=02">데이터 마이닝 · 크롤링</a></li>
-									<li><a href="ToMenu?menu=7&smenu=03">데이터 전처리</a></li>
-									<li><a href="ToMenu?menu=7&smenu=04">데이터 라벨링</a></li>
-									<li><a href="ToMenu?menu=7&smenu=05">데이터 분석 · 시각화</a></li>
-									<li><a href="ToMenu?menu=7&smenu=06">인공지능 · 머신러닝</a></li>
-									<li><a href="ToMenu?menu=7&smenu=07">데이터베이스</a></li>
-								</ul></li>
-							<li><a href="ToMenu?menu=8"><h3>언리얼</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=8&smenu=01">2D · 3D 게임</a></li>
-									<li><a href="ToMenu?menu=8&smenu=02">AR · VR</a></li>
-								</ul> <a href="ToMenu?menu=9"><h3>기타</h3></a>
-								<ul>
-									<li><a href="ToMenu?menu=9&smenu=01">하드웨어 · 임베디드</a></li>
-									<li><a href="ToMenu?menu=9&smenu=02">보안</a></li>
-									<li><a href="ToMenu?menu=9&smenu=03">QA · 테스트</a></li>
-									<li><a href="ToMenu?menu=9&smenu=04">컴퓨터 기술지원</a></li>
-									<li><a href="ToMenu?menu=9&smenu=05">파일변환</a></li>
-									<li><a href="ToMenu?menu=9&smenu=06">기타</a></li>
-								</ul></li>
-						</ul>
-						<!-- 카테고리바 끝 -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- Header End -->
 	
-	<!-- Breadcrumb Section Begin -->
-
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12" style="margin: auto;">
-					<div class="breadcrumb-text">
-						<a href="Main.jsp"><i class="fa fa-home"></i> Home</a>
-						<a href="Mypage_C.jsp"></i> 마이페이지</a>
-						<a href="Chatting_list.jsp"></i>1:1채팅목록</a>
- 						<span>1:1채팅</span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	<!-- Breadcrumb Section Begin -->
-
-	<!-- Product Shop Section Begin -->
-
-	<!-- Product Shop Section Begin -->
-	<section class="product-shop spad">
-		<div class="container">
-			<div class="row">
-<!-- 마이페이지 왼쪽 카테고리바 -->
-				<div class="filter-widget" style="padding-top: 0px">
-					<h4>마이페이지</h4>
-					<ul class="filter-catagories">
-						<li><a href="Mypage_C.jsp">의뢰내역</a></li>
-						<li><a href="Mypageupdate_C.jsp">내 정보 수정</a></li>
-						<li><a href="ToLike">찜 목록</a></li>
-						<li><a href="Chatting_list.jsp">1:1 채팅</a></li>
-						<%if(loginS!=null) {%>
-						<li><a href="Service_register_2.jsp">상품 등록</a></li>
-						<%} %>
-					</ul>
-				</div>
-				<!-- 마이페이지 왼쪽 카테고리바 끝 -->
+	<script type="text/javascript">
+	
+		$('#Ans_1').click(function(){ 
+			
+			let que = '<div class="outerQue"><div class="innerQue">개발자 인력 사무소란?</div></div>';
+			let ans1 = '<div class="outAnsBox"><div class="innerAnsbox">의뢰인이 전문가가 등록한<br>상품페이지에 있는<br>상품설명과 포트폴리오를 보고<br>원하는 상품을 상세하게<br>주문할 수 있는<br>엔터프라이즈입니다.</div></div><br><br>';
+			$('.ChatListbox').append(que);
+			$('.ChatListbox').append(ans1);
+			$('#Ans_1').css("display","none");
+			$('#Ans_2').css("display","none");
+			$('#Ans_3').css("display","none");
+			$('#Ans_4').css("display","none");
+			$('#Ans_5').css("display","none");
+			$('#back').css("display","inline-block");
+			
+			
+			// 스크롤 자동으로 아래로 내리기
+			const $bottomBtn = document.querySelector("#Ans_1");
+			$bottomBtn.onclick = () => {
 				
-				<!-- 마이페이지 박스 -->
-				<div class="col-lg-9 order-1 order-lg-2">
-				<%if(loginS!=null) {%>
-					<div id="main-container" style="border:1px solid #1B9CFC ;">
-				<%}else{ %>
-					<div id="main-container" style="border:1px solid #EAB543 ;">
-				<%} %>
-		<%if(loginS!=null) {%>
-		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #98cffa;">
-		<%}else{ %>
-		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
-		<%} %>
-			
-		</div>
-		<div id="bottom-container">
-			<%if(loginS!=null) {%>
-			<input id="inputMessage" type="text" style="border: 1px solid #1B9CFC;">
-			<%}else {%>
-			<input id="inputMessage" type="text" style="border: 1px solid #EAB543;">
-			<%} %>
-			<%if(loginS!=null) {%>
-			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #1B9CFC;" >
-			<%}else {%>
-			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
-			<%} %>
-		</div>
-	</div>
-					</div>
-				</div>
-			</div>
-	</section>	
-	
-	
-	<script type="text/javascript">
-		
-		var textarea = document.getElementById("messageWindow");
-		var webSocket = new WebSocket("ws://220.71.97.239:8080/DSO/webChatServer/{<%=userName%>}");
-		
-		// 로컬에서 테스트할 때 사용하는 URL입니다.
-	// 	var webSocket = new WebSocket('ws://localhost/DevEricServers/webChatServer');
-		var inputMessage = document.getElementById('inputMessage');
-		
-		webSocket.onerror = function(e){
-			onError(e);
-		};
-		webSocket.onopen = function(e){
-			onOpen(e);
-		};
-		webSocket.onmessage = function(e){
-			onMessage(e);
-		};
-		
-		
-		function onMessage(e){
-			var chatMsg = event.data;
-			var date = new Date();
-			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-			if(chatMsg.substring(0,10) == 'DSO server'){
-				<%if(loginS!=null){%>
-				var $chat = $("<div class='chat notice' style='background-color:#1B9CFC; border-radius : 10px 10px 10px 10px;'>" + chatMsg + "</div>");
-				<%}else{%>
-				var $chat = $("<div class='chat notice' style='background-color:#EAB543; border-radius : 10px 10px 10px 10px;'>" + chatMsg + "</div>");
-				<%}%>
-				$('#chat-container').append($chat);
-			}else{
-				var $chat = $("<div class='chat-box'><div class='chat'>" + chatMsg + "</div><div class='chat-info chat-box'>"+ dateInfo +"</div></div>");
-				$('#chat-container').append($chat);
-			}
-			
-			
-			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
-		}
-		
-		function onOpen(e){
-			
-		}
-		
-		function onError(e){
-			alert(e.data);
-		}
-		
-		function send(){
-			var chatMsg = inputMessage.value;
-			if(chatMsg == ''){
-				return;
-			}
-			var date = new Date();
-			var dateInfo = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-			if(chatMsg.indexOf("http://")!=-1){ // indextOf("") : 문자열에 해당 문자가 포함되어 있다면 출력.
-			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'><a href='"+chatMsg+"'>" + chatMsg + "</a></div><div class='chat-info'>"+ dateInfo +"</div></div>");
-			}
-			else{
-			var $chat = $("<div class='my-chat-box'><div class='chat my-chat'>" + chatMsg + "</div><div class='chat-info'>"+ dateInfo +"</div></div>");
-			}
-			$('#chat-container').append($chat);
-			if(chatMsg.indexOf("http://")!=-1){
-				webSocket.send("<a href='"+chatMsg+"'>" + chatMsg + "</a>");
-			}else{
-			webSocket.send(chatMsg);
-			}
-			inputMessage.value = "";
-			$('#chat-container').scrollTop($('#chat-container')[0].scrollHeight+20);
-		}
-		
-	</script>
-	
-	<script type="text/javascript">
-		$(function(){
-			$('#inputMessage').keydown(function(key){
-				if(key.keyCode == 13){
-					$('#inputMessage').focus();
-					send();
-				}
-			});
-			$('#btn-submit').click(function(){
-				send();
-			});
-			
-		})
-	</script>
+				window.scrollTo({ 
 					
- 
-	<!-- Footer Section Begin -->
-	<footer class="footer-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="footer-left">
-						<div class="footer-logo">
-							<a href="Main.jsp">
-							<%if(loginS!=null) {%>
-							<img src="img/logo/dsologosblack.png" alt="">
-							<%}else {%>
-							<img src="img/logo/dsologoblack.png" alt="">
-							<%} %>							
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3-1">
-					<div class="footer-left">
-						<ul>
-							<li>Address: 광주광역시 동구 대의동 10-1</li>
-							<li>Phone: 010 - 9806 - 8112</li>
-							<li>Email: meenwookim@gmail.com</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="copyright-reserved">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="copyright-text">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							팀장 : 권선택 | 팀원 : 김민우 류슬기 김대윤 서언종 정현호
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</div>
-						<div class="payment-pic">
-							<img src="img/payment-method.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Section End -->
-	
+					top: document.body.scrollHeight, 
+					behavior: "smooth" 
+					
+				});
+				
+			};
+			
+
+		});
+		
+		$('#Ans_2').click(function(){ 
+			
+			let que = '<div class="outerQue"><div class="innerQue">로그인이 안되시나요?</div></div>';
+			let ans2 = '<div class="outAnsBox"><div class="innerAnsbox">로그인 페이지에서<br>의뢰인 로그인인지<br>전문가 로그인인지<br>확인해 주시길 바랍니다.</div></div><br><br>';
+			$('.ChatListbox').append(que);
+			$('.ChatListbox').append(ans2);
+			$('#Ans_1').css("display","none");
+			$('#Ans_2').css("display","none");
+			$('#Ans_3').css("display","none");
+			$('#Ans_4').css("display","none");
+			$('#Ans_5').css("display","none");
+			$('#back').css("display","inline-block");
+			
+			
+			// 스크롤 자동으로 아래로 내리기
+			const $bottomBtn = document.querySelector("#Ans_2");
+			$bottomBtn.onclick = () => {
+				
+				window.scrollTo({ 
+					
+					top: document.body.scrollHeight, 
+					behavior: "smooth" 
+					
+				});
+				
+			};
+			
+		});
+		
+		$('#Ans_3').click(function(){ 
+			
+			let que = '<div class="outerQue"><div class="innerQue">결제방법</div></div>';
+			let ans3 = '<div class="outAnsBox"><div class="innerAnsbox">마이페이지에 있는 의뢰인과의<br>1:1 대화를 통해 결제를<br>진행할 수 있습니다.</div></div><br><br>';
+			$('.ChatListbox').append(que);
+			$('.ChatListbox').append(ans3);
+			$('#Ans_1').css("display","none");
+			$('#Ans_2').css("display","none");
+			$('#Ans_3').css("display","none");
+			$('#Ans_4').css("display","none");
+			$('#Ans_5').css("display","none");
+			$('#back').css("display","inline-block");
+			
+			
+			// 스크롤 자동으로 아래로 내리기
+			const $bottomBtn = document.querySelector("#Ans_3");
+			$bottomBtn.onclick = () => {
+				
+				window.scrollTo({ 
+					
+					top: document.body.scrollHeight, 
+					behavior: "smooth" 
+					
+				});
+				
+			};
+			
+		});
+		
+		$('#Ans_4').click(function(){ 
+			
+			let que = '<div class="outerQue"><div class="innerQue">배가 고파요</div></div>';
+			let ans4 = '<div class="outAnsBox"><div class="innerAnsbox">식<br>사<br>하<br>세<br>요</div></div><br><br>';
+			$('.ChatListbox').append(que);
+			$('.ChatListbox').append(ans4);
+			$('#Ans_1').css("display","none");
+			$('#Ans_2').css("display","none");
+			$('#Ans_3').css("display","none");
+			$('#Ans_4').css("display","none");
+			$('#Ans_5').css("display","none");
+			$('#back').css("display","inline-block");
+			
+			
+			// 스크롤 자동으로 아래로 내리기
+			const $bottomBtn = document.querySelector("#Ans_4");
+			$bottomBtn.onclick = () => {
+				
+				window.scrollTo({ 
+					
+					top: document.body.scrollHeight, 
+					behavior: "smooth" 
+					
+				});
+				
+			};
+			
+		});
+		
+		$('#Ans_5').click(function(){ 
+			
+			let que = '<div class="outerQue"><div class="innerQue">상담원과 연결하기</div></div>';
+			let ans5 = '<div class="outAnsBox"><div class="innerAnsbox">상담 대기중인 인원이 많아서<br>상담원과 연결하기까지<br>시간이 12시간30분 남았습니다.</div></div><br><br>';
+			$('.ChatListbox').append(que);
+			$('.ChatListbox').append(ans5);
+			$('#Ans_1').css("display","none");
+			$('#Ans_2').css("display","none");
+			$('#Ans_3').css("display","none");
+			$('#Ans_4').css("display","none");
+			$('#Ans_5').css("display","none");
+			$('#back').css("display","inline-block");
+			
+			
+			// 스크롤 자동으로 아래로 내리기
+			const $bottomBtn = document.querySelector("#Ans_5");
+			$bottomBtn.onclick = () => {
+				
+				window.scrollTo({ 
+					
+					top: document.body.scrollHeight, 
+					behavior: "smooth" 
+					
+				});
+				
+			};
+			
+		});
+		
+		
+		
+		$('#back').click(function(){ 
+			
+			$('#Ans_1').show();
+			$('#Ans_1').css("background","none");
+			$('#Ans_1').html("개발자 인력 사무소란?"); 
+			$('#Ans_2').show();
+			$('#Ans_2').css("background","none");
+			$('#Ans_2').html("로그인이 안되시나요?"); 
+			$('#Ans_3').show();
+			$('#Ans_3').css("background","none");
+			$('#Ans_3').html("결제방법"); 
+			$('#Ans_4').show();
+			$('#Ans_4').css("background","none");
+			$('#Ans_4').html("배가 고파요"); 
+			$('#Ans_5').show();
+			$('#Ans_5').css("background","none");
+			$('#Ans_5').html("상담원과 연결하기");
+			$(this).css("display","none");
+			
+			
+			// 스크롤 자동으로 아래로 내리기
+			const $bottomBtn = document.querySelector("#back");
+			$bottomBtn.onclick = () => {
+				
+				window.scrollTo({ 
+					
+					top: document.body.scrollHeight, 
+					behavior: "smooth" 
+					
+				});
+				
+			};
+			
+		});
+		
+		
+		$('.btn').mouseover(function() {
+			
+			$(this).css("background","#1B9CFC");
+			
+		});
+		
+		$('.btn').mouseout(function() {
+			
+			$(this).css("background","white");
+			
+		});
+		
+		$('#back').mouseover(function() {
+			
+			$(this).css("background","black");
+			
+		});
+		
+		$('#back').mouseout(function() {
+			
+			$(this).css("background","white");
+			
+		});
+		
+		
+	</script>
+
+
 </body>
 </html>
