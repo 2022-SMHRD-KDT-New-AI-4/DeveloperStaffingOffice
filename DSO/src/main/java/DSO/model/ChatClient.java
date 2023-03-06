@@ -13,6 +13,7 @@ public class ChatClient {
 	public ChatClient() {
 		super();
 	}
+	
 	@Override
 	public String toString() {
 		return "ChatClient [service_seq=" + service_seq + ", service_title=" + service_title + ", c_id=" + c_id

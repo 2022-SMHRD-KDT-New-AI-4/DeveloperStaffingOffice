@@ -304,6 +304,12 @@ transparent;
 /*---------------------
   Header
 -----------------------*/
+.serv_img{
+		width: 260px;
+		height: 200px;
+		object-fit: cover;
+	}
+
 .ht-right {
 	position: fixed;
 	top: 0px;
@@ -4547,6 +4553,12 @@ body>section>div>div>div.filter-widget a>h4:hover {
 	}
 	.my-chat-box{
 		text-align: right;
+	}
+	
+	.serv_img{
+		width: 260px;
+		height: 200px;
+		object-fit: cover;
 	}
 	
 }

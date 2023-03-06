@@ -24,7 +24,8 @@ public class ToChat extends HttpServlet {
 		session.setAttribute("post", post);
 		
 		response.sendRedirect("Chatting_C.jsp");
-	
+		
+		
 	}
 
 }

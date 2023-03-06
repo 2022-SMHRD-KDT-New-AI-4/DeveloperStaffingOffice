@@ -96,7 +96,14 @@
 	width: 200px;
 	height: 80px;
 	}
-	
+	.talkbtn{
+		height: 90%;
+		border: 1px solid;
+		background: none;
+		margin-left: 30px;
+		border-radius: 10px;
+		text-align: center;
+	}
 
 </style>
 </head>
@@ -278,7 +285,15 @@
 									<!-- 마이페이지 목록 한칸 -->
 								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
 									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a id="buy0" href="#">구매중</a><span>1</span>	 					
+									<%
+									int cnt1= 0;
+									for(int i=0;i<buyList.size();i++){
+										if(buyList.get(i).getGrade()==0){
+											cnt1++;
+										}
+									}
+									%>
+										<a id="buy0" href="#">구매중</a><span><%=cnt1 %></span>	 					
 									</div>
 								</div>
 							<!-- 한칸 끝 -->	
@@ -286,14 +301,30 @@
 									<!-- 마이페이지 목록 한칸 -->
 								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
 									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a id="buy1" href="#">구매확인</a><span>1</span>	 					
+									<%
+									int cnt2= 0;
+									for(int i=0;i<buyList.size();i++){
+										if(buyList.get(i).getGrade()==1){
+											cnt2++;
+										}
+									}
+									%>
+										<a id="buy1" href="#">구매확인</a><span><%=cnt2 %></span>	 					
 									</div>
 								</div>		
 							<!-- 한칸 끝 -->	
 							<!-- 마이페이지 목록 한칸 -->
 								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
 									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a id="buy2" href="#">완료</a><span>1</span>	 					
+									<%
+									int cnt3= 0;
+									for(int i=0;i<buyList.size();i++){
+										if(buyList.get(i).getGrade()==2){
+											cnt3++;
+										}
+									}
+									%>
+										<a id="buy2" href="#">완료</a><span><%=cnt3 %></span>	 					
 									</div>
 								</div>	
 						   <!-- 마이페이지 목록  -->			 
@@ -314,7 +345,7 @@
 									  <ul class="board buy<%=buyList.get(i).getGrade()%>" name="ex_form">
 									  	<li class="fl tc w70 list t_line lt_line"><%=buyList.get(i).getService_seq() %></li>
 									  	<li class="fl tc w500 list t_line lt_line"><a href="ProductDetail.jsp?seq=<%=buyList.get(i).getService_seq()%>"><%=buyList.get(i).getService_title() %></a></li>
-									  	<li class="fl tc w120 list t_line lt_line"><%=buyList.get(i).getS_id() %></li>  
+									  	<li class="fl tc w120 list t_line lt_line"><%=buyList.get(i).getS_id() %><button class="talkbtn" type="button" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'">대화</button></li>  
 									  	<%if(buyList.get(i).getGrade()==0) {%>
 									  	<li class="fl tc w100 list t_line lt_line" >구매중</li>
 									  	<%} else if(buyList.get(i).getGrade()==1) { %>
@@ -361,7 +392,7 @@
 		    	
 		    	<!-- 챗봇 닫기 버튼 -->
 		    	<button id="closebtn" onclick="change()">✖</button>
-- 		     <% } %>
+ 		     <% } %>
 	    	
 	    </div>
 

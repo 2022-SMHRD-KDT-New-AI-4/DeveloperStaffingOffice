@@ -24,12 +24,11 @@ public class id_confirm extends HttpServlet {
 	   PrintWriter out = response.getWriter();
 		
 	   String s_id = request.getParameter("s_id");
-	
 
        Specialist_register_DAO dao = new Specialist_register_DAO();
        int cnt = dao.selectid(s_id);
-		
-	   out.print(cnt);
 
-}
+       out.print(cnt);
+
+	}
 }

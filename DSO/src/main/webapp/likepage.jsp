@@ -305,7 +305,7 @@
 							<div class="col-lg-4 col-sm-6">
 								<div class="product-item">
 									<div class="pi-pic">
-										<a href="ProductDetail.jsp?seq=<%=likeList.get(i).getService_seq()%>"> <img src="img/pl/pl2.png"
+										<a href="ProductDetail.jsp?seq=<%=likeList.get(i).getService_seq()%>"> <img class="serv_img" src="boardImg/<%=likeList.get(i).getService_img()%>"
 											alt=""></a>
 										<ul>
 											<li class="quick-view"><a href="ProductDetail.jsp?seq=<%=likeList.get(i).getService_seq()%>">상품
@@ -426,7 +426,7 @@
 		    	
 		    	<!-- 챗봇 닫기 버튼 -->
 		    	<button id="closebtn" onclick="change()">✖</button>
-- 		     <% } %>
+ 		     <% } %>
 	    	
 	    </div>
 
