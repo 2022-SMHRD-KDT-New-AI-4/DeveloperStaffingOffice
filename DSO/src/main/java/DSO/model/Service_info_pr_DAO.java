@@ -29,7 +29,7 @@ public class Service_info_pr_DAO {
 	}
 	
 	// 게시물 한개 불러오기
-	public Service_info_pr_VO selectPost(String seq){
+	public Service_info_pr_VO selectPost(int seq){
 		SqlSession session = sqlSessionFactory.openSession(true);
 		Service_info_pr_VO post = session.selectOne("selectPost",seq);
 		session.close();
@@ -41,6 +41,13 @@ public class Service_info_pr_DAO {
 		List<Service_info_pr_VO> list = session.selectList("selectSearch", value);
 		session.close();
 		return (ArrayList<Service_info_pr_VO>)list;
+	}
+	
+	public int insertChatPost(Service_info_pr_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.insert("insertChatPost",vo);
+		session.close();
+		return cnt;
 	}
 	
 }

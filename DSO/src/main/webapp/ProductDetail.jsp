@@ -13,7 +13,7 @@
 <%
 		Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 		Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-		String seq = request.getParameter("seq");
+		int seq = Integer.parseInt(request.getParameter("seq"));
 		Service_info_pr_DAO dao = new Service_info_pr_DAO();
 		Service_info_pr_VO post = dao.selectPost(seq);
 		String cateBigNum = (String)session.getAttribute("cateBigNum");
@@ -450,10 +450,8 @@
 									</h4>
 								</div>
 								<div class="quantity">
-									<a href="Chatting_C.jsp" class="primary-btn pd-cart">전문가와
+									<a href="ToChat?seq=<%=post.getService_seq()%>" class="primary-btn pd-cart">전문가와
 										대화</a>
-									<!-- <a href="ToChat?seq=<%=post.getService_seq()%>" class="primary-btn pd-cart">전문가와
-										대화</a> -->
 										<%
 												int t = 0;
 											if(loginC!=null||loginS!=null){

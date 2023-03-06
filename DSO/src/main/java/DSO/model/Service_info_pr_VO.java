@@ -44,6 +44,13 @@ public class Service_info_pr_VO {
 		this.s_id = s_id;
 	}
 
+	public Service_info_pr_VO(int service_seq, String service_title, String s_id) {
+		super();
+		this.service_seq = service_seq;
+		this.service_title = service_title;
+		this.s_id = s_id;
+	}
+
 	public Service_info_pr_VO() {
 		super();
 	}

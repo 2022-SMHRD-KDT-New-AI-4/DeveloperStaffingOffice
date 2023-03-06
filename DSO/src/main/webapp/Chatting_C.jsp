@@ -337,18 +337,17 @@
 				
 				<!-- 마이페이지 박스 -->
 				<div class="col-lg-9 order-1 order-lg-2">
-				<%if(loginS!=null) {%>
-					<div id="main-container" style="border:1px solid #1B9CFC ;">
-				<%}else{ %>
-					<div id="main-container" style="border:1px solid #EAB543 ;">
-				<%} %>
-		<%if(loginS!=null) {%>
-		<div id="chat-container" style="border: 1px solid #1B9CFC;background: #98cffa;">
-		<%}else{ %>
-		<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
-		<%} %>
-			
-		</div>
+					<%if(loginS!=null) {%>
+						<div id="main-container" style="border:1px solid #1B9CFC ;">
+					<%}else{ %>
+						<div id="main-container" style="border:1px solid #EAB543 ;">
+					<%} %>
+					<%if(loginS!=null) {%>
+					<div id="chat-container" style="border: 1px solid #1B9CFC;background: #98cffa;">
+					<%}else{ %>
+					<div id="chat-container" style="border: 1px solid #EAB543;background: wheat;">
+					<%} %>
+				</div>
 		<div id="bottom-container">
 			<%if(loginS!=null) {%>
 			<input id="inputMessage" type="text" style="border: 1px solid #1B9CFC;">
@@ -360,6 +359,7 @@
 			<%}else {%>
 			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
 			<%} %>
+			<button type="button" onclick="location.href='ToBuy'">구매</button>
 		</div>
 	</div>
 					</div>

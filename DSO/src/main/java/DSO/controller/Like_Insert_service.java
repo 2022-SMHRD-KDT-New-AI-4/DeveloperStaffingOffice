@@ -25,7 +25,7 @@ public class Like_Insert_service extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
-		String likeSeq = request.getParameter("likeSeq");
+		int likeSeq = Integer.parseInt(request.getParameter("likeSeq"));
 		Service_info_pr_DAO dao1 = new Service_info_pr_DAO();
 		Like_DAO dao2 = new Like_DAO();
 		Service_info_pr_VO post = dao1.selectPost(likeSeq);
