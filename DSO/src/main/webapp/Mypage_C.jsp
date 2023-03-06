@@ -1,3 +1,6 @@
+<%@page import="DSO.model.Service_info_pr_DAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DSO.model.ChatClient"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,6 +13,7 @@
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	ArrayList<ChatClient> buyList = (ArrayList<ChatClient>) session.getAttribute("buyList");
 	%>
 <!-- Google Font -->
 <link
@@ -32,6 +36,56 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
 <link rel="stylesheet" href="css/chatbot.css" type="text/css">
+<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/jquery.dd.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+	
+	
+	<script type="text/javascript">
+		
+	$(document).on('click', 'a[id=buy0]', function(){
+		$('.buy0').css({
+            'display' : 'inline'
+        });
+		$('.buy1').css({
+            'display' : 'none'
+        });
+		$('.buy2').css({
+            'display' : 'none'
+        });
+     })
+	$(document).on('click', 'a[id=buy1]', function(){
+		$('.buy0').css({
+            'display' : 'none'
+        });
+		$('.buy1').css({
+            'display' : 'inline'
+        });
+		$('.buy2').css({
+            'display' : 'none'
+        });
+     })
+	$(document).on('click', 'a[id=buy2]', function(){
+		$('.buy0').css({
+            'display' : 'none'
+        });
+		$('.buy1').css({
+            'display' : 'none'
+        });
+		$('.buy2').css({
+            'display' : 'inline'
+        });
+	})
+	
+	</script>
 <style type="text/css">
 	.col-lg-4{
 
@@ -224,7 +278,7 @@
 									<!-- 마이페이지 목록 한칸 -->
 								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
 									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a href="ProductDetail.jsp">구매중</a><span>1</span>	 					
+										<a id="buy0" href="#">구매중</a><span>1</span>	 					
 									</div>
 								</div>
 							<!-- 한칸 끝 -->	
@@ -232,14 +286,14 @@
 									<!-- 마이페이지 목록 한칸 -->
 								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
 									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a href="ProductDetail.jsp">구매확인</a><span>1</span>	 					
+										<a id="buy1" href="#">구매확인</a><span>1</span>	 					
 									</div>
 								</div>		
 							<!-- 한칸 끝 -->	
 							<!-- 마이페이지 목록 한칸 -->
 								<div class="col-lg-4 " style="background-color: white; display : flex;justify-content: center;align-items : center;" >								
 									<div style="text-align:center; background-color:#ebf4f5; width: 100px; height: 100px;display : flex;justify-content: center;align-items : center;" >
-										<a href="ProductDetail.jsp">완료</a><span>1</span>	 					
+										<a id="buy2" href="#">완료</a><span>1</span>	 					
 									</div>
 								</div>	
 						   <!-- 마이페이지 목록  -->			 
@@ -248,45 +302,30 @@
 									<div>
 								  	  <!---기본 메뉴--->
 									  <ul class="board">
-									  	<li class="fl tc w70 title t_line">번호</li>
-									  	<li class="fl tc w500 title t_line">의뢰인</li>
-									  	<li class="fl tc w120 title t_line">의뢰내용</li>
-									  	<li class="fl tc w100 title t_line">진행완료</li>
-									  	<li class="fl tc w100 title ">조회수</li>
+									  	<li class="fl tc w70 title t_line">상품 번호</li>
+									  	<li class="fl tc w500 title t_line">상품 제목</li>
+									  	<li class="fl tc w120 title t_line">전문가 아이디</li>
+									  	<li class="fl tc w100 title t_line">진행 단계</li>
+									  	<li class="fl tc w100 title ">구매 날짜</li>
 									  	
 									  </ul>
+									  <%for(int i=0;i<buyList.size();i++) {%>
 									  <!--- 리스트 --->
-									  <ul class="board" name="ex_form">
-									  	<li class="fl tc w70 list t_line lt_line">1</li>
-									  	<li class="fl tc w500 list t_line lt_line">의뢰인1</li>
-									  	<li class="fl tc w120 list t_line lt_line"><a href="ProductDetail.jsp?seq=1" id="incrementButton" >웹 · 모바일 기획</a></li>  
-									  	<li class="fl tc w100 list t_line lt_line"><button class="listbtn">완료</button></li>
-									  	<form method="post" action="viewsUp">
-									  	<li class="fl tc w100 list  lt_line" id=views name="views">0</li>
-									  	</form>
+									  <ul class="board buy<%=buyList.get(i).getGrade()%>" name="ex_form">
+									  	<li class="fl tc w70 list t_line lt_line"><%=buyList.get(i).getService_seq() %></li>
+									  	<li class="fl tc w500 list t_line lt_line"><a href="ProductDetail.jsp?seq=<%=buyList.get(i).getService_seq()%>"><%=buyList.get(i).getService_title() %></a></li>
+									  	<li class="fl tc w120 list t_line lt_line"><%=buyList.get(i).getS_id() %></li>  
+									  	<%if(buyList.get(i).getGrade()==0) {%>
+									  	<li class="fl tc w100 list t_line lt_line" >구매중</li>
+									  	<%} else if(buyList.get(i).getGrade()==1) { %>
+									  	<li class="fl tc w100 list t_line lt_line" >구매 확인</li>
+									  	<%} else if(buyList.get(i).getGrade()==2) { %>
+									  	<li class="fl tc w100 list t_line lt_line" >완료</li>
+									  	<%} %>
+									  	<li class="fl tc w100 list  lt_line"><%=buyList.get(i).getDt().substring(0, 11) %></li>
 									  	<!-- <button id="incrementButton">증가</button> -->
-									  	<script>/* 조회수 증가 기능 추가 // 선택  */
-									 	
-									  	
-									  	
-									  	
-									 	// Get the button element
-									  	let button = document.getElementById("incrementButton");
-
-									  	// Set the initial number of views
-									  	let views = 0;
-
-									  	// Add a click event listener to the button
-									  	button.addEventListener("click", function() {
-									  	  // Increase the number of views by 1
-									  	  views++;
-
-									  	  // Update the number of views on the webpage
-									  	  document.getElementById("views").innerHTML = views;
-									  	});
-									  	
-									  	</script>
 									  </ul>
+									  <%} %>
 									 </div>
 							</div>									
 
@@ -407,18 +446,6 @@
 		</div>
 	</footer>
 	<!-- Footer Section End -->
-
-	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery.dd.min.js"></script>
-	<script src="js/jquery.slicknav.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
 
 </body>
 </html>
