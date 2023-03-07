@@ -9,10 +9,7 @@
 <title>댓글및평점</title>
 <%
 Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
-String seq = (String)request.getAttribute("seq");
-int service_seq = Integer.parseInt(seq);
-
-
+int service_seq = Integer.parseInt(request.getParameter("seq"));
 %>
 
 <style type="text/css">
