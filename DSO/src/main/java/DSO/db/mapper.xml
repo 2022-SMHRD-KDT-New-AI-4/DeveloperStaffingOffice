@@ -147,7 +147,7 @@
 		Select * from tbl_register_specialist where c_id = #{value}
 	</select>
 	
-<!-- 의뢰인 로그인 -->
+<!-- 의뢰인 비밀번호 찾기 -->
   <select id="clientForget" resultType="Client_register_VO" parameterType="Client_register_VO">
   	select * from tbl_client where c_id=#{c_id} and c_name=#{c_pw}
   </select>

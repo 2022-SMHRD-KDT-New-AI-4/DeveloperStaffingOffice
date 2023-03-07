@@ -351,7 +351,7 @@
 									  	<%} else if(buyList.get(i).getGrade()==1) { %>
 									  	<li class="fl tc w100 list t_line lt_line" >구매 확인</li>
 									  	<%} else if(buyList.get(i).getGrade()==2) { %>
-									  	<li class="fl tc w100 list t_line lt_line" >완료</li>
+									  	<li class="fl tc w100 list t_line lt_line" >완료<button class="talkbtn" type="button" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'">대화</button></li>
 									  	<%} %>
 									  	<li class="fl tc w100 list  lt_line"><%=buyList.get(i).getDt().substring(0, 11) %></li>
 									  	<!-- <button id="incrementButton">증가</button> -->
