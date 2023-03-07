@@ -47,6 +47,12 @@ public class Freereply_DAO {
 		return cnt;
 	}
 
+	public int gradeCon(Freereply_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int grade =session.selectOne("gradeCon", vo);
+		session.close();
+		return grade;
+	}
 
 
 

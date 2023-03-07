@@ -1,3 +1,6 @@
+<%@page import="DSO.model.Freereply_DAO"%>
+<%@page import="DSO.model.Freereply_VO"%>
+<%@page import="DSO.model.Service_info_pr_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -9,6 +12,12 @@
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	Service_info_pr_VO post = (Service_info_pr_VO)session.getAttribute("post");
+	Freereply_VO vo = new Freereply_VO(loginC.getC_id(),post.getService_seq());
+	Freereply_DAO dao = new Freereply_DAO();
+	int grade = dao.gradeCon(vo);
+	
+	
 	%>
 <%
     String userName=null;
@@ -359,7 +368,11 @@
 			<%}else {%>
 			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
 			<%} %>
+			<%if(grade=0) {%>
 			<button type="button" onclick="location.href='ToBuy'">구매</button>
+			<%} else if(grade=1) {%>
+			<button type="button" onclick="location.href='ToProduct'">상품수령</button>
+			<%} %>
 		</div>
 	</div>
 					</div>

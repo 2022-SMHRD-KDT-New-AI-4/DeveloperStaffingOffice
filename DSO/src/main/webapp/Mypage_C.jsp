@@ -14,7 +14,12 @@
 	Service_info_pr_DAO dao = new Service_info_pr_DAO();
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-	String value = loginC.getC_id();
+	String value = null;
+	if(loginS==null){
+		value = loginC.getC_id();
+	} else {
+		value = loginS.getS_id();
+	}
 	ArrayList<ChatClient> buyListNew = dao.buyListLoad(value);
 	session.setAttribute("buyList", buyListNew);
 	ArrayList<ChatClient> buyList = (ArrayList<ChatClient>) session.getAttribute("buyList");

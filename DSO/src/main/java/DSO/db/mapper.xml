@@ -156,4 +156,10 @@
 	<update id="buyListUpdate" parameterType="DSO.model.Freereply_VO">
 		update tbl_register_specialist set grade=2 where c_id=#{loginC} and service_seq = #{service_seq}
 	</update>
+	
+<!-- 구매목록 불러오기 -->
+	<select id="" resultType="DSO.model.ChatClient" parameterType="string">
+		Select * from tbl_register_specialist where c_id = #{value}
+	</select>
+	
 </mapper>
