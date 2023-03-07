@@ -30,6 +30,8 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
@@ -56,16 +58,21 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-<style type="text/css">
- a:link { color: red; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
- a:hover { color: blue; text-decoration: underline;}
-</style>
+	<script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+	
+	<style type="text/css">
+	 a:link { color: black; text-decoration: none;}
+	 a:visited { color: black; text-decoration: none;}
+	 a:hover { color: orange; text-decoration: underline;}
+	</style>
 	
 	<script type="text/javascript">
 		
 	$(document).on('click', 'a[id=buy0]', function(){
 		$('.buy0').css({
+            'display' : 'inline'
+        });
+		$('.buy10').css({
             'display' : 'inline'
         });
 		$('.buy1').css({
@@ -79,6 +86,9 @@
 		$('.buy0').css({
             'display' : 'none'
         });
+		$('.buy10').css({
+            'display' : 'none'
+        });
 		$('.buy1').css({
             'display' : 'inline'
         });
@@ -88,6 +98,9 @@
      })
 	$(document).on('click', 'a[id=buy2]', function(){
 		$('.buy0').css({
+            'display' : 'none'
+        });
+		$('.buy10').css({
             'display' : 'none'
         });
 		$('.buy1').css({
@@ -119,6 +132,28 @@
 	#pss {
 		padding-bottom: 94px;
 	}
+	
+	/* 채팅하기 효과  */
+	#icon {
+  margin: 10px;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+#icon i {
+  font-size: 16px;
+  transition: all 0.2s;
+  color: #ffb516;
+}
+
+#icon:hover i {
+  transform: rotate(15deg) scale(1.5);
+  color:#ffb516;
+}
+</style>
 
 </style>
 </head>
@@ -303,12 +338,13 @@
 									<%
 									int cnt1= 0;
 									for(int i=0;i<buyList.size();i++){
-										if(buyList.get(i).getGrade()==0){
+										if(buyList.get(i).getGrade()==0||buyList.get(i).getGrade()==10){
 											cnt1++;
 										}
 									}
 									%>
-										<a id="buy0" href="#">구매중</a><span><%=cnt1 %></span>	 					
+										<%-- <a id="buy0" href="#">구매중</a><span><%=cnt1 %></span> --%>
+										<a id="buy0" href="#"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp구매중</a><span style="font-size: 19px; margin-left: 5px; margin-bottom:-1px"><%=cnt1 %></span> 					
 									</div>
 								</div>
 							<!-- 한칸 끝 -->	
@@ -324,7 +360,8 @@
 										}
 									}
 									%>
-										<a id="buy1" href="#">구매확인</a><span><%=cnt2 %></span>	 					
+									<a id="buy1" href="#"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp구매확인</a><span style="font-size: 19px; margin-left: 5px; margin-bottom:-1px"><%=cnt2 %></span>
+										<%-- <a id="buy1" href="#">구매확인</a><span><%=cnt2 %></span> --%>	 					
 									</div>
 								</div>		
 							<!-- 한칸 끝 -->	
@@ -339,7 +376,8 @@
 										}
 									}
 									%>
-										<a id="buy2" href="#">완료</a><span><%=cnt3 %></span>	 					
+									<a id="buy2" href="#"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp완료</a><span style="font-size: 19px; margin-left: 5px; margin-bottom:-1px"><%=cnt3 %></span>
+										<%-- <a id="buy2" href="#">완료</a><span><%=cnt3 %></span>	 --%> 					
 									</div>
 								</div>	
 						   <!-- 마이페이지 목록  -->			 
@@ -361,13 +399,26 @@
 									  <ul class="board buy<%=buyList.get(i).getGrade()%>" name="ex_form">
 									  	<li class="fl tc w70 list t_line lt_line"><%=buyList.get(i).getService_seq() %></li>
 									  	<li class="fl tc w500 list t_line lt_line"><a href="ProductDetail.jsp?seq=<%=buyList.get(i).getService_seq()%>"><%=buyList.get(i).getService_title() %></a></li>
-									  	<li class="fl tc w120 list t_line lt_line"><%=buyList.get(i).getS_id() %><button class="talkbtn" type="button" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'">대화</button></li>  
+									  	<li class="fl tc w120 list t_line lt_line"><%=buyList.get(i).getS_id() %>
+									  	<a id="icon" style="background-color: weate; display: inline;">
+									   	 <i style="cursor : pointer;  "class="fa fa-commenting-o" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'"></i>
+									    </a>
+									  	<%-- <button class="talkbtn" type="button" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'">대화</button></li> --%>  
 									  	<%if(buyList.get(i).getGrade()==0) {%>
 									  	<li class="fl tc w100 list t_line lt_line" >구매중</li>
 									  	<%} else if(buyList.get(i).getGrade()==10) { %>
-									  	<li class="fl tc w100 list t_line lt_line" >상품 확인<button class="talkbtn" type="button" onclick="location.href='ToTake?seq=<%=buyList.get(i).getService_seq()%>'">수령</button></li>
+									  	<li class="fl tc w100 list t_line lt_line" >상품 확인
+									  	<a id="icon" style="background-color: weate; display: inline;">
+									   	 <i style="cursor : pointer;  "class="fa fa-gift" onclick="location.href='ToTake?seq=<%=buyList.get(i).getService_seq()%>'"></i>
+									    </a>
+								
+								<%-- <button class="talkbtn" type="button" onclick="location.href='ToTake?seq=<%=buyList.get(i).getService_seq()%>'">수령</button></li> --%>
 									  	<%} else if(buyList.get(i).getGrade()==1) { %>
-									  	<li class="fl tc w100 list t_line lt_line" >구매 확인<button class="talkbtn" type="button" onclick="location.href='Freereply.jsp?seq=<%=buyList.get(i).getService_seq()%>'">리뷰</button></li>
+									  	<li class="fl tc w100 list t_line lt_line" >구매 확인
+									  	<a id="icon" style="background-color: weate; display: inline;">
+									   	 <i style="cursor : pointer;  "class="fa fa-pencil-square-o" onclick="location.href='Freereply.jsp?seq=<%=buyList.get(i).getService_seq()%>'"></i>
+									    </a>
+							    <%-- <button class="talkbtn" type="button" onclick="location.href='Freereply.jsp?seq=<%=buyList.get(i).getService_seq()%>'">리뷰</button></li> --%>
 									  	<%} else if(buyList.get(i).getGrade()==2) { %>
 									  	<li class="fl tc w100 list t_line lt_line" >완료</li>
 									  	<%} %>

@@ -39,6 +39,26 @@
 	font-style: normal;
 }
 
+	#icon {
+
+	  height: 60px;
+	  width: 60px;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  border-radius: 50%;
+	}
+	#icon i {
+	  font-size: 40px;
+	  transition: all 0.2s;
+	  color: black;
+	}
+	
+	#icon:hover i {
+	  transform: scale(1.5);
+	  color:#1B9CFC;
+	}
+
 html, body {
 	height: 100%;
 	font-family: 'NanumBarunpen';

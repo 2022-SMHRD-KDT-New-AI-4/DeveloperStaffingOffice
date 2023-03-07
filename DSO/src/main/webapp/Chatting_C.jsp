@@ -104,7 +104,7 @@
 	
 	#main-container{
 		width:820px;
-		height:420px;
+		height:440px;
 		margin:10px;
 		display: inline-block;
 		border-radius : 10px 10px 10px 10px;	
@@ -169,6 +169,7 @@
 	.my-chat-box{
 		text-align: right;
 	}
+		
 </style>
 
 <!-- Js Plugins -->
@@ -182,6 +183,8 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 </head>
 <body>
 	<!-- 좋아요 스크립트   -->
@@ -377,11 +380,12 @@
 			<%} %>
 			<%if(loginC!=null) {%>
 			<%if(grade==0) {%>
-			<button type="button" onclick="location.href='ToBuy'">구매</button>
+			<span style="margin-left: 10px; margin-right: 10px;">결제하기</span> <a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px;" class="fa fa-credit-card fa-3x" aria-hidden="true" onclick="location.href='ToBuy'"></i>
 			<%} %>
 			<%} %>
 			<%if(loginS!=null) {%>
-			<button type="button" onclick="location.href='ToSend'">상품 보내기</button>
+			<!-- <button type="button" onclick="location.href='ToSend'">상품 보내기</button> -->
+			<span style="margin-left: 10px; margin-right: 10px;">상품보내기</span><a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px; " class="fa fa-gift" aria-hidden="true" onclick="location.href='ToSend'"></i>
 			<%} %>
 		</div>
 	</div>
