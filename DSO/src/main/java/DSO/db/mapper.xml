@@ -109,13 +109,13 @@
 
 <!--의뢰인 댓글 별점 등록-->
 	<insert id="freereplyinsert" parameterType="DSO.model.Freereply_VO">
-		insert into tbl_freereply2(rep_seq,loginC,review,rate,service_seq) values(tbl_freereply2_SEQ.nextval,#{loginC},#{review},#{rate},#{service_seq})
+		insert into tbl_freereply2 values(tbl_freereply2_SEQ.nextval,#{loginC},#{review},#{rate},#{service_seq},sysdate)
 	</insert>
 
 	
 <!--의뢰인 댓글 별점 조회-->
 	<select id="freereplyselect" resultType="DSO.model.Freereply_VO">
-		select * from tbl_freereply2 <!--  where service_seq=#{service_seq} -->
+		select * from tbl_freereply2 where service_seq=#{service_seq}
 	</select>		
 
 <!-- 게시물 조회수 증가 -->
@@ -166,5 +166,15 @@
 	<select id="conChatPost" resultType="DSO.model.ChatClient" parameterType="DSO.model.Freereply_VO">
 		Select * from tbl_register_specialist where c_id = #{loginC} and service_seq = #{service_seq}
 	</select>
+	
+<!-- 상품 보냄 상태 -->
+	<update id="gradeSend">
+		update tbl_register_specialist set grade=10 where grade=0
+	</update>
+	
+<!-- 상품 수령 -->
+	<update id="takeProduct" parameterType="DSO.model.Freereply_VO">
+		update tbl_register_specialist set grade=1 where c_id=#{loginC} and service_seq = #{service_seq}
+	</update>
 	
 </mapper>

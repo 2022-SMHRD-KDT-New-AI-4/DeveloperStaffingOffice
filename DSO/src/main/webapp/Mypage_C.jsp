@@ -355,6 +355,7 @@
 									  	<li class="fl tc w100 title ">구매 날짜</li>
 									  	
 									  </ul>
+									  <%if(loginS==null) {%>
 									  <%for(int i=0;i<buyList.size();i++) {%>
 									  <!--- 리스트 --->
 									  <ul class="board buy<%=buyList.get(i).getGrade()%>" name="ex_form">
@@ -363,6 +364,8 @@
 									  	<li class="fl tc w120 list t_line lt_line"><%=buyList.get(i).getS_id() %><button class="talkbtn" type="button" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'">대화</button></li>  
 									  	<%if(buyList.get(i).getGrade()==0) {%>
 									  	<li class="fl tc w100 list t_line lt_line" >구매중</li>
+									  	<%} else if(buyList.get(i).getGrade()==10) { %>
+									  	<li class="fl tc w100 list t_line lt_line" >상품 확인<button class="talkbtn" type="button" onclick="location.href='ToTake?seq=<%=buyList.get(i).getService_seq()%>'">수령</button></li>
 									  	<%} else if(buyList.get(i).getGrade()==1) { %>
 									  	<li class="fl tc w100 list t_line lt_line" >구매 확인<button class="talkbtn" type="button" onclick="location.href='Freereply.jsp?seq=<%=buyList.get(i).getService_seq()%>'">리뷰</button></li>
 									  	<%} else if(buyList.get(i).getGrade()==2) { %>
@@ -370,6 +373,7 @@
 									  	<%} %>
 									  	<li class="fl tc w100 list  lt_line"><%=buyList.get(i).getDt().substring(0, 11) %></li>
 									  </ul>
+									  <%} %>
 									  <%} %>
 									 </div>
 							</div>									

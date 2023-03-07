@@ -5,6 +5,7 @@ public class Freereply_VO {
 	private String review;
 	private int rate;
 	private int service_seq;
+	private String regdate;
 	
 	public Freereply_VO() {
 		
@@ -14,6 +15,35 @@ public class Freereply_VO {
 	
 	
 	
+	public Freereply_VO(String loginC, String review, int rate, int service_seq, String regdate) {
+		super();
+		this.loginC = loginC;
+		this.review = review;
+		this.rate = rate;
+		this.service_seq = service_seq;
+		this.regdate = regdate;
+	}
+
+
+
+
+
+	public String getRegdate() {
+		return regdate;
+	}
+
+
+
+
+
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+
+
+
+
+
 	public Freereply_VO(String loginC, int service_seq) {
 		super();
 		this.loginC = loginC;

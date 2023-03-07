@@ -19,6 +19,7 @@
 		String cateBigNum = (String)session.getAttribute("cateBigNum");
 		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
 		ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
+		session.setAttribute("postNum", post.getService_seq());
 	%>
 <meta charset="UTF-8">
 <meta name="description" content="Fashi Template">
@@ -58,6 +59,72 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<style type="text/css">
+/* 레이아웃 외곽 너비 400px 제한*/
+
+#avatar-text{
+   justify-content:center;
+   align-content:flex-start;
+}
+.wcustomer-review-option{
+    max-width: 480px;
+    margin: 0 auto; /* 화면 가운데로 */
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.reviewform textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.rating .rate_radio {
+    position: relative;
+    display: inline-block;
+    z-index: 20;
+    opacity: 0.001;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: top;
+    display: none;
+}
+.rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    margin-left: -4px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url('./img/starrate.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+.rating .rate_radio:checked + label {
+    background-color: #ff8;
+}
+
+.warning_msg {
+    display: none;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 100%;
+    color: red;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}
+#comment-count{
+    margin-bottom: 10px; 
+}
+</style>
 </head>
 <body>
 <!-- 좋아요 스크립트   -->
@@ -114,6 +181,87 @@
  
 </script> 
 <!-- 좋아요 스크립트 끝 -->
+
+<!-- 리뷰 스크립트 -->
+<script type="text/javascript">
+   $(document).ready(function(){
+      avatar_text();
+      
+   });
+   function avatar_text(){
+      $.ajax({
+         url : "Freereply_list_Service",
+         method : "post",
+         dataType : "JSON",
+         success : function(data){
+            var html="";
+            html += "<table style='width:640px;'>"
+            for(let i = 0; i< data.length; i++){
+               html +="<tr>";
+               html += "<td style='color: #EAB543;width:420px'>"
+               if(data[i].rate==0){
+                  html += "☆☆☆☆☆";
+               }else if(data[i].rate==1){
+                  html += "★☆☆☆☆";
+               }else if(data[i].rate==2){
+                  html += "★★☆☆☆";
+               }else if(data[i].rate==3){
+                  html += "★★★☆☆";
+               }else if(data[i].rate==4){
+                  html += "★★★★☆";
+               }else if(data[i].rate==5){
+                  html += "★★★★★";
+               }
+               html +="</td>";
+               html +="</tr>";
+               html +="<tr>";
+               html +="<td style='font-weight:800'>";
+               html +=data[i].loginC;
+               html +="</td>"
+               html +="<td style='text-align:center;'>";
+               html +=data[i].regdate;
+               html +="</td>";
+               html +="</tr>";
+               html +="<tr>";
+               html +="<td colspan='2' style='padding-left:20px; padding-right:100px; padding-bottom:20px;'>";
+               html +=data[i].review;
+               html +="</td>";
+               html +="</tr>";
+            }
+               html +="</table>"
+            $('#avatar-text').empty();
+            $('#avatar-text').html(html);
+         },
+         error : function(err){
+            console.log(err);
+         }
+      });
+   }
+      $('#save').click(function(){
+            // 입력버튼을 클릭했을때 실행되는 함수
+            let review = $('#review').val();
+            let loginC = $('#loginC').val();
+            let regdate = $('#regdate').val();
+            
+            
+            $.ajax({
+               url : "freereplyInsertService",
+               method : "POST",
+               data : {"review" : review, "loginC": loginC, "regdate":regdate  },
+               dataType : "JSON",
+               success : function(data){
+                  alert(data.result);
+                  $('#loginC').val("");
+                  $('#review').val("");
+                  $('#regdate').val("");
+               },
+               error : function(err){
+                  console.log(err);
+               }
+            });
+         });
+</script>
+<!-- 리뷰 스크립트 끝 -->
 	
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -559,8 +707,9 @@
 						</div>
 						<div class="tab-item-content">
 							<div class="tab-content">
+								
+								<!-- 포트폴리오 탭 -->
 								<div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-									<!-- 포트폴리오 탭 -->
 									<div class="product-content">
 										<div class="row">
 											<div class="col-lg-5">
@@ -582,8 +731,10 @@
 										</div>
 									</div>
 								</div>
+								<!-- 포트폴리오 탭 끝 -->
+								
+								<!-- 서비스 설명 및 의뢰인 준비사항 탭-->
 								<div class="tab-pane fade" id="tab-2" role="tabpanel">
-									<!-- 서비스 설명 및 의뢰인 준비사항 탭-->
 									<div class="specification-table">
 										<div class="col-lg-7">
 											<h5>서비스 설명</h5>
@@ -593,46 +744,17 @@
 										</div>
 									</div>
 								</div>
+								<!-- 서비스 설명 탭 끝 -->
+								
+								<!-- 리뷰 탭 -->
 								<div class="tab-pane fade" id="tab-3" role="tabpanel">
-									<!-- 리뷰 탭 -->
 									<div class="customer-review-option">
-										<h4>2 Comments</h4>
-										<div class="comment-option">
-											<div class="co-item">
-												<div class="avatar-pic">
-													<img src="img/product-single/avatar-1.png" alt="">
-												</div>
-												<div class="avatar-text">
-													<div class="at-rating">
-														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star-o"></i>
-													</div>
-													<h5>
-														Brandon Kelley <span>27 Aug 2019</span>
-													</h5>
-													<div class="at-reply">Good !</div>
-												</div>
-											</div>
-											<div class="co-item">
-												<div class="avatar-pic">
-													<img src="img/product-single/avatar-2.png" alt="">
-												</div>
-												<div class="avatar-text">
-													<div class="at-rating">
-														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-															class="fa fa-star-o"></i>
-													</div>
-													<h5>
-														Roy Banks <span>27 Aug 2019</span>
-													</h5>
-													<div class="at-reply">Nice !</div>
-												</div>
-											</div>
-										</div>
+										<div id="comment_count">Comments<span id="count"></span></div>
+									</div>
+									<div id="avatar-text">
 									</div>
 								</div>
+								<!-- 리뷰 탭 끝 -->
 							</div>
 						</div>
 					</div>

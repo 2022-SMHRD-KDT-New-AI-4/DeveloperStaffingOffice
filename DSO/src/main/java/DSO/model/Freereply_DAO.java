@@ -18,9 +18,9 @@ public class Freereply_DAO {
 		return cnt;
 	}
 
-	public ArrayList<Freereply_VO> freereplyList() {
+	public ArrayList<Freereply_VO> freereplyList(int service_seq) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		List<Freereply_VO> list = session.selectList("freereplyselect");
+		List<Freereply_VO> list = session.selectList("freereplyselect",service_seq);
 		session.close();
 		return (ArrayList<Freereply_VO>)list;
 	}
@@ -55,6 +55,20 @@ public class Freereply_DAO {
 		}
 		session.close();
 		return grade;
+	}
+	
+	public int gradeSend() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("gradeSend");
+		session.close();
+		return cnt;
+	}
+	
+	public int takeProduct(Freereply_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt =session.update("takeProduct", vo);
+		session.close();
+		return cnt;
 	}
 
 

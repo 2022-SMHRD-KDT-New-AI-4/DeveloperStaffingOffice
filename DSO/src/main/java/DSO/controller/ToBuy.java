@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import DSO.model.ChatClient;
 import DSO.model.Client_register_VO;
+import DSO.model.Freereply_DAO;
 import DSO.model.Freereply_VO;
 import DSO.model.Service_info_pr_DAO;
 import DSO.model.Service_info_pr_VO;

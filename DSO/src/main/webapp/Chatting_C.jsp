@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="DSO.model.Freereply_DAO"%>
 <%@page import="DSO.model.Freereply_VO"%>
 <%@page import="DSO.model.Service_info_pr_VO"%>
@@ -12,10 +13,18 @@
 <%
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
-	Service_info_pr_VO post = (Service_info_pr_VO)session.getAttribute("post");
-	Freereply_VO vo = new Freereply_VO(loginC.getC_id(),post.getService_seq());
+	Service_info_pr_VO post = new Service_info_pr_VO();
+	Freereply_VO vo = new Freereply_VO();
+	if(loginS==null){
+		post = (Service_info_pr_VO)session.getAttribute("post");
+		vo = new Freereply_VO(loginC.getC_id(),post.getService_seq());
+	} else if (loginC==null){
+		post = new Service_info_pr_VO(1,loginS.getS_id());
+		vo = new Freereply_VO(loginS.getS_id(),post.getService_seq());
+	}
 	Freereply_DAO dao = new Freereply_DAO();
 	int grade = dao.gradeCon(vo);
+	System.out.println(grade);
 	%>
 <%
     String userName=null;
@@ -366,10 +375,13 @@
 			<%}else {%>
 			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
 			<%} %>
+			<%if(loginC!=null) {%>
 			<%if(grade==0) {%>
 			<button type="button" onclick="location.href='ToBuy'">구매</button>
-			<%} else if(grade==1) {%>
-			<button type="button" onclick="location.href='ToProduct'">상품수령</button>
+			<%} %>
+			<%} %>
+			<%if(loginS!=null) {%>
+			<button type="button" onclick="location.href='ToSend'">상품 보내기</button>
 			<%} %>
 		</div>
 	</div>
