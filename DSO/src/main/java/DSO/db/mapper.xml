@@ -152,4 +152,8 @@
   	select * from tbl_client where c_id=#{c_id} and c_name=#{c_pw}
   </select>
 
+<!-- 리뷰 등록 후 구매완료 -->
+	<update id="buyListUpdate" parameterType="DSO.model.Freereply_VO">
+		update tbl_register_specialist set grade=2 where c_id=#{loginC} and service_seq = #{service_seq}
+	</update>
 </mapper>

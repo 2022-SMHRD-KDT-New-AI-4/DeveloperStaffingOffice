@@ -28,18 +28,25 @@ public class Freereply_service extends HttpServlet {
 		int service_seq = Integer.parseInt(request.getParameter("service_seq"));
 		
 		Freereply_VO vo = new Freereply_VO(loginC,review,rate,service_seq);
-		System.out.println(vo);
+		Freereply_VO vo2 = new Freereply_VO(loginC,service_seq);
 		
 		Freereply_DAO dao = new Freereply_DAO();
 		int cnt = dao.freereplyinsert(vo);
 		
 		
 		if(cnt > 0) {
-			out.print("<script>");
-	        out.print("alert(`리뷰 등록 성공!`);");
-	        out.print("location.href='Mypage_C.jsp'");
-	        out.print("</script>");
-			
+			int cnt2 = dao.buyListUpdate(vo2);
+			if(cnt2 > 0) {
+				out.print("<script>");
+				out.print("alert(`리뷰 등록 성공!`);");
+				out.print("location.href='Mypage_C.jsp'");
+				out.print("</script>");
+			} else {
+				out.print("<script>");
+				out.print("alert(`리뷰 등록 실패...`);");
+				out.print("location.href='Mypage_C.jsp'");
+				out.print("</script>");
+			}
 		}else {
 			out.print("<script>");
 			out.print("alert(`리뷰 등록 실패...`);");

@@ -37,9 +37,15 @@ public class Freereply_DAO {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt =session.update("freereplyUpdate", vo);
 		session.close();
-		return 0;
+		return cnt;
 	}
 
+	public int buyListUpdate(Freereply_VO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt =session.update("buyListUpdate", vo);
+		session.close();
+		return cnt;
+	}
 
 
 
