@@ -154,8 +154,7 @@
   color:#ffb516;
 }
 </style>
-
-</style>
+<script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<!-- Page Preloder -->

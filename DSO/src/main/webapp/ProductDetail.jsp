@@ -699,17 +699,39 @@
 						<div class="tab-item">
 							<ul class="nav" role="tablist">
 								<li><a class="active" data-toggle="tab" href="#tab-1"
-									role="tab">포트폴리오</a></li>
-								<li><a data-toggle="tab" href="#tab-2" role="tab">서비스
-										설명 및 의뢰인 준비사항</a></li>
-								<li><a data-toggle="tab" href="#tab-3" role="tab">리뷰</a></li>
+									role="tab">서비스	설명 및 의뢰인 준비사항</a></li>
+								<li><a data-toggle="tab" href="#tab-2" role="tab">리뷰</a></li>
+								<li><a data-toggle="tab" href="#tab-3" role="tab">포트폴리오</a></li>
 							</ul>
 						</div>
 						<div class="tab-item-content">
 							<div class="tab-content">
+							
+								<!-- 서비스 설명 및 의뢰인 준비사항 탭-->
+								<div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
+									<div class="specification-table">
+										<div class="col-lg-7">
+											<h5>서비스 설명</h5>
+											<p><%=post.getService_desc() %></p>
+											<h5>의뢰인 준비사항</h5>
+											<p><%=post.getService_requisite() %></p>
+										</div>
+									</div>
+								</div>
+								<!-- 서비스 설명 탭 끝 -->
+								
+								<!-- 리뷰 탭 -->
+								<div class="tab-pane fade" id="tab-2" role="tabpanel">
+									<div class="customer-review-option">
+										<div id="comment_count">Comments<span id="count"></span></div>
+									</div>
+									<div id="avatar-text">
+									</div>
+								</div>
+								<!-- 리뷰 탭 끝 -->
 								
 								<!-- 포트폴리오 탭 -->
-								<div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
+								<div class="tab-pane fade" id="tab-3" role="tabpanel">
 									<div class="product-content">
 										<div class="row">
 											<div class="col-lg-5">
@@ -733,28 +755,6 @@
 								</div>
 								<!-- 포트폴리오 탭 끝 -->
 								
-								<!-- 서비스 설명 및 의뢰인 준비사항 탭-->
-								<div class="tab-pane fade" id="tab-2" role="tabpanel">
-									<div class="specification-table">
-										<div class="col-lg-7">
-											<h5>서비스 설명</h5>
-											<p><%=post.getService_desc() %></p>
-											<h5>의뢰인 준비사항</h5>
-											<p><%=post.getService_requisite() %></p>
-										</div>
-									</div>
-								</div>
-								<!-- 서비스 설명 탭 끝 -->
-								
-								<!-- 리뷰 탭 -->
-								<div class="tab-pane fade" id="tab-3" role="tabpanel">
-									<div class="customer-review-option">
-										<div id="comment_count">Comments<span id="count"></span></div>
-									</div>
-									<div id="avatar-text">
-									</div>
-								</div>
-								<!-- 리뷰 탭 끝 -->
 							</div>
 						</div>
 					</div>
