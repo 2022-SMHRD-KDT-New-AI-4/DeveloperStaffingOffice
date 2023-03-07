@@ -9,6 +9,9 @@
 <title>댓글및평점</title>
 <%
 Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
+String seq = (String)request.getAttribute("seq");
+int service_seq = Integer.parseInt(seq);
+
 
 %>
 
@@ -85,8 +88,8 @@ Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
     <div id="comment_count">댓글<span id="count">0</span></div>
     <form name="reviewform" class="reviewform" method="post" action="Freeply_service">
         <input type="hidden" name="rate" id="rate" value="0"/> 
-        <input type="hidden" name="loginC" value="test123"/> <!-- 값이 없어서 임의로 넣은 아이디값-->
-  <input type="hidden" name="service_seq" value="1"/>  <!-- 값이 없어서 임의로 넣은 서비스페이지값-->
+        <input type="hidden" name="loginC" value="<%=loginC.getC_id()%>"/> <!-- 값이 없어서 임의로 넣은 아이디값-->
+  		<input type="hidden" name="service_seq" value="<%=service_seq%>"/>  <!-- 값이 없어서 임의로 넣은 서비스페이지값-->
         <p class="title_star">별점과 리뷰를 남겨주세요.</p>
  
         <div class="review_rating">

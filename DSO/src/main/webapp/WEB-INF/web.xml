@@ -70,6 +70,13 @@
 		<servlet-name>Forget_password_service</servlet-name>
 		<servlet-class>DSO.controller.Forget_password_service</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ToReview</display-name>
+		<servlet-name>ToReview</servlet-name>
+		<servlet-class>DSO.controller.ToReview</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ToMenu</servlet-name>
 		<url-pattern>/ToMenu</url-pattern>
@@ -109,6 +116,10 @@
 	<servlet-mapping>
 		<servlet-name>Forget_password_service</servlet-name>
 		<url-pattern>/Forget_password_service</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ToReview</servlet-name>
+		<url-pattern>/ToReview</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

@@ -19,6 +19,8 @@ public class Freereply_service extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 
 		String loginC = request.getParameter("loginC");
 		String review = request.getParameter("review");
@@ -33,11 +35,16 @@ public class Freereply_service extends HttpServlet {
 		
 		
 		if(cnt > 0) {
-			System.out.println("댓글 등록성공!");
-			response.sendRedirect("Freereply.jsp");
+			out.print("<script>");
+	        out.print("alert(`리뷰 등록 성공!`);");
+	        out.print("location.href='Mypage_C.jsp'");
+	        out.print("</script>");
 			
 		}else {
-			System.out.println("댓글 등록실패...");
+			out.print("<script>");
+			out.print("alert(`리뷰 등록 실패...`);");
+			out.print("location.href='Mypage_C.jsp'");
+			out.print("</script>");
 		}
 	}
 
