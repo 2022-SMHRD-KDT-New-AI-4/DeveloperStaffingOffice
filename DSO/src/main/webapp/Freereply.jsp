@@ -19,8 +19,6 @@ int service_seq = Integer.parseInt(request.getParameter("seq"));
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="css/themify-icons.css" type="text/css">
@@ -35,8 +33,13 @@ int service_seq = Integer.parseInt(request.getParameter("seq"));
 <%}else { %>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <%} %>
+
 <link rel="stylesheet" href="css/chatbot.css" type="text/css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+
 <!-- Js Plugins -->
+	<script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -47,7 +50,7 @@ int service_seq = Integer.parseInt(request.getParameter("seq"));
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-	<script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+	
 
 <style type="text/css">
 /* 레이아웃 외곽 너비 400px 제한*/
@@ -96,11 +99,11 @@ int service_seq = Integer.parseInt(request.getParameter("seq"));
     background-color: #f0f0f0;
 }
 .rating .rate_radio:checked + label {
-    background-color: #ff8;
+    background-color: #EAB543;
 }
 
 .warning_msg {
-    display: none;
+    display: none;	
     position: relative;
     text-align: center;
     background: #ffffff;
@@ -281,7 +284,7 @@ int service_seq = Integer.parseInt(request.getParameter("seq"));
 				<div class="product-list">
 						<div class="row">
 <div class="wrap">
-    <div id="comment_count">댓글<span id="count">0</span></div>
+
     <form name="reviewform" class="reviewform" method="post" action="Freeply_service">
         <input type="hidden" name="rate" id="rate" value="0"/> 
         <input type="hidden" name="loginC" value="<%=loginC.getC_id()%>"/> <!-- 값이 없어서 임의로 넣은 아이디값-->
@@ -321,9 +324,6 @@ int service_seq = Integer.parseInt(request.getParameter("seq"));
 </div>
 </section>
 
-<div id="freereplyList"> 
-
-</div>
 
 <!-- ChatBot area -->
 	
