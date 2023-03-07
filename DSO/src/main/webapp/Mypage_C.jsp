@@ -116,6 +116,9 @@
 		border-radius: 10px;
 		text-align: center;
 	}
+	#pss {
+		padding-bottom: 94px;
+	}
 
 </style>
 </head>
@@ -262,7 +265,7 @@
 	</div>
 	<!-- Breadcrumb Section end -->
 
-	<section class="product-shop spad">
+	<section id="pss" class="product-shop spad">
 		<div class="container">
 			<div class="row">
 				<!-- 마이페이지 왼쪽 카테고리바 -->

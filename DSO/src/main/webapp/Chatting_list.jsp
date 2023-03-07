@@ -52,6 +52,9 @@
 	.w120 {width:430px; }
 	.w100 {width:0px; }
 	
+	#pss {
+		padding-bottom: 104px;
+	}
 </style>
 
 
@@ -217,7 +220,7 @@
 	<!-- Product Shop Section Begin -->
 
 	<!-- Product Shop Section Begin -->
-	<section class="product-shop spad">
+	<section id="pss"class="product-shop spad">
 		<div class="container">
 			<div class="row">
 

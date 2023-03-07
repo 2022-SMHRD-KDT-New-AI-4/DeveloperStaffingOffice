@@ -49,7 +49,10 @@ public class Freereply_DAO {
 
 	public int gradeCon(Freereply_VO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int grade =session.selectOne("gradeCon", vo);
+		int grade = 0;
+		if(session.selectOne("gradeCon", vo)!=null) {
+			grade = session.selectOne("gradeCon", vo);
+		}
 		session.close();
 		return grade;
 	}

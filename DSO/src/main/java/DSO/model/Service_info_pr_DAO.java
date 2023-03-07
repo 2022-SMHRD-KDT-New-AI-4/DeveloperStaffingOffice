@@ -57,4 +57,11 @@ public class Service_info_pr_DAO {
 		return (ArrayList<ChatClient>)list;
 	}
 	
+	public ChatClient conChatPost(Freereply_VO vo){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		ChatClient con = session.selectOne("conChatPost",vo);
+		session.close();
+		return con;
+	}
+	
 }

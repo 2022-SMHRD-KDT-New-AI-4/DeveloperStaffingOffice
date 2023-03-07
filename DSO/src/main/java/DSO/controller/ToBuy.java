@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import DSO.model.ChatClient;
 import DSO.model.Client_register_VO;
+import DSO.model.Freereply_VO;
 import DSO.model.Service_info_pr_DAO;
 import DSO.model.Service_info_pr_VO;
 
@@ -28,21 +29,29 @@ public class ToBuy extends HttpServlet {
 		
 		ChatClient chatPost = new ChatClient(post.getService_seq(),post.getService_title(),loginC.getC_id(),post.getS_id());
 		
+		Freereply_VO vo = new Freereply_VO(loginC.getC_id(),post.getService_seq());
+		
 		Service_info_pr_DAO dao = new Service_info_pr_DAO();
 		
-		int cnt = dao.insertChatPost(chatPost);
+		ChatClient con = dao.conChatPost(vo);
 		
-		
-		if(cnt>0) {
-			System.out.println("구매목록 추가 성공");
-			String value = loginC.getC_id();
-			ArrayList<ChatClient> buyList = dao.buyListLoad(value);
-			session.setAttribute("buyList", buyList);
-			response.sendRedirect("Chatting_C.jsp");
+		if(con==null) {
+			int cnt = dao.insertChatPost(chatPost);
+			if(cnt>0) {
+				System.out.println("구매목록 추가 성공");
+				String value = loginC.getC_id();
+				ArrayList<ChatClient> buyList = dao.buyListLoad(value);
+				session.setAttribute("buyList", buyList);
+				response.sendRedirect("Chatting_C.jsp");
+			} else {
+				System.out.println("구매목록 추가 실패");
+				response.sendRedirect("Chatting_C.jsp");
+			}
 		} else {
-			System.out.println("구매목록 추가 실패");
+			System.out.println("이미 구매 목록에 있음");
 			response.sendRedirect("Chatting_C.jsp");
 		}
+		
 	}
 
 }

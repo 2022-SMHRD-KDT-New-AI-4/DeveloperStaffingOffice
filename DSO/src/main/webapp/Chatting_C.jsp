@@ -16,8 +16,6 @@
 	Freereply_VO vo = new Freereply_VO(loginC.getC_id(),post.getService_seq());
 	Freereply_DAO dao = new Freereply_DAO();
 	int grade = dao.gradeCon(vo);
-	
-	
 	%>
 <%
     String userName=null;
@@ -368,9 +366,9 @@
 			<%}else {%>
 			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
 			<%} %>
-			<%if(grade=0) {%>
+			<%if(grade==0) {%>
 			<button type="button" onclick="location.href='ToBuy'">구매</button>
-			<%} else if(grade=1) {%>
+			<%} else if(grade==1) {%>
 			<button type="button" onclick="location.href='ToProduct'">상품수령</button>
 			<%} %>
 		</div>

@@ -157,9 +157,14 @@
 		update tbl_register_specialist set grade=2 where c_id=#{loginC} and service_seq = #{service_seq}
 	</update>
 	
-<!-- 구매목록 불러오기 -->
-	<select id="" resultType="DSO.model.ChatClient" parameterType="string">
-		Select * from tbl_register_specialist where c_id = #{value}
+<!-- 진행 단계 확인 -->
+	<select id="gradeCon" resultType="int" parameterType="DSO.model.Freereply_VO">
+		Select grade from tbl_register_specialist where c_id = #{loginC} and service_seq = #{service_seq}
+	</select>
+	
+<!-- 구매목록 등록 확인 -->
+	<select id="conChatPost" resultType="DSO.model.ChatClient" parameterType="DSO.model.Freereply_VO">
+		Select * from tbl_register_specialist where c_id = #{loginC} and service_seq = #{service_seq}
 	</select>
 	
 </mapper>
