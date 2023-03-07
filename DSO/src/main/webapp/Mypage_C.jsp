@@ -11,8 +11,12 @@
 <meta charset="UTF-8">
 <title>마이페이지</title>
 <%
+	Service_info_pr_DAO dao = new Service_info_pr_DAO();
 	Client_register_VO loginC = (Client_register_VO) session.getAttribute("loginC");
 	Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("loginS");
+	String value = loginC.getC_id();
+	ArrayList<ChatClient> buyListNew = dao.buyListLoad(value);
+	session.setAttribute("buyList", buyListNew);
 	ArrayList<ChatClient> buyList = (ArrayList<ChatClient>) session.getAttribute("buyList");
 	%>
 <!-- Google Font -->
@@ -354,7 +358,6 @@
 									  	<li class="fl tc w100 list t_line lt_line" >완료<button class="talkbtn" type="button" onclick="location.href='ToChat?seq=<%=buyList.get(i).getService_seq()%>'">대화</button></li>
 									  	<%} %>
 									  	<li class="fl tc w100 list  lt_line"><%=buyList.get(i).getDt().substring(0, 11) %></li>
-									  	<!-- <button id="incrementButton">증가</button> -->
 									  </ul>
 									  <%} %>
 									 </div>
