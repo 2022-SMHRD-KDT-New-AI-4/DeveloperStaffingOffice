@@ -13,11 +13,11 @@
 <br>
 
 ## ⭐ 주요 기능
-* 기능1
-* 기능2
-* 기능3
-* 기능4
-* 기능5
+* 전문가 포트폴리오 등록
+* 의뢰인과 전문가 1:1 채팅
+* 결제
+* 찜목록
+* 별점 리뷰 
 <br>
 
 ## ⛏ 기술스택
@@ -85,16 +85,16 @@
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+![서비스흐름도](https://user-images.githubusercontent.com/123154506/223587932-afa96f5d-f458-4257-8192-faddccf40c25.png)
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![db](https://user-images.githubusercontent.com/123154506/223587356-3cd0c9de-2f4c-49da-8430-b1b4c50fd11a.png)
 <br>
 
 ## 🖥 화면 구성
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
+### 로그인/회원가입/회원수정
 ![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
 <br>
 
