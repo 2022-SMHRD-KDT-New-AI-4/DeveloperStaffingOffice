@@ -380,7 +380,7 @@
 			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
 			<%} %>
 			<%if(loginC!=null) {%>
-			<%if(grade==0) {%>
+			<%if(grade==100) {%>
 			<span style="margin-left: 10px; margin-right: 10px;">결제하기</span> <a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px;" class="fa fa-credit-card fa-3x" aria-hidden="true" onclick="requestPay()"></i>
 	<!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
