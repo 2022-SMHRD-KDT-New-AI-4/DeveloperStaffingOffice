@@ -69,7 +69,7 @@ public class WebChatServer extends HttpServlet {
 		System.out.println(session + " connect");
 		
 		users.put(session, client);
-		sendNotice(client.getName() + "이(가) 입장하셨습니다." + " 현재 사용자 " + users.size() + "명");
+		sendNotice(client.getName() + "이(가) 입장하셨습니다.");
 		}
 		
 
@@ -101,7 +101,7 @@ public class WebChatServer extends HttpServlet {
 	public void onClose(Session session) {
 		String userName = users.get(session).getName();
 		users.remove(session);
-		sendNotice("- -"+userName + "님이 퇴장하셨습니다." + "- - 현재 사용자 " + users.size() + "명");
+		sendNotice(userName + "님이 퇴장하셨습니다.");
 	}
 	
 	

@@ -415,9 +415,11 @@
             }, function (rsp) { // callback
                 if (rsp.success) {
                     console.log(rsp);
-                    location.href = "Chatting_C.jsp";
+                    /* location.href = "Chatting_C.jsp"; */
+                    /* location.href="ToBuy"; */
                 } else {
                     console.log(rsp);
+                    location.href="ToBuy";
                 }
             });
            
