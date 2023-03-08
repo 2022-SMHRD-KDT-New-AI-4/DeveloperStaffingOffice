@@ -400,15 +400,15 @@
         var makeMerchantUid = hours +  minutes + seconds + milliseconds;
         
         function requestPay() {
-        	var title = $('#prot').val();
-        	var price = $('#prop').val();
+        	var title = $('#prot').val(); // 페이지에 있는 게시물 이름 가져오기
+        	var price = $('#prop').val(); // 페이지에 있는 게시물에 해당하는 가격 가져오기
         	
             IMP.request_pay({
                 pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
-                name : title, // 임의의 결제자 성명
-                amount : price,  // 임의로 결제 비용 설정
+                name : title, // 페이지 게시물 이름 정보
+                amount : price,  // 결제 비용 
                 buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
                 buyer_name : '권선택',
                 buyer_tel : '010-1234-5678',
