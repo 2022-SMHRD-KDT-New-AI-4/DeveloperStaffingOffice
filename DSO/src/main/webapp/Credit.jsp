@@ -92,7 +92,7 @@
 </style>
 </head>
 <body>
-  <!-- jQuery -->
+  	<!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <!-- iamport.payment.js -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
@@ -113,7 +113,7 @@
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
                 name : '넥슨 캐시 결제', // 임의의 결제자 성명
-                amount : 999999999,  // 임의로 결제 비용 설정
+                amount : 10,  // 임의로 결제 비용 설정
                 buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
                 buyer_name : '권선택',
                 buyer_tel : '010-1234-5678',
@@ -125,10 +125,12 @@
             }, function (rsp) { // callback
                 if (rsp.success) {
                     console.log(rsp);
+                    location.href = "Chatting_C.jsp";
                 } else {
                     console.log(rsp);
                 }
             });
+           
         }
     </script>
 </head>

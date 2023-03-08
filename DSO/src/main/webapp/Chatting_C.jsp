@@ -368,6 +368,7 @@
 					<%} %>
 				</div>
 		<div id="bottom-container">
+		
 			<%if(loginS!=null) {%>
 			<input id="inputMessage" type="text" style="border: 1px solid #1B9CFC;">
 			<%}else {%>
@@ -380,13 +381,54 @@
 			<%} %>
 			<%if(loginC!=null) {%>
 			<%if(grade==0) {%>
-			<span style="margin-left: 10px; margin-right: 10px;">결제하기</span> <a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px;" class="fa fa-credit-card fa-3x" aria-hidden="true" onclick="location.href='ToBuy'"></i>
+			<span style="margin-left: 10px; margin-right: 10px;">결제하기</span> <a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px;" class="fa fa-credit-card fa-3x" aria-hidden="true" onclick="requestPay()"></i>
 			<%} %>
 			<%} %>
 			<%if(loginS!=null) {%>
 			<!-- <button type="button" onclick="location.href='ToSend'">상품 보내기</button> -->
 			<span style="margin-left: 10px; margin-right: 10px;">상품보내기</span><a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px; " class="fa fa-gift" aria-hidden="true" onclick="location.href='ToSend'"></i>
 			<%} %>
+			 	<!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script>
+        var IMP = window.IMP; 
+        IMP.init("imp67011510"); 
+      
+        var today = new Date();   
+        var hours = today.getHours(); // 시
+        var minutes = today.getMinutes();  // 분
+        var seconds = today.getSeconds();  // 초
+        var milliseconds = today.getMilliseconds();
+        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+        
+        function requestPay() {
+            IMP.request_pay({
+                pg : 'kcp',
+                pay_method : 'card',
+                merchant_uid: "IMP"+makeMerchantUid, 
+                name : '넥슨 캐시 결제', // 임의의 결제자 성명
+                amount : 10,  // 임의로 결제 비용 설정
+                buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
+                buyer_name : '권선택',
+                buyer_tel : '010-1234-5678',
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456',
+                display: {
+                    card_quota: [3]  // 할부개월 3개월까지 활성화
+                }
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                   /*  location.href = "Chatting_C.jsp"; */
+                } else {
+                    console.log(rsp);
+                }
+            });
+           
+        }
+    </script>
 		</div>
 	</div>
 					</div>

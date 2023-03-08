@@ -20,6 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import DSO.model.Portfolio_DAO;
 import DSO.model.Portfolio_VO;
+import DSO.model.Specialist_register_VO;
 
 /**
  * Servlet implementation class Portfolio_register_service
@@ -70,8 +71,9 @@ public class Portfolio_register_service extends HttpServlet {
         item.delete(); //파일과 관련된 자원을 제거한다.
         
         HttpSession session=request.getSession();
-        //String s_Id=(String) session.getAttribute("s_Id");// 세션에 등록된 아이디 받아오기.
-        String s_Id="test"; // 테스트용 임시 아이디
+        Specialist_register_VO loginS =(Specialist_register_VO) session.getAttribute("loginS");// 세션에 등록된 아이디 받아오기.
+        String s_Id = loginS.getS_id();
+//        String s_Id="test"; // 테스트용 임시 아이디
         Portfolio_VO vo=new Portfolio_VO();
         vo.setS_Id(s_Id);
         vo.setPf_Img1(uploadedFileName);        
