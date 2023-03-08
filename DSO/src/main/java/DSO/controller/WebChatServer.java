@@ -70,7 +70,7 @@ public class WebChatServer extends HttpServlet {
 		System.out.println(session + " connect");
 		
 		users.put(session, client);
-		sendNotice(client.getName() + "이(가) 입장하셨습니다.");
+		sendNotice(client.getName() + "(이)가 입장하셨습니다.");
 		}
 		
 
