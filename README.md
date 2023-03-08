@@ -9,7 +9,7 @@
 <br>
 
 ## 📅 프로젝트 기간
-2023.02.20 ~ 2022.033.09 (4주)
+2023.02.20 ~ 2022.03.09 (4주)
 <br>
 
 ## ⭐ 주요 기능
@@ -39,16 +39,13 @@
         <td>라이브러리</td>
         <td>
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+          
         </td>
     </tr>
     <tr>
         <td>개발도구</td>
         <td>
             <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
-            <img src="https://img.shields.io/badge/RaskpberryPi-A22846?style=for-the-badge&logo=RaskpberryPi&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
-            <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -60,7 +57,6 @@
     <tr>
         <td>데이터베이스</td>
         <td>
-            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white"/>
             <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
         </td>
     </tr>
@@ -95,12 +91,14 @@
 ## 🖥 화면 구성
 
 ### 로그인/회원가입/회원수정
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
+![image](https://user-images.githubusercontent.com/123154506/223635591-142afc23-3f97-4124-9a1c-358649fca352.png)
 <br>
+![image](https://user-images.githubusercontent.com/123154506/223635601-f5aca369-581a-43f6-99bf-7668f8152a7c.png)
 
 ### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
 ![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
 <br>
+
 
 ### 일정/고객센터
 ![image](https://user-images.githubusercontent.com/25995055/178401150-861f0e93-0f40-4fae-98c1-2099bf513c8d.png)
