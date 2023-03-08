@@ -380,8 +380,10 @@
 			<input id="btn-submit" type="submit" value="전송" style ="border-radius : 10px 10px 10px 10px;background: #EAB543;" >
 			<%} %>
 			<%if(loginC!=null) {%>
-			<%if(grade==0) {%>
-			<span style="margin-left: 10px; margin-right: 10px;">결제하기</span> <a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px;" class="fa fa-credit-card fa-3x" aria-hidden="true" onclick="requestPay()"></i>
+			<%if(grade==100) {%>
+			<span style="margin-left: 10px; margin-right: 10px;">결제하기</span> <a id="icon" style=" display: inline;" > <i style="cursor : pointer; color:#black; position: relative; top: 7px;" class="fa fa-credit-card fa-3x" aria-hidden="true" onclick="javascript:requestPay()"></i>
+			<input id="prot" type="hidden" value="<%=post.getService_title()%>">
+			<input id="prop" type="hidden" value="<%=post.getService_price()%>">
 	<!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <!-- iamport.payment.js -->
@@ -398,12 +400,15 @@
         var makeMerchantUid = hours +  minutes + seconds + milliseconds;
         
         function requestPay() {
+        	var title = $('#prot').val();
+        	var price = $('#prop').val();
+        	
             IMP.request_pay({
                 pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
-                name : '넥슨 캐시 결제', // 임의의 결제자 성명
-                amount : 10,  // 임의로 결제 비용 설정
+                name : title, // 임의의 결제자 성명
+                amount : price,  // 임의로 결제 비용 설정
                 buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
                 buyer_name : '권선택',
                 buyer_tel : '010-1234-5678',
@@ -415,11 +420,12 @@
             }, function (rsp) { // callback
                 if (rsp.success) {
                     console.log(rsp);
-                    /* location.href = "Chatting_C.jsp"; */
-                    /* location.href="ToBuy"; */
+                    alert('결제 성공!');
+                    location.href="ToBuy";
                 } else {
                     console.log(rsp);
-                    location.href="ToBuy";
+                    alert('결제 실패..');
+                    location.href = "Chatting_C.jsp";
                 }
             });
            
