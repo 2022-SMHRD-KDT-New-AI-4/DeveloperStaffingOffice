@@ -1,14 +1,15 @@
-# 📎 꽃 보러 갈래?(팀명: 아름답조)
-<img width="{80%}" src="{https://github.com/2022-SMHRD-KDT-New-AI-4/DeveloperStaffingOffice/issues/1#issue-1596244546}"/>
+# 📎 개발자 인력 사무소 (팀명: 개인사)
+![dsologop](https://user-images.githubusercontent.com/123154506/220827127-fb4159bd-a278-4928-a21b-0715995ff1c6.png)
+
 
 
 ## 👀 서비스 소개
-* 서비스명:  꽃 개화 시기별 우리 지역 근처 데이트/드라이브 추천 장소 및 꽃 축제 추천 
+* 서비스명:  
 * 서비스설명: 
 <br>
 
 ## 📅 프로젝트 기간
-2022.04.22 ~ 2022.06.03 (6주)
+2023.02.20 ~ 2022.033.09 (4주)
 <br>
 
 ## ⭐ 주요 기능
