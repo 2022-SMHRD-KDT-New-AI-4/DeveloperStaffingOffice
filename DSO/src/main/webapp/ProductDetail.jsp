@@ -1,3 +1,5 @@
+<%@page import="DSO.model.Portfolio_VO"%>
+<%@page import="DSO.model.Portfolio_DAO"%>
 <%@page import="DSO.model.Like_VO"%>
 <%@page import="DSO.model.Specialist_register_VO"%>
 <%@page import="DSO.model.Client_register_VO"%>
@@ -20,6 +22,9 @@
 		String cateSmallNum = (String)session.getAttribute("cateSmallNum");
 		ArrayList<Like_VO> likeList = (ArrayList<Like_VO>) session.getAttribute("likeList");
 		session.setAttribute("postNum", post.getService_seq());
+		String pf_sid = post.getS_id();
+		Portfolio_DAO dao2 = new Portfolio_DAO();
+		ArrayList<Portfolio_VO> pfList = dao2.selectThatPortfolios(pf_sid);
 	%>
 <meta charset="UTF-8">
 <meta name="description" content="Fashi Template">
@@ -734,22 +739,14 @@
 								<div class="tab-pane fade" id="tab-3" role="tabpanel">
 									<div class="product-content">
 										<div class="row">
+											<%for(int i = 0; i<pfList.size(); i++) {%>
 											<div class="col-lg-5">
-												<a
-													href="https://ovenapp.io/view/STZmH63UtKq1j4KX0aqzJO3czG6I69Ba/"><img
-													src="img/pt/pt1.jpg" alt=""></a>
+												<img src="upload/<%=pfList.get(i).getPf_Img1() %>" alt="" style="height: 200px; object-fit: contain;">
 												<h5 style='text-align: center'>
-													<br>포트폴리오 1
+													<br><%= pfList.get(i).getPf_Dt()%>
 												</h5>
 											</div>
-											<div class="col-lg-5">
-												<a
-													href="https://ovenapp.io/view/STZmH63UtKq1j4KX0aqzJO3czG6I69Ba/"><img
-													src="img/pt/pt2.jpg" alt=""></a>
-												<h5 style='text-align: center'>
-													<br>포트폴리오 2
-												</h5>
-											</div>
+											<%} %>
 										</div>
 									</div>
 								</div>

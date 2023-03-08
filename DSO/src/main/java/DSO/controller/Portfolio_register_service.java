@@ -66,7 +66,8 @@ public class Portfolio_register_service extends HttpServlet {
         String uploadedFileName = System.currentTimeMillis() 
                 + UUID.randomUUID().toString() +fileName.substring(fileName.lastIndexOf("."));;
         //저장할 절대경로로 파일 객체 생성
-        File uploadedFile = new File(contextRootPath + "/upload/" + uploadedFileName); 
+        File uploadedFile = new File(contextRootPath + "/upload/" + uploadedFileName);
+        System.out.println(uploadedFile);
         item.write(uploadedFile); //파일 저장
         item.delete(); //파일과 관련된 자원을 제거한다.
         

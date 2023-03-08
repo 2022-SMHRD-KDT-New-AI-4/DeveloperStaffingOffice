@@ -40,4 +40,13 @@ public class Portfolio_DAO {
     	session.close();
     	return cnt;
     }
+    
+    public ArrayList<Portfolio_VO> selectThatPortfolios(String value) {
+    	
+    	SqlSession session = sqlSessionFactory.openSession(true);
+    	List<Portfolio_VO> list = session.selectList("selectThatPortfolios",value);
+    	session.close();
+    	return (ArrayList<Portfolio_VO>)list;
+    }
+    
 }

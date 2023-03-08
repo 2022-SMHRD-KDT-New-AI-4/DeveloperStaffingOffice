@@ -177,4 +177,9 @@
 		update tbl_register_specialist set grade=1 where c_id=#{loginC} and service_seq = #{service_seq}
 	</update>
 	
+<!-- 전문가 아이디에 해당하는 포트폴리오 목록 가져오기 -->
+	<select id="selectThatPortfolios" resultType="Portfolio_VO">
+        SELECT * FROM tbl_portfolio1 where s_id = #{value}
+    </select>
+	
 </mapper>

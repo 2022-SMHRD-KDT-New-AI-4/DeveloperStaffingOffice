@@ -279,7 +279,7 @@ Specialist_register_VO loginS = (Specialist_register_VO) session.getAttribute("l
 				</div>
 				<div id="reg">
 					<div style="float: left; width: 100%;">
-						<button id="canbtn" class="ptregbtn" type="reset">초기화</button>
+						<button id="canbtn" class="ptregbtn" type="button" onclick="location.href='Service_register_2.jsp'">취소</button>
 						<button id="regbtn" class="ptregbtn" type="button" onclick="location.href='Service_register_2.jsp'">완료</button>
 					</div>
 				</div>
