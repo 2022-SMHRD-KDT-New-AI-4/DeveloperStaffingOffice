@@ -56,6 +56,7 @@ public class WebChatServer extends HttpServlet {
 	public void onOpen(Session session,@PathParam(value = "userName") String userName){	//오픈할 때 Chatting.jsp에서 지정한 userName값 받아와서 닉네임 출력하기	
 		//HttpSession sess=request.getSession();
 		//String userName=(String) sess.getAttribute("name"); // :
+
 		int cnt = 0;
 		//String userName = "전문가";
 		//String userName1 = "의뢰인";

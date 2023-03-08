@@ -28,10 +28,10 @@
 	%>
 <%
     String userName=null;
-    if(request.getAttribute("userName")==null){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
-    	userName="GUEST";
+    if(request.getAttribute("userName")==loginS){ // 현재 변수명은 안정해져 있으므로 userName은 나중에 변경해야함.
+       userName="의뢰인";
     }else{
-       userName=(String)request.getAttribute("userName");
+    	userName="전문가";
     }
 
 %>
@@ -407,7 +407,7 @@
                 pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
-                name : title, // 페이지 게시물 이름 정보
+                name : title, // 페이지 게시물 일
                 amount : price,  // 결제 비용 
                 buyer_email : 'Iamport@chai.finance', // 임의의 이메일 설정
                 buyer_name : '권선택',
