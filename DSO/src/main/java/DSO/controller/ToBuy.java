@@ -43,7 +43,7 @@ public class ToBuy extends HttpServlet {
 				String value = loginC.getC_id();
 				ArrayList<ChatClient> buyList = dao.buyListLoad(value);
 				session.setAttribute("buyList", buyList);
-				response.sendRedirect("Chatting_C.jsp");
+				response.sendRedirect("Mypage_C.jsp");
 			} else {
 				System.out.println("구매목록 추가 실패");
 				response.sendRedirect("Chatting_C.jsp");
